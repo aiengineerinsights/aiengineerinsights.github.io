@@ -9,10 +9,10 @@ const Footer = () => {
   ];
 
   const resources = [
+    { name: "Learning Resources", href: "/resources" },
     { name: "AI Engineer Summit", href: "https://www.ai.engineer/", external: true },
     { name: "Latent Space", href: "https://latent.space/", external: true },
-    { name: "GitHub Resources", href: "#projects" },
-    { name: "Learning Materials", href: "#resources" }
+    { name: "GitHub Resources", href: "#projects" }
   ];
 
   return (

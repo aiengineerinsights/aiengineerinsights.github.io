@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import BlogPost1 from "./pages/BlogPost1";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
+import Resources from "./pages/Resources";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
           <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
           <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
