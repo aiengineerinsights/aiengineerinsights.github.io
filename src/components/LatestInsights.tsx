@@ -1,6 +1,7 @@
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const LatestInsights = () => {
   const insights = [
@@ -11,7 +12,8 @@ const LatestInsights = () => {
       date: "Dec 10, 2024",
       category: "MLOps",
       icon: TrendingUp,
-      gradient: "from-primary to-primary-glow"
+      gradient: "from-primary to-primary-glow",
+      link: "/blog/mlops-best-practices"
     },
     {
       title: "LLM Deployment Challenges and Solutions",
@@ -20,7 +22,8 @@ const LatestInsights = () => {
       date: "Dec 8, 2024",
       category: "LLMs",
       icon: Zap,
-      gradient: "from-accent to-purple-400"
+      gradient: "from-accent to-purple-400",
+      link: "/blog/llm-deployment-challenges"
     },
     {
       title: "Building Robust AI Data Pipelines",
@@ -29,7 +32,8 @@ const LatestInsights = () => {
       date: "Dec 5, 2024", 
       category: "Data Engineering",
       icon: Database,
-      gradient: "from-primary-glow to-accent"
+      gradient: "from-primary-glow to-accent",
+      link: "/blog/building-robust-ai-data-pipelines"
     }
   ];
 
@@ -72,10 +76,12 @@ const LatestInsights = () => {
                 {/* Footer */}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">{insight.date}</span>
-                  <Button variant="ghost" size="sm" className="group/btn">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link to={insight.link}>
+                    <Button variant="ghost" size="sm" className="group/btn">
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Card>
