@@ -1,7 +1,6 @@
 import { CheckCircle, ArrowRight, Code, Brain, Database, Settings, Users, Target, FileDown, BookOpen, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
 
 const resourceLinks = [
   // Foundation
@@ -142,20 +141,38 @@ const RoadmapSection = () => {
             from fundamentals to specialized mastery. Download the full roadmap as PDF or join the discussion community.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Button asChild variant="outline"><Link href="/downloads/ai-roadmap.pdf"><FileDown className="mr-2 h-5 w-5" />Download PDF</Link></Button>
-            <Button asChild variant="outline"><Link href="https://discord.gg/ai-learn"><UsersRound className="mr-2 h-5 w-5" />Join AI Discord</Link></Button>
+            <Button asChild variant="outline">
+              <a href="/downloads/ai-roadmap.pdf" target="_blank" rel="noopener noreferrer">
+                <FileDown className="mr-2 h-5 w-5" />Download PDF
+              </a>
+            </Button>
+            <Button asChild variant="outline">
+              <a href="https://discord.gg/ai-learn" target="_blank" rel="noopener noreferrer">
+                <UsersRound className="mr-2 h-5 w-5" />Join AI Discord
+              </a>
+            </Button>
           </div>
         </div>
 
         <nav className="mb-12 flex flex-wrap gap-2 justify-center">
           {roadmapSteps.map((step, idx) => (
-            <a key={step.phase} href={`#phase-${idx + 1}`} className="text-sm px-3 py-1 rounded bg-muted/30 hover:bg-muted">{step.phase}</a>
+            <a 
+              key={step.phase} 
+              href={`#phase-${idx + 1}`} 
+              className="text-sm px-3 py-1 rounded bg-muted/30 hover:bg-muted transition-colors"
+            >
+              {step.phase}
+            </a>
           ))}
         </nav>
 
         <div className="max-w-6xl mx-auto space-y-8">
           {roadmapSteps.map((step, index) => (
-            <Card key={index} className="bg-gradient-card border-border hover:shadow-glow transition-all duration-300" id={`phase-${index + 1}`}>
+            <Card 
+              key={index} 
+              className="bg-gradient-card border-border hover:shadow-glow transition-all duration-300" 
+              id={`phase-${index + 1}`}
+            >
               <div className="p-8">
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
                   {/* Left side - Icon and Phase */}
@@ -172,11 +189,13 @@ const RoadmapSection = () => {
                       </div>
                     </div>
                   </div>
+                  
                   {/* Right side - Content */}
                   <div className="md:w-3/4">
                     <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
                     <p className="text-muted-foreground mb-4">{step.description}</p>
-                    <div className="grid md:grid-cols-2 gap-3 mb-3">
+                    
+                    <div className="grid md:grid-cols-2 gap-3 mb-4">
                       {step.items.map((item, itemIndex) => (
                         <div key={itemIndex} className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -184,12 +203,24 @@ const RoadmapSection = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {resourceLinks[index].map((res, ri) => (
-                        <Link key={ri} href={res.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-2 py-1 bg-muted/30 rounded hover:bg-muted transition">
-                          <BookOpen className="h-4 w-4" /> {res.text}
-                        </Link>
-                      ))}
+                    
+                    {/* Resource Links */}
+                    <div className="border-t border-border/30 pt-4">
+                      <h4 className="text-sm font-semibold text-muted-foreground mb-2">Top Resources:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {resourceLinks[index].map((resource, resourceIndex) => (
+                          <a
+                            key={resourceIndex}
+                            href={resource.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3 py-1 bg-muted/30 rounded-md hover:bg-muted transition-colors text-sm"
+                          >
+                            <BookOpen className="h-3 w-3" />
+                            {resource.text}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -197,11 +228,6 @@ const RoadmapSection = () => {
             </Card>
           ))}
         </div>
-
-        {/* Progress Tracker Stub (optional for future expansion) */}
-        {/* <div className="mt-12 text-center">
-          <Progress steps={roadmapSteps.length} completed={userProgressCompleted} />
-        </div> */}
 
         {/* CTA */}
         <div className="text-center mt-16">
