@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlogPost1 from "./pages/BlogPost1";
+import A2ABlogPost from "./pages/A2ABlogPost";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
 import Resources from "./pages/Resources";
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
           <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
           <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
           <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
