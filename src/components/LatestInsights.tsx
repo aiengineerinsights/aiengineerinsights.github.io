@@ -6,34 +6,14 @@ import { Link } from "react-router-dom";
 const LatestInsights = () => {
   const insights = [
     {
-      title: "MLOps Best Practices: From Prototype to Production",
-      excerpt: "Learn how to bridge the gap between experimentation and production-ready ML systems with proven MLOps strategies.",
-      readTime: "8 min read",
-      date: "Dec 10, 2024",
-      category: "MLOps",
+      title: "A2A Protocol: Subtle Design Decisions in Agent Communication",
+      excerpt: "A deep dive into Google’s open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
+      readTime: "15 min read",
+      date: "Jul 28, 2025",
+      category: "Agentic AI",
       icon: TrendingUp,
       gradient: "from-primary to-primary-glow",
-      link: "/blog/mlops-best-practices"
-    },
-    {
-      title: "LLM Deployment Challenges and Solutions",
-      excerpt: "Real-world insights into the common pitfalls when deploying large language models and how to overcome them.",
-      readTime: "12 min read", 
-      date: "Dec 8, 2024",
-      category: "LLMs",
-      icon: Zap,
-      gradient: "from-accent to-purple-400",
-      link: "/blog/llm-deployment-challenges"
-    },
-    {
-      title: "Building Robust AI Data Pipelines",
-      excerpt: "A practical guide to creating reliable, scalable data pipelines that power modern AI applications.",
-      readTime: "10 min read",
-      date: "Dec 5, 2024", 
-      category: "Data Engineering",
-      icon: Database,
-      gradient: "from-primary-glow to-accent",
-      link: "/blog/building-robust-ai-data-pipelines"
+      link: "/blog/google-a2a"
     }
   ];
 
