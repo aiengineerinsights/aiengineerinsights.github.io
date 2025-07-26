@@ -1,4 +1,3 @@
-
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -18,10 +17,16 @@ const LatestInsights = () => {
     }
   ];
 
-  const scrollToBlogs = () => {
-    const element = document.querySelector('#blogs');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleViewAllInsights = () => {
+    // Navigate to home first if not already there, then scroll to blogs section
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#blogs';
+    } else {
+      // If already on home, scroll to blogs section
+      const element = document.querySelector('#blogs');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -78,7 +83,7 @@ const LatestInsights = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="group" onClick={scrollToBlogs}>
+          <Button variant="outline" size="lg" className="group" onClick={handleViewAllInsights}>
             View All Insights
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
