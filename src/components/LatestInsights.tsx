@@ -1,9 +1,11 @@
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LatestInsights = () => {
+  const navigate = useNavigate();
+
   const insights = [
     {
       title: "A2A Protocol: Subtle Design Decisions in Agent Communication",
@@ -18,16 +20,7 @@ const LatestInsights = () => {
   ];
 
   const handleViewAllInsights = () => {
-    // Navigate to home first if not already there, then scroll to blogs section
-    if (window.location.pathname !== '/') {
-      window.location.href = '/#blogs';
-    } else {
-      // If already on home, scroll to blogs section
-      const element = document.querySelector('#blogs');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    navigate('/blogs');
   };
 
   return (
