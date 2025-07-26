@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users, Mail } from "lucide-react";
+import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -13,15 +13,19 @@ const Navigation = () => {
     { name: "Blogs", href: "#blogs", icon: BookOpen },
     { name: "Projects", href: "#projects", icon: Lightbulb },
     { name: "Resources", href: "/resources", icon: Users },
-    { name: "Contact", href: "#contact", icon: Mail },
   ];
 
   const handleNavClick = (href: string) => {
     if (href.startsWith('#')) {
-      // For anchor links, scroll to section
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      // For anchor links, navigate to home first if not already there
+      if (window.location.pathname !== '/') {
+        window.location.href = '/' + href;
+      } else {
+        // If already on home, scroll to section
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
     setIsOpen(false);

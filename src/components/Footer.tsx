@@ -1,5 +1,5 @@
 
-import { Brain, Github, Twitter, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Brain, Github, Mail, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -19,9 +19,14 @@ const Footer = () => {
 
   const handleAnchorClick = (href: string) => {
     if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      // Navigate to home first if not already there, then scroll to section
+      if (window.location.pathname !== '/') {
+        window.location.href = '/' + href;
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
@@ -43,10 +48,20 @@ const Footer = () => {
               and real-world insights for aspiring and current AI engineers.
             </p>
             <div className="flex space-x-4">
-              <Github className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Mail className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <a 
+                href="https://github.com/aiengineerinsights" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a 
+                href="mailto:aiengineerinsights@gmail.com"
+                className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -103,7 +118,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter - Commented out */}
+          {/*
           <div>
             <h3 className="font-semibold mb-4">Stay Updated</h3>
             <p className="text-muted-foreground text-sm mb-4">
@@ -120,6 +136,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
+          */}
         </div>
 
         {/* Bottom Section */}
@@ -130,7 +147,12 @@ const Footer = () => {
           <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-            <button onClick={() => handleAnchorClick('#contact')} className="hover:text-primary transition-colors">Contact</button>
+            <a 
+              href="mailto:aiengineerinsights@gmail.com"
+              className="hover:text-primary transition-colors"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>
