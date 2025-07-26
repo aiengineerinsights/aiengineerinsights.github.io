@@ -1,5 +1,5 @@
 
-import { ExternalLink, BookOpen, Play, Star, GitFork } from "lucide-react";
+import { BookOpen, Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,46 +8,46 @@ import { Link } from "react-router-dom";
 const FeaturedResources = () => {
   const resources = [
     {
-      title: "Deep Learning Book",
-      description: "Comprehensive textbook covering mathematical foundations, practical machine learning techniques, and deep learning research.",
-      url: "https://www.deeplearningbook.org/",
-      type: "book",
-      rating: "4.8/5",
-      reviews: "2.1k",
-      topics: ["Deep Learning", "Mathematics", "Theory"],
-      highlight: "Essential theoretical foundation for AI practitioners"
+      title: "Hands-On Machine Learning",
+      author: "Aurélien Géron",
+      type: "Book",
+      description: "A comprehensive guide to building intelligent systems using Scikit-Learn, Keras, and TensorFlow.",
+      category: "Machine Learning",
+      level: "Beginner to Intermediate",
+      icon: BookOpen,
+      rating: "4.8/5"
     },
     {
-      title: "Fast.ai Course",
-      description: "Practical deep learning course focusing on real-world applications and cutting-edge techniques for practitioners.",
-      url: "https://course.fast.ai/", 
-      type: "video",
-      rating: "4.9/5",
-      reviews: "15k",
-      topics: ["Practical ML", "PyTorch", "Applications"],
-      highlight: "Top-down approach to learning deep learning"
+      title: "Machine Learning Engineering for Production",
+      author: "Andrew Ng - DeepLearning.AI",
+      type: "Video Course",
+      description: "Complete specialization covering the full ML production lifecycle and MLOps practices.",
+      category: "MLOps",
+      level: "Intermediate",
+      icon: Play,
+      rating: "4.9/5"
     },
     {
-      title: "Hands-On ML Book",
-      description: "Practical guide using Scikit-Learn, Keras, and TensorFlow for building end-to-end machine learning systems.",
-      url: "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/",
-      type: "book",
-      rating: "4.7/5", 
-      reviews: "3.2k",
-      topics: ["Practical ML", "Scikit-Learn", "TensorFlow"],
-      highlight: "Best hands-on approach to ML implementation"
+      title: "Building Machine Learning Pipelines",
+      author: "Hannes Hapke & Catherine Nelson",
+      type: "Book",
+      description: "Automating model life cycles with TensorFlow Extended and Apache Beam for production systems.",
+      category: "MLOps",
+      level: "Intermediate",
+      icon: BookOpen,
+      rating: "4.6/5"
     }
   ];
 
   return (
-    <section id="resources-featured" className="py-20 bg-muted/20">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Featured <span className="bg-gradient-hero bg-clip-text text-transparent">Resources</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Carefully curated books and video courses that provide essential knowledge for your AI engineering journey.
+            Hand-picked books and courses that provide exceptional value for AI engineers at every stage.
           </p>
         </div>
 
@@ -57,72 +57,40 @@ const FeaturedResources = () => {
               <div className="p-6 flex-1 flex flex-col">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors flex-1">
-                    {resource.title}
-                  </h3>
-                  <div className="flex items-center space-x-2 ml-2">
-                    {resource.type === "book" ? (
-                      <BookOpen className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    ) : (
-                      <Play className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    )}
-                    <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <resource.icon className="h-8 w-8 text-primary" />
+                  <div className="text-right">
+                    <Badge variant="secondary" className="mb-1">{resource.type}</Badge>
+                    <div className="text-sm text-muted-foreground">{resource.rating}</div>
                   </div>
                 </div>
 
-                {/* Description */}
+                {/* Content */}
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  {resource.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">by {resource.author}</p>
                 <p className="text-muted-foreground mb-4 leading-relaxed flex-1">
                   {resource.description}
                 </p>
 
-                {/* Highlight */}
-                <div className="bg-gradient-accent rounded-lg p-3 mb-4 border border-border">
-                  <p className="text-sm font-medium">{resource.highlight}</p>
-                </div>
-
-                {/* Topics */}
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {resource.topics.map((topic) => (
-                    <Badge key={topic} variant="secondary" className="text-xs">
-                      {topic}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Rating and Action */}
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-4 w-4" />
-                      <span>{resource.rating}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <span>({resource.reviews})</span>
-                    </div>
-                  </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="group/btn"
-                    onClick={() => window.open(resource.url, '_blank')}
-                  >
-                    {resource.type === "book" ? <BookOpen className="h-4 w-4 mr-2" /> : <Play className="h-4 w-4 mr-2" />}
-                    View
-                  </Button>
+                  <Badge variant="outline">{resource.category}</Badge>
+                  <Badge variant="outline">{resource.level}</Badge>
                 </div>
               </div>
             </Card>
           ))}
         </div>
 
-        {/* Explore More */}
+        {/* Explore All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="group" asChild>
-            <Link to="/resources">
+          <Link to="/resources">
+            <Button variant="outline" size="lg" className="group">
               Explore All Resources
-              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

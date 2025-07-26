@@ -1,3 +1,4 @@
+
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,7 +8,7 @@ const LatestInsights = () => {
   const insights = [
     {
       title: "A2A Protocol: Subtle Design Decisions in Agent Communication",
-      excerpt: "A deep dive into Google’s open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
+      excerpt: "A deep dive into Google's open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
       readTime: "15 min read",
       date: "Jul 28, 2025",
       category: "Agentic AI",
@@ -16,6 +17,13 @@ const LatestInsights = () => {
       link: "/blog/google-a2a"
     }
   ];
+
+  const scrollToBlogs = () => {
+    const element = document.querySelector('#blogs');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="blogs" className="py-20 bg-muted/20">
@@ -70,7 +78,7 @@ const LatestInsights = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="group">
+          <Button variant="outline" size="lg" className="group" onClick={scrollToBlogs}>
             View All Insights
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
