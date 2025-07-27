@@ -65,7 +65,7 @@ const AboutSection = () => {
               variant="hero" 
               size="lg" 
               className="group"
-              onClick={() => window.location.href = 'mailto:aiengineeringinsights@gmail.com'}
+              onClick={() => window.location.href = 'mailto:aiengineerinsights@gmail.com'}
             >
               Get In Touch
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
