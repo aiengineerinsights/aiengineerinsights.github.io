@@ -1,159 +1,108 @@
 
-import { Brain, Github, Mail, ExternalLink } from "lucide-react";
+import { Github, Mail, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Role & Roadmap", href: "#roadmap" },
-    { name: "Latest Blogs", href: "#blogs" },
-    { name: "Featured Projects", href: "#projects" }
-  ];
-
-  const resources = [
-    { name: "Learning Resources", href: "/resources" },
-    { name: "AI Engineer Summit", href: "https://www.ai.engineer/", external: true },
-    { name: "Latent Space", href: "https://latent.space/", external: true },
-    { name: "GitHub Resources", href: "#projects" }
-  ];
-
-  const handleAnchorClick = (href: string) => {
-    if (href.startsWith('#')) {
-      // Navigate to home first if not already there, then scroll to section
-      if (window.location.pathname !== '/') {
-        window.location.href = '/' + href;
-      } else {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
+  const handleEmailClick = () => {
+    window.open('mailto:aiengineerinsights@gmail.com', '_blank');
   };
 
   return (
     <footer className="bg-background border-t border-border">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <Brain className="h-8 w-8 text-primary" />
+          <div className="md:col-span-1">
+            <Link to="/" className="flex items-center space-x-2 mb-4">
               <span className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
                 AIEngineerInsights
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Your companion on the AI engineering journey. Providing clarity, practical roadmaps, 
-              and real-world insights for aspiring and current AI engineers.
+            <p className="text-muted-foreground text-sm">
+              Your companion on the AI engineering journey
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://github.com/aiengineerinsights" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a 
-                href="mailto:aiengineerinsights@gmail.com"
-                className="text-muted-foreground hover:text-primary cursor-pointer transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleAnchorClick(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm text-left"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
+          <div className="md:col-span-1">
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/#about" className="text-muted-foreground hover:text-primary transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                  Projects
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Resources */}
-          <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {resources.map((resource) => (
-                <li key={resource.name}>
-                  {resource.external ? (
-                    <a 
-                      href={resource.href}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {resource.name}
-                      <ExternalLink className="h-3 w-3 ml-1" />
-                    </a>
-                  ) : resource.href.startsWith('#') ? (
-                    <button
-                      onClick={() => handleAnchorClick(resource.href)}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm text-left"
-                    >
-                      {resource.name}
-                    </button>
-                  ) : (
-                    <Link
-                      to={resource.href}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                    >
-                      {resource.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
+          <div className="md:col-span-1">
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/#roadmap" className="text-muted-foreground hover:text-primary transition-colors">
+                  Career Roadmap
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
+                  Learning Materials
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
+                  Latest Insights
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Newsletter - Commented out */}
-          {/*
-          <div>
-            <h3 className="font-semibold mb-4">Stay Updated</h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Get the latest insights and resources delivered to your inbox.
-            </p>
-            <div className="space-y-2">
-              <input 
-                type="email" 
-                placeholder="Your email address"
-                className="w-full px-3 py-2 bg-muted rounded-md text-sm border border-border focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-              <button className="w-full bg-primary text-primary-foreground px-3 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
-                Subscribe
+          {/* Connect */}
+          <div className="md:col-span-1">
+            <h4 className="font-semibold mb-4">Connect</h4>
+            <div className="flex space-x-4 mb-4">
+              <a 
+                href="https://github.com/aiengineerinsights" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <button 
+                onClick={handleEmailClick}
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="h-5 w-5" />
               </button>
             </div>
+            <Button variant="outline" size="sm" onClick={handleEmailClick}>
+              Get In Touch
+            </Button>
           </div>
-          */}
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            © 2024 AIEngineerInsights. Empowering the next generation of AI engineers.
+        {/* Bottom Bar */}
+        <div className="border-t border-border mt-8 pt-8 text-center">
+          <p className="text-sm text-muted-foreground flex items-center justify-center">
+            Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> for the AI community
           </p>
-          <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-            <a 
-              href="mailto:aiengineerinsights@gmail.com"
-              className="hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
-          </div>
         </div>
       </div>
     </footer>
