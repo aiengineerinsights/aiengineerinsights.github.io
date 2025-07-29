@@ -17,28 +17,29 @@ import Authors from "./pages/Authors";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/blogs" element={<BlogsPage />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
-          <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
-          <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
-          <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/authors" element={<Authors />} />
+            <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
+            <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
+            <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
+            <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
