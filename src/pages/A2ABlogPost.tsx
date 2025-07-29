@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import profilePic from '@/assets/vishnu_lanka.jpg';
 import coverPic from '@/assets/a2a_cover.png';
+import ssePic from '@/assets/a2a_sse.png';
 import { BarChart3 } from "lucide-react";
 import TableOfContents from "@/components/TableOfContents";
 
@@ -91,7 +92,7 @@ class FileContent(BaseModel):
           </header>
 
           {/* Article Content */}
-          <article className="prose prose-lg max-w-none">
+          <article className="prose prose-lg max-w-none text-justify">
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -107,7 +108,7 @@ class FileContent(BaseModel):
                   className="w-full rounded-xl shadow-md object-cover"
                 />
                 <p className="text-center text-muted-foreground text-sm italic mt-2">
-                  Illustration of the A2A Protocol Architecture; Source: AI-generated XD
+                  Illustration of the A2A Protocol Architecture; Source: AI-generated :XD
                 </p>
 
             </div>
@@ -160,6 +161,18 @@ class FileContent(BaseModel):
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4">Streaming and Async Patterns: SSE, Long Polling, and Webhooks</h2>
+
+              <div className="mb-8">
+                <img
+                  src={ssePic}
+                  alt="A2A Protocol Illustration"
+                  className="w-full rounded-xl shadow-md object-cover"
+                />
+                <p className="text-center text-muted-foreground text-sm italic mt-2">
+                Modes of Interaction for task management.
+                </p>
+
+            </div>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Real-time responsiveness and asynchronous processing are crucial in multi-agent settings. A2A’s designers recognized that some tasks will produce incremental results (e.g., streaming a large language model’s output) and some tasks will take a long time where a client can’t just hang the HTTP call open. To handle this, A2A builds in multiple interaction modes:
               </p>
