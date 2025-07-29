@@ -1,9 +1,11 @@
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LatestInsights = () => {
+  const navigate = useNavigate();
+
   const insights = [
     {
       title: "Architectural Insights: A2A as a Protocol for Peer AI Agents",
@@ -16,6 +18,10 @@ const LatestInsights = () => {
       link: "/blog/google-a2a"
     }
   ];
+
+  const handleViewAllInsights = () => {
+    navigate('/blogs');
+  };
 
   return (
     <section id="blogs" className="py-20 bg-muted/20">
@@ -70,7 +76,7 @@ const LatestInsights = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="group">
+          <Button variant="outline" size="lg" className="group" onClick={handleViewAllInsights}>
             View All Insights
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>

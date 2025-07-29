@@ -1,9 +1,11 @@
+
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import RoadmapSection from "@/components/RoadmapSection";
 import LatestInsights from "@/components/LatestInsights";
-import FeaturedProjects from "@/components/FeaturedProjects";
+import FeaturedResources from "@/components/FeaturedResources";
+import ExploreProjects from "@/components/ExploreProjects";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,7 +16,8 @@ const Index = () => {
       <AboutSection />
       <RoadmapSection />
       <LatestInsights />
-      <FeaturedProjects />
+      <FeaturedResources />
+      <ExploreProjects />
       <Footer />
     </div>
   );

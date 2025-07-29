@@ -1,6 +1,7 @@
 import { CheckCircle, ArrowRight, Code, Brain, Database, Settings, Users, Target, FileDown, BookOpen, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import pdfFile from '@/assets/downloads/ai-roadmap.pdf';
 
 const resourceLinks = [
   // Foundation
@@ -141,16 +142,16 @@ const RoadmapSection = () => {
             from fundamentals to specialized mastery. Download the full roadmap as PDF or join the discussion community.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Button asChild variant="outline">
+{/*             <Button asChild variant="outline">
               <a href="/downloads/ai-roadmap.pdf" target="_blank" rel="noopener noreferrer">
                 <FileDown className="mr-2 h-5 w-5" />Download PDF
               </a>
-            </Button>
+            </Button> */}
             <Button asChild variant="outline">
-              <a href="https://discord.gg/ai-learn" target="_blank" rel="noopener noreferrer">
-                <UsersRound className="mr-2 h-5 w-5" />Join AI Discord
-              </a>
-            </Button>
+  <a href={pdfFile} download="ai-roadmap.pdf">
+    <FileDown className="mr-2 h-5 w-5" />Download PDF
+  </a>
+</Button>
           </div>
         </div>
 

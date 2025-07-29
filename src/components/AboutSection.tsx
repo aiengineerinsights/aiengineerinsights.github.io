@@ -61,7 +61,12 @@ const AboutSection = () => {
               Whether you're just starting your AI journey or you're a seasoned practitioner, 
               I'd love to hear from you. Share your experiences, ask questions, or just say hello.
             </p>
-            <Button variant="hero" size="lg" className="group">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="group"
+              onClick={() => window.location.href = 'mailto:aiengineerinsights@gmail.com'}
+            >
               Get In Touch
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>

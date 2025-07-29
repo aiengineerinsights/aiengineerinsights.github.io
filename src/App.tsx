@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import BlogsPage from "./pages/BlogsPage";
 import BlogPost1 from "./pages/BlogPost1";
 import A2ABlogPost from "./pages/A2ABlogPost";
 import BlogPost2 from "./pages/BlogPost2";
@@ -21,6 +23,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
           <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />

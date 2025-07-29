@@ -1,8 +1,17 @@
+
 import { ArrowRight, Sparkles, Target, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const scrollToAbout = () => {
+    const element = document.querySelector('#about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -39,13 +48,15 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button variant="hero" size="lg" className="group">
+            <Button variant="hero" size="lg" className="group" onClick={scrollToAbout}>
               Start Your Journey
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg">
-              Explore Resources
-            </Button>
+            <Link to="/resources">
+              <Button variant="outline" size="lg">
+                Explore Resources
+              </Button>
+            </Link>
           </div>
 
           {/* Value Propositions */}
@@ -70,7 +81,7 @@ const HeroSection = () => {
               <Sparkles className="h-8 w-8 text-primary-glow mb-4 mx-auto" />
               <h3 className="text-lg font-semibold mb-2">Real Projects</h3>
               <p className="text-muted-foreground">
-                Hands-on insights from actual AI engineering work and implementations
+                Hands-on projects from actual AI engineering work and implementations
               </p>
             </div>
           </div>
