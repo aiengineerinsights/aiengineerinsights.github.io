@@ -4,6 +4,12 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import profilePic from '@/assets/vishnu_lanka.jpg';
+import coverPic from '@/assets/a2a_cover.png';
+import ssePic from '@/assets/a2a_sse.png';
+import { BarChart3 } from "lucide-react";
+import TableOfContents from "@/components/TableOfContents";
+
 
 const A2ABlogPostFull = () => {
   const pythonCodeSnippet = `
@@ -27,7 +33,9 @@ class FileContent(BaseModel):
       <Navigation />
       
       <main className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
+      <div className="flex gap-8">
+        <TableOfContents /> {/* <-- Add TOC here */}
+        <div className="flex-1 max-w-4xl">
           {/* Back Button */}
           <Link to="/#blogs">
             <Button variant="ghost" className="mb-8 group">
@@ -46,7 +54,7 @@ class FileContent(BaseModel):
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              A2A Protocol: Subtle Design Decisions in Agent Communication
+            Architectural Insights: A2A as a Protocol for Peer AI Agents
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
@@ -56,14 +64,20 @@ class FileContent(BaseModel):
             {/* Author Info */}
             <Card className="p-6 bg-gradient-card border-border">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                  <User className="h-6 w-6 text-primary-foreground" />
-                </div>
+              <img 
+                    src={profilePic}
+                    alt="Vishnu Vardhan Sai Lanka"
+                    className="w-12 h-12 rounded-full object-cover" 
+                  />
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg">Vishnu Vardhan Sai Lanka</h3>
                   <p className="text-muted-foreground">AI Engineer</p>
                 </div>
                 <div className="text-sm text-muted-foreground space-y-1">
+                <div className="flex items-center">
+                  <BarChart3 className="h-4 w-4 mr-1" />
+                  Intermediate
+                </div>
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
                     July 25, 2025
@@ -78,18 +92,31 @@ class FileContent(BaseModel):
           </header>
 
           {/* Article Content */}
-          <article className="prose prose-lg max-w-none">
+          <article className="prose prose-lg max-w-none text-justify">
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                The <a href="https://github.com/google/A2A" target="_blank" rel="noopener noreferrer"><strong>Agent2Agent (A2A) protocol</strong></a> is an open standard from Google for inter-agent communication. It enables AI agents (regardless of framework or vendor) to talk to each other as peers, without exposing their internal workings. Under the hood, A2A’s design reveals a series of details that go beyond a typical API. This outline attempts to detail some fundamental (maybe non-obvious) design choices in A2A, highlighting why they’re clever or architecturally significant for AI engineers.
+                The Agent2Agent (A2A) <sup>[1]</sup> protocol is an open standard from Google for inter-agent communication. It enables AI agents (regardless of framework or vendor) to talk to each other as peers, without exposing their internal workings. Under the hood, A2A’s design reveals a series of details that go beyond a typical API. This outline attempts to detail some fundamental (maybe non-obvious) design choices in A2A, highlighting why they’re clever or architecturally significant for AI engineers.
               </p>
             </section>
+
+            {/* Representative Image */}
+            <div className="mb-8">
+                <img
+                  src={coverPic}
+                  alt="A2A Protocol Illustration"
+                  className="w-full rounded-xl shadow-md object-cover"
+                />
+                <p className="text-center text-muted-foreground text-sm italic mt-2">
+                  Illustration of the A2A Protocol Architecture; Source: AI-generated :XD
+                </p>
+
+            </div>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4">JSON-RPC 2.0</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                One immediate design choice is A2A’s communication protocol: it runs on plain <strong>HTTP</strong> using <a href="https://www.jsonrpc.org/specification" target="_blank" rel="noopener noreferrer"><strong>JSON-RPC 2.0</strong></a> as the message format. Instead of inventing a custom protocol or using heavyweight gRPC, A2A piggybacks on a well-understood JSON RPC schema. This has several subtle advantages:
+                One immediate design choice is A2A’s communication protocol: it runs on plain <strong>HTTP</strong> using JSON-RPC 2.0<sup>[2]</sup> as the message format. Instead of inventing a custom protocol or using heavyweight gRPC, A2A piggybacks on a well-understood JSON RPC schema. This has several subtle advantages:
               </p>
               <ul className="list-disc pl-6 space-y-3 text-muted-foreground">
                 <li><strong>Uniform Interface:</strong> JSON-RPC provides a standard envelope (<code>jsonrpc</code>, <code>method</code>, <code>params</code>, <code>id</code>) for all calls. A2A uses this to define methods like `"tasks/send"`, `"tasks/get"`, etc., without needing multiple REST endpoints. Every request and response conforms to one structure, simplifying client and server implementation.</li>
@@ -123,18 +150,35 @@ class FileContent(BaseModel):
                 <li><strong>File Transfer Flexibility:</strong> Handling files between agents is tricky (images, PDFs, etc.). A2A’s <strong>FilePart</strong> design smartly provides two ways to send a file: either embed it as Base64 bytes, or provide a URI where the file can be fetched. The protocol insists that exactly one of these is used to avoid ambiguity. This dual approach is subtle but powerful – small files or quick data (like a thumbnail or a short text snippet) can be inlined for simplicity, whereas large files can be hosted elsewhere (cloud storage, etc.) and just referenced to avoid bloat. The Agent Card even allows the agent to specify if it prefers certain file transfer methods or size limits (not explicitly in the snippet, but implied by capabilities). Notably, the reference can be any URI the agents agree on (could be an HTTP link, or an internal reference if they share a storage system). The decision to not mandate one single method (like always base64 in JSON) is an engineering pragmatism: it preserves performance and bandwidth when dealing with big media.</li>
                 <li><strong>Multi-Part Messages:</strong> By allowing multiple Parts in one message, A2A anticipates richer interactions. An agent could send a primary answer as text and an additional context as structured data, or multiple files at once (e.g. a ZIP plus a textual summary). The protocol defines that a `Message` <strong>must contain at least one part</strong>, but can have many. This avoids the need for separate channels for attachments or out-of-band data – everything stays in one conversational context (one Task). For AI systems, this is architecturally neat: it means you can upgrade an agent to handle images or PDFs simply by adding new part types, without redesigning the control flow.</li>
               </ul>
-              <p className="text-muted-foreground leading-relaxed mt-4"><strong>Example – FilePart enforcement in code:</strong> In the Python reference implementation, this rule is enforced with a validator that ensures only one of `bytes` or `uri` is non-null, raising an error if both or neither are provided. This prevents mistakes where an agent might accidentally send a huge file both inline and by link. Below is a snippet illustrating this check:</p>
+              <h3 className="text-xl font-semibold mt-6 mb-2">
+                Example – FilePart Enforcement in Code
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                In the Python reference implementation, this rule is enforced with a validator that ensures only one of `bytes` or `uri` is non-null, raising an error if both or neither are provided. This prevents mistakes where an agent might accidentally send a huge file both inline and by link. Below is a snippet illustrating this check:
+              </p>
               <pre className="bg-muted text-muted-foreground p-4 rounded-md overflow-x-auto my-4"><code>{pythonCodeSnippet}</code></pre>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4">Streaming and Async Patterns: SSE, Long Polling, and Webhooks</h2>
+
+              <div className="mb-8">
+                <img
+                  src={ssePic}
+                  alt="A2A Protocol Illustration"
+                  className="w-full rounded-xl shadow-md object-cover"
+                />
+                <p className="text-center text-muted-foreground text-sm italic mt-2">
+                Modes of Interaction for task management.
+                </p>
+
+            </div>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Real-time responsiveness and asynchronous processing are crucial in multi-agent settings. A2A’s designers recognized that some tasks will produce incremental results (e.g., streaming a large language model’s output) and some tasks will take a long time where a client can’t just hang the HTTP call open. To handle this, A2A builds in multiple interaction modes:
               </p>
               <ul className="list-disc pl-6 space-y-3 text-muted-foreground">
                   <li><strong>Synchronous Call (Blocking):</strong> The simplest mode is just calling `tasks/send` and getting a response when the task is done. This works if the agent can complete the task quickly. But A2A doesn’t stop there – it treats this as just one possibility.</li>
-                  <li><strong>Server-Sent Events (Streaming):</strong> For real-time updates, A2A uses <strong>SSE (Server-Sent Events)</strong>, a unidirectional streaming mechanism over HTTP. If an agent’s <strong>Agent Card sets</strong> `capabilities.streaming: true`, clients can invoke `tasks/sendSubscribe` to initiate a task and keep the HTTP connection open for a stream of results. The server responds with `Content-Type: text/event-stream` and then sends events as the task progresses. Each event is essentially a JSON-RPC Response chunk (with the same `id` as the original request) carrying either a status update or a new artifact chunk. This design piggybacks JSON-RPC over SSE – the events are just JSON text in the SSE channel.</li>
+                  <li><strong>Server-Sent Events<sup>[3]</sup> (Streaming):</strong> For real-time updates, A2A uses <strong>SSE (Server-Sent Events)</strong>, a unidirectional streaming mechanism over HTTP. If an agent’s <strong>Agent Card sets</strong> `capabilities.streaming: true`, clients can invoke `tasks/sendSubscribe` to initiate a task and keep the HTTP connection open for a stream of results. The server responds with `Content-Type: text/event-stream` and then sends events as the task progresses. Each event is essentially a JSON-RPC Response chunk (with the same `id` as the original request) carrying either a status update or a new artifact chunk. This design piggybacks JSON-RPC over SSE – the events are just JSON text in the SSE channel.</li>
                   <li><strong>Resuming Streams:</strong> Recognizing that network hiccups happen, A2A even provides a `tasks/resubscribe` method. If a client gets disconnected mid-stream, it can call `tasks/resubscribe` (with the same Task ID) to reopen the SSE stream for that task. The spec leaves it to the server whether it will replay missed events or just continue with new ones, but the capability is there. This is a thoughtful addition for robustness – it acknowledges real-world issues like dropped connections or clients moving between networks.</li>
                   <li><strong>Asynchronous via Webhook (Push):</strong> Not all clients can keep a connection open. For example, a client might be a backend service that wants the result whenever it’s ready, or an agent that handles many tasks in parallel and doesn’t want a thread per task. A2A handles this with <strong>push notifications</strong>. If an agent’s card says `pushNotifications: true`, the client can register a <strong>webhook URL</strong> for a task. Once set, the agent will, upon task completion (or significant updates), perform an HTTP POST to that URL with the task outcome. In effect, the agent becomes a client briefly, “pushing” the result out.</li>
                   <li><strong>Polling as Fallback:</strong> If neither SSE nor push is available (or if a client simply prefers), there’s always polling. The `tasks/get` method allows a client to ask for the current status and results of a task at any time. A typical pattern might be: client calls `tasks/send` (which returns immediately with task initial state), then the client periodically calls `tasks/get` until the task’s `status.state` is `"completed"` or another terminal state.</li>
@@ -163,7 +207,7 @@ class FileContent(BaseModel):
                 <ul className="list-disc pl-6 space-y-3 text-muted-foreground">
                     <li><strong>Metadata Everywhere:</strong> Almost every major object in the A2A schema has a `metadata` field for arbitrary key-value pairs (Task, Message, Part, Artifact, etc.). This is a classic forward-compatibility move. It means if future versions of A2A (or private extensions) need to include extra info – say a language code on a message, or a trace ID for monitoring – they can drop it into metadata without breaking the protocol.</li>
                     <li><strong>Generic Method Space:</strong> The JSON-RPC method naming scheme (`"tasks/..."`) gives a namespace where new methods can live. Already, we see placeholders or potential for more: e.g., `tasks/cancel` exists, and the Agent Card has a flag `stateTransitionHistory` reserved for a future feature. One could imagine new methods like `tasks/pause` or `tasks/list` being added later.</li>
-                    <li><strong>Complementary Protocols, Not One Protocol to Rule Them All:</strong> A2A’s scope is intentionally limited to agent-to-agent <strong>communication</strong> and task delegation. It consciously does <em>not</em> cover how an agent connects to its own tools or large language model. That’s the domain of another emerging standard, <strong>Model Context Protocol (MCP)</strong>, which A2A is designed to complement rather than replace. This separation of concerns is an architectural decision: it keeps A2A focused and simpler.</li>
+                    <li><strong>Complementary Protocols, Not One Protocol to Rule Them All:</strong> A2A’s scope is intentionally limited to agent-to-agent <strong>communication</strong> and task delegation. It consciously does <em>not</em> cover how an agent connects to its own tools or large language model. That’s the domain of another emerging standard, <strong>Model Context Protocol (MCP)</strong><sup>[4]</sup>, which A2A is designed to complement rather than replace. This separation of concerns is an architectural decision: it keeps A2A focused and simpler.</li>
                     <li><strong>Community and Open Evolution:</strong> While not a technical facet of the protocol itself, it’s worth noting that A2A is open-sourced and clearly inviting community contributions. The design decisions we’ve highlighted (JSON-based, metadata fields, skill descriptors) all suggest an intent to make the protocol <strong>general-purpose</strong> and not tied to Google’s internal needs alone.</li>
                 </ul>
             </section>
@@ -187,8 +231,58 @@ class FileContent(BaseModel):
                 In sum, A2A’s design shows a maturation in the agent space: moving from ad-hoc integrations to protocol-driven interoperability. It carries lessons from software engineering into the AI realm, and it does so with a mix of conceptual simplicity and technical nuance. As AI practitioners, understanding these decisions helps us design better systems and perhaps contribute to the conversation of how agents should talk to each other. The hope is that by embracing protocols like A2A, we enable a richer AI ecosystem where <strong>specialized agents can freely cooperate</strong> – each secure in its own box, yet working together through a common language to achieve what none could do alone.
               </p>
             </section>
+            <section className="mt-8">
+              <h2 className="text-2xl font-bold mb-4">Citations</h2>
+              <ul className="list-none pl-0 space-y-3 text-muted-foreground">
+                <li>
+                  [1] Google. (2024). <strong>Agent2Agent (A2A) Protocol Specification</strong>. 
+                  <a 
+                    href="https://github.com/google/A2A"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors ml-1"
+                  >
+                    GitHub Repository
+                  </a>.
+                </li>
+                <li>
+                  [2] JSON-RPC Working Group. (2013). <strong>JSON-RPC 2.0 Specification</strong>. 
+                  <a 
+                    href="https://www.jsonrpc.org/specification"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors ml-1"
+                  >
+                    jsonrpc.org
+                  </a>.
+                </li>
+                <li>
+                  [3] WHATWG. (2024). <strong>Server-Sent Events (SSE)</strong>. 
+                  <a 
+                    href="https://html.spec.whatwg.org/multipage/server-sent-events.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors ml-1"
+                  >
+                    HTML Living Standard
+                  </a>.
+                </li>
+                <li>
+                  [4] Model Context Protocol (MCP). (2024). <strong>AI Tooling & Context Protocol</strong>. 
+                  <a 
+                    href="https://github.com/modelcontextprotocol/specification"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80 transition-colors ml-1"
+                  >
+                    GitHub Specification
+                  </a>.
+                </li>
+              </ul>
+            </section>
           </article>
         </div>
+      </div>
       </main>
 
       <Footer />

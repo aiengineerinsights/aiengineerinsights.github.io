@@ -8,8 +8,8 @@ const LatestInsights = () => {
 
   const insights = [
     {
-      title: "A2A Protocol: Subtle Design Decisions in Agent Communication",
-      excerpt: "A deep dive into Google's open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
+      title: "Architectural Insights: A2A as a Protocol for Peer AI Agents",
+      excerpt: "A deep dive into Google’s open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
       readTime: "15 min read",
       date: "Jul 28, 2025",
       category: "Agentic AI",
