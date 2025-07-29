@@ -12,6 +12,8 @@ import A2ABlogPost from "./pages/A2ABlogPost";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
 import Resources from "./pages/Resources";
+import Projects from "./pages/Projects";
+import Authors from "./pages/Authors";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/authors" element={<Authors />} />
           <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
           <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
           <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />

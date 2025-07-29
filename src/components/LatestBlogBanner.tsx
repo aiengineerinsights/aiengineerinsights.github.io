@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const LatestBlogBanner = () => {
   return (
     <div className="fixed top-16 w-full z-40 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-center space-x-4 text-sm md:text-base">
+      <div className="container mx-auto px-4 py-2">
+        <div className="flex items-center justify-center space-x-4 text-sm">
           <div className="flex items-center space-x-2">
             <TrendingUp className="h-4 w-4" />
             <span className="font-medium">Latest:</span>
