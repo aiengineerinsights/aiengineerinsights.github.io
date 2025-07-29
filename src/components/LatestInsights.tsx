@@ -1,3 +1,4 @@
+
 import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -9,7 +10,7 @@ const LatestInsights = () => {
   const insights = [
     {
       title: "Architectural Insights: A2A as a Protocol for Peer AI Agents",
-      excerpt: "A deep dive into Google’s open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
+      excerpt: "A deep dive into Google's open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
       readTime: "15 min read",
       date: "Jul 28, 2025",
       category: "Agentic AI",
@@ -62,7 +63,7 @@ const LatestInsights = () => {
                 {/* Footer */}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">{insight.date}</span>
-                  <Link to={insight.link}>
+                  <Link to={insight.link} onClick={() => window.scrollTo(0, 0)}>
                     <Button variant="ghost" size="sm" className="group/btn">
                       Read More
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />

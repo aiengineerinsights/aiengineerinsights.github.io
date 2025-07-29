@@ -1,11 +1,32 @@
 
 import { Github, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const handleEmailClick = () => {
     window.open('mailto:aiengineerinsights@gmail.com', '_blank');
+  };
+
+  const handleAnchorNavigation = (href: string) => {
+    if (window.location.pathname !== '/') {
+      // Navigate to home first, then scroll to section
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -29,9 +50,12 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/#about" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleAnchorNavigation('#about')}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   About
-                </Link>
+                </button>
               </li>
               <li>
                 <Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
@@ -44,9 +68,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleAnchorNavigation('#projects')}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Projects
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -56,9 +83,12 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/#roadmap" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleAnchorNavigation('#roadmap')}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Career Roadmap
-                </Link>
+                </button>
               </li>
               <li>
                 <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
@@ -92,7 +122,12 @@ const Footer = () => {
                 <Mail className="h-5 w-5" />
               </button>
             </div>
-            <Button variant="outline" size="sm" onClick={handleEmailClick}>
+            <Button 
+              variant="default" 
+              size="sm" 
+              onClick={handleEmailClick}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+            >
               Get In Touch
             </Button>
           </div>
