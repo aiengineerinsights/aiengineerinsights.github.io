@@ -1,7 +1,9 @@
+
 import { ArrowLeft, Clock, User, Calendar, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link, useEffect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import profilePic from '@/assets/vishnu_lanka.jpg';
