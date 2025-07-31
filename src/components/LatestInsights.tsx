@@ -17,6 +17,26 @@ const LatestInsights = () => {
       icon: TrendingUp,
       gradient: "from-primary to-primary-glow",
       link: "/blog/google-a2a"
+    },
+    {
+      title: "MLOps Best Practices for Production AI Systems",
+      excerpt: "Essential practices and patterns for deploying, monitoring, and maintaining machine learning models at scale in production environments.",
+      readTime: "12 min read",
+      date: "Jul 25, 2025",
+      category: "MLOps",
+      icon: Database,
+      gradient: "from-accent to-accent/80",
+      link: "/blog/mlops-best-practices"
+    },
+    {
+      title: "LLM Deployment Challenges and Solutions",
+      excerpt: "Navigate the complexities of deploying large language models in production, from infrastructure requirements to cost optimization strategies.",
+      readTime: "10 min read",
+      date: "Jul 22, 2025",
+      category: "Infrastructure",
+      icon: Zap,
+      gradient: "from-secondary to-secondary/80",
+      link: "/blog/llm-deployment-challenges"
     }
   ];
 
