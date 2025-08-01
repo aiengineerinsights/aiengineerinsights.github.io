@@ -30,6 +30,27 @@ const Authors = () => {
         "Mentored 100+ aspiring AI engineers"
       ],
       currentFocus: "Multi-agent systems and LLM deployment strategies"
+    },
+    {
+      id: "gurram-poorna-prudhvi",
+      name: "Gurram Poorna Prudhvi",
+      role: "Lead AI Engineer & Local AI Specialist",
+      avatar: null, // No profile picture provided
+      bio: "Lead AI engineer specializing in local AI deployment and optimization. Expert in Mac Silicon architectures, Ollama, and building privacy-first AI solutions that rival cloud services.",
+      expertise: ["Local AI", "Mac Silicon", "Ollama", "Model Optimization", "Edge AI", "Privacy-First AI"],
+      experience: "6+ years",
+      location: "Seattle, WA",
+      email: "aiengineerinsights@gmail.com",
+      github: "https://github.com/aiengineerinsights",
+      linkedin: "https://linkedin.com/in/gurram-poorna-prudhvi",
+      website: "https://aiengineerinsights.com",
+      achievements: [
+        "Pioneer in Mac Silicon AI optimization techniques",
+        "Created enterprise-grade local AI stacks for 20+ companies",
+        "Expert in unified memory architecture utilization",
+        "Reduced AI infrastructure costs by 80% for clients"
+      ],
+      currentFocus: "Next-generation local AI architectures and Mac Silicon optimization"
     }
   ];
 
@@ -55,7 +76,9 @@ const Authors = () => {
                     {/* Header */}
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
                       <Avatar className="h-32 w-32 ring-4 ring-primary/20">
-                        <AvatarImage src={author.avatar} alt={author.name} />
+                        {author.avatar ? (
+                          <AvatarImage src={author.avatar} alt={author.name} />
+                        ) : null}
                         <AvatarFallback className="text-2xl">{author.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
                       
