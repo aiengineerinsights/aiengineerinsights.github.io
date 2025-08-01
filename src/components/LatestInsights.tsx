@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Apple } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ const LatestInsights = () => {
   const navigate = useNavigate();
 
   const insights = [
+    {
+      title: "Ollama on Mac: The Perfect Local AI Stack for 2025",
+      excerpt: "Stop paying hundreds monthly for AI subscriptions. Your Mac is already the perfect AI powerhouse — you just need to unlock it with Ollama and Mac Silicon's unified memory architecture.",
+      readTime: "18 min read",
+      date: "Aug 1, 2025",
+      category: "Local AI",
+      icon: Apple,
+      gradient: "from-gray-600 to-gray-800",
+      link: "/blog/ollama-mac-local-ai-2025"
+    },
     {
       title: "Architectural Insights: A2A as a Protocol for Peer AI Agents",
       excerpt: "A deep dive into Google's open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
@@ -27,16 +37,6 @@ const LatestInsights = () => {
       icon: Database,
       gradient: "from-accent to-accent/80",
       link: "/blog/mlops-best-practices"
-    },
-    {
-      title: "LLM Deployment Challenges and Solutions",
-      excerpt: "Navigate the complexities of deploying large language models in production, from infrastructure requirements to cost optimization strategies.",
-      readTime: "10 min read",
-      date: "Jul 22, 2025",
-      category: "Infrastructure",
-      icon: Zap,
-      gradient: "from-secondary to-secondary/80",
-      link: "/blog/llm-deployment-challenges"
     }
   ];
 

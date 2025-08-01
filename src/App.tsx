@@ -11,6 +11,7 @@ import BlogPost1 from "./pages/BlogPost1";
 import A2ABlogPost from "./pages/A2ABlogPost";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
+import OllamaBlogPost from "./pages/OllamaBlogPost";
 import Resources from "./pages/Resources";
 import Projects from "./pages/Projects";
 import Authors from "./pages/Authors";
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/authors" element={<Authors />} />
             <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
+            <Route path="/blog/ollama-mac-local-ai-2025" element={<OllamaBlogPost />} />
             <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
             <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
             <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />

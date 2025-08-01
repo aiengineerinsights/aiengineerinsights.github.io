@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Apple } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -16,6 +15,17 @@ const BlogsPage = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "Ollama on Mac: The Perfect Local AI Stack for 2025",
+      excerpt: "Stop paying hundreds monthly for AI subscriptions. Your Mac is already the perfect AI powerhouse — you just need to unlock it with Ollama and Mac Silicon's unified memory architecture.",
+      readTime: "18 min read",
+      date: "Aug 1, 2025",
+      category: "Local AI",
+      icon: Apple,
+      gradient: "from-gray-600 to-gray-800",
+      link: "/blog/ollama-mac-local-ai-2025"
+    },
+    {
+      id: 2,
       title: "A2A Protocol: Subtle Design Decisions in Agent Communication",
       excerpt: "A deep dive into Google's open Agent2Agent (A2A) standard—why its seemingly simple choices matter and what they mean for real‑world multi‑agent systems.",
       readTime: "15 min read",
@@ -26,7 +36,7 @@ const BlogsPage = () => {
       link: "/blog/google-a2a"
     },
     {
-      id: 2,
+      id: 3,
       title: "MLOps Best Practices: From Development to Production",
       excerpt: "Essential strategies for deploying machine learning models at scale, covering CI/CD pipelines, monitoring, and version control for ML workflows.",
       readTime: "12 min read",
@@ -37,7 +47,7 @@ const BlogsPage = () => {
       link: "/blog/mlops-best-practices"
     },
     {
-      id: 3,
+      id: 4,
       title: "LLM Deployment Challenges: Lessons from the Field",
       excerpt: "Real-world insights on deploying large language models, including performance optimization, cost management, and scaling considerations.",
       readTime: "18 min read",
@@ -48,7 +58,7 @@ const BlogsPage = () => {
       link: "/blog/llm-deployment-challenges"
     },
     {
-      id: 4,
+      id: 5,
       title: "Building Robust AI Data Pipelines",
       excerpt: "Architecture patterns and best practices for creating reliable data pipelines that power AI applications in production environments.",
       readTime: "14 min read",
