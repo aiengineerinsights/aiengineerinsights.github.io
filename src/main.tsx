@@ -8,8 +8,13 @@ console.log('Main.tsx loaded successfully');
 const rootElement = document.getElementById("root");
 if (rootElement) {
   console.log('Root element found, rendering App');
-  createRoot(rootElement).render(<App />);
+  try {
+    createRoot(rootElement).render(<App />);
+    console.log('App rendered successfully');
+  } catch (error) {
+    console.error('Error rendering App:', error);
+  }
 } else {
   console.error("Root element not found");
-  document.body.innerHTML = '<div style="padding: 20px; color: red;">Root element not found. Please check the HTML structure.</div>';
+  document.body.innerHTML = '<div style="padding: 20px; color: red; font-family: Arial, sans-serif;">Root element not found. Please check the HTML structure.</div>';
 }

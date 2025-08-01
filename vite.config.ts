@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => ({
     strictPort: true,
     hmr: {
       port: 8080
+    },
+    fs: {
+      strict: false
     }
   },
   plugins: [
@@ -27,6 +30,9 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: undefined,
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     },
     assetsDir: 'assets',
@@ -34,5 +40,10 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ['react', 'react-dom']
+  },
+  esbuild: {
+    loader: 'tsx',
+    include: /src\/.*\.[tj]sx?$/,
+    exclude: []
   }
 }));
