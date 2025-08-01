@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Apple } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,8 +14,8 @@ const LatestInsights = () => {
       readTime: "18 min read",
       date: "Aug 1, 2025",
       category: "Local AI",
-      icon: Apple,
-      gradient: "from-gray-600 to-gray-800",
+      icon: Brain,
+      gradient: "from-purple-600 to-purple-800",
       link: "/blog/ollama-mac-local-ai-2025"
     },
     {
@@ -28,16 +28,16 @@ const LatestInsights = () => {
       gradient: "from-primary to-primary-glow",
       link: "/blog/google-a2a"
     },
-    {
-      title: "MLOps Best Practices for Production AI Systems",
-      excerpt: "Essential practices and patterns for deploying, monitoring, and maintaining machine learning models at scale in production environments.",
-      readTime: "12 min read",
-      date: "Jul 25, 2025",
-      category: "MLOps",
-      icon: Database,
-      gradient: "from-accent to-accent/80",
-      link: "/blog/mlops-best-practices"
-    }
+    // {
+    //   title: "MLOps Best Practices for Production AI Systems",
+    //   excerpt: "Essential practices and patterns for deploying, monitoring, and maintaining machine learning models at scale in production environments.",
+    //   readTime: "12 min read",
+    //   date: "Jul 25, 2025",
+    //   category: "MLOps",
+    //   icon: Database,
+    //   gradient: "from-accent to-accent/80",
+    //   link: "/blog/mlops-best-practices"
+    // }
   ];
 
   const handleViewAllInsights = () => {

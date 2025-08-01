@@ -1,5 +1,4 @@
-
-import { ArrowLeft, Clock, User, Calendar, Apple, BarChart3 } from "lucide-react";
+import { ArrowLeft, Clock, User, Calendar, Brain, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -38,8 +37,8 @@ const OllamaBlogPost = () => {
           {/* Article Header */}
           <header className="mb-12">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-600 to-gray-800 rounded-full px-3 py-1">
-                <Apple className="h-4 w-4 text-primary-foreground" />
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full px-3 py-1">
+                <Brain className="h-4 w-4 text-primary-foreground" />
                 <span className="text-sm font-medium text-primary-foreground">Local AI</span>
               </div>
             </div>
@@ -55,7 +54,7 @@ const OllamaBlogPost = () => {
             {/* Author Info */}
             <Card className="p-6 bg-gradient-card border-border">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-gray-600 to-gray-800 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 flex items-center justify-center">
                   <User className="h-6 w-6 text-white" />
                 </div>
                 <div className="flex-1">

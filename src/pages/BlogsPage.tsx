@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Apple } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,8 +21,8 @@ const BlogsPage = () => {
       readTime: "18 min read",
       date: "Aug 1, 2025",
       category: "Local AI",
-      icon: Apple,
-      gradient: "from-gray-600 to-gray-800",
+      icon: Brain,
+      gradient: "from-purple-600 to-purple-800",
       link: "/blog/ollama-mac-local-ai-2025"
     },
     {
@@ -35,39 +36,39 @@ const BlogsPage = () => {
       gradient: "from-primary to-primary-glow",
       link: "/blog/google-a2a"
     },
-    {
-      id: 3,
-      title: "MLOps Best Practices: From Development to Production",
-      excerpt: "Essential strategies for deploying machine learning models at scale, covering CI/CD pipelines, monitoring, and version control for ML workflows.",
-      readTime: "12 min read",
-      date: "Jul 25, 2025",
-      category: "MLOps",
-      icon: Zap,
-      gradient: "from-secondary to-secondary/80",
-      link: "/blog/mlops-best-practices"
-    },
-    {
-      id: 4,
-      title: "LLM Deployment Challenges: Lessons from the Field",
-      excerpt: "Real-world insights on deploying large language models, including performance optimization, cost management, and scaling considerations.",
-      readTime: "18 min read",
-      date: "Jul 22, 2025",
-      category: "LLM Deployment",
-      icon: Database,
-      gradient: "from-accent to-accent/80",
-      link: "/blog/llm-deployment-challenges"
-    },
-    {
-      id: 5,
-      title: "Building Robust AI Data Pipelines",
-      excerpt: "Architecture patterns and best practices for creating reliable data pipelines that power AI applications in production environments.",
-      readTime: "14 min read",
-      date: "Jul 20, 2025",
-      category: "Data Engineering",
-      icon: Database,
-      gradient: "from-muted to-muted-foreground/20",
-      link: "/blog/building-robust-ai-data-pipelines"
-    }
+    // {
+    //   id: 3,
+    //   title: "MLOps Best Practices: From Development to Production",
+    //   excerpt: "Essential strategies for deploying machine learning models at scale, covering CI/CD pipelines, monitoring, and version control for ML workflows.",
+    //   readTime: "12 min read",
+    //   date: "Jul 25, 2025",
+    //   category: "MLOps",
+    //   icon: Zap,
+    //   gradient: "from-secondary to-secondary/80",
+    //   link: "/blog/mlops-best-practices"
+    // },
+    // {
+    //   id: 4,
+    //   title: "LLM Deployment Challenges: Lessons from the Field",
+    //   excerpt: "Real-world insights on deploying large language models, including performance optimization, cost management, and scaling considerations.",
+    //   readTime: "18 min read",
+    //   date: "Jul 22, 2025",
+    //   category: "LLM Deployment",
+    //   icon: Database,
+    //   gradient: "from-accent to-accent/80",
+    //   link: "/blog/llm-deployment-challenges"
+    // },
+    // {
+    //   id: 5,
+    //   title: "Building Robust AI Data Pipelines",
+    //   excerpt: "Architecture patterns and best practices for creating reliable data pipelines that power AI applications in production environments.",
+    //   readTime: "14 min read",
+    //   date: "Jul 20, 2025",
+    //   category: "Data Engineering",
+    //   icon: Database,
+    //   gradient: "from-muted to-muted-foreground/20",
+    //   link: "/blog/building-robust-ai-data-pipelines"
+    // }
   ];
 
   const categories = ["All", ...Array.from(new Set(blogPosts.map(post => post.category)))];
