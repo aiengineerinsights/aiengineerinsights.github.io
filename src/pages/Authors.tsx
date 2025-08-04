@@ -11,18 +11,18 @@ import profilePic from '@/assets/vishnu_lanka.jpg';
 const Authors = () => {
   const authors = [
     {
-      id: "vishnu-lanka",
-      name: "Vishnu Lanka",
-      role: "AI Engineer & Technical Writer",
+      id: "vishnu-vardhan-lanka",
+      name: "Vishnu Vardhan Sai Lanka",
+      role: "AI Engineer",
       avatar: profilePic,
       bio: "Passionate AI engineer with extensive experience in machine learning, deep learning, and MLOps. Focuses on building production-ready AI systems and sharing knowledge through technical writing.",
-      expertise: ["Machine Learning", "Deep Learning", "MLOps", "Python", "TensorFlow", "PyTorch"],
-      experience: "5+ years",
-      location: "San Francisco, CA",
-      email: "aiengineerinsights@gmail.com",
-      github: "https://github.com/aiengineerinsights",
-      linkedin: "https://linkedin.com/in/vishnu-lanka",
-      website: "https://aiengineerinsights.com",
+      expertise: ["Machine Learning", "Deep Learning", "MLOps", "Python", "PyTorch"],
+      experience: "4 years",
+      location: "Orlando, FL",
+      email: "vardhanvishnu691@gmail.com",
+      github: "https://github.com/VishnuVardhanSaiLanka",
+      linkedin: "https://www.linkedin.com/in/vishnu-vardhan-sai-lanka-26316016b/",
+      website: "https://vishnuvardhansailanka.github.io",
       achievements: [
         "Published 50+ technical articles on AI engineering",
         "Contributor to multiple open-source ML projects",
@@ -129,30 +129,6 @@ const Authors = () => {
                             Website
                           </Button>
                         </div>
-                      </div>
-                    </div>
-
-                    {/* Details Grid */}
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div>
-                        <h3 className="text-lg font-semibold mb-3">Professional Details</h3>
-                        <div className="space-y-2 text-sm">
-                          <div><strong>Experience:</strong> {author.experience}</div>
-                          <div><strong>Location:</strong> {author.location}</div>
-                          <div><strong>Current Focus:</strong> {author.currentFocus}</div>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-lg font-semibold mb-3">Key Achievements</h3>
-                        <ul className="space-y-2 text-sm">
-                          {author.achievements.map((achievement, index) => (
-                            <li key={index} className="flex items-start">
-                              <span className="text-primary mr-2">•</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
                       </div>
                     </div>
                   </div>

@@ -27,7 +27,8 @@ const OllamaBlogPost = () => {
       <Navigation />
       
       <main className="container mx-auto px-4 py-20">
-        <div className="max-w-6xl mx-auto flex gap-8">
+        <div className="flex gap-8">
+        <TableOfContents /> {/* <-- Add TOC here */}
           {/* Main Content */}
           <div className="flex-1 max-w-4xl">
             {/* Back Button */}
@@ -282,9 +283,6 @@ ollama run llama3.2-vision:11b --keep-alive 15m --num-ctx 4096`}
               </section>
             </article>
           </div>
-
-          {/* Table of Contents Sidebar */}
-          <TableOfContents />
         </div>
       </main>
 
