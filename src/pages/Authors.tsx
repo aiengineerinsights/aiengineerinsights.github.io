@@ -15,7 +15,7 @@ const Authors = () => {
       name: "Vishnu Vardhan Sai Lanka",
       role: "AI Engineer",
       avatar: profilePic,
-      bio: "Passionate AI engineer with extensive experience in machine learning, deep learning, and MLOps. Focuses on building production-ready AI systems and sharing knowledge through technical writing.",
+      bio: "Passionate AI engineer with extensive experience in machine learning, deep learning, and MLOps. Focuses on building production-ready AI systems and sharing knowledge through technical writing. Also doing side quests in AI safety.",
       expertise: ["Machine Learning", "Deep Learning", "MLOps", "Python", "PyTorch"],
       experience: "4 years",
       location: "Orlando, FL",
