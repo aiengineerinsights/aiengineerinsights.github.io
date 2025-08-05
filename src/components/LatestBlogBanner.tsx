@@ -15,7 +15,7 @@ const LatestBlogBanner = () => {
           <span className="flex-1 text-center md:text-left truncate">
             Architectural Insights: A2A as a Protocol for Peer AI Agents
           </span>
-          <Link to="/blogs">
+          <Link to="blog/google-a2a">
             <Button 
               variant="outline" 
               size="sm" 
