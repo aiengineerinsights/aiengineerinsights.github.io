@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import profilePic from '@/assets/vishnu_lanka.jpg';
+import prudhviprofilePic from '@/assets/prudhvi_headshot.jpg';
 
 const Authors = () => {
   const authors = [
@@ -34,23 +35,23 @@ const Authors = () => {
     {
       id: "gurram-poorna-prudhvi",
       name: "Gurram Poorna Prudhvi",
-      role: "Lead AI Engineer & Local AI Specialist",
-      avatar: null, // No profile picture provided
-      bio: "Lead AI engineer specializing in local AI deployment and optimization. Expert in Mac Silicon architectures, Ollama, and building privacy-first AI solutions that rival cloud services.",
-      expertise: ["Local AI", "Mac Silicon", "Ollama", "Model Optimization", "Edge AI", "Privacy-First AI"],
-      experience: "6+ years",
-      location: "Seattle, WA",
+      role: "Lead AI Engineer",
+      avatar: prudhviprofilePic, // No profile picture provided
+      bio: "Prudhvi is a lead Engineer with 8+ years of playing with embeddings and building ai systems. He loves to build impactful systems and views things from systems lens.",
+      expertise: ["AI","NLP","ML","DL"],
+      experience: "8+ years",
+      location: "Hyderabad, India",
       email: "aiengineerinsights@gmail.com",
-      github: "https://github.com/aiengineerinsights",
-      linkedin: "https://linkedin.com/in/gurram-poorna-prudhvi",
+      github: "https://github.com/poornagurram",
+      linkedin: "https://linkedin.com/in/poornagurram",
       website: "https://aiengineerinsights.com",
-      achievements: [
-        "Pioneer in Mac Silicon AI optimization techniques",
-        "Created enterprise-grade local AI stacks for 20+ companies",
-        "Expert in unified memory architecture utilization",
-        "Reduced AI infrastructure costs by 80% for clients"
-      ],
-      currentFocus: "Next-generation local AI architectures and Mac Silicon optimization"
+      // achievements: [
+      //   "Pioneer in Mac Silicon AI optimization techniques",
+      //   "Created enterprise-grade local AI stacks for 20+ companies",
+      //   "Expert in unified memory architecture utilization",
+      //   "Reduced AI infrastructure costs by 80% for clients"
+      // ],
+      currentFocus: "Democratizing AI"
     }
   ];
 
