@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import profilePic from '@/assets/vishnu_lanka.jpg';
-import prudhviprofilePic from '@/assets/prudhvi_headshot.jpg';
+import prudhviprofilePic from '@/assets/16826_GurramPoornaPrudhvi (1).jpg';
 
 const Authors = () => {
   const authors = [
