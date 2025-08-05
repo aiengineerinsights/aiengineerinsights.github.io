@@ -66,7 +66,7 @@ const OllamaBlogPost = () => {
                     <Link to="/authors" className="hover:text-primary transition-colors">
                       <h3 className="font-semibold text-lg hover:underline">Gurram Poorna Prudhvi</h3>
                     </Link>
-                    <p className="text-muted-foreground">Lead AI Engineer & Local AI Specialist</p>
+                    <p className="text-muted-foreground">Lead AI Engineer</p>
                   </div>
                   <div className="text-sm text-muted-foreground space-y-1">
                     <div className="flex items-center">
