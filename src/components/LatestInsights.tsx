@@ -28,16 +28,16 @@ const LatestInsights = () => {
       gradient: "from-primary to-primary-glow",
       link: "/blog/google-a2a"
     },
-    // {
-    //   title: "MLOps Best Practices for Production AI Systems",
-    //   excerpt: "Essential practices and patterns for deploying, monitoring, and maintaining machine learning models at scale in production environments.",
-    //   readTime: "12 min read",
-    //   date: "Jul 25, 2025",
-    //   category: "MLOps",
-    //   icon: Database,
-    //   gradient: "from-accent to-accent/80",
-    //   link: "/blog/mlops-best-practices"
-    // }
+    {
+      title: "What Makes LLMs Agentic?",
+      excerpt: "Exploring the key capabilities of tool calling, reasoning, and advanced coding, that makes LLMs agentic in nature.",
+      readTime: "7 min read",
+      date: "Aug 18, 2025",
+      category: "Agentic AI",
+      icon: Database,
+      gradient: "from-primary to-primary-glow",
+      link: "/blog/what-makes-llms-agentic"
+    }
   ];
 
   const handleViewAllInsights = () => {
