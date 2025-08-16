@@ -36,17 +36,17 @@ const BlogsPage = () => {
       gradient: "from-primary to-primary-glow",
       link: "/blog/google-a2a"
     },
-    // {
-    //   id: 3,
-    //   title: "MLOps Best Practices: From Development to Production",
-    //   excerpt: "Essential strategies for deploying machine learning models at scale, covering CI/CD pipelines, monitoring, and version control for ML workflows.",
-    //   readTime: "12 min read",
-    //   date: "Jul 25, 2025",
-    //   category: "MLOps",
-    //   icon: Zap,
-    //   gradient: "from-secondary to-secondary/80",
-    //   link: "/blog/mlops-best-practices"
-    // },
+    {
+      id: 3,
+      title: "What Makes LLMs Agentic?",
+      excerpt: "Exploring the key capabilities of tool calling, reasoning, and advanced coding, that makes LLMs agentic in nature.",
+      readTime: "7 min read",
+      date: "Aug 18, 2025",
+      category: "Agentic AI",
+      icon: Zap,
+      gradient: "from-primary to-primary-glow",
+      link: "/blog/what-makes-llms-agentic"
+    },
     // {
     //   id: 4,
     //   title: "LLM Deployment Challenges: Lessons from the Field",

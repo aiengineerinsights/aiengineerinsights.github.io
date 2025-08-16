@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPost1 from "./pages/BlogPost1";
 import A2ABlogPost from "./pages/A2ABlogPost";
+import AgenticLLMPost from "./pages/AgenticLLMPost";
 import BlogPost2 from "./pages/BlogPost2";
 import BlogPost3 from "./pages/BlogPost3";
 import OllamaBlogPost from "./pages/OllamaBlogPost";
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/authors" element={<Authors />} />
             <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
             <Route path="/blog/ollama-mac-local-ai-2025" element={<OllamaBlogPost />} />
+            <Route path="/blog/what-makes-llms-agentic" element={<AgenticLLMPost />} />
             <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
             <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
             <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
