@@ -31,8 +31,8 @@ const LatestInsights = () => {
     {
       title: "What Makes LLMs Agentic?",
       excerpt: "Exploring the key capabilities of tool calling, reasoning, and advanced coding, that makes LLMs agentic in nature.",
-      readTime: "7 min read",
-      date: "Aug 18, 2025",
+      readTime: "12 min read",
+      date: "Aug 26, 2025",
       category: "Agentic AI",
       icon: Database,
       gradient: "from-primary to-primary-glow",
