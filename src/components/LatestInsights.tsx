@@ -37,6 +37,16 @@ const LatestInsights = () => {
       icon: Database,
       gradient: "from-primary to-primary-glow",
       link: "/blog/what-makes-llms-agentic"
+    },
+    {
+      title: "Measuring What Matters: GDPval and the Evaluation of AI's Economic Potential",
+      excerpt: "This post explores the methodology behind GDPval, its key findings, and what they might signal for the future of knowledge work. And the picture GDPval paints is far more interesting than any exam score.",
+      readTime: "10 min read",
+      date: "Oct 14, 2025",
+      category: "AI Evaluation",
+      icon: Database,
+      gradient: "from-primary to-primary-glow",
+      link: "/blog/openai-gdpval"
     }
   ];
 
