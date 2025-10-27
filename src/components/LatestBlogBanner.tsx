@@ -13,7 +13,7 @@ const LatestBlogBanner = () => {
             <span className="font-medium">Latest:</span>
           </div>
           <span className="flex-1 text-center md:text-left truncate">
-            Architectural Insights: A2A as a Protocol for Peer AI Agents
+            Measuring What Matters: GDPval and the Evaluation of AI's Economic Potential
           </span>
           <Link to="blog/google-a2a">
             <Button 
