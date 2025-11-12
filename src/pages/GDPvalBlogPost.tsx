@@ -46,7 +46,7 @@ const GDPvalBlogPostFull = () => {
               </div>
               
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 leading-tight">
-                Measuring What Matters: GDPval and the Evaluation of AI's Economic Potential
+                OpenAI GDPval: The Evaluation of AI's Economic Potential
               </h1>
               
               <p className="text-lg lg:text-xl text-muted-foreground mb-6 lg:mb-8 leading-relaxed">
