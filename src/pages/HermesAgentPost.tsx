@@ -68,7 +68,7 @@ const HermesAgentPost = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
-                      <h3 className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</h3>
+                      <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
                     </Link>
                     <p className="text-muted-foreground text-sm sm:text-base">Lead AI Engineer</p>
                   </div>
@@ -113,7 +113,7 @@ const HermesAgentPost = () => {
                   across all of them.
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                  <h4 className="font-semibold mb-3 text-sm sm:text-base">Hermes Agent at a glance:</h4>
+                  <h3 className="font-semibold mb-3 text-sm sm:text-base">Hermes Agent at a glance:</h3>
                   <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• <strong>License:</strong> MIT — audit it, self-host it, fork it</li>
                     <li>• <strong>GitHub:</strong> ~219k stars, ~41k forks, 81% Python / 16% TypeScript</li>

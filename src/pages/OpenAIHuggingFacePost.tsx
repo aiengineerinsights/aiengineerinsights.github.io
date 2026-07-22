@@ -60,7 +60,7 @@ const OpenAIHuggingFacePost = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
-                      <h3 className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</h3>
+                      <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
                     </Link>
                     <p className="text-muted-foreground text-sm sm:text-base">Lead AI Engineer</p>
                   </div>

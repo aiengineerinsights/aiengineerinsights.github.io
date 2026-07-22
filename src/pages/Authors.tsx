@@ -37,21 +37,20 @@ const Authors = () => {
       name: "Gurram Poorna Prudhvi",
       role: "Lead AI Engineer",
       avatar: prudhviprofilePic, // No profile picture provided
-      bio: "Prudhvi is a lead Engineer with 8+ years of playing with embeddings and building ai systems. He loves to build impactful systems and views things from systems lens.",
-      expertise: ["AI","NLP","ML","DL"],
+      bio: "Prudhvi is a Lead AI Engineer with 8+ years spanning NLP, embeddings, and production machine learning. He builds and ships impactful AI systems end to end — from data pipelines and model training to LLM applications and agentic workflows — and approaches problems through a systems lens, caring as much about reliability, cost, and evaluation as about model quality. He writes here to share hard-won, practical lessons from building AI in production.",
+      expertise: ["AI", "NLP", "Machine Learning", "Deep Learning", "LLMs", "AI Agents", "MLOps"],
       experience: "8+ years",
       location: "Hyderabad, India",
       email: "aiengineerinsights@gmail.com",
       github: "https://github.com/poornagurram",
       linkedin: "https://linkedin.com/in/poornagurram",
       website: "https://aiengineerinsights.com",
-      // achievements: [
-      //   "Pioneer in Mac Silicon AI optimization techniques",
-      //   "Created enterprise-grade local AI stacks for 20+ companies",
-      //   "Expert in unified memory architecture utilization",
-      //   "Reduced AI infrastructure costs by 80% for clients"
-      // ],
-      currentFocus: "Democratizing AI"
+      achievements: [
+        "8+ years building production AI and NLP systems",
+        "Writes practical, engineering-first guides on LLMs and agents",
+        "Focuses on reliability, evaluation, and cost of AI systems",
+      ],
+      currentFocus: "Democratizing AI and building reliable agentic systems"
     }
   ];
 
@@ -95,6 +94,25 @@ const Authors = () => {
                             </Badge>
                           ))}
                         </div>
+
+                        <p className="text-sm text-muted-foreground mb-4">
+                          <span className="font-semibold text-foreground">Experience:</span> {author.experience}
+                          {" · "}
+                          <span className="font-semibold text-foreground">Based in:</span> {author.location}
+                          {" · "}
+                          <span className="font-semibold text-foreground">Currently focused on:</span> {author.currentFocus}
+                        </p>
+
+                        {author.achievements && author.achievements.length > 0 && (
+                          <div className="mb-4 text-left">
+                            <h3 className="text-sm font-semibold mb-2">Highlights</h3>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                              {author.achievements.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
                         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                           <Button 

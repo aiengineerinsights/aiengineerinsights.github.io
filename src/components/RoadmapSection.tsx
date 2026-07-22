@@ -1,7 +1,9 @@
 import { CheckCircle, ArrowRight, Code, Brain, Database, Settings, Users, Target, FileDown, BookOpen, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import pdfFile from '@/assets/downloads/ai-roadmap.pdf';
+// Served from public/ (stable path) so the prerendered HTML links to a real
+// URL. A Vite asset import resolves to a dev path during SSR prerender and 404s.
+const pdfFile = '/downloads/ai-roadmap.pdf';
 
 const resourceLinks = [
   // Foundation

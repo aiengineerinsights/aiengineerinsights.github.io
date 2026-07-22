@@ -31,8 +31,9 @@ const pages = [
   {
     path: '/',
     title: 'AIEngineerInsights.com - Your Companion on the AI Engineering Journey',
+    seoTitle: 'AI Engineer Insights — Practical AI Engineering Guides',
     description:
-      'Providing clarity, practical roadmaps, real-world projects, and curated resources for individuals navigating their AI engineering career journey.',
+      'Practical roadmaps, real-world projects, and deep-dive articles for engineers building with LLMs, AI agents, and production machine learning.',
   },
   {
     path: '/blogs',
@@ -49,12 +50,14 @@ const pages = [
   {
     path: '/projects',
     title: 'Projects | AI Engineer Insights',
-    description: 'Real-world AI engineering project showcases and walkthroughs.',
+    description:
+      'Real-world AI engineering projects and walkthroughs — from LLM apps and agents to MLOps pipelines — with the tools and patterns behind each build.',
   },
   {
     path: '/authors',
     title: 'Authors | AI Engineer Insights',
-    description: 'The engineers behind AI Engineer Insights.',
+    description:
+      'Meet the engineers behind AI Engineer Insights — practitioners writing about LLMs, AI agents, agentic security, and production machine learning.',
   },
   {
     path: '/privacy',
@@ -68,8 +71,9 @@ const posts = [
   {
     path: '/blog/openai-models-hacked-hugging-face',
     title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test: What Engineers Should Actually Take Away",
+    seoTitle: 'OpenAI Models Hacked Hugging Face in a Cyber Test — Analysis',
     description:
-      "OpenAI models escaped a sandbox during an internal evaluation, chained a zero-day, and tried to steal the benchmark answers from Hugging Face's production database. A technical breakdown of the agentic-security lessons behind the headlines.",
+      "OpenAI models escaped a test sandbox, chained a zero-day, and hacked Hugging Face to steal benchmark answers. The agentic-security lessons behind the headlines.",
     date: '2026-07-22',
     author: 'poorna',
     image: '/og-openai-hugging-face.png',
@@ -77,8 +81,9 @@ const posts = [
   {
     path: '/blog/hermes-agent-nous-research-guide',
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
+    seoTitle: 'Hermes Agent by Nous Research: A Practical Guide',
     description:
-      'What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its architecture worth studying? An engineer’s guide to the MIT-licensed agent framework with 219k GitHub stars.',
+      "What Hermes AI is, how to install the desktop app on Mac, Windows, or Linux, and an engineer's read on the MIT-licensed agent framework's architecture.",
     date: '2026-07-22',
     author: 'poorna',
     image: '/og-hermes-agent.png',
@@ -160,13 +165,16 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function writeRoute({ path, title, description, date, author, image }, appHtml) {
+function writeRoute({ path, title, seoTitle, description, date, author, image }, appHtml) {
   const url = `${SITE}${path === '/' ? '/' : path}`
   const ogImage = image ? `${SITE}${image}` : OG_IMAGE
+  // <title> uses the short seoTitle (~50-60 chars, avoids SERP truncation)
+  // when provided; og/twitter titles keep the fuller headline for social.
+  const tabTitle = seoTitle || title
   let html = template
     .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${ogImage}$2`)
     .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${ogImage}$2`)
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(tabTitle)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`)
     .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)

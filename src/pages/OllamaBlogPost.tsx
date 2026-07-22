@@ -66,7 +66,7 @@ const OllamaBlogPost = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
-                      <h3 className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</h3>
+                      <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
                     </Link>
                     <p className="text-muted-foreground text-sm sm:text-base">Lead AI Engineer</p>
                   </div>
@@ -105,7 +105,7 @@ const OllamaBlogPost = () => {
                 </p>
 
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                  <h4 className="font-semibold mb-3 text-sm sm:text-base">Performance Benefits:</h4>
+                  <h3 className="font-semibold mb-3 text-sm sm:text-base">Performance Benefits:</h3>
                   <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• <strong>No memory copying overhead</strong> between CPU and GPU</li>
                     <li>• <strong>Models can use full system RAM</strong> (up to 96GB on Mac Studio)</li>
@@ -172,7 +172,7 @@ ollama --version`}
                 <h3 id="download-optimal-models" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Download Optimal Models for Your Mac</h3>
                 <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm sm:text-base">For 16GB Macs:</h4>
+                    <h3 className="font-semibold mb-2 text-sm sm:text-base">For 16GB Macs:</h3>
                     <div className="bg-muted text-muted-foreground p-3 sm:p-4 rounded-md overflow-x-auto">
                       <pre className="text-xs sm:text-sm whitespace-pre-wrap break-all sm:break-normal">
 {`ollama pull qwen2.5-coder:7b-instruct-q4_K_M
@@ -183,7 +183,7 @@ ollama pull phi4:14b-instruct-q4_K_M`}
                   </div>
 
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm sm:text-base">For 32-36GB Macs:</h4>
+                    <h3 className="font-semibold mb-2 text-sm sm:text-base">For 32-36GB Macs:</h3>
                     <div className="bg-muted text-muted-foreground p-3 sm:p-4 rounded-md overflow-x-auto">
                       <pre className="text-xs sm:text-sm whitespace-pre-wrap break-all sm:break-normal">
 {`ollama pull deepseek-r1:14b-instruct-q4_K_M
@@ -195,7 +195,7 @@ ollama pull mistral:7b-instruct-q4_K_M`}
                   </div>
 
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm sm:text-base">For 64GB+ Macs:</h4>
+                    <h3 className="font-semibold mb-2 text-sm sm:text-base">For 64GB+ Macs:</h3>
                     <div className="bg-muted text-muted-foreground p-3 sm:p-4 rounded-md overflow-x-auto">
                       <pre className="text-xs sm:text-sm whitespace-pre-wrap break-all sm:break-normal">
 {`ollama pull deepseek-r1:32b-instruct-q4_K_M
@@ -240,7 +240,7 @@ ollama pull llama3.2-vision:11b-instruct-q4_K_M`}
                 </div>
 
                 <div className="bg-primary/10 p-4 sm:p-6 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-sm sm:text-base">Recommended Configuration Priority:</h4>
+                  <h3 className="font-semibold mb-3 text-sm sm:text-base">Recommended Configuration Priority:</h3>
                   <ol className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>1. <strong>DeepSeek-R1 14B</strong> + <strong>Qwen 2.5 Coder 7B</strong> (Core reasoning + coding)</li>
                     <li>2. <strong>Llama 3.2 Vision 11B</strong> (Add multimodal capabilities)</li>
@@ -285,7 +285,7 @@ ollama run llama3.2-vision:11b --keep-alive 15m --num-ctx 4096`}
                 </p>
 
                 <div className="bg-accent/10 p-4 sm:p-6 rounded-lg">
-                  <h4 className="font-semibold mb-3 text-sm sm:text-base">Key advantages you gain:</h4>
+                  <h3 className="font-semibold mb-3 text-sm sm:text-base">Key advantages you gain:</h3>
                   <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• <strong>Save $200+ monthly</strong> on AI subscriptions</li>
                     <li>• <strong>Complete data privacy</strong> with zero cloud dependencies</li>
