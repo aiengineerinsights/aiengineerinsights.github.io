@@ -1,18 +1,36 @@
-// Post-build SEO: create a real index.html for every SPA route so deep links
-// return HTTP 200 (not 404) and each URL carries its own title, description,
-// canonical, Open Graph tags, and JSON-LD — readable by crawlers that do not
-// execute JavaScript (GPTBot, ClaudeBot, PerplexityBot, Bingbot's first pass).
+// Post-build SEO/GEO: server-render every SPA route and write a real
+// index.html per URL so crawlers that do not execute JavaScript (GPTBot,
+// ClaudeBot, PerplexityBot, Bingbot first pass) see the complete page —
+// full article content, unique meta, canonical, and JSON-LD. React
+// re-renders over the static markup on load; UX unchanged.
+//
+// Also generates llms-full.txt (plain-text of all posts) for LLM ingestion.
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join, dirname } from 'path'
+import { createServer } from 'vite'
 
 const SITE = 'https://aiengineerinsights.com'
 const SITE_NAME = 'AI Engineer Insights'
+const OG_IMAGE = `${SITE}/og-image.png`
+
+const AUTHORS = {
+  poorna: {
+    '@type': 'Person',
+    name: 'Poorna Prudhvi Gurram',
+    url: `${SITE}/authors`,
+  },
+  vishnu: {
+    '@type': 'Person',
+    name: 'Vishnu Vardhan Sai Lanka',
+    url: `${SITE}/authors`,
+  },
+  team: { '@type': 'Organization', name: SITE_NAME, url: SITE },
+}
 
 const pages = [
   {
     path: '/',
     title: 'AIEngineerInsights.com - Your Companion on the AI Engineering Journey',
-    h1: 'Your Companion on the AI Engineering Journey',
     description:
       'Providing clarity, practical roadmaps, real-world projects, and curated resources for individuals navigating their AI engineering career journey.',
   },
@@ -47,6 +65,7 @@ const posts = [
     description:
       'Stop paying hundreds monthly for AI subscriptions. Your Mac is already the perfect AI powerhouse — unlock it with Ollama and Apple Silicon unified memory.',
     date: '2025-08-01',
+    author: 'poorna',
   },
   {
     path: '/blog/google-a2a',
@@ -54,6 +73,7 @@ const posts = [
     description:
       'An open standard from Google for inter-agent communication, enabling AI agents to collaborate as peers without exposing their internal workings.',
     date: '2025-07-30',
+    author: 'vishnu',
   },
   {
     path: '/blog/what-makes-llms-agentic',
@@ -61,6 +81,7 @@ const posts = [
     description:
       'Exploring the key capabilities of tool calling, reasoning, and advanced coding that make LLMs agentic in nature.',
     date: '2025-08-26',
+    author: 'vishnu',
   },
   {
     path: '/blog/openai-gdpval',
@@ -68,6 +89,7 @@ const posts = [
     description:
       'The methodology behind GDPval, its key findings, and what they signal for the future of knowledge work.',
     date: '2025-10-14',
+    author: 'vishnu',
   },
   {
     path: '/blog/mlops-best-practices',
@@ -75,6 +97,7 @@ const posts = [
     description:
       'How to bridge the gap between experimentation and production-ready ML systems with proven MLOps strategies.',
     date: '2024-12-10',
+    author: 'team',
   },
   {
     path: '/blog/llm-deployment-challenges',
@@ -82,6 +105,7 @@ const posts = [
     description:
       'Real-world insights into the common pitfalls when deploying large language models and how to overcome them.',
     date: '2024-12-08',
+    author: 'team',
   },
   {
     path: '/blog/building-robust-ai-data-pipelines',
@@ -89,15 +113,30 @@ const posts = [
     description:
       'A practical guide to creating reliable, scalable data pipelines that power modern AI applications.',
     date: '2024-12-05',
+    author: 'team',
   },
 ]
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
+const htmlToText = (html) =>
+  html
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\s*\n\s*/g, '\n')
+    .trim()
+
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function renderRoute({ path, title, h1, description, date }) {
+function writeRoute({ path, title, description, date, author }, appHtml) {
   const url = `${SITE}${path === '/' ? '/' : path}`
   let html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
@@ -117,11 +156,12 @@ function renderRoute({ path, title, h1, description, date }) {
       headline: title,
       description,
       url,
+      image: OG_IMAGE,
       datePublished: date,
       dateModified: date,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       publisher: { '@id': `${SITE}/#organization` },
-      author: { '@type': 'Organization', name: SITE_NAME, url: SITE },
+      author: AUTHORS[author] || AUTHORS.team,
     }
     html = html.replace(
       '</head>',
@@ -129,14 +169,9 @@ function renderRoute({ path, title, h1, description, date }) {
     )
   }
 
-  // Static h1 + intro inside #root so crawlers that skip JavaScript still see
-  // the page's primary heading (Bing flags "H1 tag missing" otherwise).
-  // React replaces this placeholder as soon as the bundle hydrates.
-  const heading = h1 || title.replace(/ \| AI Engineer Insights$/, '')
-  html = html.replace(
-    '<div id="root"></div>',
-    `<div id="root"><main><h1>${esc(heading)}</h1><p>${esc(description)}</p></main></div>`
-  )
+  // Full server-rendered page content inside #root: crawlers see the real
+  // article; React re-renders over it once the bundle loads.
+  html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
 
   const outFile =
     path === '/'
@@ -147,5 +182,30 @@ function renderRoute({ path, title, h1, description, date }) {
   console.log(`SEO: wrote ${outFile}`)
 }
 
-;[...pages, ...posts].forEach(renderRoute)
-console.log(`SEO: ${pages.length + posts.length} routes prerendered with static meta`)
+const vite = await createServer({
+  server: { middlewareMode: true },
+  appType: 'custom',
+  logLevel: 'error',
+})
+
+try {
+  const { render } = await vite.ssrLoadModule('/src/entry-prerender.tsx')
+
+  const fullTexts = []
+  for (const route of [...pages, ...posts]) {
+    const appHtml = await render(route.path)
+    writeRoute(route, appHtml)
+    if (route.date) {
+      fullTexts.push(
+        `# ${route.title}\n\nURL: ${SITE}${route.path}\nDate: ${route.date}\nAuthor: ${(AUTHORS[route.author] || AUTHORS.team).name}\n\n${htmlToText(appHtml)}`
+      )
+    }
+  }
+
+  const llmsFull = `# ${SITE_NAME} — Full Content\n\n> Complete text of all articles on ${SITE} for LLM ingestion. Index: ${SITE}/llms.txt\n\n${fullTexts.join('\n\n---\n\n')}\n`
+  writeFileSync(join(dist, 'llms-full.txt'), llmsFull)
+  console.log(`SEO: wrote dist/llms-full.txt (${Math.round(llmsFull.length / 1024)} KB)`)
+  console.log(`SEO: ${pages.length + posts.length} routes fully prerendered`)
+} finally {
+  await vite.close()
+}

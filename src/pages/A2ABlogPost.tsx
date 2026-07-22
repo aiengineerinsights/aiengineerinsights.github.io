@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RelatedPosts from "@/components/RelatedPosts";
 import profilePic from '@/assets/vishnu_lanka.jpg';
 import coverPic from '@/assets/a2a_cover.png';
 import ssePic from '@/assets/a2a_sse.png';
@@ -292,6 +293,7 @@ class FileContent(BaseModel):
         </div>
       </main>
 
+      <RelatedPosts current="/blog/google-a2a" />
       <Footer />
     </div>
   );

@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 
 const OllamaBlogPost = () => {
@@ -307,6 +308,7 @@ ollama run llama3.2-vision:11b --keep-alive 15m --num-ctx 4096`}
         </div>
       </main>
 
+      <RelatedPosts current="/blog/ollama-mac-local-ai-2025" />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RelatedPosts from "@/components/RelatedPosts";
 
 const BlogPost1 = () => {
   return (
@@ -115,6 +116,7 @@ const BlogPost1 = () => {
         </div>
       </main>
 
+      <RelatedPosts current="/blog/mlops-best-practices" />
       <Footer />
     </div>
   );

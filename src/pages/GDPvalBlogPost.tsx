@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RelatedPosts from "@/components/RelatedPosts";
 import profilePic from '@/assets/vishnu_lanka.jpg'; // Assuming same author
 import { BarChart3 } from "lucide-react";
 import TableOfContents from "@/components/TableOfContents";
@@ -248,6 +249,7 @@ const GDPvalBlogPostFull = () => {
         </div>
       </main>
 
+      <RelatedPosts current="/blog/openai-gdpval" />
       <Footer />
     </div>
   );

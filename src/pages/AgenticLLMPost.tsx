@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import profilePic from "@/assets/vishnu_lanka.jpg";
 import coverPic from "@/assets/agentic_llms_cover.png";
@@ -549,6 +550,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
         </div>
       </main>
 
+      <RelatedPosts current="/blog/what-makes-llms-agentic" />
       <Footer />
     </div>
   );
