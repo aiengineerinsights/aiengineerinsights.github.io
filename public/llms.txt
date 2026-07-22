@@ -1,0 +1,23 @@
+# AI Engineer Insights
+
+> Your companion on the AI engineering journey — clarity, practical roadmaps, real-world projects, and curated resources for aspiring and current AI engineers.
+
+- Site: https://aiengineerinsights.com
+- Sitemap: https://aiengineerinsights.com/sitemap.xml
+
+## Blog Posts
+
+- [Ollama on Mac: The Perfect Local AI Stack for 2025](https://aiengineerinsights.com/blog/ollama-mac-local-ai-2025): Running local LLMs on Apple Silicon with Ollama
+- [Architectural Insights: A2A as a Protocol for Peer AI Agents](https://aiengineerinsights.com/blog/google-a2a): Google's Agent-to-Agent protocol explained
+- [What Makes LLMs Agentic?](https://aiengineerinsights.com/blog/what-makes-llms-agentic): The properties that turn a language model into an agent
+- [OpenAI GDPval: The Evaluation of AI's Economic Potential](https://aiengineerinsights.com/blog/openai-gdpval): OpenAI's benchmark for economically valuable tasks
+- [MLOps Best Practices: From Prototype to Production](https://aiengineerinsights.com/blog/mlops-best-practices): Taking ML systems to production reliably
+- [LLM Deployment Challenges and Solutions](https://aiengineerinsights.com/blog/llm-deployment-challenges): Practical patterns for deploying large language models
+- [Building Robust AI Data Pipelines](https://aiengineerinsights.com/blog/building-robust-ai-data-pipelines): Data engineering foundations for AI systems
+
+## Pages
+
+- [Blogs](https://aiengineerinsights.com/blogs): All articles
+- [Resources](https://aiengineerinsights.com/resources): Curated AI engineering resources
+- [Projects](https://aiengineerinsights.com/projects): Real-world project showcases
+- [Authors](https://aiengineerinsights.com/authors): About the authors
