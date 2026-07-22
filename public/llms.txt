@@ -23,3 +23,4 @@
 - [Resources](https://aiengineerinsights.com/resources): Curated AI engineering resources
 - [Projects](https://aiengineerinsights.com/projects): Real-world project showcases
 - [Authors](https://aiengineerinsights.com/authors): About the authors
+- [Privacy Policy](https://aiengineerinsights.com/privacy): How we handle data, cookies, and privacy

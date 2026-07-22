@@ -56,6 +56,12 @@ const pages = [
     title: 'Authors | AI Engineer Insights',
     description: 'The engineers behind AI Engineer Insights.',
   },
+  {
+    path: '/privacy',
+    title: 'Privacy Policy | AI Engineer Insights',
+    description:
+      'How AI Engineer Insights collects, uses, and protects your data, including cookies, analytics, advertising, and your privacy rights.',
+  },
 ]
 
 const posts = [

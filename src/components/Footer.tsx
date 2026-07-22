@@ -134,10 +134,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border mt-8 pt-8 text-center">
+        <div className="border-t border-border mt-8 pt-8 text-center space-y-3">
           <p className="text-sm text-muted-foreground flex items-center justify-center">
             Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> for the AI community
           </p>
+          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+            <Link to="/privacy" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true">·</span>
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+              className="hover:text-primary transition-colors"
+            >
+              Cookie settings
+            </button>
+          </div>
         </div>
       </div>
     </footer>
