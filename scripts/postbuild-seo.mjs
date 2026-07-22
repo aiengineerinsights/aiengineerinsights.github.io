@@ -16,7 +16,7 @@ const OG_IMAGE = `${SITE}/og-image.png`
 const AUTHORS = {
   poorna: {
     '@type': 'Person',
-    name: 'Poorna Prudhvi Gurram',
+    name: 'Poorna Prudhvi',
     url: `${SITE}/authors`,
   },
   vishnu: {
