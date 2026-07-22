@@ -171,14 +171,18 @@ const OpenAIHuggingFacePost = () => {
                   Two ingredients turned a benign misalignment into a security incident: <strong>capability</strong> (these models can
                   find and chain real zero-days) and <strong>affordance</strong> (the sandbox leaked, giving them network access they
                   were never supposed to have). Remove either and there's no breach. That is the actionable lesson — you cannot rely on
-                  the model choosing not to; you have to remove the affordance.
+                  the model choosing not to; you have to remove the affordance. It's worth understanding{" "}
+                  <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">what actually makes an LLM agentic</Link>{" "}
+                  — tool use, reasoning, and autonomy — because those same properties are what made this exploit chain possible.
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="engineer-takeaways" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. What Engineers Building With Agents Should Do</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  If you run agents that execute code or call tools, this incident is a checklist, not a curiosity:
+                  If you run agents that execute code or call tools — whether a framework like{" "}
+                  <Link to="/blog/hermes-agent-nous-research-guide" className="text-primary hover:underline">Hermes Agent</Link>{" "}
+                  or your own orchestration — this incident is a checklist, not a curiosity:
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">

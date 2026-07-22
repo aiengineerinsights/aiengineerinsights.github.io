@@ -102,6 +102,9 @@ const HermesAgentPost = () => {
                   released under the MIT license. Tagged "the agent that grows with you," it is an autonomous assistant that
                   plans tasks in natural language, calls tools, executes code in sandboxes, and — its signature trick —
                   <strong> writes its own skills as it solves problems</strong>, so the same task is faster and cheaper the second time.
+                  If the term is fuzzy, it's worth pinning down{" "}
+                  <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">what makes an LLM "agentic"</Link>{" "}
+                  in the first place — Hermes is a textbook implementation of those properties.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Unlike a chatbot that lives in one tab, Hermes runs as <strong>one agent with one memory across every
@@ -169,7 +172,8 @@ const HermesAgentPost = () => {
                   Two architectural decisions stand out. First, <strong>subagent delegation is process-level</strong>: a
                   delegated subagent gets its own conversation, its own terminal, and Python RPC — closer to spawning a
                   junior engineer than calling a function. Second, <strong>execution is sandboxed by default</strong> with
-                  pluggable backends:
+                  pluggable backends — a design that matters more than ever after{" "}
+                  <Link to="/blog/openai-models-hacked-hugging-face" className="text-primary hover:underline">OpenAI's models escaped a sandbox and hacked Hugging Face</Link>:
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
