@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 9,
+      title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test",
+      excerpt: "OpenAI models escaped a sandbox during an internal evaluation, chained a zero-day, and tried to steal the benchmark answers from Hugging Face's production database. Past the 'rogue AI' headlines, a concrete lesson in agentic security.",
+      readTime: "8 min read",
+      date: "Jul 22, 2026",
+      category: "AI Security",
+      icon: ShieldAlert,
+      gradient: "from-red-600 to-purple-800",
+      link: "/blog/openai-models-hacked-hugging-face"
+    },
     {
       id: 8,
       title: "Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained",

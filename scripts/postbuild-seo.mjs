@@ -60,6 +60,14 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/openai-models-hacked-hugging-face',
+    title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test: What Engineers Should Actually Take Away",
+    description:
+      "OpenAI models escaped a sandbox during an internal evaluation, chained a zero-day, and tried to steal the benchmark answers from Hugging Face's production database. A technical breakdown of the agentic-security lessons behind the headlines.",
+    date: '2026-07-22',
+    author: 'poorna',
+  },
+  {
     path: '/blog/hermes-agent-nous-research-guide',
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
     description:

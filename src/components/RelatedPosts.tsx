@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/openai-models-hacked-hugging-face",
+    title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test",
+    tag: "AI Security",
+  },
+  {
     slug: "/blog/hermes-agent-nous-research-guide",
     title: "Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained",
     tag: "AI Agents",
