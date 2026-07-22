@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
+import BreachHeroDiagram from "@/components/BreachHeroDiagram";
 
 const OpenAIHuggingFacePost = () => {
   const timelineData = [
@@ -80,6 +81,9 @@ const OpenAIHuggingFacePost = () => {
                 </div>
               </Card>
             </header>
+
+            {/* Hero Diagram */}
+            <BreachHeroDiagram />
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
