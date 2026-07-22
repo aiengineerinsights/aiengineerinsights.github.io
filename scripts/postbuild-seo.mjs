@@ -16,7 +16,7 @@ const OG_IMAGE = `${SITE}/og-image.png`
 const AUTHORS = {
   poorna: {
     '@type': 'Person',
-    name: 'Poorna Prudhvi',
+    name: 'Poorna Prudhvi Gurram',
     url: `${SITE}/authors`,
   },
   vishnu: {
@@ -59,6 +59,14 @@ const pages = [
 ]
 
 const posts = [
+  {
+    path: '/blog/hermes-agent-nous-research-guide',
+    title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
+    description:
+      'What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its architecture worth studying? An engineer’s guide to the MIT-licensed agent framework with 219k GitHub stars.',
+    date: '2026-07-22',
+    author: 'poorna',
+  },
   {
     path: '/blog/ollama-mac-local-ai-2025',
     title: 'Ollama on Mac: The Perfect Local AI Stack for 2025',

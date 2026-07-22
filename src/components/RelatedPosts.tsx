@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/hermes-agent-nous-research-guide",
+    title: "Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/ollama-mac-local-ai-2025",
     title: "Ollama on Mac: The Perfect Local AI Stack for 2025",
     tag: "Local AI",

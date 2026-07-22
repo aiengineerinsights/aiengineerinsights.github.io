@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ const LatestInsights = () => {
   const navigate = useNavigate();
 
   const insights = [
+    {
+      title: "Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained",
+      excerpt: "What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its architecture worth studying? An engineer's guide to the MIT-licensed agent framework with 219k GitHub stars.",
+      readTime: "9 min read",
+      date: "Jul 22, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-purple-600 to-purple-800",
+      link: "/blog/hermes-agent-nous-research-guide"
+    },
     {
       title: "Ollama on Mac: The Perfect Local AI Stack for 2025",
       excerpt: "Stop paying hundreds monthly for AI subscriptions. Your Mac is already the perfect AI powerhouse — you just need to unlock it with Ollama and Mac Silicon's unified memory architecture.",

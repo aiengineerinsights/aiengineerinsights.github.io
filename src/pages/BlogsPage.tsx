@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 8,
+      title: "Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained",
+      excerpt: "What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its architecture worth studying? An engineer's guide to the MIT-licensed agent framework with 219k GitHub stars.",
+      readTime: "9 min read",
+      date: "Jul 22, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-purple-600 to-purple-800",
+      link: "/blog/hermes-agent-nous-research-guide"
+    },
     {
       id: 1,
       title: "Ollama on Mac: The Perfect Local AI Stack for 2025",
