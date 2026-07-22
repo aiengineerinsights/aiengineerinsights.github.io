@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
+import HermesHeroDiagram from "@/components/HermesHeroDiagram";
 
 const HermesAgentPost = () => {
   const installData = [
@@ -50,7 +51,7 @@ const HermesAgentPost = () => {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
                 Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained
               </h1>
 
@@ -88,6 +89,9 @@ const HermesAgentPost = () => {
                 </div>
               </Card>
             </header>
+
+            {/* Hero Diagram */}
+            <HermesHeroDiagram />
 
             {/* Article Content */}
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">

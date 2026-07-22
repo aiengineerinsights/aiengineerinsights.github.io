@@ -66,6 +66,7 @@ const posts = [
       'What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its architecture worth studying? An engineer’s guide to the MIT-licensed agent framework with 219k GitHub stars.',
     date: '2026-07-22',
     author: 'poorna',
+    image: '/og-hermes-agent.png',
   },
   {
     path: '/blog/ollama-mac-local-ai-2025',
@@ -144,9 +145,12 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function writeRoute({ path, title, description, date, author }, appHtml) {
+function writeRoute({ path, title, description, date, author, image }, appHtml) {
   const url = `${SITE}${path === '/' ? '/' : path}`
+  const ogImage = image ? `${SITE}${image}` : OG_IMAGE
   let html = template
+    .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${ogImage}$2`)
+    .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${ogImage}$2`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`)
     .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
@@ -164,7 +168,7 @@ function writeRoute({ path, title, description, date, author }, appHtml) {
       headline: title,
       description,
       url,
-      image: OG_IMAGE,
+      image: ogImage,
       datePublished: date,
       dateModified: date,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
