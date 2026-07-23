@@ -20,6 +20,7 @@ const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const RoadmapPage = lazy(() => import("./pages/RoadmapPage"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -30,6 +31,7 @@ const AppRoutes = () => (
       <Route path="/projects" element={<Projects />} />
       <Route path="/authors" element={<Authors />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
       <Route path="/blog/google-a2a" element={<A2ABlogPost />} />

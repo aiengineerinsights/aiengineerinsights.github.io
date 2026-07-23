@@ -19,6 +19,7 @@
 
 ## Pages
 
+- [AI Engineering Roadmap 2026 (Free PDF)](https://aiengineerinsights.com/ai-engineering-roadmap): Step-by-step roadmap to become an AI engineer, with a free downloadable PDF
 - [Blogs](https://aiengineerinsights.com/blogs): All articles
 - [Resources](https://aiengineerinsights.com/resources): Curated AI engineering resources
 - [Projects](https://aiengineerinsights.com/projects): Real-world project showcases

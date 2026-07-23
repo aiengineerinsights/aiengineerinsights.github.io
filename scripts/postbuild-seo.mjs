@@ -60,6 +60,12 @@ const pages = [
       'Meet the engineers behind AI Engineer Insights — practitioners writing about LLMs, AI agents, agentic security, and production machine learning.',
   },
   {
+    path: '/ai-engineering-roadmap',
+    title: 'AI Engineering Roadmap 2026: Step-by-Step Guide (Free PDF)',
+    description:
+      'A complete AI engineering roadmap for 2026 — from Python and math to ML, MLOps, and LLMs/agents. Six phases, curated resources, and a free downloadable PDF.',
+  },
+  {
     path: '/privacy',
     title: 'Privacy Policy | AI Engineer Insights',
     description:
