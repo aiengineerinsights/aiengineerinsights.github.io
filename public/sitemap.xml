@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://aiengineerinsights.com/</loc></url>
-  <url><loc>https://aiengineerinsights.com/blogs</loc></url>
-  <url><loc>https://aiengineerinsights.com/resources</loc></url>
-  <url><loc>https://aiengineerinsights.com/projects</loc></url>
-  <url><loc>https://aiengineerinsights.com/authors</loc></url>
-  <url><loc>https://aiengineerinsights.com/ai-engineering-roadmap</loc></url>
+  <url><loc>https://aiengineerinsights.com/blogs/</loc></url>
+  <url><loc>https://aiengineerinsights.com/resources/</loc></url>
+  <url><loc>https://aiengineerinsights.com/projects/</loc></url>
+  <url><loc>https://aiengineerinsights.com/authors/</loc></url>
+  <url><loc>https://aiengineerinsights.com/ai-engineering-roadmap/</loc></url>
+  <url><loc>https://aiengineerinsights.com/privacy/</loc></url>
   <url><loc>https://aiengineerinsights.com/downloads/ai-roadmap.pdf</loc></url>
-  <url><loc>https://aiengineerinsights.com/privacy</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/github-bug-bounty-ai-slop</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/openai-models-hacked-hugging-face</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-nous-research-guide</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/ollama-mac-local-ai-2025</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/google-a2a</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/what-makes-llms-agentic</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/openai-gdpval</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/mlops-best-practices</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/llm-deployment-challenges</loc></url>
-  <url><loc>https://aiengineerinsights.com/blog/building-robust-ai-data-pipelines</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/github-bug-bounty-ai-slop/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/openai-models-hacked-hugging-face/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-nous-research-guide/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/ollama-mac-local-ai-2025/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/google-a2a/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/what-makes-llms-agentic/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/openai-gdpval/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/mlops-best-practices/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/llm-deployment-challenges/</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/building-robust-ai-data-pipelines/</loc></url>
 </urlset>

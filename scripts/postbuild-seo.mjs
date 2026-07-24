@@ -182,7 +182,11 @@ const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
 function writeRoute({ path, title, seoTitle, description, date, author, image }, appHtml) {
-  const url = `${SITE}${path === '/' ? '/' : path}`
+  // Canonical/og:url use the TRAILING-SLASH form because GitHub Pages serves
+  // directory URLs (/blog/x/) with 200 and 301-redirects the no-slash form to
+  // it. Pointing canonical at the no-slash URL (a redirect) made Google index
+  // both and split authority. Match the actually-served URL instead.
+  const url = path === '/' ? `${SITE}/` : `${SITE}${path}/`
   const ogImage = image ? `${SITE}${image}` : OG_IMAGE
   // <title> uses the short seoTitle (~50-60 chars, avoids SERP truncation)
   // when provided; og/twitter titles keep the fuller headline for social.
