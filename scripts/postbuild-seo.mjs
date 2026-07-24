@@ -75,6 +75,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/github-bug-bounty-ai-slop',
+    title: 'GitHub\'s Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research',
+    seoTitle: 'GitHub Bug Bounty Overhaul: The "AI Slop" Problem, Explained',
+    description:
+      "GitHub's July 2026 bug bounty restructuring — a VIP tier and a new-researcher submission cap — is a direct response to AI-generated vulnerability reports. What it means for engineers.",
+    date: '2026-07-24',
+    author: 'poorna',
+    image: '/og-github-bug-bounty-ai-slop.png',
+  },
+  {
     path: '/blog/openai-models-hacked-hugging-face',
     title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test: What Engineers Should Actually Take Away",
     seoTitle: 'OpenAI Models Hacked Hugging Face in a Cyber Test — Analysis',
