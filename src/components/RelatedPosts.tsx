@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/github-bug-bounty-ai-slop",
+    title: "GitHub's Bug Bounty Overhaul: What \"AI Slop\" Vulnerability Reports Are Doing to Security Research",
+    tag: "Agentic Security",
+  },
+  {
     slug: "/blog/openai-models-hacked-hugging-face",
     title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test",
     tag: "AI Security",

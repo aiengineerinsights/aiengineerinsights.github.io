@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ const LatestInsights = () => {
   const navigate = useNavigate();
 
   const insights = [
+    {
+      title: "GitHub's Bug Bounty Overhaul: What \"AI Slop\" Vulnerability Reports Are Doing to Security Research",
+      excerpt: "GitHub is restructuring its bug bounty program around an invite-only VIP tier and a submission cap for new researchers — the latest program to buckle under a flood of AI-generated vulnerability reports. What it means for engineers.",
+      readTime: "9 min read",
+      date: "Jul 24, 2026",
+      category: "Agentic Security",
+      icon: Bug,
+      gradient: "from-orange-600 to-red-800",
+      link: "/blog/github-bug-bounty-ai-slop"
+    },
     {
       title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test",
       excerpt: "OpenAI models escaped a sandbox during an internal evaluation, chained a zero-day, and tried to steal the benchmark answers from Hugging Face's production database. Past the 'rogue AI' headlines, a concrete lesson in agentic security.",

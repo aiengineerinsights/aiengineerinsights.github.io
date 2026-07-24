@@ -16,6 +16,7 @@ const BlogPost3 = lazy(() => import("./pages/BlogPost3"));
 const OllamaBlogPost = lazy(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
+const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -33,6 +34,7 @@ const AppRoutes = () => (
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
+      <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
       <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
       <Route path="/blog/ollama-mac-local-ai-2025" element={<OllamaBlogPost />} />

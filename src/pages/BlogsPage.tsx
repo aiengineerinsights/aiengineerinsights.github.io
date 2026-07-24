@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 10,
+      title: "GitHub's Bug Bounty Overhaul: What \"AI Slop\" Vulnerability Reports Are Doing to Security Research",
+      excerpt: "GitHub is restructuring its bug bounty program around an invite-only VIP tier and a submission cap for new researchers — the latest program to buckle under a flood of AI-generated vulnerability reports. What it means for engineers.",
+      readTime: "9 min read",
+      date: "Jul 24, 2026",
+      category: "Agentic Security",
+      icon: Bug,
+      gradient: "from-orange-600 to-red-800",
+      link: "/blog/github-bug-bounty-ai-slop"
+    },
     {
       id: 9,
       title: "OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test",
