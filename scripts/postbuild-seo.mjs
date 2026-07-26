@@ -148,11 +148,13 @@ const posts = [
   },
   {
     path: '/blog/llm-deployment-challenges',
-    title: 'LLM Deployment Challenges and Solutions',
+    title: '12 LLM Deployment Challenges — And How to Handle Each One in Production',
+    seoTitle: '12 LLM Deployment Challenges & How to Handle Them (2026)',
     description:
-      'Real-world insights into the common pitfalls when deploying large language models and how to overcome them.',
-    date: '2024-12-08',
-    author: 'team',
+      'The LLM deployment challenges that actually bite in production — cost, latency, hallucinations, prompt injection, and more — each with when it hits hardest and how to handle it.',
+    date: '2026-07-25',
+    author: 'poorna',
+    image: '/og-llm-deployment-challenges.png',
   },
   {
     path: '/blog/building-robust-ai-data-pipelines',

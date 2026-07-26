@@ -101,18 +101,18 @@ const BlogsPage = () => {
       icon: Zap,
       gradient: "from-primary to-primary-glow",
       link: "/blog/openai-gdpval"
-    }
-    // {
-    //   id: 4,
-    //   title: "LLM Deployment Challenges: Lessons from the Field",
-    //   excerpt: "Real-world insights on deploying large language models, including performance optimization, cost management, and scaling considerations.",
-    //   readTime: "18 min read",
-    //   date: "Jul 22, 2025",
-    //   category: "LLM Deployment",
-    //   icon: Database,
-    //   gradient: "from-accent to-accent/80",
-    //   link: "/blog/llm-deployment-challenges"
-    // },
+    },
+    {
+      id: 5,
+      title: "12 LLM Deployment Challenges — And How to Handle Each One in Production",
+      excerpt: "Getting an LLM to work in a demo is easy; making it fast, affordable, safe, and consistently correct under real traffic is the hard part. The challenges that actually bite — with when each hits and how to handle it.",
+      readTime: "12 min read",
+      date: "Jul 25, 2026",
+      category: "LLM Deployment",
+      icon: Database,
+      gradient: "from-blue-600 to-purple-800",
+      link: "/blog/llm-deployment-challenges"
+    },
     // {
     //   id: 5,
     //   title: "Building Robust AI Data Pipelines",

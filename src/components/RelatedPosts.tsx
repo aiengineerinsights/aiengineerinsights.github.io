@@ -45,8 +45,8 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/llm-deployment-challenges",
-    title: "LLM Deployment Challenges and Solutions",
-    tag: "MLOps",
+    title: "12 LLM Deployment Challenges — And How to Handle Each",
+    tag: "LLM Deployment",
   },
   {
     slug: "/blog/building-robust-ai-data-pipelines",
