@@ -138,11 +138,13 @@ const posts = [
   },
   {
     path: '/blog/mlops-best-practices',
-    title: 'MLOps Best Practices: From Prototype to Production',
+    title: '14 MLOps Best Practices, Ordered by Impact — With Examples of When Each One Saves You',
+    seoTitle: '14 MLOps Best Practices Ordered by Impact (2026)',
     description:
-      'How to bridge the gap between experimentation and production-ready ML systems with proven MLOps strategies.',
-    date: '2024-12-10',
-    author: 'team',
+      'An impact-ordered guide to 14 MLOps best practices — versioning, monitoring, CI/CD, eval gates, safe rollouts, and more — each with when it matters most and a concrete example.',
+    date: '2026-07-25',
+    author: 'poorna',
+    image: '/og-mlops-best-practices.png',
   },
   {
     path: '/blog/llm-deployment-challenges',

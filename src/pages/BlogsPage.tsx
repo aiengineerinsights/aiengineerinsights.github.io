@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 11,
+      title: "14 MLOps Best Practices, Ordered by Impact — With Examples of When Each One Saves You",
+      excerpt: "Most MLOps advice is a flat checklist. This is an impact-ordered one: versioning, monitoring, CI/CD, eval gates, safe rollouts, and more — each with when it matters most and a concrete example of the failure it prevents.",
+      readTime: "11 min read",
+      date: "Jul 25, 2026",
+      category: "MLOps",
+      icon: Settings,
+      gradient: "from-purple-600 to-purple-800",
+      link: "/blog/mlops-best-practices"
+    },
     {
       id: 10,
       title: "GitHub's Bug Bounty Overhaul: What \"AI Slop\" Vulnerability Reports Are Doing to Security Research",

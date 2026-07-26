@@ -40,7 +40,7 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/mlops-best-practices",
-    title: "MLOps Best Practices: From Prototype to Production",
+    title: "14 MLOps Best Practices, Ordered by Impact",
     tag: "MLOps",
   },
   {
