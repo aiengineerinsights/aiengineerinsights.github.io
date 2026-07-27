@@ -158,11 +158,13 @@ const posts = [
   },
   {
     path: '/blog/building-robust-ai-data-pipelines',
-    title: 'Building Robust AI Data Pipelines',
+    title: 'Building Robust AI Data Pipelines: 12 Practices, Ordered by Impact',
+    seoTitle: 'Building Robust AI Data Pipelines: 12 Practices (2026)',
     description:
-      'A practical guide to creating reliable, scalable data pipelines that power modern AI applications.',
-    date: '2024-12-05',
-    author: 'team',
+      'The 12 practices that make AI data pipelines robust — validation gates, idempotency, schema contracts, medallion layers, observability — each with when it matters and an example.',
+    date: '2026-07-26',
+    author: 'poorna',
+    image: '/og-building-robust-ai-data-pipelines.png',
   },
 ]
 

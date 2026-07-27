@@ -50,7 +50,7 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/building-robust-ai-data-pipelines",
-    title: "Building Robust AI Data Pipelines",
+    title: "Building Robust AI Data Pipelines: 12 Practices",
     tag: "Data Engineering",
   },
 ];

@@ -113,17 +113,17 @@ const BlogsPage = () => {
       gradient: "from-blue-600 to-purple-800",
       link: "/blog/llm-deployment-challenges"
     },
-    // {
-    //   id: 5,
-    //   title: "Building Robust AI Data Pipelines",
-    //   excerpt: "Architecture patterns and best practices for creating reliable data pipelines that power AI applications in production environments.",
-    //   readTime: "14 min read",
-    //   date: "Jul 20, 2025",
-    //   category: "Data Engineering",
-    //   icon: Database,
-    //   gradient: "from-muted to-muted-foreground/20",
-    //   link: "/blog/building-robust-ai-data-pipelines"
-    // }
+    {
+      id: 6,
+      title: "Building Robust AI Data Pipelines: 12 Practices, Ordered by Impact",
+      excerpt: "A robust AI data pipeline comes from gates and guarantees — validation, idempotency, contracts, and observability — not a fancier transform. The 12 practices that keep the data feeding your models correct, each with when it matters and an example.",
+      readTime: "11 min read",
+      date: "Jul 26, 2026",
+      category: "Data Engineering",
+      icon: Database,
+      gradient: "from-amber-600 to-purple-800",
+      link: "/blog/building-robust-ai-data-pipelines"
+    }
   ];
 
   const categories = ["All", ...Array.from(new Set(blogPosts.map(post => post.category)))];
