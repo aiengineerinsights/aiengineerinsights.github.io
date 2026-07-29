@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/forward-deployed-ai-engineer",
+    title: "The Forward-Deployed AI Engineer: Role, Pay, and How to Break In",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/github-bug-bounty-ai-slop",
     title: "GitHub's Bug Bounty Overhaul: What \"AI Slop\" Vulnerability Reports Are Doing to Security Research",
     tag: "Agentic Security",

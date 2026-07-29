@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 12,
+      title: "The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It",
+      excerpt: "OpenAI, Anthropic, and Google DeepMind have all built teams around Palantir's forward-deployed engineer model. What the job actually is, how it compares to adjacent roles, what it pays, and how to break in.",
+      readTime: "10 min read",
+      date: "Jul 29, 2026",
+      category: "AI Engineering Careers",
+      icon: Briefcase,
+      gradient: "from-cyan-600 to-indigo-800",
+      link: "/blog/forward-deployed-ai-engineer"
+    },
     {
       id: 11,
       title: "14 MLOps Best Practices, Ordered by Impact — With Examples of When Each One Saves You",

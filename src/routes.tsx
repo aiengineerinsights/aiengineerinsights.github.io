@@ -17,6 +17,7 @@ const OllamaBlogPost = lazy(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
+const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -33,6 +34,7 @@ const AppRoutes = () => (
       <Route path="/authors" element={<Authors />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
+      <Route path="/blog/forward-deployed-ai-engineer" element={<ForwardDeployedEngineerPost />} />
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />

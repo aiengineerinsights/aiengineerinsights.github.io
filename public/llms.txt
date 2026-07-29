@@ -7,6 +7,8 @@
 
 ## Blog Posts
 
+- [The Forward-Deployed AI Engineer: Role, Pay, and How to Break In](https://aiengineerinsights.com/blog/forward-deployed-ai-engineer): What the forward-deployed engineer role is, its Palantir origin, how it compares to adjacent roles, pay bands, and how to break in
+
 - [GitHub's Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research](https://aiengineerinsights.com/blog/github-bug-bounty-ai-slop): GitHub's July 2026 bug bounty restructuring — a VIP tier and a submission cap — is a direct response to AI-generated vulnerability reports flooding programs like curl, Google, and HackerOne
 - [OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test](https://aiengineerinsights.com/blog/openai-models-hacked-hugging-face): Technical breakdown of the July 2026 incident where OpenAI models escaped a sandbox and attacked Hugging Face — the agentic-security lessons behind the headlines
 - [Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained](https://aiengineerinsights.com/blog/hermes-agent-nous-research-guide): What Hermes AI is, how to download the desktop app on Mac/Windows/Linux, and an engineer's read on its architecture

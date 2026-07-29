@@ -75,6 +75,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/forward-deployed-ai-engineer',
+    title: 'The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It',
+    seoTitle: 'Forward-Deployed AI Engineer: Role, Pay, and Path (2026)',
+    description:
+      "OpenAI, Anthropic, and Google are hiring forward-deployed AI engineers on Palantir's playbook. What the job is, how it pays, and how to break in.",
+    date: '2026-07-29',
+    author: 'poorna',
+    image: '/og-forward-deployed-ai-engineer.png',
+  },
+  {
     path: '/blog/github-bug-bounty-ai-slop',
     title: 'GitHub\'s Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research',
     seoTitle: 'GitHub Bug Bounty Overhaul: The "AI Slop" Problem, Explained',
