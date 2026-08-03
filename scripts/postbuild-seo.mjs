@@ -86,6 +86,16 @@ const posts = [
     image: '/og-ai-engineer-salary.png',
   },
   {
+    path: '/blog/inkling-small-thinking-machines',
+    title: "Inkling-Small vs. Inkling: Is Thinking Machines' 12B-Active Model Actually Worth Deploying?",
+    seoTitle: 'Inkling-Small vs. Inkling: Worth Deploying? (2026)',
+    description:
+      "Inkling-Small runs 12B active params — a quarter of Inkling's 41B — yet matches or beats it on SWE-bench, math, and reasoning. Full spec and benchmark breakdown.",
+    date: '2026-08-01',
+    author: 'poorna',
+    image: '/og-inkling-small-thinking-machines.png',
+  },
+  {
     path: '/blog/forward-deployed-ai-engineer',
     title: 'The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It',
     seoTitle: 'Forward-Deployed AI Engineer: Role, Pay, and Path (2026)',

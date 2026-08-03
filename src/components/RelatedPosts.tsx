@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/inkling-small-thinking-machines",
+    title: "Inkling-Small vs. Inkling: Is Thinking Machines' 12B-Active Model Worth Deploying?",
+    tag: "Model Releases",
+  },
+  {
     slug: "/blog/ai-engineer-salary",
     title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
     tag: "AI Engineering Careers",

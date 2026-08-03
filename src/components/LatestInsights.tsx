@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ const LatestInsights = () => {
   const navigate = useNavigate();
 
   const insights = [
+    {
+      title: "Inkling-Small vs. Inkling: Is Thinking Machines' 12B-Active Model Actually Worth Deploying?",
+      excerpt: "Thinking Machines Lab's open-weights Inkling-Small runs 12B active params — a quarter of Inkling's 41B — yet matches or beats it on SWE-bench, math, and reasoning. A spec-and-benchmark breakdown of whether it's worth deploying.",
+      readTime: "10 min read",
+      date: "Aug 1, 2026",
+      category: "Model Releases",
+      icon: Cpu,
+      gradient: "from-slate-600 to-cyan-800",
+      link: "/blog/inkling-small-thinking-machines"
+    },
     {
       title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
       excerpt: "US AI engineers earn roughly $100K–$250K in 2026 — and $850K+ median at the frontier labs. A fully sourced breakdown across Glassdoor, Levels.fyi, ZipRecruiter, and BLS data: by experience level, by company, by city, and what actually moves the number.",
