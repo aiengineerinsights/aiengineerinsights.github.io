@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 14,
+      title: "Inkling-Small vs. Inkling: Is Thinking Machines' 12B-Active Model Actually Worth Deploying?",
+      excerpt: "Thinking Machines Lab's open-weights Inkling-Small runs 12B active params — a quarter of Inkling's 41B — yet matches or beats it on SWE-bench, math, and reasoning. A spec-and-benchmark breakdown of whether it's worth deploying.",
+      readTime: "10 min read",
+      date: "Aug 1, 2026",
+      category: "Model Releases",
+      icon: Cpu,
+      gradient: "from-slate-600 to-cyan-800",
+      link: "/blog/inkling-small-thinking-machines"
+    },
     {
       id: 13,
       title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
