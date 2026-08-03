@@ -7,6 +7,7 @@
 
 ## Blog Posts
 
+- [AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City](https://aiengineerinsights.com/blog/ai-engineer-salary): Sourced US AI engineer pay data for 2026 — roughly $100K–$250K broad market, $850K+ median at frontier labs — broken down by experience level, company, and city
 - [The Forward-Deployed AI Engineer: Role, Pay, and How to Break In](https://aiengineerinsights.com/blog/forward-deployed-ai-engineer): What the forward-deployed engineer role is, its Palantir origin, how it compares to adjacent roles, pay bands, and how to break in
 
 - [GitHub's Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research](https://aiengineerinsights.com/blog/github-bug-bounty-ai-slop): GitHub's July 2026 bug bounty restructuring — a VIP tier and a submission cap — is a direct response to AI-generated vulnerability reports flooding programs like curl, Google, and HackerOne

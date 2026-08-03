@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-engineer-salary",
+    title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/forward-deployed-ai-engineer",
     title: "The Forward-Deployed AI Engineer: Role, Pay, and How to Break In",
     tag: "AI Engineering Careers",

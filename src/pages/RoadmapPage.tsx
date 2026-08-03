@@ -142,6 +142,10 @@ const faqs = [
     q: "What should I specialize in for 2026?",
     a: "LLMs and agentic systems have the strongest demand right now, followed by applied computer vision. Whichever you pick, go deep enough to build and deploy non-trivial systems — depth beats breadth for getting hired.",
   },
+  {
+    q: "How much do AI engineers make?",
+    a: "In the US in 2026, AI engineers earn roughly $100K–$250K, with a Glassdoor average around $144K and big-tech total compensation well above that (often $250K+). See our full 2026 AI engineer salary breakdown by level, company, and city for the details.",
+  },
 ];
 
 const howToJsonLd = {
@@ -199,6 +203,19 @@ const RoadmapPage = () => {
               </Button>
             </div>
           </header>
+
+          <section className="mb-10">
+            <h2 id="how-to-become" className="text-2xl font-bold mb-3">How do you become an AI engineer?</h2>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              In short: <strong>learn Python and the math fundamentals, get hands-on with machine learning and deep
+              learning, then — the step most people skip — build and ship real projects to production</strong> (MLOps),
+              and specialize in a high-demand area like LLMs and agents. You do not need a formal degree; a portfolio of
+              shipped work is what actually gets you hired. The six phases below are that path in order, and you can grab
+              the whole thing as a <a href={PDF} download="ai-engineering-roadmap.pdf" className="text-primary hover:underline">free AI engineer roadmap PDF</a>.
+              Curious what it pays? See our{" "}
+              <Link to="/blog/ai-engineer-salary" className="text-primary hover:underline">2026 AI engineer salary breakdown</Link>.
+            </p>
+          </section>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-3">How to use this roadmap</h2>

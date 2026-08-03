@@ -61,9 +61,10 @@ const pages = [
   },
   {
     path: '/ai-engineering-roadmap',
-    title: 'AI Engineering Roadmap 2026: Step-by-Step Guide (Free PDF)',
+    title: 'AI Engineering Roadmap 2026: How to Become an AI Engineer (Free PDF)',
+    seoTitle: 'AI Engineer Roadmap 2026: How to Become One (Free PDF)',
     description:
-      'A complete AI engineering roadmap for 2026 — from Python and math to ML, MLOps, and LLMs/agents. Six phases, curated resources, and a free downloadable PDF.',
+      'How to become an AI engineer in 2026 — a step-by-step roadmap from Python and math to ML, MLOps, and LLMs/agents. Six phases, curated resources, and a free PDF.',
   },
   {
     path: '/privacy',
@@ -74,6 +75,16 @@ const pages = [
 ]
 
 const posts = [
+  {
+    path: '/blog/ai-engineer-salary',
+    title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
+    seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',
+    description:
+      'US AI engineers earn roughly $100K–$250K in 2026 — Glassdoor avg $144K, Levels.fyi ~$244K total comp, $850K+ at frontier labs. By level, company, and city.',
+    date: '2026-08-03',
+    author: 'poorna',
+    image: '/og-ai-engineer-salary.png',
+  },
   {
     path: '/blog/forward-deployed-ai-engineer',
     title: 'The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It',
