@@ -45,6 +45,10 @@ const faqs = [
     a: "On its published benchmark (7,700+ files, 50+ prompts), cost per prompt dropped from $0.49 to $0.27 with equal-or-better quality. Savings vary by task — up to ~81% on migration and architecture work, ~43% average on large codebases. It won on cost for all 10 test prompts.",
   },
   {
+    q: "Why is Claude Code so expensive on large projects?",
+    a: "Because you pay for the entire context every turn, and it compounds: every file the agent reads stays in the window for the rest of the session, so each new message re-bills the growing context. On big repos, letting the assistant explore freely is what turns into $200–400/month bills. Curating the context — feeding only the relevant files — is the most direct fix.",
+  },
+  {
     q: "Which AI coding tools does it work with?",
     a: "Claude Code and OpenAI Codex CLI have full support, plus Cursor, Gemini CLI, GitHub Copilot, OpenCode, and several others. It ships as a wrapper command per tool (dgc for Claude Code, dg for Codex).",
   },
@@ -182,6 +186,61 @@ const ContextEngineeringGrapeRootPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="real-problems" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The problems developers actually run into</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you use Claude Code or Codex on a real codebase, these complaints will feel familiar — they come up
+                  constantly on Reddit, Discord, and dev forums. Context engineering is a direct response to each of them.
+                </p>
+                <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
+                  <div className="min-w-full inline-block align-middle">
+                    <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">The complaint</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">What's really happening</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Where context engineering helps</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">"It burned $200–400 this month"</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">You pay for the whole context every turn, and it grows as the session goes.</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Preloading only the relevant files keeps the window small; savings compound instead of costs.</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">"It reads my whole repo before doing anything"</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Letting the agent index everything frontloads massive context before a single question.</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">The graph selects the files that matter for <em>this</em> task, under a hard token budget.</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">"Auto-compact kicked in and it forgot everything"</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">A full window forces compaction, which summarizes away details you still needed.</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Less junk in the window means you hit the ceiling later and compact less often (it doesn't remove compaction).</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">"It nails the first files, then loses the plot"</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">As the window fills, the model contradicts earlier decisions and reverses its own fixes.</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Feeding the right code (not everything) keeps signal high and the model coherent for longer.</TableCell>
+                          </TableRow>
+                          <TableRow>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">".claudeignore and pointing to files by hand is tedious"</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">The current fix is manual curation — exclude dirs, name the exact files every time.</TableCell>
+                            <TableCell className="text-xs sm:text-sm px-2 sm:px-4">A context engine automates that file-selection so you don't hand-pick on every prompt.</TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Notice the honest limit: a context engine doesn't <em>abolish</em> the context window or auto-compact — it
+                  just stops you from filling the window with code the model didn't need. That alone removes most of the
+                  cost and most of the "it forgot the project" failures.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="benchmarks" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How much does it actually save?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   GrapeRoot's published benchmark ran across real-world codebases (7,700+ files) and 50+ engineering
@@ -296,6 +355,8 @@ const ContextEngineeringGrapeRootPost = () => {
                   <li>• <a href="https://graperoot.dev/benchmarks" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GrapeRoot — benchmark methodology &amp; results</a></li>
                   <li>• <a href="https://github.com/kunal12203/GrapeRoot" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GrapeRoot on GitHub</a></li>
                   <li>• <a href="https://pypi.org/project/graperoot/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">graperoot on PyPI</a></li>
+                  <li>• <a href="https://dev.to/agentic-engineer/taming-context-windows-disable-auto-compact-for-better-ai-4gbm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">DEV — taming context windows &amp; auto-compact</a></li>
+                  <li>• <a href="https://dev.to/siddhantkcode/claude-code-is-costly-unless-you-do-this-484o" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">DEV — Claude Code cost &amp; token management</a></li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mt-3 text-xs sm:text-sm">
                   Independent write-up — not sponsored. Benchmark figures are GrapeRoot's own published numbers; validate on
