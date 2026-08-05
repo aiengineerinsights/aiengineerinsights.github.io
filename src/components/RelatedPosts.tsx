@@ -87,10 +87,17 @@ const RelatedPosts = ({ current }: { current: string }) => {
   const shareUrl = `${SITE}${current}/`;
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="mb-10 flex flex-col gap-3 border-y border-border py-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-base font-semibold">Found this useful? Share it.</p>
-        <ShareButtons title={currentPost?.title ?? "AI Engineer Insights"} url={shareUrl} />
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-12">
+      {/* Share block, aligned under the article's reading column (the empty
+          spacer mirrors the TOC sidebar so it lines up with the post text). */}
+      <div className="mb-12 flex flex-col lg:flex-row lg:gap-8">
+        <div className="hidden lg:block w-48 pr-6 shrink-0" aria-hidden="true" />
+        <div className="flex-1 lg:max-w-4xl">
+          <div className="flex flex-col gap-3 rounded-xl border border-border bg-muted/30 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-base font-semibold">Found this useful? Share it.</p>
+            <ShareButtons title={currentPost?.title ?? "AI Engineer Insights"} url={shareUrl} />
+          </div>
+        </div>
       </div>
       <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
       <div className="grid gap-4 md:grid-cols-3">

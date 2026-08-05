@@ -228,20 +228,28 @@ function writeRoute({ path, title, seoTitle, description, date, author, image },
   // <title> uses the short seoTitle (~50-60 chars, avoids SERP truncation)
   // when provided; og/twitter titles keep the fuller headline for social.
   const tabTitle = seoTitle || title
+  // NOTE: use replacer FUNCTIONS, never a template-string replacement. In
+  // String.replace, "$" in the replacement string is a special backreference,
+  // so a value like "$100K" or "$0.27" in a title/description would be mangled
+  // into broken HTML (and break social link previews). A function's return
+  // value is used verbatim, with no "$" interpretation.
+  const put = (re, value) => {
+    html = html.replace(re, (_m, p1, p2) => (p1 ?? '') + value + (p2 ?? ''))
+  }
   let html = template
-    .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${ogImage}$2`)
-    .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${ogImage}$2`)
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(tabTitle)}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`)
-    .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
-    .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(description)}$2`)
-    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
-    .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(description)}$2`)
+  put(/(<meta property="og:image" content=")[^"]*(")/, ogImage)
+  put(/(<meta name="twitter:image" content=")[^"]*(")/, ogImage)
+  html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tabTitle)}</title>`)
+  put(/(<meta name="description" content=")[^"]*(")/, esc(description))
+  put(/(<link rel="canonical" href=")[^"]*(")/, url)
+  put(/(<meta property="og:title" content=")[^"]*(")/, esc(title))
+  put(/(<meta property="og:description" content=")[^"]*(")/, esc(description))
+  put(/(<meta property="og:url" content=")[^"]*(")/, url)
+  put(/(<meta name="twitter:title" content=")[^"]*(")/, esc(title))
+  put(/(<meta name="twitter:description" content=")[^"]*(")/, esc(description))
 
   if (date) {
-    html = html.replace(/(<meta property="og:type" content=")website(")/, '$1article$2')
+    html = html.replace(/(<meta property="og:type" content=")website(")/, (_m, p1, p2) => p1 + 'article' + p2)
     const jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
