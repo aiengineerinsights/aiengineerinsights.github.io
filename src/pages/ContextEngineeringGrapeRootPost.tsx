@@ -304,6 +304,30 @@ const ContextEngineeringGrapeRootPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="quality" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Does feeding it less context hurt answer quality?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  This is the natural worry: if you show the model fewer files, won't it miss something and answer worse?
+                  In the benchmark the opposite happened — <strong>quality went up, from 76.6 to 86.6</strong> — and that's not
+                  a fluke. Three reasons why curating context tends to <em>improve</em> quality, not degrade it:
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base">
+                    <li>• <strong>More context isn't better — the <em>right</em> context is.</strong> LLMs suffer from "lost in the middle" and context rot: as the window fills with marginally-relevant code, attention spreads thin and the model misses the parts that matter. Trimming to the relevant files raises the signal-to-noise ratio the model actually reasons over.</li>
+                    <li>• <strong>The model only used a few files anyway.</strong> When an assistant explores, it still ends up basing its answer on a handful of files — after wrong guesses and dead ends that pollute the context. Preloading the right ones skips the detours and the noise they leave behind.</li>
+                    <li>• <strong>Less forced forgetting.</strong> A leaner window hits auto-compaction later, so the model summarizes away fewer details and stays coherent across a long task instead of contradicting its earlier decisions.</li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The honest failure mode: quality only holds if the <strong>ranking is right</strong>. If the graph
+                  mis-ranks and leaves out a file the task genuinely needed, that specific answer can get worse — the model
+                  can't reason about code it never saw. So the quality of a context engine <em>is</em> the quality of its
+                  retrieval. In practice the graph (symbols, imports, call chains, plus what you've already touched this
+                  session) ranks well, which is why the measured quality rose rather than fell — but it's a retrieval
+                  system, not magic, and it's worth spot-checking on your own repo.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="install" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How do you use it?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   It's a Python package (<code>graperoot</code> on PyPI) with a per-tool wrapper command. For Claude Code
