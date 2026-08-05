@@ -1,9 +1,14 @@
-
 import { TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { insights } from "@/components/LatestInsights";
 
 const LatestBlogBanner = () => {
+  // Always the newest post — insights is ordered newest-first (single source
+  // of truth shared with the homepage feed), so no static edits needed.
+  const latest = insights[0];
+  if (!latest) return null;
+
   return (
     <div className="fixed top-16 w-full z-40 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground">
       <div className="container mx-auto px-4 py-2">
@@ -13,12 +18,12 @@ const LatestBlogBanner = () => {
             <span className="font-medium">Latest:</span>
           </div>
           <span className="flex-1 text-center md:text-left truncate">
-            OpenAI GDPval: The Evaluation of AI's Economic Potential
+            {latest.title}
           </span>
-          <Link to="blog/openai-gdpval">
-            <Button 
-              variant="outline" 
-              size="sm" 
+          <Link to={latest.link}>
+            <Button
+              variant="outline"
+              size="sm"
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 flex-shrink-0"
             >
               Read Now

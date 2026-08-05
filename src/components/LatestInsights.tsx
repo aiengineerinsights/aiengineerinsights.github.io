@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
 
-const LatestInsights = () => {
-  const navigate = useNavigate();
-
-  const insights = [
+// Single source of truth for the post feed, newest FIRST. The homepage grid,
+// and the "Latest" banner both read from this, so adding a new post as the
+// first item here updates every surface automatically.
+export const insights = [
     {
       title: "Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%",
       excerpt: "Context engineering — curating what's in the model's context window, not just the prompt — is the highest-leverage skill for AI-assisted coding in 2026. GrapeRoot is a local semantic-graph context engine that preloads the right code, cutting cost per prompt from $0.49 to $0.27.",
@@ -108,7 +108,10 @@ const LatestInsights = () => {
       gradient: "from-primary to-primary-glow",
       link: "/blog/openai-gdpval"
     }
-  ];
+];
+
+const LatestInsights = () => {
+  const navigate = useNavigate();
 
   const handleViewAllInsights = () => {
     navigate('/blogs');

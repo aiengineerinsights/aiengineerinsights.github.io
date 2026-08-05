@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import ShareButtons from "@/components/ShareButtons";
+
+const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
@@ -71,16 +74,24 @@ const ALL_POSTS = [
 ];
 
 const RelatedPosts = ({ current }: { current: string }) => {
+  const currentPost = ALL_POSTS.find((p) => p.slug === current);
   const others = ALL_POSTS.filter((p) => p.slug !== current);
   // Same-tag posts first, then the rest, capped at three
-  const currentTag = ALL_POSTS.find((p) => p.slug === current)?.tag;
+  const currentTag = currentPost?.tag;
   const related = [
     ...others.filter((p) => p.tag === currentTag),
     ...others.filter((p) => p.tag !== currentTag),
   ].slice(0, 3);
 
+  // Canonical URL for this post (trailing slash, matching how it's served).
+  const shareUrl = `${SITE}${current}/`;
+
   return (
     <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mb-10 flex flex-col gap-3 border-y border-border py-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-base font-semibold">Found this useful? Share it.</p>
+        <ShareButtons title={currentPost?.title ?? "AI Engineer Insights"} url={shareUrl} />
+      </div>
       <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
       <div className="grid gap-4 md:grid-cols-3">
         {related.map((post) => (
