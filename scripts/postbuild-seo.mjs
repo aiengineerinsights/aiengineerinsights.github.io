@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/context-engineering-graperoot',
+    title: 'Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%',
+    seoTitle: 'Context Engineering: How GrapeRoot Cuts AI Coding Cost',
+    description:
+      "Context engineering means curating what's in the model's context window. GrapeRoot preloads the right code into every prompt — cutting Claude Code cost from $0.49 to $0.27 per prompt.",
+    date: '2026-08-05',
+    author: 'poorna',
+    image: '/og-context-engineering-graperoot.png',
+  },
+  {
     path: '/blog/ai-engineer-salary',
     title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
     seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',

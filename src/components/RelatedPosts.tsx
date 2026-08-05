@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/context-engineering-graperoot",
+    title: "Context Engineering for AI Coding: How GrapeRoot Cuts Token Cost 30–45%",
+    tag: "AI Tooling",
+  },
+  {
     slug: "/blog/ai-engineer-salary",
     title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
     tag: "AI Engineering Careers",

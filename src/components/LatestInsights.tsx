@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ const LatestInsights = () => {
   const navigate = useNavigate();
 
   const insights = [
+    {
+      title: "Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%",
+      excerpt: "Context engineering — curating what's in the model's context window, not just the prompt — is the highest-leverage skill for AI-assisted coding in 2026. GrapeRoot is a local semantic-graph context engine that preloads the right code, cutting cost per prompt from $0.49 to $0.27.",
+      readTime: "9 min read",
+      date: "Aug 5, 2026",
+      category: "AI Tooling",
+      icon: Network,
+      gradient: "from-purple-600 to-emerald-700",
+      link: "/blog/context-engineering-graperoot"
+    },
     {
       title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
       excerpt: "US AI engineers earn roughly $100K–$250K in 2026 — and $850K+ median at the frontier labs. A fully sourced breakdown across Glassdoor, Levels.fyi, ZipRecruiter, and BLS data: by experience level, by company, by city, and what actually moves the number.",

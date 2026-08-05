@@ -18,6 +18,7 @@ const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
+const ContextEngineeringGrapeRootPost = lazy(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazy(() => import("./pages/AIEngineerSalaryPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -37,6 +38,7 @@ const AppRoutes = () => (
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
       <Route path="/blog/ai-engineer-salary" element={<AIEngineerSalaryPost />} />
       <Route path="/blog/forward-deployed-ai-engineer" element={<ForwardDeployedEngineerPost />} />
+      <Route path="/blog/context-engineering-graperoot" element={<ContextEngineeringGrapeRootPost />} />
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
