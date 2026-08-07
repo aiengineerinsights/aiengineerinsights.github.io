@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/claude-certified-architect-exam',
+    title: "The Claude Certified Architect (CCA) Exam: The 5 Domains, What It Costs, and an Honest Take on Whether It's Worth It",
+    seoTitle: 'Claude Certified Architect Exam Guide 2026 (CCAR-F)',
+    description:
+      "Anthropic's Claude Certified Architect exam (CCAR-F): ~60 scenario questions, 120 min, $125, pass 720/1000 — the 5 domains, registration, and honest prep tips.",
+    date: '2026-08-07',
+    author: 'poorna',
+    image: '/og-claude-certified-architect-exam.png',
+  },
+  {
     path: '/blog/context-engineering-graperoot',
     title: 'Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%',
     seoTitle: 'Context Engineering: How GrapeRoot Cuts AI Coding Cost',

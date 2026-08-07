@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 16,
+      title: "The Claude Certified Architect (CCA) Exam: The 5 Domains, What It Costs, and an Honest Take on Whether It's Worth It",
+      excerpt: "Anthropic's first technical certification (CCAR-F): ~60 scenario-based questions, 120 minutes, closed-book via Pearson VUE, pass at 720/1000, ~$125 per attempt. The 5 domains and their weights, the registration path, honest pros and cons, and the prep tactics real candidates say worked.",
+      readTime: "11 min read",
+      date: "Aug 7, 2026",
+      category: "AI Engineering Careers",
+      icon: Award,
+      gradient: "from-purple-600 to-orange-600",
+      link: "/blog/claude-certified-architect-exam"
+    },
     {
       id: 15,
       title: "Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%",

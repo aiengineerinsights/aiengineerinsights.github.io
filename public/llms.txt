@@ -7,6 +7,8 @@
 
 ## Blog Posts
 
+- [The Claude Certified Architect (CCA) Exam: The 5 Domains, What It Costs, and Whether It's Worth It](https://aiengineerinsights.com/blog/claude-certified-architect-exam): Honest guide to Anthropic's CCAR-F certification — ~60 scenario-based questions, 120 minutes, $125, pass at 720/1000, the 5 exam domains and weights, registration via Pearson VUE, and prep tips from real candidates
+
 - [Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%](https://aiengineerinsights.com/blog/context-engineering-graperoot): What context engineering is (vs prompt engineering) and how GrapeRoot, a local semantic-graph context engine, preloads the right code to cut AI coding token cost
 
 - [AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City](https://aiengineerinsights.com/blog/ai-engineer-salary): Sourced US AI engineer pay data for 2026 — roughly $100K–$250K broad market, $850K+ median at frontier labs — broken down by experience level, company, and city

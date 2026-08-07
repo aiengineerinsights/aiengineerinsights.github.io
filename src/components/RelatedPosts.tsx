@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/claude-certified-architect-exam",
+    title: "The Claude Certified Architect (CCA) Exam: The 5 Domains, Cost, and Whether It's Worth It",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/context-engineering-graperoot",
     title: "Context Engineering for AI Coding: How GrapeRoot Cuts Token Cost 30–45%",
     tag: "AI Tooling",
