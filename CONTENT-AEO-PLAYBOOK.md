@@ -87,6 +87,14 @@ You cannot query the prompts users type into an LLM. Infer them:
 Real prompts are intent-heavy: not "project management tool" but "best PM tool
 for a remote team of 50 that integrates with Slack and Jira." Write for that.
 
+**Weekly GSC intent refresh (closes the loop):** the file `data/gsc-intent.md`
+holds real Search Console demand — top queries, striking-distance opportunities
+(pages that rank 4–20 but get ~no clicks), and low-CTR pages. Regenerate it
+weekly: in GSC → Performance → Export (last 28 days) → download the ZIP, then
+run `node scripts/gsc-ingest.mjs ~/Downloads/<export>.zip` and commit the
+updated `data/gsc-intent.md`. Both content routines read it and prefer topics /
+angles that serve the revealed demand — this beats any guess about intent.
+
 ## 5. How this maps to our post template
 
 Our React post components already support this — use them deliberately:
