@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 17,
+      title: "Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid",
+      excerpt: "On the CCA-F exam the wrong answers are designed to sound like best-practice engineering. The 11 traps — six of judgment, five technical — with the correct pattern for each, from Anthropic's own docs.",
+      readTime: "10 min read",
+      date: "Aug 7, 2026",
+      category: "AI Engineering Careers",
+      icon: AlertTriangle,
+      gradient: "from-rose-600 to-purple-800",
+      link: "/blog/claude-certified-architect-exam-traps"
+    },
     {
       id: 16,
       title: "Claude Certified Architect (CCA) Exam: Everything You Need to Know (2026)",

@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/claude-certified-architect-exam-traps',
+    title: 'Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid',
+    seoTitle: 'Claude Certified Architect Exam: 11 Traps to Avoid',
+    description:
+      "The Claude Certified Architect (CCA-F) exam's wrong answers are designed to sound like best practice. The 11 traps — judgment and technical — with the correct pattern for each.",
+    date: '2026-08-07',
+    author: 'poorna',
+    image: '/og-claude-certified-architect-exam-traps.png',
+  },
+  {
     path: '/blog/claude-certified-architect-exam',
     title: "Claude Certified Architect (CCA) Exam: Everything You Need to Know (2026)",
     seoTitle: 'Claude Certified Architect Exam: Everything to Know 2026',

@@ -19,6 +19,7 @@ const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost")
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
 const ClaudeCertifiedArchitectPost = lazy(() => import("./pages/ClaudeCertifiedArchitectPost"));
+const CCATrapsPost = lazy(() => import("./pages/CCATrapsPost"));
 const ContextEngineeringGrapeRootPost = lazy(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazy(() => import("./pages/AIEngineerSalaryPost"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -38,6 +39,7 @@ const AppRoutes = () => (
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
       <Route path="/blog/claude-certified-architect-exam" element={<ClaudeCertifiedArchitectPost />} />
+      <Route path="/blog/claude-certified-architect-exam-traps" element={<CCATrapsPost />} />
       <Route path="/blog/ai-engineer-salary" element={<AIEngineerSalaryPost />} />
       <Route path="/blog/forward-deployed-ai-engineer" element={<ForwardDeployedEngineerPost />} />
       <Route path="/blog/context-engineering-graperoot" element={<ContextEngineeringGrapeRootPost />} />

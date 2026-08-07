@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid",
+      excerpt: "On the CCA-F exam the wrong answers are designed to sound like best-practice engineering. The 11 traps — six of judgment, five technical — with the correct pattern for each, from Anthropic's own docs.",
+      readTime: "10 min read",
+      date: "Aug 7, 2026",
+      category: "AI Engineering Careers",
+      icon: AlertTriangle,
+      gradient: "from-rose-600 to-purple-800",
+      link: "/blog/claude-certified-architect-exam-traps"
+    },
     {
       title: "Claude Certified Architect (CCA) Exam: Everything You Need to Know (2026)",
       excerpt: "Anthropic's first technical certification (CCAR-F): ~60 scenario-based questions, 120 minutes, closed-book via Pearson VUE, pass at 720/1000, ~$125 per attempt. The 5 domains and their weights, the registration path, honest pros and cons, and the prep tactics real candidates say worked.",
