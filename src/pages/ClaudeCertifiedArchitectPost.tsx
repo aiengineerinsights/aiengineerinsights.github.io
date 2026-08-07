@@ -107,7 +107,7 @@ const ClaudeCertifiedArchitectPost = () => {
               </div>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                The Claude Certified Architect (CCA) Exam: The 5 Domains, What It Costs, and an Honest Take on Whether It's Worth It
+                Claude Certified Architect (CCA) Exam: Everything You Need to Know (2026)
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
