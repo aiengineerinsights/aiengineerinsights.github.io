@@ -61,6 +61,26 @@ Experienced devs want architecture-level trade-offs, not definitions.
 
 ---
 
+## Where to research from (authoritative sources)
+
+Accuracy is the whole game — reconstruct from primary sources, never from other
+blogs. Prefer, in order:
+
+- **Vendor engineering blogs & docs:** OpenAI (openai.com/research, /news), Anthropic
+  (anthropic.com/engineering, /research; code.claude.com/docs; platform.claude.com/docs),
+  Google (research.google, blog.google/technology/ai, ai.google/discover), Meta AI
+  (ai.meta.com/blog), Hugging Face (huggingface.co/blog), Cursor, Perplexity,
+  LangChain/LlamaIndex/vLLM/Weaviate/Pinecone docs & blogs.
+- **Papers:** arXiv (cs.AI/cs.CL/cs.LG), Papers with Code, and the canonical ones
+  (RAG, FlashAttention, PagedAttention/vLLM, MoE, the lab model cards).
+- **Practitioner deep-dives:** Simon Willison, Latent Space, Chip Huyen, sebastianraschka,
+  eugeneyan — good for framing, but verify their claims against primary sources.
+- **Talks:** AWS re:Invent, QCon, lab tech talks (for the "how they built it" detail).
+
+Cross-check every load-bearing number against 2+ sources; attribute; synthesize,
+never copy. If the primary source is thin, pick a different backlog topic rather
+than guess.
+
 ## Topic backlog (pick the highest-value un-written one)
 
 **Pillar 1 — Reconstruct real AI systems**

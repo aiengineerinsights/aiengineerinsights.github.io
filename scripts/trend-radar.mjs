@@ -7,13 +7,29 @@
 //
 // Usage: node scripts/trend-radar.mjs [--json] [--hours=48] [--top=10]
 
+// High-signal AI-engineering sources, spread across categories so cross-source
+// coverage is a real "hotness" signal (a story 4 outlets cover outranks a solo
+// one). Per-feed failures are swallowed, so adding more is safe. This is a
+// SIGNAL source only — we write our own original, cited take, never republish.
 const FEEDS = [
-  // User-provided aggregator proxy (Analytics India Magazine)
-  'https://zdpdvwhvukelzzbzbjvh.supabase.co/functions/v1/rss-feed',
-  // Add more AI-news feeds here as desired, e.g.:
-  // 'https://the-decoder.com/feed/',
-  // 'https://www.marktechpost.com/feed/',
-  // 'https://venturebeat.com/category/ai/feed/',
+  // AI-news aggregators
+  'https://zdpdvwhvukelzzbzbjvh.supabase.co/functions/v1/rss-feed', // Analytics India (user proxy)
+  'https://the-decoder.com/feed/',
+  'https://www.marktechpost.com/feed/',
+  'https://venturebeat.com/category/ai/feed/',
+  // Practitioner / thought leaders (closest to our niche's intent)
+  'https://simonwillison.net/atom/everything/',
+  'https://www.latent.space/feed',
+  // Labs & vendor engineering
+  'https://huggingface.co/blog/feed.xml',
+  'https://blog.google/technology/ai/rss/',
+  // Community (what practitioners actually discuss)
+  'https://hnrss.org/newest?q=LLM+OR+agents+OR+RAG&count=40', // Hacker News, niche-filtered
+  'https://www.reddit.com/r/LocalLLaMA/.rss',
+  'https://www.reddit.com/r/MachineLearning/.rss',
+  // NOTE: arXiv is intentionally NOT here. Raw preprints flood the daily
+  // news signal and aren't ideal daily-post material; research/papers are
+  // sourced directly by the weekly deep-dive lane instead.
 ]
 
 const args = process.argv.slice(2)
