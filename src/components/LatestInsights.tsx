@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
+      excerpt: "The fastest way to install Hermes Agent, step by step, for every method: the one-line macOS/Linux script, the native Windows PowerShell installer (and WSL2), pip for Python users, and Docker. Plus first-run setup — pick a model, start the TUI — and fixes for the common install errors.",
+      readTime: "8 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Download,
+      gradient: "from-purple-600 to-fuchsia-700",
+      link: "/blog/how-to-install-hermes-agent"
+    },
     {
       title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
       excerpt: "Both are MIT-licensed, self-hosted AI agents. OpenClaw is a gateway/control plane built for breadth — 20+ messaging channels and a marketplace of ready-made skills. Hermes Agent is an agent runtime built to learn, writing its own skills as it works, with stronger security defaults. A sourced, side-by-side comparison and a clear pick-by-need verdict.",

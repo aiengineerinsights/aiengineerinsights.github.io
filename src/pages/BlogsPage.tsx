@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 19,
+      title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
+      excerpt: "The fastest way to install Hermes Agent, step by step, for every method: the one-line macOS/Linux script, the native Windows PowerShell installer (and WSL2), pip for Python users, and Docker. Plus first-run setup — pick a model, start the TUI — and fixes for the common install errors.",
+      readTime: "8 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Download,
+      gradient: "from-purple-600 to-fuchsia-700",
+      link: "/blog/how-to-install-hermes-agent"
+    },
     {
       id: 18,
       title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",

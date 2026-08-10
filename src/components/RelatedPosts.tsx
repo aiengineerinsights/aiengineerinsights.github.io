@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/how-to-install-hermes-agent",
+    title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/hermes-agent-vs-openclaw",
     title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
     tag: "AI Agents",

@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/how-to-install-hermes-agent',
+    title: 'How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)',
+    seoTitle: 'How to Install Hermes Agent (Mac, Windows, Linux)',
+    description:
+      'Step-by-step: install Hermes Agent on macOS, Windows (PowerShell or WSL2), and Linux, plus pip and Docker. First-run model setup, the exact commands, and fixes for common install errors.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-how-to-install-hermes-agent.png',
+  },
+  {
     path: '/blog/hermes-agent-vs-openclaw',
     title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
     seoTitle: 'Hermes Agent vs OpenClaw: Which to Run (2026)',
