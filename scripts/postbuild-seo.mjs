@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/hermes-agent-vs-openclaw',
+    title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
+    seoTitle: 'Hermes Agent vs OpenClaw: Which to Run (2026)',
+    description:
+      'Hermes Agent vs OpenClaw compared, with real user reviews from Reddit and forums: architecture, skills, memory, security, cost, and a clear pick-by-need verdict (and why many run both).',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-vs-openclaw.png',
+  },
+  {
     path: '/blog/claude-certified-architect-exam-traps',
     title: 'Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid',
     seoTitle: 'Claude Certified Architect Exam: 11 Traps to Avoid',
@@ -148,9 +158,9 @@ const posts = [
   {
     path: '/blog/hermes-agent-nous-research-guide',
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
-    seoTitle: 'Hermes Agent by Nous Research: A Practical Guide',
+    seoTitle: 'Hermes Agent: What It Is, How to Install It, Free?',
     description:
-      "What Hermes AI is, how to install the desktop app on Mac, Windows, or Linux, and an engineer's read on the MIT-licensed agent framework's architecture.",
+      'What Hermes Agent by Nous Research is, whether it is free, and how to install the open-source self-improving AI agent on Mac, Windows, and Linux (desktop app + one-line terminal install).',
     date: '2026-07-22',
     author: 'poorna',
     image: '/og-hermes-agent.png',

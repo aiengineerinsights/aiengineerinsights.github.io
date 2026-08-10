@@ -15,6 +15,7 @@ const BlogPost2 = lazy(() => import("./pages/BlogPost2"));
 const BlogPost3 = lazy(() => import("./pages/BlogPost3"));
 const OllamaBlogPost = lazy(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
+const HermesOpenClawPost = lazy(() => import("./pages/HermesOpenClawPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
@@ -46,6 +47,7 @@ const AppRoutes = () => (
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
+      <Route path="/blog/hermes-agent-vs-openclaw" element={<HermesOpenClawPost />} />
       <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
       <Route path="/blog/ollama-mac-local-ai-2025" element={<OllamaBlogPost />} />
       <Route path="/blog/what-makes-llms-agentic" element={<AgenticLLMPost />} />

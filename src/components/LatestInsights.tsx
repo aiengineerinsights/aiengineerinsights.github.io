@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
+      excerpt: "Both are MIT-licensed, self-hosted AI agents. OpenClaw is a gateway/control plane built for breadth — 20+ messaging channels and a marketplace of ready-made skills. Hermes Agent is an agent runtime built to learn, writing its own skills as it works, with stronger security defaults. A sourced, side-by-side comparison and a clear pick-by-need verdict.",
+      readTime: "11 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: GitCompare,
+      gradient: "from-purple-600 to-blue-700",
+      link: "/blog/hermes-agent-vs-openclaw"
+    },
     {
       title: "Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid",
       excerpt: "On the CCA-F exam the wrong answers are designed to sound like best-practice engineering. The 11 traps — six of judgment, five technical — with the correct pattern for each, from Anthropic's own docs.",

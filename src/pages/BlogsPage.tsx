@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 18,
+      title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
+      excerpt: "Both are MIT-licensed, self-hosted AI agents. OpenClaw is a gateway/control plane built for breadth — 20+ messaging channels and a marketplace of ready-made skills. Hermes Agent is an agent runtime built to learn, writing its own skills as it works, with stronger security defaults. A sourced, side-by-side comparison and a clear pick-by-need verdict.",
+      readTime: "11 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: GitCompare,
+      gradient: "from-purple-600 to-blue-700",
+      link: "/blog/hermes-agent-vs-openclaw"
+    },
     {
       id: 17,
       title: "Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid",
