@@ -39,13 +39,13 @@ const pages = [
     path: '/blogs',
     title: 'Blog | AI Engineer Insights',
     description:
-      'Deep-dive articles on AI engineering: local LLMs, agent protocols, MLOps, LLM deployment, and data pipelines.',
+      'In-depth AI engineering articles for practitioners: open-source LLMs, AI agents, RAG, MLOps, LLM deployment, agentic security, and production data pipelines.',
   },
   {
     path: '/resources',
     title: 'Resources | AI Engineer Insights',
     description:
-      'Curated resources, roadmaps, and learning paths for aspiring and practicing AI engineers.',
+      'Curated AI engineering resources: roadmaps, courses, tools, and references across LLMs, AI agents, RAG, and MLOps — hand-picked for aspiring and practicing engineers.',
   },
   {
     path: '/projects',
@@ -255,7 +255,7 @@ const posts = [
     path: '/blog/what-makes-llms-agentic',
     title: 'What Makes LLMs Agentic?',
     description:
-      'Exploring the key capabilities of tool calling, reasoning, and advanced coding that make LLMs agentic in nature.',
+      'What separates an LLM from an AI agent? The core properties — tool calling, planning, memory, and autonomy — that turn a language model into an agent, with examples of each.',
     date: '2025-08-26',
     author: 'vishnu',
   },
@@ -263,7 +263,7 @@ const posts = [
     path: '/blog/openai-gdpval',
     title: "OpenAI GDPval: The Evaluation of AI's Economic Potential",
     description:
-      'The methodology behind GDPval, its key findings, and what they signal for the future of knowledge work.',
+      "OpenAI's GDPval benchmark explained: how it measures AI on economically valuable knowledge work, its key findings, and what they signal for the future of white-collar jobs.",
     date: '2025-10-14',
     author: 'vishnu',
   },
