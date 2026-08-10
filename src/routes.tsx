@@ -17,6 +17,12 @@ const OllamaBlogPost = lazy(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
 const HermesOpenClawPost = lazy(() => import("./pages/HermesOpenClawPost"));
 const HermesInstallPost = lazy(() => import("./pages/HermesInstallPost"));
+const HermesSkillsPost = lazy(() => import("./pages/HermesSkillsPost"));
+const HermesDesktopPost = lazy(() => import("./pages/HermesDesktopPost"));
+const HermesModelsPost = lazy(() => import("./pages/HermesModelsPost"));
+const HermesSecurityPost = lazy(() => import("./pages/HermesSecurityPost"));
+const HermesAlternativesPost = lazy(() => import("./pages/HermesAlternativesPost"));
+const HermesTroubleshootingPost = lazy(() => import("./pages/HermesTroubleshootingPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
@@ -50,6 +56,12 @@ const AppRoutes = () => (
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
       <Route path="/blog/hermes-agent-vs-openclaw" element={<HermesOpenClawPost />} />
       <Route path="/blog/how-to-install-hermes-agent" element={<HermesInstallPost />} />
+      <Route path="/blog/hermes-agent-skills" element={<HermesSkillsPost />} />
+      <Route path="/blog/hermes-agent-desktop-web-ui" element={<HermesDesktopPost />} />
+      <Route path="/blog/hermes-agent-models" element={<HermesModelsPost />} />
+      <Route path="/blog/hermes-agent-security" element={<HermesSecurityPost />} />
+      <Route path="/blog/hermes-agent-alternatives" element={<HermesAlternativesPost />} />
+      <Route path="/blog/hermes-agent-troubleshooting" element={<HermesTroubleshootingPost />} />
       <Route path="/blog/google-a2a" element={<A2ABlogPost />} />
       <Route path="/blog/ollama-mac-local-ai-2025" element={<OllamaBlogPost />} />
       <Route path="/blog/what-makes-llms-agentic" element={<AgenticLLMPost />} />

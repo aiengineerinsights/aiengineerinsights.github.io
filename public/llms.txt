@@ -9,6 +9,18 @@
 
 - [How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)](https://aiengineerinsights.com/blog/how-to-install-hermes-agent): Step-by-step install for every method — one-line macOS/Linux script, native Windows PowerShell (and WSL2), pip, and Docker — plus first-run model setup and common-error fixes.
 
+- [Hermes Agent Skills: How Self-Improving Skills Actually Work](https://aiengineerinsights.com/blog/hermes-agent-skills): How Hermes auto-creates, stores, and reuses skills (SKILL.md in ~/.hermes/skills/), managing them from the CLI with write_approval for control.
+
+- [Hermes Agent Desktop App & Web UI](https://aiengineerinsights.com/blog/hermes-agent-desktop-web-ui): The Desktop app and browser dashboard (hermes dashboard) for running Hermes without the terminal — sessions, keys, skills, memory, and schedules.
+
+- [Which LLM Should You Run With Hermes Agent?](https://aiengineerinsights.com/blog/hermes-agent-models): Hermes is model-agnostic — Nous Portal, OpenRouter, OpenAI, Anthropic, or any endpoint; how to set a model and the 64k-context minimum.
+
+- [Is Hermes Agent Safe? Security & Sandboxing](https://aiengineerinsights.com/blog/hermes-agent-security): Hermes Agent's five-layer defense-in-depth defaults, sandboxed execution backends, and how to run untrusted tasks safely.
+
+- [The Best Hermes Agent Alternatives in 2026](https://aiengineerinsights.com/blog/hermes-agent-alternatives): Open-source alternatives compared — OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, Agent Zero — and when to pick which.
+
+- [Hermes Agent Troubleshooting](https://aiengineerinsights.com/blog/hermes-agent-troubleshooting): Fixes for the most common Hermes Agent errors — command not found, context-window, Windows/WSL2, provider/auth, and Docker persistence.
+
 - [Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?](https://aiengineerinsights.com/blog/hermes-agent-vs-openclaw): Sourced side-by-side comparison — OpenClaw is a gateway/control plane with 20+ channels and a skill marketplace; Hermes Agent is an agent runtime that writes its own skills, with stronger security defaults. Includes a pick-by-need verdict and migration notes.
 
 - [Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid](https://aiengineerinsights.com/blog/claude-certified-architect-exam-traps): The CCA-F exam's distractors are designed to sound like best practice — 11 judgment and technical traps with the correct pattern for each

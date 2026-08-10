@@ -12,6 +12,36 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/hermes-agent-skills",
+    title: "Hermes Agent Skills: How Self-Improving Skills Actually Work",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/hermes-agent-desktop-web-ui",
+    title: "Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/hermes-agent-models",
+    title: "Which LLM Should You Run With Hermes Agent? Models, Providers, and Nous Portal",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/hermes-agent-security",
+    title: "Is Hermes Agent Safe? Its Security Model and Sandboxing, Explained",
+    tag: "Agentic Security",
+  },
+  {
+    slug: "/blog/hermes-agent-alternatives",
+    title: "The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/hermes-agent-troubleshooting",
+    title: "Hermes Agent Troubleshooting: Fixing the Most Common Errors",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/hermes-agent-vs-openclaw",
     title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
     tag: "AI Agents",
