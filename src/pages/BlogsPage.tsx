@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,83 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 19,
+      title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
+      excerpt: "The fastest way to install Hermes Agent, step by step, for every method: the one-line macOS/Linux script, the native Windows PowerShell installer (and WSL2), pip for Python users, and Docker. Plus first-run setup — pick a model, start the TUI — and fixes for the common install errors.",
+      readTime: "8 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Download,
+      gradient: "from-purple-600 to-fuchsia-700",
+      link: "/blog/how-to-install-hermes-agent"
+    },
+    {
+      id: 25,
+      title: "Hermes Agent Skills: How Self-Improving Skills Actually Work",
+      excerpt: "Hermes's signature trick: it writes its own skills. How skills are auto-created from your workflows and stored as SKILL.md in ~/.hermes/skills/, how to create and manage them from the CLI, and how write_approval keeps you in control.",
+      readTime: "8 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Sparkles,
+      gradient: "from-purple-600 to-pink-700",
+      link: "/blog/hermes-agent-skills"
+    },
+    {
+      id: 24,
+      title: "Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent",
+      excerpt: "Run Hermes without the terminal. The Desktop app (streaming output, preview pane, voice) and the browser dashboard (hermes dashboard at 127.0.0.1:9119) for sessions, keys, skills, memory, schedules, and analytics — no YAML.",
+      readTime: "7 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Monitor,
+      gradient: "from-purple-600 to-sky-700",
+      link: "/blog/hermes-agent-desktop-web-ui"
+    },
+    {
+      id: 23,
+      title: "Which LLM Should You Run With Hermes Agent? Models, Providers, and Nous Portal",
+      excerpt: "Hermes is model-agnostic — model choice is just configuration. Which providers work (Nous Portal, OpenRouter, OpenAI, Anthropic, any endpoint), how to set one with hermes model, the 64k-context minimum, and how to choose.",
+      readTime: "7 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Boxes,
+      gradient: "from-purple-600 to-indigo-700",
+      link: "/blog/hermes-agent-models"
+    },
+    {
+      id: 22,
+      title: "Is Hermes Agent Safe? Its Security Model and Sandboxing, Explained",
+      excerpt: "An agent that runs commands with your credentials is a security surface. Hermes's five-layer defense-in-depth defaults, sandboxed execution across Docker/SSH/Modal, credential filtering, and how to run untrusted tasks safely.",
+      readTime: "8 min read",
+      date: "Aug 10, 2026",
+      category: "Agentic Security",
+      icon: ShieldCheck,
+      gradient: "from-rose-600 to-purple-800",
+      link: "/blog/hermes-agent-security"
+    },
+    {
+      id: 21,
+      title: "The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)",
+      excerpt: "Not sure Hermes is the fit? The best open-source alternatives compared — OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, Agent Zero — with a clear 'best for' each and when to pick a personal agent vs a build-your-own framework.",
+      readTime: "9 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: GitFork,
+      gradient: "from-purple-600 to-teal-700",
+      link: "/blog/hermes-agent-alternatives"
+    },
+    {
+      id: 20,
+      title: "Hermes Agent Troubleshooting: Fixing the Most Common Errors",
+      excerpt: "Start with hermes doctor. Fixes for the errors people actually hit — command not found, context-window errors, Windows/WSL2 install issues, provider/auth failures, Docker persistence, and skills overwriting your edits.",
+      readTime: "7 min read",
+      date: "Aug 10, 2026",
+      category: "AI Agents",
+      icon: Wrench,
+      gradient: "from-purple-600 to-amber-700",
+      link: "/blog/hermes-agent-troubleshooting"
+    },
     {
       id: 18,
       title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",

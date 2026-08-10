@@ -76,6 +76,76 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/how-to-install-hermes-agent',
+    title: 'How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)',
+    seoTitle: 'How to Install Hermes Agent (Mac, Windows, Linux)',
+    description:
+      'Step-by-step: install Hermes Agent on macOS, Windows (PowerShell or WSL2), and Linux, plus pip and Docker. First-run model setup, the exact commands, and fixes for common install errors.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-how-to-install-hermes-agent.png',
+  },
+  {
+    path: '/blog/hermes-agent-skills',
+    title: 'Hermes Agent Skills: How Self-Improving Skills Actually Work',
+    seoTitle: 'Hermes Agent Skills: How Self-Improving Skills Work',
+    description:
+      'How Hermes Agent skills work: self-improving procedures stored as SKILL.md in ~/.hermes/skills/, auto-created from your workflows, managed and loaded from the CLI, with write_approval for control.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-skills.png',
+  },
+  {
+    path: '/blog/hermes-agent-desktop-web-ui',
+    title: 'Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent',
+    seoTitle: 'Hermes Agent Desktop App & Web UI (Dashboard) Guide',
+    description:
+      'Hermes Agent beyond the terminal: the Desktop app and the browser dashboard (hermes dashboard at 127.0.0.1:9119) to manage sessions, keys, skills, memory, and schedules — no YAML editing.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-desktop-web-ui.png',
+  },
+  {
+    path: '/blog/hermes-agent-models',
+    title: 'Which LLM Should You Run With Hermes Agent? Models, Providers, and Nous Portal',
+    seoTitle: 'Which LLM to Run With Hermes Agent (Models Guide)',
+    description:
+      'Hermes Agent is model-agnostic: use Nous Portal, OpenRouter, OpenAI, Anthropic, or any endpoint. How to set a model with hermes model, the 64k-context minimum, and how to choose one.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-models.png',
+  },
+  {
+    path: '/blog/hermes-agent-security',
+    title: 'Is Hermes Agent Safe? Its Security Model and Sandboxing, Explained',
+    seoTitle: 'Is Hermes Agent Safe? Security & Sandboxing Explained',
+    description:
+      "Hermes Agent's security model: five layers of defense-in-depth defaults, sandboxed execution across Docker/SSH/Modal backends, credential filtering, and how to run untrusted tasks safely.",
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-security.png',
+  },
+  {
+    path: '/blog/hermes-agent-alternatives',
+    title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
+    seoTitle: 'Best Hermes Agent Alternatives in 2026 (Compared)',
+    description:
+      'The best open-source Hermes Agent alternatives in 2026: OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, and Agent Zero — with a clear "best for" for each and when to pick which.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-alternatives.png',
+  },
+  {
+    path: '/blog/hermes-agent-troubleshooting',
+    title: 'Hermes Agent Troubleshooting: Fixing the Most Common Errors',
+    seoTitle: 'Hermes Agent Troubleshooting: Fix Common Errors',
+    description:
+      'Fix the most common Hermes Agent errors: command not found, context-window errors, Windows/WSL2 install issues, provider/auth failures, and Docker persistence — starting with hermes doctor.',
+    date: '2026-08-10',
+    author: 'poorna',
+    image: '/og-hermes-agent-troubleshooting.png',
+  },
+  {
     path: '/blog/hermes-agent-vs-openclaw',
     title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
     seoTitle: 'Hermes Agent vs OpenClaw: Which to Run (2026)',

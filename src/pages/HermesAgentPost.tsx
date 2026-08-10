@@ -250,7 +250,9 @@ const HermesAgentPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Standard caution applies to piping curl into bash: read the install script first, or install from the
                   GitHub repo if your threat model demands it. After install, run <code>hermes</code> to start the TUI and
-                  <code> hermes model</code> to pick your provider.
+                  <code> hermes model</code> to pick your provider. For per-platform steps (including pip and Docker) and
+                  first-run setup, see our full{" "}
+                  <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">guide to installing Hermes Agent</Link>.
                 </p>
               </section>
 

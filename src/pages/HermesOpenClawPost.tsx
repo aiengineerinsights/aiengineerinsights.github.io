@@ -298,8 +298,8 @@ const HermesOpenClawPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   For OpenClaw's exact commands and channel setup, use the project's own GitHub and docs (linked in
                   Sources); for Hermes, our{" "}
-                  <Link to="/blog/hermes-agent-nous-research-guide" className="text-primary hover:underline">step-by-step install guide</Link>{" "}
-                  covers Mac, Windows, and Linux.
+                  <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">step-by-step install guide</Link>{" "}
+                  covers Mac, Windows, Linux, pip, and Docker.
                 </p>
               </section>
 
