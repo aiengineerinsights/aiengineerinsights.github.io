@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/hermes-agent-vs-openclaw",
+    title: "Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/claude-certified-architect-exam-traps",
     title: "Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid",
     tag: "AI Engineering Careers",

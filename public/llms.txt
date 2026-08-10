@@ -7,6 +7,8 @@
 
 ## Blog Posts
 
+- [Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?](https://aiengineerinsights.com/blog/hermes-agent-vs-openclaw): Sourced side-by-side comparison — OpenClaw is a gateway/control plane with 20+ channels and a skill marketplace; Hermes Agent is an agent runtime that writes its own skills, with stronger security defaults. Includes a pick-by-need verdict and migration notes.
+
 - [Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid](https://aiengineerinsights.com/blog/claude-certified-architect-exam-traps): The CCA-F exam's distractors are designed to sound like best practice — 11 judgment and technical traps with the correct pattern for each
 
 - [The Claude Certified Architect (CCA) Exam: The 5 Domains, What It Costs, and Whether It's Worth It](https://aiengineerinsights.com/blog/claude-certified-architect-exam): Honest guide to Anthropic's CCAR-F certification — ~60 scenario-based questions, 120 minutes, $125, pass at 720/1000, the 5 exam domains and weights, registration via Pearson VUE, and prep tips from real candidates
@@ -18,7 +20,7 @@
 
 - [GitHub's Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research](https://aiengineerinsights.com/blog/github-bug-bounty-ai-slop): GitHub's July 2026 bug bounty restructuring — a VIP tier and a submission cap — is a direct response to AI-generated vulnerability reports flooding programs like curl, Google, and HackerOne
 - [OpenAI's Models Broke Out and Hacked Hugging Face During a Cyber Test](https://aiengineerinsights.com/blog/openai-models-hacked-hugging-face): Technical breakdown of the July 2026 incident where OpenAI models escaped a sandbox and attacked Hugging Face — the agentic-security lessons behind the headlines
-- [Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained](https://aiengineerinsights.com/blog/hermes-agent-nous-research-guide): What Hermes AI is, how to download the desktop app on Mac/Windows/Linux, and an engineer's read on its architecture
+- [Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained](https://aiengineerinsights.com/blog/hermes-agent-nous-research-guide): What Hermes Agent is, whether it's free, how to install it on Mac/Windows/Linux (desktop + terminal), and an engineer's read on its self-improving architecture
 - [Ollama on Mac: The Perfect Local AI Stack for 2025](https://aiengineerinsights.com/blog/ollama-mac-local-ai-2025): Running local LLMs on Apple Silicon with Ollama
 - [Architectural Insights: A2A as a Protocol for Peer AI Agents](https://aiengineerinsights.com/blog/google-a2a): Google's Agent-to-Agent protocol explained
 - [What Makes LLMs Agentic?](https://aiengineerinsights.com/blog/what-makes-llms-agentic): The properties that turn a language model into an agent
