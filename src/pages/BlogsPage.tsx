@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 29,
+      title: "AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority",
+      excerpt: "The honest skill list for an AI engineer in 2026 — the software-engineering base, the LLM/GenAI core that defines the role (RAG, agents, evaluation), MLOps, right-sized math, and the soft skills that get you promoted. For each: what it means and how to prove it, plus what to prioritize by seniority and what's overrated.",
+      readTime: "11 min read",
+      date: "Aug 14, 2026",
+      category: "AI Engineering Careers",
+      icon: ListChecks,
+      gradient: "from-blue-600 to-indigo-800",
+      link: "/blog/ai-engineer-skills"
+    },
     {
       id: 28,
       title: "How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap",

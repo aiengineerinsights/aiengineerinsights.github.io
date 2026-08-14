@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/ai-engineer-skills',
+    title: 'AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority',
+    seoTitle: 'AI Engineer Skills in 2026: The Complete Checklist',
+    description:
+      'The complete AI engineer skills checklist for 2026 — technical (Python, ML/DL, LLMs, RAG, agents, evaluation, MLOps) and soft (problem framing, communication), with how to prove each, what to prioritize by seniority (junior/mid/senior), and what is overrated vs underrated.',
+    date: '2026-08-14',
+    author: 'poorna',
+    image: '/og-ai-engineer-skills.png',
+  },
+  {
     path: '/blog/how-to-become-an-ai-engineer',
     title: 'How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap',
     seoTitle: 'How to Become an AI Engineer in 2026 (Step-by-Step)',

@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-engineer-skills",
+    title: "AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/how-to-become-an-ai-engineer",
     title: "How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap",
     tag: "AI Engineering Careers",
