@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import ForwardDeployedHeroDiagram from "@/components/ForwardDeployedHeroDiagram";
+import TopmateCTA from "@/components/TopmateCTA";
 
 const roleCompare = [
   { role: "Forward-Deployed Engineer", owns: "End-to-end production delivery inside the customer", ships: "Working systems in prod", note: "Same person maps it and maintains it" },
@@ -290,6 +291,7 @@ const BlogPost = () => {
                     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.a}</p>
                   </div>
                 ))}
+                <TopmateCTA />
               </section>
 
               <section className="mb-6 sm:mb-8">

@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import BecomeAIEngineerHeroDiagram from "@/components/BecomeAIEngineerHeroDiagram";
+import TopmateCTA from "@/components/TopmateCTA";
 
 // Reusable conversion CTA — funnels this career/MoFu traffic to the roadmap PDF,
 // which is the page that already ranks and converts (pos ~1.7 for "roadmap pdf").
@@ -244,6 +245,7 @@ const HowToBecomeAIEngineerPost = () => {
                   Prep for LLM-flavored system design ("design a RAG pipeline," "how would you evaluate this agent") alongside
                   standard coding rounds, and let your portfolio carry the interview.
                 </p>
+                <TopmateCTA />
               </section>
 
               <section className="mb-6 sm:mb-8">

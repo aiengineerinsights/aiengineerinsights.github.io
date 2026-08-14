@@ -83,12 +83,22 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <button 
+                <button
                   onClick={() => handleAnchorNavigation('#roadmap')}
                   className="text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   Career Roadmap
                 </button>
+              </li>
+              <li>
+                <a
+                  href="https://topmate.io/poorna_prudhvi_gurram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  1:1 Mentorship
+                </a>
               </li>
               <li>
                 <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">

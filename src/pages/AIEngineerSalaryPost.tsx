@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import SalaryHeroDiagram from "@/components/SalaryHeroDiagram";
+import TopmateCTA from "@/components/TopmateCTA";
 
 const sourceCompare = [
   { source: "ZipRecruiter (Jul 2026)", figure: "$101,752 average", measures: "Base salary across all US employers — includes non-tech companies, so it runs lowest" },
@@ -369,6 +370,7 @@ const AIEngineerSalaryPost = () => {
                     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.a}</p>
                   </div>
                 ))}
+                <TopmateCTA />
               </section>
 
               <section className="mb-6 sm:mb-8">

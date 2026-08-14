@@ -1,7 +1,7 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, ExternalLink, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -45,6 +45,7 @@ const Authors = () => {
       github: "https://github.com/poornagurram",
       linkedin: "https://linkedin.com/in/poornagurram",
       website: "https://aiengineerinsights.com",
+      topmate: "https://topmate.io/poorna_prudhvi_gurram",
       achievements: [
         "8+ years building production AI and NLP systems",
         "Writes practical, engineering-first guides on LLMs and agents",
@@ -139,14 +140,24 @@ const Authors = () => {
                             <Linkedin className="h-4 w-4 mr-2" />
                             LinkedIn
                           </Button>
-                          <Button 
-                            variant="outline" 
+                          <Button
+                            variant="outline"
                             size="sm"
                             onClick={() => window.open(author.website, '_blank')}
                           >
                             <ExternalLink className="h-4 w-4 mr-2" />
                             Website
                           </Button>
+                          {author.topmate && (
+                            <Button
+                              size="sm"
+                              className="bg-amber-600 text-white hover:bg-amber-700"
+                              onClick={() => window.open(author.topmate, '_blank')}
+                            >
+                              <Video className="h-4 w-4 mr-2" />
+                              Book a 1:1
+                            </Button>
+                          )}
                         </div>
                       </div>
                     </div>
