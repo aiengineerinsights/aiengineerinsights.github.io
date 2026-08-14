@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap",
+      excerpt: "No PhD required, and most people get there in ~6–18 months of focused work. The 5-phase path (foundations → ML/DL → AI engineering → build & specialize → get hired), the six skill areas that actually matter in 2026, a portfolio that gets interviews, and a realistic timeline by starting point. Plus the free roadmap PDF.",
+      readTime: "13 min read",
+      date: "Aug 14, 2026",
+      category: "AI Engineering Careers",
+      icon: Route,
+      gradient: "from-emerald-600 to-blue-700",
+      link: "/blog/how-to-become-an-ai-engineer"
+    },
     {
       title: "AI Detectors vs. \"Humanizers\": Which Actually Work? (GPTZero, Turnitin & Watermark Removers, Ranked)",
       excerpt: "Neither side works as advertised. AI detectors claim ~99% but land near ~80% in independent tests and falsely flag human writing (especially non-native English) — OpenAI even shut its own detector down. The 'watermark removers' and 'humanizers' selling the escape are repackaged paraphrasers, metadata strippers, or scams. An honest, sourced ranking of both camps.",

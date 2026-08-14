@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/how-to-become-an-ai-engineer',
+    title: 'How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap',
+    seoTitle: 'How to Become an AI Engineer in 2026 (Step-by-Step)',
+    description:
+      'How to become an AI engineer in 2026 — no PhD required, typically 6–18 months. The 5-phase roadmap (foundations, ML/DL, AI engineering, build & specialize, get hired), the skills that actually matter, how long it takes, a portfolio that gets interviews, and a free downloadable roadmap PDF.',
+    date: '2026-08-14',
+    author: 'poorna',
+    image: '/og-how-to-become-an-ai-engineer.png',
+  },
+  {
     path: '/blog/ai-detectors-vs-humanizers',
     title: 'AI Detectors vs. "Humanizers": Which Actually Work? (GPTZero, Turnitin & Watermark Removers, Ranked)',
     seoTitle: 'Best AI Detectors vs Humanizers: Do They Actually Work?',

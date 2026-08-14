@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 28,
+      title: "How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap",
+      excerpt: "No PhD required, and most people get there in ~6–18 months of focused work. The 5-phase path (foundations → ML/DL → AI engineering → build & specialize → get hired), the six skill areas that actually matter in 2026, a portfolio that gets interviews, and a realistic timeline by starting point. Plus the free roadmap PDF.",
+      readTime: "13 min read",
+      date: "Aug 14, 2026",
+      category: "AI Engineering Careers",
+      icon: Route,
+      gradient: "from-emerald-600 to-blue-700",
+      link: "/blog/how-to-become-an-ai-engineer"
+    },
     {
       id: 27,
       title: "AI Detectors vs. \"Humanizers\": Which Actually Work? (GPTZero, Turnitin & Watermark Removers, Ranked)",
