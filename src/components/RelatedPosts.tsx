@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-detectors-vs-humanizers",
+    title: "AI Detectors vs. \"Humanizers\": Which Actually Work? (GPTZero, Turnitin & Watermark Removers, Ranked)",
+    tag: "AI Security",
+  },
+  {
     slug: "/blog/does-claude-watermark-text",
     title: "Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained",
     tag: "AI Security",
