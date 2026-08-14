@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 26,
+      title: "Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained",
+      excerpt: "Yes — since Aug 2, 2026, newer Claude models weave an imperceptible watermark into generated text, worldwide, to meet the EU AI Act. What a text watermark actually is, how it survives copy-paste but not paraphrasing, who ships one (Google's SynthID yes, OpenAI built-but-unreleased), and why Turnitin can't read it.",
+      readTime: "10 min read",
+      date: "Aug 14, 2026",
+      category: "AI Security",
+      icon: Fingerprint,
+      gradient: "from-sky-600 to-indigo-800",
+      link: "/blog/does-claude-watermark-text"
+    },
     {
       id: 19,
       title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",

@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/does-claude-watermark-text",
+    title: "Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained",
+    tag: "AI Security",
+  },
+  {
     slug: "/blog/how-to-install-hermes-agent",
     title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
     tag: "AI Agents",

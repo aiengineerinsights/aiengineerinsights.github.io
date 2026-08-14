@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained",
+      excerpt: "Yes — since Aug 2, 2026, newer Claude models weave an imperceptible watermark into generated text, worldwide, to meet the EU AI Act. What a text watermark actually is, how it survives copy-paste but not paraphrasing, who ships one (Google's SynthID yes, OpenAI built-but-unreleased), and why Turnitin can't read it.",
+      readTime: "10 min read",
+      date: "Aug 14, 2026",
+      category: "AI Security",
+      icon: Fingerprint,
+      gradient: "from-sky-600 to-indigo-800",
+      link: "/blog/does-claude-watermark-text"
+    },
     {
       title: "How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)",
       excerpt: "The fastest way to install Hermes Agent, step by step, for every method: the one-line macOS/Linux script, the native Windows PowerShell installer (and WSL2), pip for Python users, and Docker. Plus first-run setup — pick a model, start the TUI — and fixes for the common install errors.",

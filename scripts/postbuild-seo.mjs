@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/does-claude-watermark-text',
+    title: 'Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained',
+    seoTitle: 'Does Claude Watermark Its Text? (Claude, ChatGPT, SynthID)',
+    description:
+      "Yes — since August 2, 2026 newer Claude models weave an imperceptible watermark into generated text, worldwide, to meet the EU AI Act. How AI text watermarks work, who ships one (Google SynthID, Anthropic), why they survive copy-paste but not paraphrasing, and why Turnitin can't read them.",
+    date: '2026-08-14',
+    author: 'poorna',
+    image: '/og-does-claude-watermark-text.png',
+  },
+  {
     path: '/blog/how-to-install-hermes-agent',
     title: 'How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)',
     seoTitle: 'How to Install Hermes Agent (Mac, Windows, Linux)',

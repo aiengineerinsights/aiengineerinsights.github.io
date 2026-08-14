@@ -16,6 +16,7 @@ const BlogPost3 = lazy(() => import("./pages/BlogPost3"));
 const OllamaBlogPost = lazy(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazy(() => import("./pages/HermesAgentPost"));
 const HermesOpenClawPost = lazy(() => import("./pages/HermesOpenClawPost"));
+const ClaudeWatermarkPost = lazy(() => import("./pages/ClaudeWatermarkPost"));
 const HermesInstallPost = lazy(() => import("./pages/HermesInstallPost"));
 const HermesSkillsPost = lazy(() => import("./pages/HermesSkillsPost"));
 const HermesDesktopPost = lazy(() => import("./pages/HermesDesktopPost"));
@@ -46,6 +47,7 @@ const AppRoutes = () => (
       <Route path="/authors" element={<Authors />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
+      <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/claude-certified-architect-exam" element={<ClaudeCertifiedArchitectPost />} />
       <Route path="/blog/claude-certified-architect-exam-traps" element={<CCATrapsPost />} />
       <Route path="/blog/ai-engineer-salary" element={<AIEngineerSalaryPost />} />

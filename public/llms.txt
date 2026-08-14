@@ -7,6 +7,8 @@
 
 ## Blog Posts
 
+- [Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained](https://aiengineerinsights.com/blog/does-claude-watermark-text): Yes — since August 2, 2026 newer Claude models weave an imperceptible watermark into generated text worldwide, to meet the EU AI Act. What a statistical text watermark is, how it survives copy-paste but not paraphrasing, who ships one (Google SynthID yes, OpenAI built-but-unreleased, Meta no), C2PA file provenance, and why Turnitin/GPTZero can't read these marks.
+
 - [How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)](https://aiengineerinsights.com/blog/how-to-install-hermes-agent): Step-by-step install for every method — one-line macOS/Linux script, native Windows PowerShell (and WSL2), pip, and Docker — plus first-run model setup and common-error fixes.
 
 - [Hermes Agent Skills: How Self-Improving Skills Actually Work](https://aiengineerinsights.com/blog/hermes-agent-skills): How Hermes auto-creates, stores, and reuses skills (SKILL.md in ~/.hermes/skills/), managing them from the CLI with write_approval for control.
