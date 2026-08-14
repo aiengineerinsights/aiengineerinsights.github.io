@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 // yet an IAB TCF / Google-certified CMP, which EEA personalized ads will require.
 const STORAGE_KEY = "aei-cookie-consent";
 const CLARITY_ID = "xqhw41e9ob";
-const GA_ID = "G-144J8J650C";
 
 type Consent = "accepted" | "declined";
 
@@ -33,25 +32,17 @@ function loadClarity() {
   /* eslint-enable */
 }
 
-// Google Analytics 4. Loaded only after consent. Because this is a client-side
-// SPA, GA won't see route changes on its own — we disable the automatic first
-// page_view (send_page_view:false) and emit one manually per route from the
-// location effect below (and once on accept).
-let gaLoaded = false;
-function loadGA() {
-  if (gaLoaded || typeof window === "undefined") return;
-  gaLoaded = true;
+// Google Analytics 4 uses Consent Mode v2. The gtag base + config live in
+// index.html and default analytics_storage to 'denied', so the tag is present
+// (detectable, no cookies) on every load. Accepting flips consent to 'granted';
+// declining keeps it denied. Because this is a client-side SPA, GA won't see
+// route changes on its own — the config sets send_page_view:false and we emit a
+// page_view per route from the location effect below (once consent is granted).
+function setAnalyticsConsent(granted: boolean) {
+  if (typeof window === "undefined") return;
   const w = window as any;
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
-  document.head.appendChild(s);
-  w.dataLayer = w.dataLayer || [];
-  w.gtag = function () {
-    w.dataLayer.push(arguments);
-  };
-  w.gtag("js", new Date());
-  w.gtag("config", GA_ID, { send_page_view: false });
+  if (typeof w.gtag !== "function") return;
+  w.gtag("consent", "update", { analytics_storage: granted ? "granted" : "denied" });
 }
 
 function trackPageview(path?: string) {
@@ -79,7 +70,7 @@ const CookieConsent = () => {
     const existing = getConsent();
     if (existing === "accepted") {
       loadClarity();
-      loadGA();
+      setAnalyticsConsent(true);
     } else if (existing === null) {
       setVisible(true);
     }
@@ -102,8 +93,10 @@ const CookieConsent = () => {
     window.localStorage.setItem(STORAGE_KEY, consent);
     if (consent === "accepted") {
       loadClarity();
-      loadGA();
+      setAnalyticsConsent(true);
       trackPageview(location.pathname + location.search);
+    } else {
+      setAnalyticsConsent(false);
     }
     setVisible(false);
   };
