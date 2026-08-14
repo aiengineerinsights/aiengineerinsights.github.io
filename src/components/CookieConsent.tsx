@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 // Lightweight cookie-consent gate. Stores the choice in localStorage and only
-// loads non-essential analytics (Microsoft Clarity) after the visitor accepts.
-// This is the foundation for a full CMP later — when AdSense is added, the same
-// consent signal should drive Google Consent Mode. It is NOT yet an IAB TCF /
-// Google-certified CMP, which EEA personalized ads will require.
+// loads non-essential analytics (Microsoft Clarity + Google Analytics 4) after
+// the visitor accepts. This is the foundation for a full CMP later — when AdSense
+// is added, the same consent signal should drive Google Consent Mode. It is NOT
+// yet an IAB TCF / Google-certified CMP, which EEA personalized ads will require.
 const STORAGE_KEY = "aei-cookie-consent";
 const CLARITY_ID = "xqhw41e9ob";
+const GA_ID = "G-144J8J650C";
 
 type Consent = "accepted" | "declined";
 
@@ -32,6 +33,38 @@ function loadClarity() {
   /* eslint-enable */
 }
 
+// Google Analytics 4. Loaded only after consent. Because this is a client-side
+// SPA, GA won't see route changes on its own — we disable the automatic first
+// page_view (send_page_view:false) and emit one manually per route from the
+// location effect below (and once on accept).
+let gaLoaded = false;
+function loadGA() {
+  if (gaLoaded || typeof window === "undefined") return;
+  gaLoaded = true;
+  const w = window as any;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+  document.head.appendChild(s);
+  w.dataLayer = w.dataLayer || [];
+  w.gtag = function () {
+    w.dataLayer.push(arguments);
+  };
+  w.gtag("js", new Date());
+  w.gtag("config", GA_ID, { send_page_view: false });
+}
+
+function trackPageview(path?: string) {
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  if (typeof w.gtag !== "function") return;
+  w.gtag("event", "page_view", {
+    page_path: path ?? window.location.pathname + window.location.search,
+    page_location: window.location.href,
+    page_title: document.title,
+  });
+}
+
 export function getConsent(): Consent | null {
   if (typeof window === "undefined") return null;
   const v = window.localStorage.getItem(STORAGE_KEY);
@@ -40,11 +73,13 @@ export function getConsent(): Consent | null {
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const existing = getConsent();
     if (existing === "accepted") {
       loadClarity();
+      loadGA();
     } else if (existing === null) {
       setVisible(true);
     }
@@ -55,9 +90,21 @@ const CookieConsent = () => {
     return () => window.removeEventListener("open-cookie-settings", reopen);
   }, []);
 
+  // SPA pageview tracking: fire a GA page_view on every route change (and the
+  // initial load) once consent is granted. trackPageview no-ops until gtag loads.
+  useEffect(() => {
+    if (getConsent() === "accepted") {
+      trackPageview(location.pathname + location.search);
+    }
+  }, [location.pathname, location.search]);
+
   const choose = (consent: Consent) => {
     window.localStorage.setItem(STORAGE_KEY, consent);
-    if (consent === "accepted") loadClarity();
+    if (consent === "accepted") {
+      loadClarity();
+      loadGA();
+      trackPageview(location.pathname + location.search);
+    }
     setVisible(false);
   };
 
