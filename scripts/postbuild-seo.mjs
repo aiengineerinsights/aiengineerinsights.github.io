@@ -90,7 +90,7 @@ const posts = [
     title: 'Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained',
     seoTitle: 'Does Claude Watermark Its Text? (Claude, ChatGPT, SynthID)',
     description:
-      "Yes — since August 2, 2026 newer Claude models weave an imperceptible watermark into generated text, worldwide, to meet the EU AI Act. How AI text watermarks work, who ships one (Google SynthID, Anthropic), why they survive copy-paste but not paraphrasing, and why Turnitin can't read them.",
+      "Yes — since August 2, 2026 newer Claude models weave an imperceptible AI text watermark into generated text, worldwide, to meet the EU AI Act. How AI text watermarks work, who ships one (Google SynthID, Anthropic, OpenAI), whether there's a ChatGPT or Claude watermark detector, whether watermark removers work, and why they survive copy-paste but not paraphrasing.",
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-does-claude-watermark-text.png',

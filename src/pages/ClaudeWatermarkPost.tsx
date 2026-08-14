@@ -311,11 +311,38 @@ const ClaudeWatermarkPost = () => {
                   C2PA metadata to DALL·E images.
                 </p>
 
-                <h3 id="faq-remove" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">How do you remove an AI text watermark?</h3>
+                <h3 id="faq-synthid" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is Google SynthID?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  SynthID is Google DeepMind's watermarking system. Its text variant, SynthID-Text, embeds the statistical signal
+                  via "tournament sampling," is live in Gemini, and was open-sourced in 2024 (published in <em>Nature</em>). SynthID
+                  also watermarks Google's AI-generated images, audio, and video. Like all statistical text watermarks, it survives
+                  copy-paste but degrades under heavy paraphrasing.
+                </p>
+
+                <h3 id="faq-detect" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">How can I check if text has an AI watermark (a ChatGPT or Claude watermark detector)?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  You generally can't on your own. Reading a statistical watermark requires the matching detector and secret key from
+                  the lab that produced it — Anthropic says its public detection tooling is "forthcoming," and Google's SynthID
+                  detector is limited-access. Third-party "AI detectors" like GPTZero and Turnitin do <strong>not</strong> read these
+                  watermarks; they run their own statistical classifiers, which are a separate and{" "}
+                  <Link to="/blog/ai-detectors-vs-humanizers" className="text-primary hover:underline">much less reliable signal</Link>.
+                </p>
+
+                <h3 id="faq-remove" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">How do you remove an AI text watermark (in Word, Google Docs, or anywhere)?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Heavy paraphrasing, translating to another language, or mixing the text substantially with your own writing all
-                  degrade the statistical signal below detectability. Copy-paste and light edits do not. Note that "removability"
-                  is precisely why watermarks can't be relied on as proof that content is human-written.
+                  degrade the statistical signal below detectability; copy-paste and light edits do not, and the "in Word / Google
+                  Docs" framing makes no difference because the mark is in the word choices, not file formatting. Note that
+                  "removability" is precisely why watermarks can't be relied on as proof that content is human-written.
+                </p>
+
+                <h3 id="faq-remover-tools" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Do ChatGPT or Claude watermark removers actually work?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Mostly no. Most "watermark remover" tools and GitHub projects only strip file metadata and hidden characters — not
+                  the statistical text mark — and some paid "humanizers" are just paraphrasers. We reviewed and ranked these tools,
+                  and the AI detectors, in a{" "}
+                  <Link to="/blog/ai-detectors-vs-humanizers" className="text-primary hover:underline">separate deep dive on AI detectors vs. "humanizers"</Link>.
+                  Also note: under the EU AI Act, marketing a tool to circumvent AI content marks is itself in scope for penalties.
                 </p>
 
                 <h3 id="faq-turnitin" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Can Turnitin see Claude or SynthID watermarks?</h3>
