@@ -28,7 +28,24 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        // Split heavy, stable vendor code into separate hashed chunks so it
+        // downloads in parallel, is cached across routes, and doesn't bloat the
+        // per-page shell. Cuts the initial JS a mobile visitor must parse.
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (
+              id.includes('/react/') ||
+              id.includes('/react-dom/') ||
+              id.includes('/react-router') ||
+              id.includes('/scheduler/')
+            ) return 'react-vendor';
+            if (id.includes('@radix-ui')) return 'radix-vendor';
+            if (id.includes('lucide-react')) return 'icons-vendor';
+            // Everything else: let Rollup place it, so page-only heavy libs
+            // (recharts, carousel, etc.) stay in their own route chunk and
+            // never load on pages that don't use them.
+          }
+        },
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]'
