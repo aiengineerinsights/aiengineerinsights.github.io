@@ -63,7 +63,7 @@ const HeroSection = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-gradient-card rounded-lg p-6 border border-border shadow-card hover:shadow-glow transition-all duration-300">
               <Target className="h-8 w-8 text-primary mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Role Clarity</h3>
+              <h2 className="text-lg font-semibold mb-2">Role Clarity</h2>
               <p className="text-muted-foreground">
                 Demystify what AI engineers actually do and how you fit into the ecosystem
               </p>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             
             <div className="bg-gradient-card rounded-lg p-6 border border-border shadow-card hover:shadow-glow transition-all duration-300">
               <Map className="h-8 w-8 text-accent mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Practical Roadmaps</h3>
+              <h2 className="text-lg font-semibold mb-2">Practical Roadmaps</h2>
               <p className="text-muted-foreground">
                 Step-by-step guidance from fundamentals to specializations
               </p>
@@ -79,7 +79,7 @@ const HeroSection = () => {
             
             <div className="bg-gradient-card rounded-lg p-6 border border-border shadow-card hover:shadow-glow transition-all duration-300">
               <Sparkles className="h-8 w-8 text-primary-glow mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold mb-2">Real Projects</h3>
+              <h2 className="text-lg font-semibold mb-2">Real Projects</h2>
               <p className="text-muted-foreground">
                 Hands-on projects from actual AI engineering work and implementations
               </p>

@@ -20,14 +20,14 @@ const LatestBlogBanner = () => {
           <span className="flex-1 text-center md:text-left truncate">
             {latest.title}
           </span>
-          <Link to={latest.link}>
+          <Link to={latest.link} aria-label={`Read now: ${latest.title}`}>
             <Button
               variant="outline"
               size="sm"
               className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 flex-shrink-0"
             >
               Read Now
-              <ArrowRight className="ml-2 h-3 w-3" />
+              <ArrowRight className="ml-2 h-3 w-3" aria-hidden="true" />
             </Button>
           </Link>
         </div>

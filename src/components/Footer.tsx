@@ -117,19 +117,21 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4 mb-4">
-              <a 
-                href="https://github.com/aiengineerinsights" 
-                target="_blank" 
+              <a
+                href="https://github.com/aiengineerinsights"
+                target="_blank"
                 rel="noopener noreferrer"
+                aria-label="AI Engineer Insights on GitHub"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-5 w-5" aria-hidden="true" />
               </a>
-              <button 
+              <button
                 onClick={handleEmailClick}
+                aria-label="Email AI Engineer Insights"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
             <Button 

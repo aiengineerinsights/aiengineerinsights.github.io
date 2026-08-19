@@ -117,13 +117,14 @@ const ExploreProjects = () => {
                       <span>{project.forks}</span>
                     </div>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className="group/btn"
+                    aria-label={`View project on GitHub: ${project.title}`}
                     onClick={() => window.open(project.url, '_blank')}
                   >
-                    <Github className="h-4 w-4 mr-2" />
+                    <Github className="h-4 w-4 mr-2" aria-hidden="true" />
                     View
                   </Button>
                 </div>

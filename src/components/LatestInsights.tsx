@@ -306,10 +306,10 @@ const LatestInsights = () => {
                 {/* Footer */}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">{insight.date}</span>
-                  <Link to={insight.link} onClick={() => window.scrollTo(0, 0)}>
+                  <Link to={insight.link} onClick={() => window.scrollTo(0, 0)} aria-label={`Read more: ${insight.title}`}>
                     <Button variant="ghost" size="sm" className="group/btn">
                       Read More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                     </Button>
                   </Link>
                 </div>
