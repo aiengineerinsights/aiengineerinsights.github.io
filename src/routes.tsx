@@ -20,6 +20,7 @@ const ClaudeWatermarkPost = lazy(() => import("./pages/ClaudeWatermarkPost"));
 const AIDetectorsPost = lazy(() => import("./pages/AIDetectorsPost"));
 const HowToBecomeAIEngineerPost = lazy(() => import("./pages/HowToBecomeAIEngineerPost"));
 const AIEngineerSkillsPost = lazy(() => import("./pages/AIEngineerSkillsPost"));
+const AICodingAgentsPost = lazy(() => import("./pages/AICodingAgentsPost"));
 const HermesInstallPost = lazy(() => import("./pages/HermesInstallPost"));
 const HermesSkillsPost = lazy(() => import("./pages/HermesSkillsPost"));
 const HermesDesktopPost = lazy(() => import("./pages/HermesDesktopPost"));
@@ -54,6 +55,7 @@ const AppRoutes = () => (
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />
       <Route path="/blog/ai-engineer-skills" element={<AIEngineerSkillsPost />} />
+      <Route path="/blog/best-ai-coding-agents" element={<AICodingAgentsPost />} />
       <Route path="/blog/claude-certified-architect-exam" element={<ClaudeCertifiedArchitectPost />} />
       <Route path="/blog/claude-certified-architect-exam-traps" element={<CCATrapsPost />} />
       <Route path="/blog/ai-engineer-salary" element={<AIEngineerSalaryPost />} />

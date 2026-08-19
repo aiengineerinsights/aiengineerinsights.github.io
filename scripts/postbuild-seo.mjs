@@ -76,6 +76,16 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/best-ai-coding-agents',
+    title: 'The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)',
+    seoTitle: 'Best AI Coding Agents 2026 (Claude Code vs Cursor)',
+    description:
+      'The best AI coding agents in 2026, ranked by fit not hype: Claude Code vs Cursor vs GitHub Copilot, plus Codex CLI, open-source BYO-key tools (Aider, Cline, OpenCode, Kilo) and autonomous agents (Devin, Amp, Jules). Comparison table, forum/user sentiment on each, recommended models and settings per agent, community coding wisdom, and a decision table to pick yours.',
+    date: '2026-08-14',
+    author: 'poorna',
+    image: '/og-best-ai-coding-agents.png',
+  },
+  {
     path: '/blog/ai-engineer-skills',
     title: 'AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority',
     seoTitle: 'AI Engineer Skills in 2026: The Complete Checklist',

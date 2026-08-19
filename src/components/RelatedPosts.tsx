@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/best-ai-coding-agents",
+    title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
+    tag: "AI Tooling",
+  },
+  {
     slug: "/blog/ai-engineer-skills",
     title: "AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority",
     tag: "AI Engineering Careers",

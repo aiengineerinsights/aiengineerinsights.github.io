@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
+      excerpt: "No single winner — a best one for how you work. The 2026 landscape by category (Claude Code, Cursor, Copilot, Codex, Aider, Cline, OpenCode/Kilo, Devin), an honest comparison, what engineers actually say on the forums, the recommended models and settings for each, cross-cutting community wisdom, and a decision table to pick yours.",
+      readTime: "15 min read",
+      date: "Aug 14, 2026",
+      category: "AI Tooling",
+      icon: TerminalSquare,
+      gradient: "from-cyan-600 to-slate-800",
+      link: "/blog/best-ai-coding-agents"
+    },
     {
       title: "AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority",
       excerpt: "The honest skill list for an AI engineer in 2026 — the software-engineering base, the LLM/GenAI core that defines the role (RAG, agents, evaluation), MLOps, right-sized math, and the soft skills that get you promoted. For each: what it means and how to prove it, plus what to prioritize by seniority and what's overrated.",

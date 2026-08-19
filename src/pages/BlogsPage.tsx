@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 30,
+      title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
+      excerpt: "No single winner — a best one for how you work. The 2026 landscape by category (Claude Code, Cursor, Copilot, Codex, Aider, Cline, OpenCode/Kilo, Devin), an honest comparison, what engineers actually say on the forums, the recommended models and settings for each, cross-cutting community wisdom, and a decision table to pick yours.",
+      readTime: "15 min read",
+      date: "Aug 14, 2026",
+      category: "AI Tooling",
+      icon: TerminalSquare,
+      gradient: "from-cyan-600 to-slate-800",
+      link: "/blog/best-ai-coding-agents"
+    },
     {
       id: 29,
       title: "AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority",
