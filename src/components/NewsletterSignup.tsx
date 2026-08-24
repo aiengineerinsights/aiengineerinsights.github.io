@@ -1,16 +1,15 @@
-import { useEffect, useRef } from "react";
 import { Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-// On-brand newsletter capture. We provide the heading/subtext/card styling and
-// mount beehiiv's own subscribe form (email + button) inside it via their v3
-// embed loader. beehiiv stores the subscriber and sends the welcome email — no
-// API key or backend on our side. The form is client-rendered (the loader runs
-// after hydration); the heading/subtext still prerender for SEO.
-const BEEHIIV_FORM_ID = "d4d732ec-6a7f-43b0-a9b1-ed8c7345d5cb";
-const BEEHIIV_LOADER = "https://subscribe-forms.beehiiv.com/v3/loader.js";
-const BEEHIIV_ATTRIBUTION = "https://subscribe-forms.beehiiv.com/attribution.js";
+// On-brand newsletter capture. Our card provides the heading/subtext/styling;
+// beehiiv's hosted subscribe form (email + button) is embedded as a fixed-height
+// iframe. We use a direct iframe rather than beehiiv's auto-resizing loader
+// script because the loader's postMessage resize doesn't fire reliably inside a
+// client-side SPA (it left the form collapsed to 0 height). beehiiv stores the
+// subscriber and sends the welcome email — no API key or backend on our side.
+const BEEHIIV_FORM_URL =
+  "https://subscribe-forms.beehiiv.com/v3/forms/d4d732ec-6a7f-43b0-a9b1-ed8c7345d5cb";
 
 interface NewsletterSignupProps {
   heading?: string;
@@ -23,26 +22,6 @@ const NewsletterSignup = ({
   subtext = "Practical, engineering-first breakdowns on AI agents, LLMs, and breaking into the field — plus the free roadmap PDF when you join. No spam.",
   className = "",
 }: NewsletterSignupProps) => {
-  const mountRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = mountRef.current;
-    if (!el || el.querySelector("script")) return; // guard against double-inject
-    const form = document.createElement("script");
-    form.async = true;
-    form.src = BEEHIIV_LOADER;
-    form.setAttribute("data-beehiiv-form", BEEHIIV_FORM_ID);
-    el.appendChild(form);
-
-    // UTM/attribution forwarding (loaded once, globally).
-    if (!document.querySelector(`script[src="${BEEHIIV_ATTRIBUTION}"]`)) {
-      const attr = document.createElement("script");
-      attr.async = true;
-      attr.src = BEEHIIV_ATTRIBUTION;
-      document.body.appendChild(attr);
-    }
-  }, []);
-
   return (
     <Card className={`my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-br from-purple-600/10 to-indigo-600/10 border-purple-600/30 ${className}`}>
       <div className="flex items-start gap-3">
@@ -55,10 +34,16 @@ const NewsletterSignup = ({
         </div>
       </div>
 
-      {/* beehiiv subscribe form mounts here (email + button) */}
-      <div ref={mountRef} className="mt-4" />
+      <iframe
+        src={BEEHIIV_FORM_URL}
+        title="Subscribe to the AI Engineer Insights newsletter"
+        loading="lazy"
+        scrolling="no"
+        className="w-full mt-3 border-0 rounded-lg"
+        style={{ height: 168 }}
+      />
 
-      <p className="text-xs text-muted-foreground mt-3 mb-0">
+      <p className="text-xs text-muted-foreground mt-1 mb-0">
         By subscribing you agree to receive emails from AI Engineer Insights. Unsubscribe anytime. See our{" "}
         <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
       </p>
