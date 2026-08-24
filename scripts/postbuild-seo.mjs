@@ -67,6 +67,13 @@ const pages = [
       'How to become an AI engineer in 2026 — a step-by-step roadmap from Python and math to ML, MLOps, and LLMs/agents. Six phases, curated resources, and a free PDF.',
   },
   {
+    path: '/newsletter',
+    title: "The AI Engineer's Brief — Weekly AI Engineering Newsletter",
+    seoTitle: "The AI Engineer's Brief — AI Engineering Newsletter",
+    description:
+      "Join The AI Engineer's Brief: a 5-minute weekly newsletter for people building and breaking into AI engineering — agents, LLMs, the tools worth using, and honest career notes, plus the free AI Engineering Roadmap PDF.",
+  },
+  {
     path: '/privacy',
     title: 'Privacy Policy | AI Engineer Insights',
     description:

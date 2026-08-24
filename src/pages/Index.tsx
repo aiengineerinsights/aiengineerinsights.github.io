@@ -6,6 +6,7 @@ import RoadmapSection from "@/components/RoadmapSection";
 import LatestInsights from "@/components/LatestInsights";
 import FeaturedResources from "@/components/FeaturedResources";
 import ExploreProjects from "@/components/ExploreProjects";
+import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 import LatestBlogBanner from "@/components/LatestBlogBanner";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <LatestInsights />
       <FeaturedResources />
       <ExploreProjects />
+      <NewsletterSection />
       <Footer />
     </div>
   );

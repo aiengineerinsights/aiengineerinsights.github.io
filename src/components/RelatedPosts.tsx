@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
 
 const SITE = "https://aiengineerinsights.com";
@@ -174,6 +174,32 @@ const RelatedPosts = ({ current }: { current: string }) => {
           </div>
         </div>
       </div>
+      {/* Sitewide newsletter CTA — slim link to the /newsletter hub (keeps the
+          heavier signup form off every post while still capturing intent). */}
+      <div className="mb-12 flex flex-col lg:flex-row lg:gap-8">
+        <div className="hidden lg:block w-48 pr-6 shrink-0" aria-hidden="true" />
+        <div className="flex-1 lg:max-w-4xl">
+          <Link
+            to="/newsletter"
+            className="group flex flex-col gap-3 rounded-xl border border-purple-600/30 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 p-5 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
+                <Mail className="h-4 w-4 text-white" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="font-semibold text-base m-0">Get The AI Engineer's Brief</p>
+                <p className="text-sm text-muted-foreground m-0">One sharp AI-engineering email a week — plus the free roadmap PDF.</p>
+              </div>
+            </div>
+            <span className="inline-flex items-center text-sm font-medium text-primary shrink-0">
+              Subscribe
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </span>
+          </Link>
+        </div>
+      </div>
+
       <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
       <div className="grid gap-4 md:grid-cols-3">
         {related.map((post) => (

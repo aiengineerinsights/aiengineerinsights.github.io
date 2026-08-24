@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users } from "lucide-react";
+import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const Navigation = () => {
     { name: "About", href: "#about", icon: Brain },
     { name: "Roadmap", href: "/ai-engineering-roadmap", icon: Code },
     { name: "Blogs", href: "/blogs", icon: BookOpen },
+    { name: "Newsletter", href: "/newsletter", icon: Mail },
     { name: "Projects", href: "/projects", icon: Lightbulb },
     { name: "Resources", href: "/resources", icon: Users },
   ];
