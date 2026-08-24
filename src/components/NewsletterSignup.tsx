@@ -70,13 +70,19 @@ const NewsletterSignup = ({
         </div>
       ) : (
         <>
-          <iframe
-            ref={iframeRef}
-            src={BEEHIIV_FORM_URL}
-            title="Subscribe to the AI Engineer Insights newsletter"
-            loading="lazy"
-            className="w-full mt-3 border-0 h-[104px] sm:h-16"
-          />
+          {/* beehiiv's hosted form has a fixed ~80px of top padding baked in.
+              We crop it: the iframe is tall (so the form renders) and shifted up
+              74px inside a clipped container, so only the form row shows — no gap. */}
+          <div className="mt-3 overflow-hidden h-[112px] sm:h-[60px]">
+            <iframe
+              ref={iframeRef}
+              src={BEEHIIV_FORM_URL}
+              title="Subscribe to the AI Engineer Insights newsletter"
+              loading="lazy"
+              className="w-full border-0 block"
+              style={{ height: 260, marginTop: -74 }}
+            />
+          </div>
           <p className="text-xs text-muted-foreground mt-1 mb-0">
             By subscribing you agree to receive emails from AI Engineer Insights. Unsubscribe anytime. See our{" "}
             <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>.
