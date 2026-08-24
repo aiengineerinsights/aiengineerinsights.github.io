@@ -1,0 +1,4 @@
+name = "newsletter"
+main = "newsletter-proxy.js"
+compatibility_date = "2026-08-19"
+workers_dev = true
