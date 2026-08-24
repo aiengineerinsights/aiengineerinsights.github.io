@@ -79,6 +79,15 @@ const pages = [
     description:
       'How AI Engineer Insights collects, uses, and protects your data, including cookies, analytics, advertising, and your privacy rights.',
   },
+  {
+    // Double opt-in confirmation landing (beehiiv redirects here). Thank-you
+    // page — noindex and kept out of the sitemap so it never ranks.
+    path: '/subscribed',
+    title: "You're subscribed | The AI Engineer's Brief",
+    description:
+      "Subscription confirmed. Download your free AI Engineering Roadmap PDF and see what to expect from The AI Engineer's Brief.",
+    noindex: true,
+  },
 ]
 
 const posts = [
@@ -375,7 +384,7 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function writeRoute({ path, title, seoTitle, description, date, author, image }, appHtml) {
+function writeRoute({ path, title, seoTitle, description, date, author, image, noindex }, appHtml) {
   // Canonical/og:url use the TRAILING-SLASH form because GitHub Pages serves
   // directory URLs (/blog/x/) with 200 and 301-redirects the no-slash form to
   // it. Pointing canonical at the no-slash URL (a redirect) made Google index
@@ -404,6 +413,14 @@ function writeRoute({ path, title, seoTitle, description, date, author, image },
   put(/(<meta property="og:url" content=")[^"]*(")/, url)
   put(/(<meta name="twitter:title" content=")[^"]*(")/, esc(title))
   put(/(<meta name="twitter:description" content=")[^"]*(")/, esc(description))
+
+  // Thank-you/confirmation routes: keep them out of search indexes.
+  if (noindex) {
+    html = html.replace(
+      '</head>',
+      '    <meta name="robots" content="noindex, follow" />\n  </head>'
+    )
+  }
 
   if (date) {
     html = html.replace(/(<meta property="og:type" content=")website(")/, (_m, p1, p2) => p1 + 'article' + p2)
