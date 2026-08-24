@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const PDF = "/downloads/ai-roadmap.pdf";
 
@@ -281,6 +282,11 @@ const RoadmapPage = () => {
               </a>
             </Button>
           </section>
+
+          <NewsletterSignup
+            heading="Want the roadmap sent to you — plus what's next?"
+            subtext="Join the AI engineering newsletter for practical breakdowns on agents, LLMs, and breaking into the field. Subscribe and we'll email you the roadmap PDF too."
+          />
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Where to go next</h2>

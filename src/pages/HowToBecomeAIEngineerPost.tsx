@@ -9,6 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import BecomeAIEngineerHeroDiagram from "@/components/BecomeAIEngineerHeroDiagram";
 import TopmateCTA from "@/components/TopmateCTA";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 // Reusable conversion CTA — funnels this career/MoFu traffic to the roadmap PDF,
 // which is the page that already ranks and converts (pos ~1.7 for "roadmap pdf").
@@ -307,6 +308,7 @@ const HowToBecomeAIEngineerPost = () => {
                   handy for when you reach phase 5.
                 </p>
                 <RoadmapCTA />
+                <NewsletterSignup />
               </section>
             </article>
           </div>

@@ -9,6 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import AIEngineerSkillsHeroDiagram from "@/components/AIEngineerSkillsHeroDiagram";
 import TopmateCTA from "@/components/TopmateCTA";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const RoadmapCTA = () => (
   <Card className="my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 border-blue-600/30">
@@ -266,6 +267,7 @@ const AIEngineerSkillsPost = () => {
                   to sequence these skills, and grab the free PDF to keep the whole plan in one place.
                 </p>
                 <RoadmapCTA />
+                <NewsletterSignup />
               </section>
             </article>
           </div>
