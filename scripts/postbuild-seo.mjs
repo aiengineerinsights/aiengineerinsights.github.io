@@ -256,10 +256,17 @@ const posts = [
     title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
     seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',
     description:
-      'US AI engineers earn roughly $100K–$250K in 2026 — Glassdoor avg $144K, Levels.fyi ~$244K total comp, $850K+ at frontier labs. By level, company, and city.',
-    date: '2026-08-03',
+      'US AI engineers earn a ~$145K–$185K median base in 2026 ($211K–$277K total comp); frontier labs pay $600K–$1.15M+. Sourced breakdown by level, company, city, and skill.',
+    date: '2026-08-25',
     author: 'poorna',
     image: '/og-ai-engineer-salary.png',
+    faqs: [
+      { q: 'What is the entry-level AI engineer salary?', a: 'Entry-level (0–2 years) AI engineers earn roughly $90K–$135K base across the broad market, or $110K–$200K total compensation depending on employer (Kore1, Glassdoor, 2026). At big tech the first rung is higher — a Google L3 AI engineer averages ~$177K total comp and an OpenAI L2 ~$253K per Levels.fyi.' },
+      { q: 'How much does an AI engineer make per month?', a: "About $12,090/month at the Glassdoor median ($145,070/year) and about $9,746/month at ZipRecruiter's broader-pool average ($116,949/year). At big tech, a $245K median total-comp package works out to roughly $20,400/month before taxes." },
+      { q: 'Which company pays AI engineers the most?', a: "The frontier labs. Levels.fyi puts OpenAI's median software-engineer total comp near $800K (up to $1.15M at L6) and xAI's near $640K, with Anthropic senior/lead engineers at roughly $575K–$759K — mostly equity. Google and Meta lead the enterprise band ($355K–$645K at senior/staff)." },
+      { q: 'Do AI engineers earn more than ML engineers or data scientists?', a: 'Yes, modestly, in 2026. AI engineers sit at roughly $145K–$185K base / $211K–$277K total comp, ahead of ML engineers (~$158K base) and data scientists (~$122K base). The premium reflects newer demand than supply for production LLM experience.' },
+      { q: 'Does an AI engineer need a degree?', a: 'No hard requirement. Many postings prefer a CS or ML degree, but companies increasingly hire on demonstrated ability to ship AI systems to production — real projects, RAG pipelines, eval suites, deployed agents. A degree helps most for research-leaning roles at frontier labs.' },
+    ],
   },
   {
     path: '/blog/forward-deployed-ai-engineer',
@@ -384,7 +391,7 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function writeRoute({ path, title, seoTitle, description, date, author, image, noindex }, appHtml) {
+function writeRoute({ path, title, seoTitle, description, date, author, image, noindex, faqs }, appHtml) {
   // Canonical/og:url use the TRAILING-SLASH form because GitHub Pages serves
   // directory URLs (/blog/x/) with 200 and 301-redirects the no-slash form to
   // it. Pointing canonical at the no-slash URL (a redirect) made Google index
@@ -440,6 +447,24 @@ function writeRoute({ path, title, seoTitle, description, date, author, image, n
     html = html.replace(
       '</head>',
       `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n  </head>`
+    )
+  }
+
+  // FAQPage structured data — eligible for FAQ rich results. Keep the Q&A here
+  // in sync with the page's own FAQ section.
+  if (Array.isArray(faqs) && faqs.length) {
+    const faqLd = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+    html = html.replace(
+      '</head>',
+      `    <script type="application/ld+json">${JSON.stringify(faqLd)}</script>\n  </head>`
     )
   }
 
