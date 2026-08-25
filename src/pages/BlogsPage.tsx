@@ -28,8 +28,8 @@ const BlogsPage = () => {
     {
       id: 31,
       title: "MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)",
-      excerpt: "MCP and APIs aren't competitors — an MCP server usually wraps an API. What MCP is, how it turns M×N custom integrations into M+N, the host/client/server architecture, the Tools/Resources/Prompts primitives, RAG vs MCP, when to use each, and how to build a server.",
-      readTime: "10 min read",
+      excerpt: "MCP and APIs aren't competitors — an MCP server usually wraps an API. What MCP is, how it turns M×N integrations into M+N, the architecture, how MCP evolved (HTTP+SSE → Streamable HTTP, OAuth), what developers criticize (security, token burn), MCP vs A2A/ADK, RAG vs MCP, and how to build a server.",
+      readTime: "13 min read",
       date: "Aug 25, 2026",
       category: "AI Agents",
       icon: Network,

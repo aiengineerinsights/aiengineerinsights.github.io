@@ -51,6 +51,14 @@ const faqs = [
     a: "MCP was introduced and open-sourced by Anthropic in late 2024. The specification is public, with SDKs in several languages, and it saw broad adoption across the industry through 2025 — including support from other model providers and many IDEs and agent frameworks.",
   },
   {
+    q: "Is MCP secure?",
+    a: "MCP is as secure as how you deploy it. Early versions had gaps — underspecified auth and prompt-injection / 'tool poisoning' risks — which the 2025 revisions addressed with an OAuth 2.1 framework, resource-server semantics, and a security best-practices spec. But you still own the risk of what you connect: treat third-party servers as untrusted, scope permissions tightly, and keep a human in the loop for sensitive actions.",
+  },
+  {
+    q: "What is the difference between MCP and A2A?",
+    a: "They cover different connections. MCP connects an agent to tools and data. A2A (Agent2Agent, from Google) connects agents to each other so they can discover and delegate work. They're complementary — an agent might use MCP for its tools and A2A to hand off to another agent. Google's ADK framework speaks both.",
+  },
+  {
     q: "How do I build an MCP server?",
     a: "Pick an official MCP SDK (TypeScript or Python are common), define the Tools, Resources, and Prompts you want to expose, wrap whatever API or data source they call, and run the server over stdio (for local) or HTTP (for remote). Point an MCP host — Claude Desktop, an IDE, or your agent — at it, and the tools become available automatically.",
   },
@@ -116,7 +124,7 @@ const MCPvsAPIPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
-                      10 min read
+                      13 min read
                     </div>
                   </div>
                 </div>
@@ -208,6 +216,38 @@ const MCPvsAPIPost = () => {
                 </p>
               </section>
 
+              <section className="mb-6 sm:mb-8">
+                <h2 id="evolution" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How MCP evolved — and what was hard at first</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  MCP shipped fast and changed fast, so the version you read about in an early post is not quite the one
+                  you build on today. The first release (November 2024) supported two transports —{" "}
+                  <strong>stdio</strong> for local servers and an <strong>HTTP+SSE</strong> transport for remote ones —
+                  with a deliberately minimal spec. That minimalism is what got it adopted, but it also left real gaps
+                  the next revisions had to close.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-2 text-sm sm:text-base"><strong>The early pain points:</strong></p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 text-sm sm:text-base">
+                    <li>• <strong>The HTTP+SSE transport was awkward.</strong> It needed a long-lived server-sent-events stream plus a separate POST endpoint — stateful, hard to run on serverless, and with no way to resume a dropped connection.</li>
+                    <li>• <strong>Auth was underspecified.</strong> Early remote servers had no standard way to authenticate, so everyone rolled their own.</li>
+                    <li>• <strong>Security gaps.</strong> Because tool descriptions are fed to the model, a malicious server can smuggle instructions ("tool poisoning" / prompt injection), and over-permissioned servers or token pass-through opened confused-deputy and token-theft risks.</li>
+                    <li>• <strong>Breaking changes.</strong> The spec moved so quickly that early adopters had to chase transport and SDK churn.</li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-2 text-sm sm:text-base">The revisions that fixed most of it:</p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 text-sm sm:text-base">
+                    <li>• <strong>2025-03-26.</strong> The clunky HTTP+SSE transport was replaced by <strong>Streamable HTTP</strong> — a single endpoint that works statelessly (serverless-friendly) and supports resumable streams — and a formal <strong>OAuth 2.1</strong> authorization framework was added.</li>
+                    <li>• <strong>2025-06-18.</strong> MCP servers were defined as OAuth <strong>Resource Servers</strong> with Resource Indicators (RFC 8707) so tokens can't be reused where they shouldn't be, plus structured tool output, an <em>elicitation</em> flow for servers to ask the user for input, removal of JSON-RPC batching, and a dedicated security best-practices document.</li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Governance opened up too, moving toward a public specification process rather than a single-vendor
+                  project. Net effect: the "USB-C for AI" idea survived, but the wiring behind it got a lot more
+                  production-ready.
+                </p>
+              </section>
+
               <NewsletterSignup
                 heading="Get the weekly AI engineering brief"
                 subtext="MCP, agents, RAG, and the tools worth using — one practical email a week. Plus the free roadmap PDF."
@@ -241,6 +281,31 @@ const MCPvsAPIPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="developer-voice" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What developers actually say about MCP</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  MCP's reception has been loud on both sides — worth knowing before you build on it.{" "}
+                  <strong>The praise:</strong> it solved a real, expensive problem (the M×N integration mess), and
+                  adoption was extraordinary — thousands of community servers within months, plus cross-vendor support
+                  from OpenAI, Google, and Microsoft, made it a de facto standard faster than almost any recent protocol.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-2 text-sm sm:text-base"><strong>The criticism</strong> clusters in three places:</p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 text-sm sm:text-base">
+                    <li>• <strong>Security is the loudest.</strong> Researchers repeatedly warned that MCP makes it easy to wire an agent into what Simon Willison calls the "lethal trifecta" — access to private data, exposure to untrusted content, and a way to exfiltrate — so a poisoned tool description or malicious server can hijack an agent. The 2025 auth and security revisions were a direct response.</li>
+                    <li>• <strong>Context and token burn.</strong> Every connected server injects its tool definitions — names, descriptions, and schemas — into the model's context on <em>every</em> call. Wire up a dozen servers and you can spend thousands of tokens before the user asks anything, driving up cost and latency; worse, too many tools measurably degrades the model's tool selection. The practical fix is to load only the servers a task needs (and lean on dynamic/lazy tool loading as hosts add it).</li>
+                    <li>• <strong>Transport churn.</strong> Replacing HTTP+SSE so soon frustrated early adopters who'd already built on it.</li>
+                    <li>• <strong>"Do we even need it?"</strong> Some argued function calling plus OpenAPI already covered most cases and that MCP re-invents the wheel; the counter is that runtime discovery, standard primitives, and cross-host reuse are exactly what ad-hoc function calling lacks.</li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The honest read in 2026: MCP won the standardization battle, and the sharp early edges (transport,
+                  auth, security) are mostly sanded down — but <strong>you still own the security of what you connect.</strong>{" "}
+                  Treat every third-party server as untrusted, scope permissions tightly, and keep a human in the loop for
+                  risky actions.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="examples" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">MCP examples and ecosystem</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   There's a large and growing library of ready-made MCP servers — filesystem, GitHub, Google Drive,
@@ -251,6 +316,22 @@ const MCPvsAPIPost = () => {
                   and custom agent frameworks all speak MCP. That two-sided adoption is exactly why writing one server is
                   worth it: it lights up everywhere at once.
                 </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="related" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">MCP vs A2A, ADK, and other agent protocols</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  MCP isn't the only standard in this space, and the others mostly complement it rather than compete. The
+                  trick is to notice which <em>connection</em> each one is about:
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 text-sm sm:text-base">
+                    <li>• <strong>MCP</strong> — agent ↔ <em>tools and data</em>. What this article is about.</li>
+                    <li>• <strong>A2A (Agent2Agent)</strong> — agent ↔ <em>agent</em>. Google's protocol for letting independent agents discover and delegate to each other, later donated to the Linux Foundation. MCP gives an agent its tools; A2A lets agents talk to one another. See our <Link to="/blog/google-a2a" className="text-primary hover:underline">deep dive on A2A</Link>.</li>
+                    <li>• <strong>ADK (Agent Development Kit)</strong> — not a protocol but Google's open-source <em>framework</em> for building agents; it speaks both MCP (for tools) and A2A (for agent-to-agent), which is a clean picture of how the layers stack.</li>
+                    <li>• <strong>ACP and others</strong> — additional agent-communication efforts exist (e.g. IBM/BeeAI's ACP), but momentum in 2026 has consolidated around <strong>MCP for tools and A2A for agent-to-agent</strong>.</li>
+                  </ul>
+                </div>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -291,7 +372,11 @@ const MCPvsAPIPost = () => {
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <RefLink href="https://www.anthropic.com/news/model-context-protocol">Anthropic — Introducing the Model Context Protocol</RefLink></li>
                   <li>• <RefLink href="https://modelcontextprotocol.io/">Model Context Protocol — official documentation and specification</RefLink></li>
+                  <li>• <RefLink href="https://modelcontextprotocol.io/specification/versioning">MCP specification — versioning and revision history (2025-03-26, 2025-06-18)</RefLink></li>
                   <li>• <RefLink href="https://github.com/modelcontextprotocol/servers">MCP reference servers (GitHub)</RefLink></li>
+                  <li>• <RefLink href="https://a2a-protocol.org/">A2A (Agent2Agent) protocol</RefLink></li>
+                  <li>• <RefLink href="https://google.github.io/adk-docs/">Google Agent Development Kit (ADK) documentation</RefLink></li>
+                  <li>• <RefLink href="https://simonwillison.net/tags/lethal-trifecta/">Simon Willison — the "lethal trifecta" (agent security)</RefLink></li>
                   <li>• <RefLink href="https://www.jsonrpc.org/specification">JSON-RPC 2.0 specification</RefLink></li>
                 </ul>
               </section>

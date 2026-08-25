@@ -96,7 +96,7 @@ const posts = [
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',
     description:
-      "MCP vs API, explained: an API is a general interface you code against; MCP (Model Context Protocol) is one open, model-facing standard that makes tools reusable across every AI app — turning M×N integrations into M+N. How MCP works, RAG vs MCP, and when to use each.",
+      "MCP vs API, explained: MCP (Model Context Protocol) is one open, model-facing standard that makes tools reusable across every AI app — turning M×N integrations into M+N. How it works, how it evolved (HTTP+SSE → Streamable HTTP, OAuth), its trade-offs (security, token burn), MCP vs A2A and ADK, RAG vs MCP, and when to use each.",
     date: '2026-08-25',
     author: 'poorna',
     image: '/og-mcp-vs-api.png',
@@ -106,6 +106,8 @@ const posts = [
       { q: 'Is MCP better than a REST API?', a: "It's not better or worse — it operates at a different layer. Use a plain API for deterministic app-to-app integration with no model in the loop. Use MCP when you want an LLM or agent to discover and call tools, especially across multiple AI hosts. In practice MCP servers wrap REST APIs, so you often use both together." },
       { q: 'What is the difference between RAG and MCP?', a: "RAG (retrieval-augmented generation) is a technique for pulling relevant knowledge into a model's context. MCP is a protocol for connecting tools and data sources. They're at different layers and are often combined — you can expose a retrieval/RAG capability as an MCP server so any agent can search your knowledge base as a standard tool." },
       { q: 'Who created MCP and is it open?', a: 'MCP was introduced and open-sourced by Anthropic in late 2024. The specification is public, with SDKs in several languages, and it saw broad adoption across the industry through 2025 — including support from other model providers and many IDEs and agent frameworks.' },
+      { q: 'Is MCP secure?', a: "MCP is as secure as how you deploy it. Early versions had gaps — underspecified auth and prompt-injection / 'tool poisoning' risks — which the 2025 revisions addressed with an OAuth 2.1 framework, resource-server semantics, and a security best-practices spec. But you still own the risk of what you connect: treat third-party servers as untrusted, scope permissions tightly, and keep a human in the loop for sensitive actions." },
+      { q: 'What is the difference between MCP and A2A?', a: "They cover different connections. MCP connects an agent to tools and data. A2A (Agent2Agent, from Google) connects agents to each other so they can discover and delegate work. They're complementary — an agent might use MCP for its tools and A2A to hand off to another agent. Google's ADK framework speaks both." },
       { q: 'How do I build an MCP server?', a: 'Pick an official MCP SDK (TypeScript or Python are common), define the Tools, Resources, and Prompts you want to expose, wrap whatever API or data source they call, and run the server over stdio (local) or HTTP (remote). Point an MCP host — Claude Desktop, an IDE, or your agent — at it, and the tools become available automatically.' },
     ],
   },
