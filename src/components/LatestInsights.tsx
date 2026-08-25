@@ -9,6 +9,26 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)",
+      excerpt: "What AI agents are and how they work — an LLM reasoning core wired to memory and tools, running a perceive → plan → act → observe loop. AI agents vs agentic AI, the five classic types plus modern patterns, real examples (Claude Code, Devin, Deep Research), whether ChatGPT is an agent, and how to build one.",
+      readTime: "12 min read",
+      date: "Aug 25, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-indigo-600 to-purple-800",
+      link: "/blog/what-are-ai-agents"
+    },
+    {
+      title: "MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)",
+      excerpt: "MCP and APIs aren't competitors — an MCP server usually wraps an API. What MCP is, how it turns M×N custom integrations into M+N, the host/client/server architecture, the Tools/Resources/Prompts primitives, RAG vs MCP, when to use each, and how to build a server.",
+      readTime: "10 min read",
+      date: "Aug 25, 2026",
+      category: "AI Agents",
+      icon: Network,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/mcp-vs-api"
+    },
+    {
       title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
       excerpt: "No single winner — a best one for how you work. The 2026 landscape by category (Claude Code, Cursor, Copilot, Codex, Aider, Cline, OpenCode/Kilo, Devin), an honest comparison, what engineers actually say on the forums, the recommended models and settings for each, cross-cutting community wisdom, and a decision table to pick yours.",
       readTime: "15 min read",
