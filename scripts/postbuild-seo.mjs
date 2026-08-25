@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/what-are-ai-agents',
+    title: 'AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)',
+    seoTitle: 'AI Agents Explained: Types, Architecture & Examples',
+    description:
+      'What AI agents are and how they work: the perceive-plan-act-observe loop, LLM reasoning core, memory and tools, agents vs agentic AI, the 5 classic types plus modern patterns, real examples (Claude Code, Devin, Deep Research), and how to build one.',
+    date: '2026-08-25',
+    author: 'poorna',
+    image: '/og-what-are-ai-agents.png',
+    faqs: [
+      { q: 'What is an AI agent in simple terms?', a: 'An AI agent is a software system that takes a goal, decides what to do on its own, and acts through tools — then looks at the result and keeps going until the goal is met. The difference from a normal chatbot is autonomy plus a loop: it plans, uses tools (search, code, APIs), observes what happened, and adjusts, instead of answering once and stopping.' },
+      { q: 'What is the difference between AI agents and agentic AI?', a: "'AI agent' is a noun — the system itself. 'Agentic AI' is an adjective describing how autonomous a system's behavior is. In practice people use them interchangeably, but the useful distinction is: an agent is the concrete thing that plans and acts; 'agentic' describes any AI that shows that autonomy, often across multi-step or multi-agent workflows." },
+      { q: 'Is ChatGPT an AI agent?', a: 'It depends on the mode. Plain ChatGPT answering a message is not an agent — it responds once with no autonomous planning or tool loop. But ChatGPT running in an agentic mode (browsing, code execution, Deep Research, or Operator/computer use) is acting as an agent: it plans steps, calls tools, observes results, and loops until it finishes the task.' },
+      { q: 'What are the main types of AI agents?', a: 'Classic AI theory lists five: simple reflex, model-based reflex, goal-based, utility-based, and learning agents. Modern LLM-based agents are usually described by pattern instead — tool-using (ReAct), planning, reflective/self-critique, and multi-agent systems.' },
+      { q: 'What are examples of AI agents?', a: 'Coding agents like Claude Code, Cursor, and Devin; research agents like OpenAI Deep Research; computer-use agents like Operator and Claude computer use; plus customer-support, data-analysis, and workflow-automation agents built with frameworks such as LangGraph, CrewAI, or the Claude and OpenAI Agents SDKs.' },
+      { q: 'How do I build an AI agent?', a: "Start with a capable LLM, give it a clear goal and a small set of tools, and wrap it in a loop that lets it plan, call tools, and read results. Add memory and guardrails as needed. Frameworks like LangGraph, CrewAI, the Claude Agent SDK, or the OpenAI Agents SDK handle the loop and tool wiring; MCP is a common standard for connecting tools. Keep the scope narrow first and expand once it's reliable." },
+    ],
+  },
+  {
     path: '/blog/best-ai-coding-agents',
     title: 'The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)',
     seoTitle: 'Best AI Coding Agents 2026 (Claude Code vs Cursor)',

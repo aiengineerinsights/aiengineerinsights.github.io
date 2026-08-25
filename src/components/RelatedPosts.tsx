@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/what-are-ai-agents",
+    title: "AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/best-ai-coding-agents",
     title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
     tag: "AI Tooling",
