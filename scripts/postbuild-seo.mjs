@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/mcp-vs-api',
+    title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
+    seoTitle: 'MCP vs API: Model Context Protocol Explained',
+    description:
+      "MCP vs API, explained: an API is a general interface you code against; MCP (Model Context Protocol) is one open, model-facing standard that makes tools reusable across every AI app — turning M×N integrations into M+N. How MCP works, RAG vs MCP, and when to use each.",
+    date: '2026-08-25',
+    author: 'poorna',
+    image: '/og-mcp-vs-api.png',
+    faqs: [
+      { q: 'What is MCP in simple terms?', a: "MCP (Model Context Protocol) is an open standard for connecting AI apps to external tools and data. Instead of custom glue code for every tool in every AI app, you expose a tool once as an MCP server, and any MCP-compatible host — Claude, ChatGPT, an IDE, your own agent — can use it. Anthropic describes it as a 'USB-C port for AI applications.'" },
+      { q: 'What is the difference between MCP and an API?', a: 'An API is a general interface you write code against, one integration at a time. MCP is one standardized, model-facing protocol that makes tools self-describing and reusable across every AI app. They are not competitors: an MCP server usually calls an API under the hood — MCP is the layer that lets an LLM discover and use that API in a uniform way.' },
+      { q: 'Is MCP better than a REST API?', a: "It's not better or worse — it operates at a different layer. Use a plain API for deterministic app-to-app integration with no model in the loop. Use MCP when you want an LLM or agent to discover and call tools, especially across multiple AI hosts. In practice MCP servers wrap REST APIs, so you often use both together." },
+      { q: 'What is the difference between RAG and MCP?', a: "RAG (retrieval-augmented generation) is a technique for pulling relevant knowledge into a model's context. MCP is a protocol for connecting tools and data sources. They're at different layers and are often combined — you can expose a retrieval/RAG capability as an MCP server so any agent can search your knowledge base as a standard tool." },
+      { q: 'Who created MCP and is it open?', a: 'MCP was introduced and open-sourced by Anthropic in late 2024. The specification is public, with SDKs in several languages, and it saw broad adoption across the industry through 2025 — including support from other model providers and many IDEs and agent frameworks.' },
+      { q: 'How do I build an MCP server?', a: 'Pick an official MCP SDK (TypeScript or Python are common), define the Tools, Resources, and Prompts you want to expose, wrap whatever API or data source they call, and run the server over stdio (local) or HTTP (remote). Point an MCP host — Claude Desktop, an IDE, or your agent — at it, and the tools become available automatically.' },
+    ],
+  },
+  {
     path: '/blog/what-are-ai-agents',
     title: 'AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)',
     seoTitle: 'AI Agents Explained: Types, Architecture & Examples',

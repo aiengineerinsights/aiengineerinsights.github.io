@@ -43,6 +43,7 @@ const RoadmapPage = lazy(() => import("./pages/RoadmapPage"));
 const NewsletterPage = lazy(() => import("./pages/NewsletterPage"));
 const SubscribedPage = lazy(() => import("./pages/SubscribedPage"));
 const AIAgentsExplainedPost = lazy(() => import("./pages/AIAgentsExplainedPost"));
+const MCPvsAPIPost = lazy(() => import("./pages/MCPvsAPIPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -57,6 +58,7 @@ const AppRoutes = () => (
       <Route path="/newsletter" element={<NewsletterPage />} />
       <Route path="/subscribed" element={<SubscribedPage />} />
       <Route path="/blog/what-are-ai-agents" element={<AIAgentsExplainedPost />} />
+      <Route path="/blog/mcp-vs-api" element={<MCPvsAPIPost />} />
       <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />

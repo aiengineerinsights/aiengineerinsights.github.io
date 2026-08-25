@@ -12,6 +12,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/mcp-vs-api",
+    title: "MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/best-ai-coding-agents",
     title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
     tag: "AI Tooling",
