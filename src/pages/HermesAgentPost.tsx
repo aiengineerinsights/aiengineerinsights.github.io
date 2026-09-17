@@ -79,7 +79,7 @@ const HermesAgentPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Jul 22, 2026
+                      Sep 17, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -173,7 +173,10 @@ const HermesAgentPost = () => {
                   delegated subagent gets its own conversation, its own terminal, and Python RPC — closer to spawning a
                   junior engineer than calling a function. Second, <strong>execution is sandboxed by default</strong> with
                   pluggable backends — a design that matters more than ever after{" "}
-                  <Link to="/blog/openai-models-hacked-hugging-face" className="text-primary hover:underline">OpenAI's models escaped a sandbox and hacked Hugging Face</Link>:
+                  <Link to="/blog/openai-models-hacked-hugging-face" className="text-primary hover:underline">OpenAI's models escaped a sandbox and hacked Hugging Face</Link>.
+                  We cover the defense-in-depth details — credential filtering, per-backend isolation guarantees, and how
+                  to run untrusted tasks — in our{" "}
+                  <Link to="/blog/hermes-agent-security" className="text-primary hover:underline">Hermes Agent security breakdown</Link>:
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -211,7 +214,9 @@ const HermesAgentPost = () => {
                   Combine that with persistent project memory and cron-style scheduling ("send me a morning briefing,
                   back up this folder nightly") and you get something closer to an <strong>accumulating co-worker</strong> than a
                   stateless assistant. This is the pattern we expect most serious agent stacks to converge on — the
-                  interesting part is watching it work in a codebase you can read.
+                  interesting part is watching it work in a codebase you can read. For how skills are actually created,
+                  stored, and reused across sessions, see our{" "}
+                  <Link to="/blog/hermes-agent-skills" className="text-primary hover:underline">deep dive on Hermes Agent skills</Link>.
                 </p>
               </section>
 
@@ -262,7 +267,9 @@ const HermesAgentPost = () => {
                   The framework itself is free and open source. Bring your own API keys (OpenAI, Anthropic, OpenRouter, or
                   any compatible endpoint), or use <strong>Nous Portal</strong> — Nous Research's hosted gateway to 300+
                   models with tiered subscriptions (Free, Plus, Super, Ultra) that bundle monthly credits. Self-hosters pay
-                  nothing beyond their own inference.
+                  nothing beyond their own inference. For the 64k-context minimum and how to actually pick a model with
+                  <code> hermes model</code>, see{" "}
+                  <Link to="/blog/hermes-agent-models" className="text-primary hover:underline">which LLM to run with Hermes Agent</Link>.
                 </p>
               </section>
 
@@ -292,7 +299,25 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">8. Frequently Asked Questions</h2>
+                <h2 id="explore-the-cluster" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">8. The Full Hermes Agent Guide: Every Spoke in One Place</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  This page is the hub. Each of the guides below goes deep on one part of Hermes Agent — start here, then
+                  branch out to whichever one matches what you're trying to do:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>• <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">How to install Hermes Agent</Link> — macOS, Windows, Linux, pip, and Docker, step by step</li>
+                  <li>• <Link to="/blog/hermes-agent-skills" className="text-primary hover:underline">Hermes Agent skills</Link> — how the self-improving procedural-memory loop actually works</li>
+                  <li>• <Link to="/blog/hermes-agent-desktop-web-ui" className="text-primary hover:underline">Desktop app & web UI</Link> — the visual dashboard alternative to the terminal</li>
+                  <li>• <Link to="/blog/hermes-agent-models" className="text-primary hover:underline">Which LLM to run with Hermes</Link> — Nous Portal, OpenRouter, and the context-window minimum</li>
+                  <li>• <Link to="/blog/hermes-agent-security" className="text-primary hover:underline">Is Hermes Agent safe?</Link> — the sandboxing model and how to run untrusted tasks</li>
+                  <li>• <Link to="/blog/hermes-agent-alternatives" className="text-primary hover:underline">Hermes Agent alternatives</Link> — OpenClaw, LangGraph, CrewAI, AutoGen, and more, compared</li>
+                  <li>• <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes Agent vs OpenClaw</Link> — a head-to-head for picking between the two</li>
+                  <li>• <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Troubleshooting common errors</Link> — starting with <code>hermes doctor</code></li>
+                </ul>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Frequently Asked Questions</h2>
 
                 <h3 id="faq-what-is-hermes-ai" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is Hermes AI?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -322,7 +347,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="resources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Resources</h2>
+                <h2 id="resources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Resources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official website & downloads</a></li>
                   <li>• <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent documentation</a></li>

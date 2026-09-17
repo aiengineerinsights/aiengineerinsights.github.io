@@ -342,7 +342,7 @@ const posts = [
     seoTitle: 'Hermes Agent: What It Is, How to Install It, Free?',
     description:
       'What Hermes Agent by Nous Research is, whether it is free, and how to install the open-source self-improving AI agent on Mac, Windows, and Linux (desktop app + one-line terminal install).',
-    date: '2026-07-22',
+    date: '2026-09-17',
     author: 'poorna',
     image: '/og-hermes-agent.png',
   },
