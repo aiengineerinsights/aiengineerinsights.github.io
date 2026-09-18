@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 34,
+      title: "Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)",
+      excerpt: "Hermes is strongest as an orchestrator — it plans, remembers, and schedules while Claude Code does the coding. The official bundled skill (print mode vs tmux), import-agent, pairing with DeepSeek and other runtimes (Codex, OpenCode), the orchestrator + agent-runtime pattern, use cases, and tips.",
+      readTime: "12 min read",
+      date: "Sep 18, 2026",
+      category: "AI Agents",
+      icon: Boxes,
+      gradient: "from-purple-600 to-indigo-800",
+      link: "/blog/hermes-claude-code-orchestration"
+    },
+    {
       id: 33,
       title: "RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)",
       excerpt: "RAG and fine-tuning aren't competitors — RAG solves a knowledge problem, fine-tuning solves a behavior problem. Side-by-side comparison, when to choose each, and the 2026 hybrid (RAFT) pattern most production systems land on.",

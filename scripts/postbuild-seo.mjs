@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/hermes-claude-code-orchestration',
+    title: 'Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)',
+    seoTitle: 'Hermes + Claude Code: The Orchestrator Pattern',
+    description:
+      'Hermes Agent is strongest as an orchestrator: it plans, remembers, and schedules while Claude Code does the coding. How the official bundled skill works (print mode vs tmux), import-agent, pairing with DeepSeek and other runtimes (Codex, OpenCode), the orchestrator + agent-runtime pattern, use cases, and tips.',
+    date: '2026-09-18',
+    author: 'poorna',
+    image: '/og-hermes-claude-code-orchestration.png',
+    faqs: [
+      { q: 'Can Hermes use Claude Code?', a: "Yes — Hermes ships an official bundled skill for it (autonomous-ai-agents/claude-code). Hermes delegates a coding task to the Claude Code CLI, which reads files, writes code, runs shell commands, and manages git autonomously, then returns the result. There are two modes: print mode (a one-shot 'claude -p' call, best for automation) and an interactive tmux/PTY session for multi-turn work." },
+      { q: "What does 'Hermes as an orchestrator' mean?", a: "It means using Hermes as the persistent brain — planning, memory, scheduling, and model routing — while a specialized agent runtime like Claude Code does the actual coding. Hermes decides what to do and when (including on a cron), delegates the code-writing step to the runtime, reads the result, and continues. It's the orchestrator + agent-runtime split: one layer plans, another executes." },
+      { q: 'Why not just use Claude Code alone?', a: "Claude Code is excellent at the coding step but is session-bound and interactive by design. Pairing it under Hermes adds unattended scheduling (cron), persistent cross-run memory and skills that compound, task decomposition and dispatch, isolated git worktrees for parallel work, and model routing so a cheap model can handle orchestration. If you only need one interactive coding session, Claude Code alone is simpler; the pairing pays off for autonomous, repeated, or parallel work." },
+      { q: 'Can Hermes run DeepSeek?', a: 'Yes. DeepSeek is a supported provider in Hermes, so you can back the agent with a DeepSeek model (including the R1 reasoning model). A common motivation is cost: routing a cheaper model for the planning/orchestration loop and reserving a stronger model for the hard coding step. Exact pricing and quality vary by model and change often — check current provider docs before committing.' },
+      { q: 'Does Hermes only work with Claude Code?', a: 'No. Hermes ships bundled autonomous-agent skills for several runtimes — Claude Code, Codex CLI, OpenCode, and computer use — under the same delegate pattern. You can swap the executor without changing the orchestration layer.' },
+      { q: 'Is it safe to let Hermes drive a coding agent unattended?', a: "Treat it with the same caution as any autonomous agent. Print-mode delegation skips interactive permission prompts, which makes it good for automation but also means the runtime can act without a per-step confirmation. Scope tool permissions tightly, run in an isolated git worktree, keep a human review gate on anything that ships, and avoid fully-permissive modes for work that touches production." },
+    ],
+  },
+  {
     path: '/blog/rag-vs-fine-tuning',
     title: 'RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)',
     seoTitle: 'RAG vs Fine-Tuning: 2026 Decision Guide',

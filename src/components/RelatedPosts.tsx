@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/hermes-claude-code-orchestration",
+    title: "Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/rag-vs-fine-tuning",
     title: "RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)",
     tag: "RAG & Retrieval",
