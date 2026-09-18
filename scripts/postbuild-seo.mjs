@@ -96,7 +96,7 @@ const posts = [
     title: 'Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)',
     seoTitle: 'Hermes + Claude Code: The Orchestrator Pattern',
     description:
-      'Hermes Agent is strongest as an orchestrator: it plans, remembers, and schedules while Claude Code does the coding. How the official bundled skill works (print mode vs tmux), import-agent, pairing with DeepSeek and other runtimes (Codex, OpenCode), the orchestrator + agent-runtime pattern, use cases, and tips.',
+      'Hermes + Claude Code: use Hermes as an orchestrator — it plans, schedules, and remembers while Claude Code writes the code. Modes, DeepSeek routing, and tips.',
     date: '2026-09-18',
     author: 'poorna',
     image: '/og-hermes-claude-code-orchestration.png',
