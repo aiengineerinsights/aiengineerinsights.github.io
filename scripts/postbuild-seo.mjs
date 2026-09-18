@@ -96,7 +96,7 @@ const posts = [
     title: 'RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)',
     seoTitle: 'RAG vs Fine-Tuning: 2026 Decision Guide',
     description:
-      'RAG solves a knowledge problem, fine-tuning solves a behavior problem — not competitors. Side-by-side comparison table, when to choose RAG, when to choose fine-tuning, the 2026 hybrid (RAFT) pattern of fine-tuning for behavior + RAG for facts, and what each takes to build.',
+      'RAG solves a knowledge problem, fine-tuning solves a behavior problem — not competitors. Side-by-side table, when to choose each, the hybrid (RAFT) pattern, how customization is evolving beyond fine-tuning (LoRA/QLoRA, DPO, distillation, reasoning models), where small fine-tuned models win with real company examples (Checkr, Together AI), what engineers say, and tips.',
     date: '2026-09-18',
     author: 'poorna',
     image: '/og-rag-vs-fine-tuning.png',
@@ -107,6 +107,8 @@ const posts = [
       { q: 'When should I choose RAG over fine-tuning?', a: "Choose RAG when your knowledge changes often, you need to cite the source of an answer for compliance or trust, your knowledge base is large or proprietary, or you don't have labeled training examples. RAG is also the standard starting point even for teams that expect to add fine-tuning later." },
       { q: 'When should I choose fine-tuning over RAG?', a: "Choose fine-tuning when you need consistent behavior — a specific tone, refusal pattern, or output format — that prompting alone doesn't reliably enforce; when your latency budget can't absorb a retrieval hop; or when the underlying knowledge is stable and query volume is high enough that a smaller fine-tuned model is meaningfully cheaper to run than a frontier model with RAG." },
       { q: 'How much data does fine-tuning need?', a: "There's no universal number, but production guides commonly cite ranges in the hundreds to low thousands of clean, labeled input/output examples for a supervised fine-tune, with quality mattering more than raw count. RAG, by contrast, works directly off documents you likely already have, with no labeling step." },
+      { q: 'What is LoRA / QLoRA?', a: 'LoRA (Low-Rank Adaptation) fine-tunes a model by freezing its original weights and training small low-rank adapter matrices instead — roughly 0.1–1% of the parameters — so quality stays close to a full fine-tune at a fraction of the compute and memory, with no added inference latency once merged. QLoRA adds 4-bit quantization of the base model, making it possible to fine-tune large models on a single GPU. Both are parameter-efficient fine-tuning (PEFT) methods and are the default way teams fine-tune in 2026.' },
+      { q: 'Can a small fine-tuned model beat a large model?', a: 'For a narrow, well-defined task, often yes. Publicly documented examples show fine-tuned small open models (8B-class) matching or beating much larger models on a specific task at far lower cost — e.g. Together AI reported a fine-tuned Llama-3-8B beating the 70B base on math at ~50× lower cost than GPT-4o, and Checkr replaced GPT-4 with fine-tuned small models for background-check classification at roughly 5× lower cost. The win is task-specific: a small fine-tuned model does not become generally smarter, just very good at the one job it was tuned for.' },
     ],
   },
   {
