@@ -9,6 +9,16 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)",
+      excerpt: "RAG and fine-tuning aren't competitors — RAG solves a knowledge problem, fine-tuning solves a behavior problem. Side-by-side comparison, when to choose each, and the 2026 hybrid (RAFT) pattern most production systems land on.",
+      readTime: "11 min read",
+      date: "Sep 18, 2026",
+      category: "RAG & Retrieval",
+      icon: GitCompare,
+      gradient: "from-emerald-600 to-teal-800",
+      link: "/blog/rag-vs-fine-tuning"
+    },
+    {
       title: "AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)",
       excerpt: "What AI agents are and how they work — an LLM reasoning core wired to memory and tools, running a perceive → plan → act → observe loop. AI agents vs agentic AI, the five classic types plus modern patterns, real examples (Claude Code, Devin, Deep Research), whether ChatGPT is an agent, and how to build one.",
       readTime: "12 min read",

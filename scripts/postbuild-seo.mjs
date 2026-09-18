@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/rag-vs-fine-tuning',
+    title: 'RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)',
+    seoTitle: 'RAG vs Fine-Tuning: 2026 Decision Guide',
+    description:
+      'RAG solves a knowledge problem, fine-tuning solves a behavior problem — not competitors. Side-by-side comparison table, when to choose RAG, when to choose fine-tuning, the 2026 hybrid (RAFT) pattern of fine-tuning for behavior + RAG for facts, and what each takes to build.',
+    date: '2026-09-18',
+    author: 'poorna',
+    image: '/og-rag-vs-fine-tuning.png',
+    faqs: [
+      { q: 'Is RAG cheaper than fine-tuning?', a: 'Usually to start, no — not always to run. RAG typically has a lower upfront build cost and no training run, but every call pays a token cost for the injected context plus a retrieval hop. Fine-tuning costs more upfront (data labeling and a training job) but a fine-tuned smaller model can get cheaper per call at high, repetitive volume. Compare total cost across build, run, and maintain, not just the price of one training run.' },
+      { q: 'Can you use RAG and fine-tuning together?', a: "Yes, and most production systems that reach real scale do. The common pattern is to fine-tune for behavior — tone, refusal style, output format — and use RAG for facts, so the model talks in a consistent voice while grounding its answers in current, cited documents. This combined pattern is sometimes called RAFT (retrieval-augmented fine-tuning)." },
+      { q: 'Does fine-tuning teach a model new facts?', a: 'Not reliably. Fine-tuning adjusts weights toward the style and structure of the training examples; it does not give a model a dependable, inspectable store of facts the way a retrieval index does. Teams that fine-tune on a document set to make the model "know" it often end up with a model that confidently invents details rather than accurately recalling them. For facts, use RAG.' },
+      { q: 'When should I choose RAG over fine-tuning?', a: "Choose RAG when your knowledge changes often, you need to cite the source of an answer for compliance or trust, your knowledge base is large or proprietary, or you don't have labeled training examples. RAG is also the standard starting point even for teams that expect to add fine-tuning later." },
+      { q: 'When should I choose fine-tuning over RAG?', a: "Choose fine-tuning when you need consistent behavior — a specific tone, refusal pattern, or output format — that prompting alone doesn't reliably enforce; when your latency budget can't absorb a retrieval hop; or when the underlying knowledge is stable and query volume is high enough that a smaller fine-tuned model is meaningfully cheaper to run than a frontier model with RAG." },
+      { q: 'How much data does fine-tuning need?', a: "There's no universal number, but production guides commonly cite ranges in the hundreds to low thousands of clean, labeled input/output examples for a supervised fine-tune, with quality mattering more than raw count. RAG, by contrast, works directly off documents you likely already have, with no labeling step." },
+    ],
+  },
+  {
     path: '/blog/mcp-vs-api',
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',

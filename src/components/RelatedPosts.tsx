@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/rag-vs-fine-tuning",
+    title: "RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)",
+    tag: "RAG & Retrieval",
+  },
+  {
     slug: "/blog/what-are-ai-agents",
     title: "AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)",
     tag: "AI Agents",
