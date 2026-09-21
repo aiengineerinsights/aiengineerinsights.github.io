@@ -59,6 +59,7 @@
 - [LLM Deployment Challenges and Solutions](https://aiengineerinsights.com/blog/llm-deployment-challenges): Practical patterns for deploying large language models
 - [Building Robust AI Data Pipelines](https://aiengineerinsights.com/blog/building-robust-ai-data-pipelines): Data engineering foundations for AI systems
 - [RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)](https://aiengineerinsights.com/blog/rag-vs-fine-tuning): RAG solves a knowledge problem, fine-tuning solves a behavior problem — the side-by-side comparison, when to use each, and the 2026 hybrid (RAFT) pattern
+- [RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained](https://aiengineerinsights.com/blog/rag-evaluation-metrics): RAG evaluation splits into retrieval metrics (context precision, context recall) and generation metrics (faithfulness, answer relevancy) — the RAG triad, RAGAS vs TruLens vs DeepEval, and eval pitfalls
 
 ## Pages
 

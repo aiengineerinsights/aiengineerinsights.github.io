@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/rag-evaluation-metrics",
+    title: "RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained",
+    tag: "RAG & Retrieval",
+  },
+  {
     slug: "/blog/hermes-claude-code-orchestration",
     title: "Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)",
     tag: "AI Agents",

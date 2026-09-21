@@ -46,6 +46,7 @@ const AIAgentsExplainedPost = lazy(() => import("./pages/AIAgentsExplainedPost")
 const MCPvsAPIPost = lazy(() => import("./pages/MCPvsAPIPost"));
 const RagVsFineTuningPost = lazy(() => import("./pages/RagVsFineTuningPost"));
 const HermesClaudeCodePost = lazy(() => import("./pages/HermesClaudeCodePost"));
+const RagEvaluationMetricsPost = lazy(() => import("./pages/RagEvaluationMetricsPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -63,6 +64,7 @@ const AppRoutes = () => (
       <Route path="/blog/mcp-vs-api" element={<MCPvsAPIPost />} />
       <Route path="/blog/rag-vs-fine-tuning" element={<RagVsFineTuningPost />} />
       <Route path="/blog/hermes-claude-code-orchestration" element={<HermesClaudeCodePost />} />
+      <Route path="/blog/rag-evaluation-metrics" element={<RagEvaluationMetricsPost />} />
       <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />

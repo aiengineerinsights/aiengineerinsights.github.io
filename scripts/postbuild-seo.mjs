@@ -130,6 +130,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/rag-evaluation-metrics',
+    title: 'RAG Evaluation Metrics: Faithfulness, Context Precision/Recall, and How to Actually Measure a RAG Pipeline',
+    seoTitle: 'RAG Evaluation Metrics: Faithfulness & Context Precision/Recall',
+    description:
+      'RAG evaluation splits into two failure edges: retrieval (context precision, context recall) and generation (faithfulness, answer relevancy). The RAG triad, how RAGAS computes each metric, RAGAS vs TruLens vs DeepEval, and the pitfalls that make eval scores lie to you.',
+    date: '2026-09-21',
+    author: 'poorna',
+    image: '/og-rag-evaluation-metrics.png',
+    faqs: [
+      { q: 'What is RAG evaluation?', a: "RAG evaluation is measuring whether a retrieval-augmented generation pipeline retrieves the right context and generates an answer that's grounded in it. It splits into two failure edges: retrieval quality (did we find the right chunks?) and generation faithfulness (did the model use them correctly, without inventing anything?). Standard frameworks like RAGAS and TruLens score both with an LLM-as-judge." },
+      { q: 'What is the RAG triad?', a: 'The RAG triad, coined by TruEra/TruLens, is three evaluations that together catch hallucination: context relevance (are retrieved chunks relevant to the query?), groundedness (is the answer supported by the retrieved context?), and answer relevance (does the answer address the question?). Passing all three gives confidence the app is hallucination-free up to the limits of its knowledge base.' },
+      { q: 'What is faithfulness in RAG evaluation?', a: "Faithfulness measures what fraction of an answer's claims are actually supported by the retrieved context. RAGAS computes it by decomposing the answer into atomic statements with an LLM, checking each against the context, and scoring supported/total. A score below roughly 0.7-0.8 is commonly used as a threshold that flags meaningful hallucination worth investigating." },
+      { q: 'RAGAS vs TruLens vs DeepEval — which should I use?', a: 'They fit different stages. RAGAS is the fastest path to scored, standardized RAG metrics for offline comparison of pipeline configurations. TruLens adds OpenTelemetry-based tracing so you can watch faithfulness and relevance drift on live production traffic, not just an eval set. DeepEval is built pytest-style, so RAG quality becomes a CI gate that can block a merge. Many teams run more than one: RAGAS or TruLens in development, DeepEval in CI, TruLens (or Arize Phoenix) in production.' },
+      { q: 'Does a high faithfulness score mean the RAG system is correct?', a: "No. Faithfulness only checks that the answer's claims trace back to the retrieved context — it can't tell you if that context was itself wrong or stale. A RAG system can score 0.95 on faithfulness and still give a confidently wrong business answer if the underlying documents were outdated or incorrect. RAG evaluation frameworks operate at the inference layer; they don't substitute for keeping the knowledge base accurate." },
+      { q: 'Do I need labeled ground truth to evaluate a RAG pipeline?', a: "Not for the core generation-side metrics. Faithfulness and answer relevancy are reference-free — they only need the question, retrieved context, and generated answer. Context recall is the exception: it requires a ground-truth answer to check whether retrieval pulled back everything necessary, so it's typically added once you have a labeled eval set." },
+    ],
+  },
+  {
     path: '/blog/mcp-vs-api',
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',

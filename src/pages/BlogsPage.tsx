@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 35,
+      title: "RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained",
+      excerpt: "RAG evaluation splits into two failure edges: retrieval (context precision, context recall) and generation (faithfulness, answer relevancy). What the RAG triad is, how RAGAS computes each metric, RAGAS vs TruLens vs DeepEval, and the pitfalls that make eval scores lie to you.",
+      readTime: "11 min read",
+      date: "Sep 21, 2026",
+      category: "RAG & Retrieval",
+      icon: GitCompare,
+      gradient: "from-cyan-600 to-blue-800",
+      link: "/blog/rag-evaluation-metrics"
+    },
+    {
       id: 34,
       title: "Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)",
       excerpt: "Hermes is strongest as an orchestrator — it plans, remembers, and schedules while Claude Code does the coding. The official bundled skill (print mode vs tmux), import-agent, pairing with DeepSeek and other runtimes (Codex, OpenCode), the orchestrator + agent-runtime pattern, use cases, and tips.",
