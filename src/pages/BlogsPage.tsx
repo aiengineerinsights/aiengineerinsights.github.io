@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 39,
+      title: "LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)",
+      excerpt: "Classification needs a class plus a probability you can trust. We compare trained classifiers, the LLM-as-classifier hack, and Jev's calibrated decisions — and settle whether decision models replace traditional ML.",
+      readTime: "13 min read",
+      date: "Sep 23, 2026",
+      category: "AI Models",
+      icon: Boxes,
+      gradient: "from-sky-600 to-blue-800",
+      link: "/blog/llm-vs-traditional-ml-classification"
+    },
+    {
       id: 38,
       title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
       excerpt: "Jev returns a typed decision and a calibrated confidence score instead of text, in one non-autoregressive pass. What System One means, how RLCD training works, pricing, use cases, and the real limitations.",

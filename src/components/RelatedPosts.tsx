@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/llm-vs-traditional-ml-classification",
+    title: "LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)",
+    tag: "AI Models",
+  },
+  {
     slug: "/blog/what-is-jev",
     title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
     tag: "AI Models",

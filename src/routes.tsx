@@ -50,6 +50,7 @@ const RagEvaluationMetricsPost = lazy(() => import("./pages/RagEvaluationMetrics
 const WhatIsJevPost = lazy(() => import("./pages/WhatIsJevPost"));
 const JevVsLLMPost = lazy(() => import("./pages/JevVsLLMPost"));
 const HowToUseJevPost = lazy(() => import("./pages/HowToUseJevPost"));
+const LLMvsMLClassificationPost = lazy(() => import("./pages/LLMvsMLClassificationPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -71,6 +72,7 @@ const AppRoutes = () => (
       <Route path="/blog/what-is-jev" element={<WhatIsJevPost />} />
       <Route path="/blog/jev-vs-llm" element={<JevVsLLMPost />} />
       <Route path="/blog/how-to-use-jev" element={<HowToUseJevPost />} />
+      <Route path="/blog/llm-vs-traditional-ml-classification" element={<LLMvsMLClassificationPost />} />
       <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />

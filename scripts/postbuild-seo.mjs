@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/llm-vs-traditional-ml-classification',
+    title: 'LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)',
+    seoTitle: 'LLM vs Traditional ML for Classification (2026)',
+    description:
+      "LLM vs traditional ML classification: why an LLM's confidence isn't a probability, how calibration decides it, and where Jev's zero-shot decisions fit.",
+    date: '2026-09-23',
+    author: 'poorna',
+    image: '/og-llm-vs-traditional-ml-classification.png',
+    faqs: [
+      { q: 'Can an LLM be used as a classifier?', a: 'Yes, and for genuine zero-shot work — no training data, brand-new or long-tail labels, low volume, or tasks that need world knowledge and reasoning about the text — it is often the right call. The mistake is treating it as a drop-in replacement for a trained classifier on a stable, high-volume task: it is slower, far more expensive per call, non-deterministic, prompt-sensitive, and the confidence number it reports is not a calibrated probability.' },
+      { q: "Is an LLM's confidence score a real probability?", a: "No. When you prompt a model to 'give a confidence from 0 to 100', the number is generated text, not a measured probability. Token log-probabilities are not class probabilities either, and RLHF post-training distorts them further: OpenAI's GPT-4 Technical Report shows the pre-trained model was well-calibrated and post-training reduced that calibration. If you need a number to threshold on, you have to measure calibration (ECE, reliability diagram) rather than trust the model's self-report." },
+      { q: 'What is calibration in machine learning?', a: "A classifier is calibrated when its probabilities match reality: among all the cases it calls about 90% likely, roughly 90% actually belong to that class. You measure it with Expected Calibration Error (ECE) and a reliability diagram. Traditional classifiers are calibrated after training with Platt scaling or isotonic regression (scikit-learn's CalibratedClassifierCV); modern neural networks tend to be overconfident, which Guo et al. 2017 showed temperature scaling can fix." },
+      { q: 'Can Jev replace traditional ML classifiers?', a: 'Not wholesale. On a stable, high-volume, in-distribution task where you already have labeled data, a calibrated XGBoost or fine-tuned classifier still wins on cost, accuracy, reproducibility, and auditability, so there is no reason to rip out a working one. Jev genuinely wins where there is no labeled data, where the label set changes often, for long-tail categories, or when you need a good-enough calibrated decision in an afternoon instead of a labeling project. In practice it mostly replaces the LLM-as-classifier hack, not a real trained classifier.' },
+      { q: 'What is the difference between Jev and an LLM for classification?', a: "An LLM generates text autoregressively and, if asked, verbalizes a confidence that is not a calibrated probability. Jev is TypeSafe AI's 'System One' model: it returns a typed decision — a Choice of up to 255 labels, a Score, or a calibrated probability — plus a confidence, in one non-autoregressive pass, with no text. It is trained with RLCD (Reinforcement Learning for Calibrated Decisions) so the confidence is meant to track accuracy, and it keeps the zero-shot flexibility of an LLM. Independent testing still found its calibration imperfect (ECE around 0.107) and its verdict movable by prompt injection." },
+      { q: 'When should I use a traditional ML classifier instead of an LLM?', a: 'Whenever the task is stable, the volume is high, and you have (or can cheaply get) labeled in-distribution data: fraud scoring, spam, churn, routing between a fixed set of queues. A logistic regression, gradient-boosted tree, or small fine-tuned transformer will be cheaper, faster, deterministic, reproducible, and easier to audit — and after Platt or isotonic calibration it gives you a probability you can actually set a threshold on.' },
+    ],
+  },
+  {
     path: '/blog/what-is-jev',
     title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
     seoTitle: "What Is Jev? TypeSafe's System One Model Explained",
