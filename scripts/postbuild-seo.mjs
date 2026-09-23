@@ -92,6 +92,60 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/what-is-jev',
+    title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
+    seoTitle: "What Is Jev? TypeSafe's System One Model Explained",
+    description:
+      'Jev is TypeSafe AI’s System One model: a typed decision plus a calibrated confidence score in one pass, not text. How it works, pricing, and limits.',
+    date: '2026-09-23',
+    author: 'poorna',
+    image: '/og-what-is-jev.png',
+    faqs: [
+      { q: 'What is Jev in simple terms?', a: "Jev is an AI model from TypeSafe AI that answers with a decision instead of a paragraph. You give it an input and a set of possible answers (labels, a numeric range, or a yes/no question), and it returns one typed value plus a confidence score — for example {label: 'fraud', confidence: 0.87} — in a single pass. TypeSafe calls this category a 'System One' model, after the fast, intuitive mode of thinking, as opposed to the slow, deliberate 'System Two' style of a chat LLM." },
+      { q: 'Is Jev an LLM?', a: 'Not in the usual sense. A large language model generates text autoregressively, one token at a time. Jev is non-autoregressive: it produces all of its outputs in one parallel forward pass and never emits free text. It is built to be consumed by software directly, not read by a person. Think of it as a decision model that sits next to your LLM, not a replacement for it.' },
+      { q: 'Can Jev hallucinate?', a: "It cannot hallucinate the shape of an answer — you will never get malformed JSON, a label that wasn't on your list, or a string where you asked for a number. But it absolutely can return the wrong value inside a valid type: a legitimate transaction labeled 'fraud', or a confident score on a question it cannot actually answer. 'Cannot hallucinate' means structurally safe, not never wrong." },
+      { q: 'How much does Jev cost?', a: 'As of September 2026, TypeSafe charges $0.042 per million input tokens, output is free, and the context window is 32,000 tokens. Early access opened on September 15, 2026 behind a waitlist, which was dropped around September 21, so API keys are now open. It is also available through Cloudflare Workers AI (model id typesafe/jev), OpenRouter, and Composio.' },
+      { q: 'What is RLCD and how is Jev trained?', a: "RLCD stands for Reinforcement Learning for Calibrated Decisions. Where RLHF rewards a model for outputs that human raters approve of, RLCD rewards the model for being right and for reporting a confidence that matches how often it is right — a '90% confidence' answer should be correct about 90% of the time. TypeSafe says Jev is trained this way on synthetic data. Independent testing shows the calibration is real but imperfect, especially in the 0.3–0.8 mid-range." },
+      { q: 'Who built Jev?', a: 'TypeSafe AI, a San Francisco company founded in 2024. It came out of stealth in September 2026 with a $40M seed round led by DCVC. The CEO is Diogo Almeida, a former OpenAI and Google Brain researcher who was a co-inventor of RLHF and InstructGPT and a contributor to GPT-4. His co-founders are Erik Gafni and Sasha Sheng.' },
+    ],
+  },
+  {
+    path: '/blog/jev-vs-llm',
+    title: 'Jev vs LLMs: When to Use a Calibrated Decision Model (2026)',
+    seoTitle: 'Jev vs LLMs: When to Use a Decision Model',
+    description:
+      'Jev vs LLMs: an LLM generates text and reasons; Jev returns one typed, calibrated decision. Side-by-side table, where each wins, RLCD vs RLHF, and limits.',
+    date: '2026-09-23',
+    author: 'poorna',
+    image: '/og-jev-vs-llm.png',
+    faqs: [
+      { q: 'Is Jev a replacement for an LLM?', a: "No. Jev is a 'System One' model from TypeSafe AI that returns a single typed decision with a calibrated confidence — it does not generate text at all. An LLM generates and reasons in language. They do different jobs, and most production systems that adopt Jev keep an LLM for the parts that need generation or reasoning." },
+      { q: 'What does Jev actually output?', a: "One of three typed results: a Choice (one of up to 255 labels), a Score (a number), or a calibrated probability — for example {label: 'fraud', confidence: 0.87}. Because the output shape is fixed, it can never be malformed or the wrong type. It can, however, still pick the wrong label inside that valid shape." },
+      { q: 'Is Jev really 400× cheaper and 200× faster than an LLM?', a: "Those are TypeSafe's own claims — up to ~193.6× faster and ~444.6× cheaper on workflows the vendor selected, with a wider quoted range of 40–200× and 40–400×. One independent critique notes the 444.6× benchmark used the average of two other models' answers as the reference, so it measures agreement rather than accuracy. Verified pricing is $0.042 per million input tokens with free output tokens." },
+      { q: 'How is RLCD different from RLHF?', a: 'RLHF (used to train most chat LLMs) optimizes the model toward answers human raters approve of. RLCD — Reinforcement Learning for Calibrated Decisions, used for Jev — optimizes the model’s confidence to match its real accuracy, so a 90% confidence should be right about 90% of the time. RLHF makes text people like; RLCD makes probabilities you can threshold on.' },
+      { q: "Can I trust Jev's confidence score?", a: 'Partly. An independent study measured an expected calibration error of about 0.107 — roughly 4.4× a well-calibrated baseline. Confidence is most reliable near 0 and 1 and shakiest in the 0.3–0.8 band, and on unanswerable questions Jev was right only 44.7% of the time while averaging 0.74 confidence. Treat the extremes as usable signals and route the middle band to a human or an LLM.' },
+      { q: 'Is Jev safe to use as a guardrail on untrusted input?', a: "Not on its own. A VentureBeat report and an Octomind demo showed prompt injection shifting Jev's block probability from 0.76 to 0.48 after a fake 'user pre-approved' field was added to the input. Jev is useful as one fast signal in a guardrail, but it should not be the sole gate for real actions on content an attacker can influence." },
+    ],
+  },
+  {
+    path: '/blog/how-to-use-jev',
+    title: 'How to Use Jev: A Practical Guide + Use Cases for AI Engineers (2026)',
+    seoTitle: 'How to Use Jev: Practical Guide + Use Cases',
+    description:
+      'How to use Jev: get access, the three typed outputs, LangChain/Pydantic/Cloudflare integrations, real use cases, a routing + guardrail pattern, and the caveat.',
+    date: '2026-09-23',
+    author: 'poorna',
+    image: '/og-how-to-use-jev.png',
+    faqs: [
+      { q: 'How do I get access to Jev?', a: 'Jev entered early access on September 15, 2026 and the waitlist was dropped around September 21, 2026, so access is open. You can call it directly through the TypeSafe API with a TYPESAFE_API_KEY, or through OpenRouter, Cloudflare Workers AI (model id typesafe/jev, which does not require a TypeSafe key), or Composio. Pick whichever platform your stack already talks to.' },
+      { q: 'What does Jev return instead of text?', a: "A typed decision plus a calibrated confidence. There are three output types: a Choice (one label from a set of up to 255), a Score (a number), and a calibrated probability. A typical response looks like {label: 'fraud', confidence: 0.87}. Your code branches on the label and the confidence directly, with no parsing and no 'answer only yes or no' prompt." },
+      { q: 'Does Jev work with LangChain and Pydantic?', a: 'Yes. LangChain has a TypeSafeClassifier integration: you pass it state plus the questions you want decided and get typed decisions back, which LangChain uses for agent routing and tool-call risk blocking. Jev’s outputs are Pydantic-typed, and it accepts Pydantic schemas as output constraints, so the decision lands in your code already validated. Check the current TypeSafe and LangChain docs for exact signatures.' },
+      { q: 'How much does Jev cost?', a: 'Verified pricing is $0.042 per million input tokens, with output free, and a 32,000-token context window. TypeSafe’s headline comparisons (up to about 193.6x faster and about 444.6x cheaper than LLM alternatives) are vendor claims on vendor-selected workflows, and the 444.6x figure uses the average of two other models as its reference answer, which measures agreement rather than accuracy.' },
+      { q: 'Can Jev hallucinate?', a: "The shape cannot be wrong: you always get a valid label, score, or probability of the type you asked for. The value can still be wrong. 'Cannot hallucinate' is a claim about type safety, not about correctness, so treat Jev like any classifier: measure its accuracy on your own data before trusting it, and watch the confidence." },
+      { q: "Is it safe to let Jev decide whether an agent's tool call runs?", a: "Only with guards around it. VentureBeat reported, and an Octomind engineer demonstrated, that injected text moves Jev's verdict: a 'block this command?' probability of 0.76 fell to 0.48 after a fake 'user pre-approved' field was added to the input. TypeSafe's own limitations page says adversarial content can move the answer. Use Jev as a fast first filter, never as the only thing standing between untrusted input and a destructive action." },
+    ],
+  },
+  {
     path: '/blog/hermes-claude-code-orchestration',
     title: 'Hermes + Claude Code: Using Hermes as an Orchestrator for Autonomous Coding (2026)',
     seoTitle: 'Hermes + Claude Code: The Orchestrator Pattern',

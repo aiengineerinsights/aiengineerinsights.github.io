@@ -15,6 +15,39 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 38,
+      title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
+      excerpt: "Jev returns a typed decision and a calibrated confidence score instead of text, in one non-autoregressive pass. What System One means, how RLCD training works, pricing, use cases, and the real limitations.",
+      readTime: "10 min read",
+      date: "Sep 23, 2026",
+      category: "AI Models",
+      icon: Brain,
+      gradient: "from-fuchsia-600 to-purple-800",
+      link: "/blog/what-is-jev"
+    },
+    {
+      id: 37,
+      title: "Jev vs LLMs: When to Use a Calibrated Decision Model (2026)",
+      excerpt: "Jev and LLMs aren't competitors. An LLM reasons in text (System Two); Jev returns one typed, calibrated decision (System One). The comparison table, where each wins, and Jev's honest limits.",
+      readTime: "11 min read",
+      date: "Sep 23, 2026",
+      category: "AI Models",
+      icon: GitCompare,
+      gradient: "from-amber-600 to-orange-800",
+      link: "/blog/jev-vs-llm"
+    },
+    {
+      id: 36,
+      title: "How to Use Jev: A Practical Guide + Use Cases for AI Engineers (2026)",
+      excerpt: "A practical guide to Jev, TypeSafe's typed-decision model: access, the three outputs, LangChain/Pydantic/Cloudflare integrations, four real use cases, a worked routing-and-guardrail pattern, and the prompt-injection caveat.",
+      readTime: "11 min read",
+      date: "Sep 23, 2026",
+      category: "AI Models",
+      icon: Wrench,
+      gradient: "from-teal-600 to-emerald-800",
+      link: "/blog/how-to-use-jev"
+    },
+    {
       id: 35,
       title: "RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained",
       excerpt: "RAG evaluation splits into two failure edges: retrieval (context precision, context recall) and generation (faithfulness, answer relevancy). What the RAG triad is, how RAGAS computes each metric, RAGAS vs TruLens vs DeepEval, and the pitfalls that make eval scores lie to you.",

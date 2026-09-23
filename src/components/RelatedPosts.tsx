@@ -7,6 +7,21 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/what-is-jev",
+    title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",
+    tag: "AI Models",
+  },
+  {
+    slug: "/blog/jev-vs-llm",
+    title: "Jev vs LLMs: When to Use a Calibrated Decision Model (2026)",
+    tag: "AI Models",
+  },
+  {
+    slug: "/blog/how-to-use-jev",
+    title: "How to Use Jev: A Practical Guide + Use Cases for AI Engineers (2026)",
+    tag: "AI Models",
+  },
+  {
     slug: "/blog/rag-evaluation-metrics",
     title: "RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained",
     tag: "RAG & Retrieval",
