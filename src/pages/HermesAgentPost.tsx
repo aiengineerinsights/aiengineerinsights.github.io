@@ -79,7 +79,7 @@ const HermesAgentPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Sep 17, 2026
+                      Sep 23, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -343,6 +343,15 @@ const HermesAgentPost = () => {
                   The official website is <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent.nousresearch.com</a>,
                   documentation lives at <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">/docs</a>,
                   and the source is at <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/NousResearch/hermes-agent</a>.
+                  There is no account gate or waitlist on any of the three — the docs, the installer, and the code are all publicly readable before you install anything.
+                </p>
+
+                <h3 id="faq-hermes-pip-docker" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Can I install Hermes Agent with pip or Docker instead of the one-line script?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Yes. Beyond the curl/PowerShell one-liners in the table above, Hermes Agent also ships as a <strong>pip package</strong> and a{" "}
+                  <strong>Docker image</strong> for teams that prefer a pinned, scriptable install — useful in CI, a devcontainer, or any environment where
+                  piping a shell script isn't an option. The full command-by-command walkthrough for pip, Docker, and every OS is in our{" "}
+                  <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">Hermes Agent install guide</Link>.
                 </p>
               </section>
 

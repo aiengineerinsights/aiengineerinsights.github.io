@@ -395,12 +395,19 @@ const posts = [
   {
     path: '/blog/hermes-agent-nous-research-guide',
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
-    seoTitle: 'Hermes Agent: What It Is, How to Install It, Free?',
+    seoTitle: 'Hermes Agent (Nous Research): Official Docs, Install, Free?',
     description:
-      'What Hermes Agent by Nous Research is, whether it is free, and how to install the open-source self-improving AI agent on Mac, Windows, and Linux (desktop app + one-line terminal install).',
-    date: '2026-09-17',
+      'What Hermes Agent by Nous Research is, where the official documentation and GitHub repo live, whether it is free, and how to install the open-source self-improving AI agent on Mac, Windows, and Linux.',
+    date: '2026-09-23',
     author: 'poorna',
     image: '/og-hermes-agent.png',
+    faqs: [
+      { q: 'What is Hermes AI?', a: '"Hermes AI" usually refers to Hermes Agent, Nous Research\'s open-source autonomous AI agent framework — though it can also mean the separate Hermes family of fine-tuned LLMs from the same lab. The agent is the framework that plans, calls tools, and executes tasks; the LLMs are models that can power it.' },
+      { q: 'Is Hermes Agent free?', a: 'Yes — the Hermes Agent framework is MIT-licensed and free to download, self-host, and modify from github.com/NousResearch/hermes-agent. You pay only for the model inference you use, either via your own API keys (OpenAI, Anthropic, OpenRouter) or a Nous Portal subscription tier.' },
+      { q: 'Does Hermes Agent run on Windows?', a: 'Yes. Windows 10/11 gets a native EXE installer for the desktop app, or a one-line PowerShell install (iex (irm https://hermes-agent.nousresearch.com/install.ps1)) for the CLI. WSL2 is also supported via the Linux install script.' },
+      { q: 'Where are the official Hermes Agent website and documentation?', a: 'The official website and downloads are at hermes-agent.nousresearch.com, documentation lives at hermes-agent.nousresearch.com/docs, and the source code is on GitHub at github.com/NousResearch/hermes-agent. There is no separate account gate or waitlist to read the docs or download the installer.' },
+      { q: 'Can I install Hermes Agent with pip or Docker?', a: 'Yes — beyond the one-line curl/PowerShell installers and the desktop app, Hermes Agent also ships as a pip package and a Docker image for containerized or scripted setups. See our step-by-step install guide for the exact commands per platform.' },
+    ],
   },
   {
     path: '/blog/ollama-mac-local-ai-2025',
