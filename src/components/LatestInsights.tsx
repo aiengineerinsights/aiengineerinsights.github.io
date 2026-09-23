@@ -9,14 +9,14 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
-      title: "LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)",
-      excerpt: "Classification needs a class plus a probability you can trust. We compare trained classifiers, the LLM-as-classifier hack, and Jev's calibrated decisions — and settle whether decision models replace traditional ML.",
+      title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",
+      excerpt: "Classification needs a class plus a probability you can trust. We compare Jev's calibrated decisions, the LLM-as-classifier hack, and trained ML classifiers — and settle whether decision models replace traditional ML.",
       readTime: "13 min read",
       date: "Sep 23, 2026",
       category: "AI Models",
       icon: Boxes,
       gradient: "from-sky-600 to-blue-800",
-      link: "/blog/llm-vs-traditional-ml-classification"
+      link: "/blog/jev-vs-ml-classification"
     },
     {
       title: "What Is Jev? TypeSafe's System One Decision Model, Explained (2026)",

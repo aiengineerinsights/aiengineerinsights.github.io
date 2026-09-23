@@ -92,11 +92,11 @@ const pages = [
 
 const posts = [
   {
-    path: '/blog/llm-vs-traditional-ml-classification',
-    title: 'LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)',
-    seoTitle: 'LLM vs Traditional ML for Classification (2026)',
+    path: '/blog/jev-vs-ml-classification',
+    title: 'Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026',
+    seoTitle: 'Jev vs LLMs vs Traditional ML for Classification',
     description:
-      "LLM vs traditional ML classification: why an LLM's confidence isn't a probability, how calibration decides it, and where Jev's zero-shot decisions fit.",
+      "Jev vs LLMs vs traditional ML classifiers: which to use for classification, why an LLM's confidence isn't a probability, and how calibration decides it.",
     date: '2026-09-23',
     author: 'poorna',
     image: '/og-llm-vs-traditional-ml-classification.png',

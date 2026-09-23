@@ -7,8 +7,8 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
-    slug: "/blog/llm-vs-traditional-ml-classification",
-    title: "LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)",
+    slug: "/blog/jev-vs-ml-classification",
+    title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",
     tag: "AI Models",
   },
   {

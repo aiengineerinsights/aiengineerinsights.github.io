@@ -105,7 +105,7 @@ const LLMvsMLClassificationPost = () => {
               </div>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                LLM vs Traditional ML for Classification: The Calibration Problem, and Where Jev Fits (2026)
+                Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
@@ -479,7 +479,7 @@ const LLMvsMLClassificationPost = () => {
         </div>
       </main>
 
-      <RelatedPosts current="/blog/llm-vs-traditional-ml-classification" />
+      <RelatedPosts current="/blog/jev-vs-ml-classification" />
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Lazy routes split each page into its own chunk, keeping the initial
 // bundle small. The prerender entry renders through the same table so
@@ -72,7 +72,9 @@ const AppRoutes = () => (
       <Route path="/blog/what-is-jev" element={<WhatIsJevPost />} />
       <Route path="/blog/jev-vs-llm" element={<JevVsLLMPost />} />
       <Route path="/blog/how-to-use-jev" element={<HowToUseJevPost />} />
-      <Route path="/blog/llm-vs-traditional-ml-classification" element={<LLMvsMLClassificationPost />} />
+      <Route path="/blog/jev-vs-ml-classification" element={<LLMvsMLClassificationPost />} />
+      {/* Renamed from the original slug; keep the old URL redirecting so early links/indexing don't 404. */}
+      <Route path="/blog/llm-vs-traditional-ml-classification" element={<Navigate to="/blog/jev-vs-ml-classification" replace />} />
       <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />
