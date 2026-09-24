@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import { affiliateUrl } from "@/config/affiliates";
 
 const PDF = "/downloads/ai-roadmap.pdf";
 
@@ -250,17 +252,20 @@ const RoadmapPage = () => {
                         ))}
                       </ul>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                        {p.resources.map((r) => (
-                          <a
-                            key={r.url}
-                            href={r.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-primary hover:underline"
-                          >
-                            {r.text}
-                          </a>
-                        ))}
+                        {p.resources.map((r) => {
+                          const { href, sponsored } = affiliateUrl(r.url);
+                          return (
+                            <a
+                              key={r.url}
+                              href={href}
+                              target="_blank"
+                              rel={sponsored ? "sponsored nofollow noopener noreferrer" : "noopener noreferrer"}
+                              className="text-primary hover:underline"
+                            >
+                              {r.text}
+                            </a>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -268,6 +273,8 @@ const RoadmapPage = () => {
               );
             })}
           </div>
+
+          <AffiliateDisclosure className="max-w-3xl mx-auto" />
 
           <section className="my-10 rounded-xl border border-border bg-muted/40 p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">Get the full roadmap as a PDF</h2>
