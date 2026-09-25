@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "Does GrapeRoot send my code anywhere?",
-    a: "No. GrapeRoot processes everything locally — it builds the graph on your machine and no code leaves it. It's open source under Apache 2.0 and runs on macOS, Linux, and Windows.",
+    a: "Processing is local — it builds the graph on your machine. On licensing, see the correction at the top of this post: the Apache 2.0 repository is the launcher, while the engine ships as compiled wheels and PyPI lists it as Proprietary. The maintainer has confirmed 'open source launcher, proprietary engine' is the accurate description. Runs on macOS, Linux, and Windows.",
   },
   {
     q: "How much does GrapeRoot actually save?",
@@ -86,10 +86,37 @@ const ContextEngineeringGrapeRootPost = () => {
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 If your AI coding assistant is quietly burning a few hundred dollars a month and forgetting your project
                 halfway through a task, the problem usually isn't the model — it's the context. This is about the fix that
-                actually works: <strong>context engineering</strong>, and a clean open-source tool called{" "}
+                actually works: <strong>context engineering</strong>, and a tool called{" "}
                 <strong>GrapeRoot</strong> that automates it, cutting cost per prompt from $0.49 to $0.27 with equal-or-better
                 answers. Here's the problem, why it happens, and how the fix is built.
               </p>
+
+              <div className="mb-6 sm:mb-8 rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4 sm:p-5">
+                <p className="text-sm sm:text-base font-semibold mb-2">Correction &mdash; 23 September 2026</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                  This post originally described GrapeRoot as &ldquo;open source under Apache 2.0&rdquo;. That is not
+                  accurate, and I am correcting it here rather than quietly editing it away.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                  The Apache 2.0 GitHub repository contains the launcher. The retrieval engine ships from PyPI as
+                  compiled, per-platform wheels, and PyPI&rsquo;s own licence field reads <em>Proprietary</em>. The public
+                  repo is also several major versions behind the shipped package. Responding to a detailed audit in issue
+                  #39, the maintainer confirmed: <em>&ldquo;&lsquo;open source launcher, proprietary engine&rsquo; is the
+                  accurate description.&rdquo;</em>
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                  Two further caveats I did not raise originally. The declared dependencies are{" "}
+                  <code>mcp, uvicorn, anyio, starlette</code> &mdash; no embedding or vector library ships with the
+                  package, so &ldquo;semantic graph&rdquo; describes lexical ranking, not semantic retrieval. And if your
+                  sessions lean on prompt caching, a context block re-ranked per query invalidates the cached prefix; on
+                  cache-dominated workloads that can cost more than it saves. Neither effect is visible in a benchmark
+                  built only from expensive exploratory prompts.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  The central argument stands: curating context beats letting an agent grep its way through your repo.
+                  The tooling recommendation deserved more scepticism than I gave it.
+                </p>
+              </div>
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
@@ -286,9 +313,9 @@ const ContextEngineeringGrapeRootPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="install" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Trying it on your own repo</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  It's a Python package (<code>graperoot</code> on PyPI) with a per-tool wrapper command, Apache 2.0, on
-                  macOS/Linux/Windows. Everything runs locally — no code leaves your machine — so it's a low-risk afternoon
-                  experiment rather than a commitment.
+                  It's a Python package (<code>graperoot</code> on PyPI) with a per-tool wrapper command, on
+                  macOS/Linux/Windows. Processing is local. Note that the retrieval engine ships as compiled, closed wheels —
+                  the Apache 2.0 licence covers the launcher, not the engine (see the correction above).
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ul className="space-y-1.5 text-sm sm:text-base font-mono">
