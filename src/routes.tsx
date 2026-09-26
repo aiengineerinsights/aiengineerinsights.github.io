@@ -51,6 +51,7 @@ const WhatIsJevPost = lazy(() => import("./pages/WhatIsJevPost"));
 const JevVsLLMPost = lazy(() => import("./pages/JevVsLLMPost"));
 const HowToUseJevPost = lazy(() => import("./pages/HowToUseJevPost"));
 const LLMvsMLClassificationPost = lazy(() => import("./pages/LLMvsMLClassificationPost"));
+const AgentRuntimesPost = lazy(() => import("./pages/AgentRuntimesPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -75,6 +76,7 @@ const AppRoutes = () => (
       <Route path="/blog/jev-vs-ml-classification" element={<LLMvsMLClassificationPost />} />
       {/* Renamed from the original slug; keep the old URL redirecting so early links/indexing don't 404. */}
       <Route path="/blog/llm-vs-traditional-ml-classification" element={<Navigate to="/blog/jev-vs-ml-classification" replace />} />
+      <Route path="/blog/agent-runtimes-explained" element={<AgentRuntimesPost />} />
       <Route path="/blog/does-claude-watermark-text" element={<ClaudeWatermarkPost />} />
       <Route path="/blog/ai-detectors-vs-humanizers" element={<AIDetectorsPost />} />
       <Route path="/blog/how-to-become-an-ai-engineer" element={<HowToBecomeAIEngineerPost />} />

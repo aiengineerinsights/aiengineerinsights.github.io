@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 40,
+      title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",
+      excerpt: "An agent runtime is the infrastructure that keeps an agent reliable in production — durable state, sandboxed tools, retries, observability, and approval gates. The landscape (LangGraph, Temporal, Bedrock Agents, Letta, and more), how to ship one, use cases, best repos, and a suggested stack.",
+      readTime: "16 min read",
+      date: "Sep 25, 2026",
+      category: "AI Agents",
+      icon: Server,
+      gradient: "from-cyan-600 to-blue-800",
+      link: "/blog/agent-runtimes-explained"
+    },
     {
       id: 39,
       title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",

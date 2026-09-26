@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",
+      excerpt: "An agent runtime is the infrastructure that keeps an agent reliable in production — durable state, sandboxed tools, retries, observability, and approval gates. The landscape (LangGraph, Temporal, Bedrock Agents, Letta, and more), how to ship one, use cases, best repos, and a suggested stack.",
+      readTime: "16 min read",
+      date: "Sep 25, 2026",
+      category: "AI Agents",
+      icon: Server,
+      gradient: "from-cyan-600 to-blue-800",
+      link: "/blog/agent-runtimes-explained"
+    },
     {
       title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",
       excerpt: "Classification needs a class plus a probability you can trust. We compare Jev's calibrated decisions, the LLM-as-classifier hack, and trained ML classifiers — and settle whether decision models replace traditional ML.",

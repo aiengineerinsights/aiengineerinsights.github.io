@@ -92,6 +92,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/agent-runtimes-explained',
+    title: 'AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)',
+    seoTitle: 'AI Agent Runtimes Explained (2026)',
+    description:
+      'An agent runtime is the infrastructure that keeps an agent reliable in production: durable state, sandboxed tools, retries, observability, and approval gates. The landscape, how to ship one, use cases, best repos, and a suggested stack.',
+    date: '2026-09-25',
+    author: 'poorna',
+    image: '/og-agent-runtimes-explained.png',
+    faqs: [
+      { q: 'What is an AI agent runtime?', a: "An agent runtime is the infrastructure layer that actually executes an agent in production: a scheduler that runs and resumes steps, a durable state store that checkpoints progress so a task survives a crash or restart, an isolated sandbox for running tools/code, observability for tracing and cost, and guardrails for approvals. It's distinct from an agent framework or SDK, which mostly defines how you write the agent's logic — the runtime is what keeps that logic running reliably at scale." },
+      { q: 'What is the difference between an agent framework and an agent runtime?', a: "A framework (LangChain, CrewAI's agent classes, the OpenAI/Claude Agent SDKs) gives you APIs to define an agent's reasoning loop, tools, and prompts. A runtime is what executes that definition in production: durable state across long-running tasks, retries and idempotency, concurrency and worker scaling, multi-tenant isolation, and observability. Some products bundle both (LangGraph, AWS Bedrock Agents); others are pure durable-execution substrates (Temporal, Restate) that any framework's agent loop can run on top of." },
+      { q: 'Why do agents need durable execution instead of just a loop in a process?', a: "Because real agent tasks can run for minutes to days, call flaky external APIs, and need a human to approve a step hours later. A plain in-process loop dies with the process — restart the server and you lose all progress. Durable execution frameworks (Temporal, Restate, LangGraph's checkpointer) persist the agent's state after every step, so a crash, deploy, or long pause just means resuming from the last checkpoint instead of starting over." },
+      { q: 'How do you sandbox tool execution for an agent?', a: "Never run model-generated code or shell commands directly on a host that has real credentials or data. Use an isolated execution environment — a microVM (E2B), a container with strict resource/network limits (Modal, Docker), or a managed code-interpreter tool (OpenAI, Bedrock, Vertex) — so a bad or adversarial tool call can't escape its sandbox, exhaust the host, or exfiltrate secrets." },
+      { q: 'What should I use to trace and monitor an agent runtime in production?', a: 'Instrument every model call and tool call as a span so you can see the full execution tree, not just the final answer. LangSmith, Langfuse, and Arize Phoenix are the common purpose-built options; several now follow the OpenTelemetry GenAI semantic conventions, so you can also route agent traces into a general-purpose observability stack. Track token usage and cost per span, not just per request, since a single agent turn can trigger many nested calls.' },
+      { q: "What's a good default production stack for agent runtimes in 2026?", a: 'For most teams: LangGraph for the agent graph with Postgres-backed checkpointing for durable state, E2B or Modal for sandboxed tool/code execution, Langfuse for tracing and cost observability, and a queue (SQS or Redis) in front of a worker pool for scaling. Move the durability layer to Temporal or Restate once you need cross-service sagas, very long-running workflows (days+), or strict enterprise reliability guarantees that a single framework\'s checkpointer doesn\'t give you.' },
+    ],
+  },
+  {
     path: '/blog/jev-vs-ml-classification',
     title: 'Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026',
     seoTitle: 'Jev vs LLMs vs Traditional ML for Classification',

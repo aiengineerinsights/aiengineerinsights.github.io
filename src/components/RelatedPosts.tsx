@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/agent-runtimes-explained",
+    title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/jev-vs-ml-classification",
     title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",
     tag: "AI Models",
