@@ -45,7 +45,7 @@ const pages = [
     path: '/resources',
     title: 'Resources | AI Engineer Insights',
     description:
-      'Curated AI engineering resources: roadmaps, courses, tools, and references across LLMs, AI agents, RAG, and MLOps — hand-picked for aspiring and practicing engineers.',
+      'Curated AI engineering resources: roadmaps, courses, tools, and references across LLMs, AI agents, RAG, and MLOps — for aspiring and practicing engineers.',
   },
   {
     path: '/projects',
@@ -71,7 +71,7 @@ const pages = [
     title: "The AI Engineer's Brief — Weekly AI Engineering Newsletter",
     seoTitle: "The AI Engineer's Brief — AI Engineering Newsletter",
     description:
-      "Join The AI Engineer's Brief: a 5-minute weekly newsletter for people building and breaking into AI engineering — agents, LLMs, the tools worth using, and honest career notes, plus the free AI Engineering Roadmap PDF.",
+      'The AI Engineer\'s Brief: a 5-minute weekly newsletter on AI engineering — agents, LLMs, tools, and career notes. Plus the free AI Engineering Roadmap PDF.',
   },
   {
     path: '/privacy',
@@ -260,7 +260,7 @@ const posts = [
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',
     description:
-      "MCP vs API, explained: MCP (Model Context Protocol) is one open, model-facing standard that makes tools reusable across every AI app — turning M×N integrations into M+N. How it works, how it evolved (HTTP+SSE → Streamable HTTP, OAuth), its trade-offs (security, token burn), MCP vs A2A and ADK, RAG vs MCP, and when to use each.",
+      'MCP vs API: an open, model-facing standard that makes tools reusable across AI apps — turning M×N integrations into M+N. How it works and when to use each.',
     date: '2026-08-25',
     author: 'poorna',
     image: '/og-mcp-vs-api.png',
@@ -280,7 +280,7 @@ const posts = [
     title: 'AI Agents Explained: Definition, Types, Architecture, and Real Examples (2026)',
     seoTitle: 'AI Agents Explained: Types, Architecture & Examples',
     description:
-      'What AI agents are and how they work: the perceive-plan-act-observe loop, LLM reasoning core, memory and tools, agents vs agentic AI, the 5 classic types plus modern patterns, real examples (Claude Code, Devin, Deep Research), and how to build one.',
+      'What AI agents are and how they work: the perceive-plan-act-observe loop, memory and tools, agents vs agentic AI, types, real examples, and how to build one.',
     date: '2026-08-25',
     author: 'poorna',
     image: '/og-what-are-ai-agents.png',
@@ -298,7 +298,7 @@ const posts = [
     title: 'The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)',
     seoTitle: 'Best AI Coding Agents 2026 (Claude Code vs Cursor)',
     description:
-      'The best AI coding agents in 2026, ranked by fit not hype: Claude Code vs Cursor vs GitHub Copilot, plus Codex CLI, open-source BYO-key tools (Aider, Cline, OpenCode, Kilo) and autonomous agents (Devin, Amp, Jules). Comparison table, forum/user sentiment on each, recommended models and settings per agent, community coding wisdom, and a decision table to pick yours.',
+      'The best AI coding agents in 2026, ranked by fit not hype: Claude Code vs Cursor vs Copilot, plus Codex, Aider, Cline, Devin. Comparison table and how to pick.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-best-ai-coding-agents.png',
@@ -308,7 +308,7 @@ const posts = [
     title: 'AI Engineer Skills in 2026: The Complete Checklist (Technical + Soft), by Seniority',
     seoTitle: 'AI Engineer Skills in 2026: The Complete Checklist',
     description:
-      'The complete AI engineer skills checklist for 2026 — technical (Python, ML/DL, LLMs, RAG, agents, evaluation, MLOps) and soft (problem framing, communication), with how to prove each, what to prioritize by seniority (junior/mid/senior), and what is overrated vs underrated.',
+      'AI engineer skills checklist for 2026 — technical (Python, ML, LLMs, RAG, agents, MLOps) and soft, how to prove each, and what to prioritize by seniority.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-ai-engineer-skills.png',
@@ -318,7 +318,7 @@ const posts = [
     title: 'How to Become an AI Engineer in 2026: A Practical, Step-by-Step Roadmap',
     seoTitle: 'How to Become an AI Engineer in 2026 (Step-by-Step)',
     description:
-      'How to become an AI engineer in 2026 — no PhD required, typically 6–18 months. The 5-phase roadmap (foundations, ML/DL, AI engineering, build & specialize, get hired), the skills that actually matter, how long it takes, a portfolio that gets interviews, and a free downloadable roadmap PDF.',
+      'How to become an AI engineer in 2026 — no PhD, ~6–18 months. The 5-phase roadmap, the skills that matter, a portfolio that gets interviews, plus a free PDF.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-how-to-become-an-ai-engineer.png',
@@ -328,7 +328,7 @@ const posts = [
     title: 'AI Detectors vs. "Humanizers": Which Actually Work? (GPTZero, Turnitin & Watermark Removers, Ranked)',
     seoTitle: 'Best AI Detectors vs Humanizers: Do They Actually Work?',
     description:
-      'The best AI detectors ranked and how accurate they really are: GPTZero, Turnitin, Originality, Copyleaks, and open-source Binoculars/DetectGPT — plus the "humanizer" and watermark-remover tools that claim to beat them. Independent accuracy is ~80% not 99%, false positives hit non-native writers, OpenAI quit detection, GPTZero vs Turnitin compared, and most "removers" are paraphrasers or vaporware.',
+      'AI detectors ranked by real accuracy — GPTZero, Turnitin, Originality, Copyleaks — vs the \'humanizer\' and watermark-remover tools. What actually works, sourced.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-ai-detectors-vs-humanizers.png',
@@ -338,7 +338,7 @@ const posts = [
     title: 'Does Claude Watermark Its Text? AI Text Watermarking (Claude, ChatGPT & SynthID), Explained',
     seoTitle: 'Does Claude Watermark Its Text? (Claude, ChatGPT, SynthID)',
     description:
-      "Yes — since August 2, 2026 newer Claude models weave an imperceptible AI text watermark into generated text, worldwide, to meet the EU AI Act. How AI text watermarks work, who ships one (Google SynthID, Anthropic, OpenAI), whether there's a ChatGPT or Claude watermark detector, whether watermark removers work, and why they survive copy-paste but not paraphrasing.",
+      'Does Claude watermark its text? Yes, since Aug 2026 — an imperceptible AI text watermark (EU AI Act). How it works, who ships one, why detectors can\'t read it.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-does-claude-watermark-text.png',
@@ -348,7 +348,7 @@ const posts = [
     title: 'How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)',
     seoTitle: 'How to Install Hermes Agent (Mac, Windows, Linux)',
     description:
-      'Step-by-step: install Hermes Agent on macOS, Windows (PowerShell or WSL2), and Linux, plus pip and Docker. First-run model setup, the exact commands, and fixes for common install errors.',
+      'Install Hermes Agent on macOS, Windows (PowerShell/WSL2), Linux, pip, and Docker. First-run model setup, exact commands, and fixes for common install errors.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-how-to-install-hermes-agent.png',
@@ -358,7 +358,7 @@ const posts = [
     title: 'Hermes Agent Skills: How Self-Improving Skills Actually Work',
     seoTitle: 'Hermes Agent Skills: How Self-Improving Skills Work',
     description:
-      'How Hermes Agent skills work: self-improving procedures stored as SKILL.md in ~/.hermes/skills/, auto-created from your workflows, managed and loaded from the CLI, with write_approval for control.',
+      'How Hermes Agent skills work: self-improving procedures stored as SKILL.md, auto-created from your workflows, managed from the CLI with write_approval.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-skills.png',
@@ -368,7 +368,7 @@ const posts = [
     title: 'Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent',
     seoTitle: 'Hermes Agent Desktop App & Web UI (Dashboard) Guide',
     description:
-      'Hermes Agent beyond the terminal: the Desktop app and the browser dashboard (hermes dashboard at 127.0.0.1:9119) to manage sessions, keys, skills, memory, and schedules — no YAML editing.',
+      'Hermes Agent beyond the terminal: the Desktop app and browser dashboard for sessions, keys, skills, memory, and schedules — no YAML editing.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-desktop-web-ui.png',
@@ -378,7 +378,7 @@ const posts = [
     title: 'Which LLM Should You Run With Hermes Agent? Models, Providers, and Nous Portal',
     seoTitle: 'Which LLM to Run With Hermes Agent (Models Guide)',
     description:
-      'Hermes Agent is model-agnostic: use Nous Portal, OpenRouter, OpenAI, Anthropic, or any endpoint. How to set a model with hermes model, the 64k-context minimum, and how to choose one.',
+      'Hermes Agent is model-agnostic: use Nous Portal, OpenRouter, OpenAI, Anthropic, or any endpoint. How to set a model, the 64k-context minimum, and how to choose.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-models.png',
