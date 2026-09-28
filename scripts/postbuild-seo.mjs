@@ -96,7 +96,7 @@ const posts = [
     title: 'AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)',
     seoTitle: 'AI Agent Runtimes Explained (2026)',
     description:
-      'An agent runtime is the infrastructure that keeps an agent reliable in production: durable state, sandboxed tools, retries, observability, and approval gates. The landscape, how to ship one, use cases, best repos, and a suggested stack.',
+      'AI agent runtimes explained: the production layer (durable state, sandboxed tools, retries, observability, approval gates), the landscape, and how to ship one.',
     date: '2026-09-25',
     author: 'poorna',
     image: '/og-agent-runtimes-explained.png',
@@ -204,7 +204,7 @@ const posts = [
     title: 'RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)',
     seoTitle: 'RAG vs Fine-Tuning: 2026 Decision Guide',
     description:
-      'RAG solves a knowledge problem, fine-tuning solves a behavior problem — not competitors. Side-by-side table, when to choose each, the hybrid (RAFT) pattern, how customization is evolving beyond fine-tuning (LoRA/QLoRA, DPO, distillation, reasoning models), where small fine-tuned models win with real company examples (Checkr, Together AI), what engineers say, and tips.',
+      'RAG solves a knowledge problem, fine-tuning a behavior problem — not competitors. When to choose each, the hybrid RAFT pattern, and where small models win.',
     date: '2026-09-18',
     author: 'poorna',
     image: '/og-rag-vs-fine-tuning.png',
@@ -222,9 +222,9 @@ const posts = [
   {
     path: '/blog/rag-evaluation-metrics',
     title: 'RAG Evaluation Metrics: Faithfulness, Context Precision/Recall, and How to Actually Measure a RAG Pipeline',
-    seoTitle: 'RAG Evaluation Metrics: Faithfulness & Context Precision/Recall',
+    seoTitle: 'RAG Evaluation Metrics: Faithfulness, Precision, Recall',
     description:
-      'RAG evaluation splits into two failure edges: retrieval (context precision, context recall) and generation (faithfulness, answer relevancy). The RAG triad, how RAGAS computes each metric, RAGAS vs TruLens vs DeepEval, and the pitfalls that make eval scores lie to you.',
+      'RAG evaluation, explained: retrieval metrics (context precision & recall) vs generation (faithfulness, answer relevancy), the RAG triad, and RAGAS vs TruLens.',
     date: '2026-09-21',
     author: 'poorna',
     image: '/og-rag-evaluation-metrics.png',
@@ -242,7 +242,7 @@ const posts = [
     title: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)',
     seoTitle: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic',
     description:
-      'Chunking caps what a RAG retriever can ever find. The four common strategies (fixed-size, recursive, semantic, document-aware), what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation instead of guessing.',
+      'RAG chunking strategies compared — fixed-size vs recursive vs semantic vs document-aware — what chunk size and overlap to start with, and how to measure it.',
     date: '2026-09-28',
     author: 'poorna',
     image: '/og-rag-chunking-strategies.png',
@@ -388,7 +388,7 @@ const posts = [
     title: 'Is Hermes Agent Safe? Its Security Model and Sandboxing, Explained',
     seoTitle: 'Is Hermes Agent Safe? Security & Sandboxing Explained',
     description:
-      "Hermes Agent's security model: five layers of defense-in-depth defaults, sandboxed execution across Docker/SSH/Modal backends, credential filtering, and how to run untrusted tasks safely.",
+      'Hermes Agent\'s security model: five defense-in-depth layers, sandboxed Docker/SSH/Modal execution, credential filtering, and how to run untrusted tasks safely.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-security.png',
@@ -398,7 +398,7 @@ const posts = [
     title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
     seoTitle: 'Best Hermes Agent Alternatives in 2026 (Compared)',
     description:
-      'The best open-source Hermes Agent alternatives in 2026: OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, and Agent Zero — with a clear "best for" for each and when to pick which.',
+      'The best open-source Hermes Agent alternatives in 2026 — OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, Agent Zero — with a clear \'best for\' each.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-alternatives.png',
@@ -408,7 +408,7 @@ const posts = [
     title: 'Hermes Agent Troubleshooting: Fixing the Most Common Errors',
     seoTitle: 'Hermes Agent Troubleshooting: Fix Common Errors',
     description:
-      'Fix the most common Hermes Agent errors: command not found, context-window errors, Windows/WSL2 install issues, provider/auth failures, and Docker persistence — starting with hermes doctor.',
+      'Fix the most common Hermes Agent errors: command not found, context-window limits, Windows/WSL2 install, auth failures, and Docker persistence.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-troubleshooting.png',
@@ -418,7 +418,7 @@ const posts = [
     title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
     seoTitle: 'Hermes Agent vs OpenClaw: Which to Run (2026)',
     description:
-      'Hermes Agent vs OpenClaw compared, with real user reviews from Reddit and forums: architecture, skills, memory, security, cost, and a clear pick-by-need verdict (and why many run both).',
+      'Hermes Agent vs OpenClaw, with real Reddit and forum reviews: architecture, skills, memory, security, cost, and a clear pick-by-need verdict.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-vs-openclaw.png',
@@ -428,7 +428,7 @@ const posts = [
     title: 'Why Good Engineers Fail the Claude Certified Architect Exam: 11 Traps to Avoid',
     seoTitle: 'Claude Certified Architect Exam: 11 Traps to Avoid',
     description:
-      "The Claude Certified Architect (CCA-F) exam's wrong answers are designed to sound like best practice. The 11 traps — judgment and technical — with the correct pattern for each.",
+      'The Claude Certified Architect (CCA-F) exam\'s wrong answers are built to sound like best practice. The 11 traps — with the correct pattern for each.',
     date: '2026-08-07',
     author: 'poorna',
     image: '/og-claude-certified-architect-exam-traps.png',
@@ -448,7 +448,7 @@ const posts = [
     title: 'Context Engineering for AI Coding: How GrapeRoot Cuts Claude Code Token Cost 30–45%',
     seoTitle: 'Context Engineering: How GrapeRoot Cuts AI Coding Cost',
     description:
-      "Context engineering means curating what's in the model's context window. GrapeRoot preloads the right code into every prompt — cutting Claude Code cost from $0.49 to $0.27 per prompt.",
+      'Context engineering is curating the model\'s context window. GrapeRoot preloads the right code into every prompt — cutting Claude Code cost 30–45%.',
     date: '2026-08-05',
     author: 'poorna',
     image: '/og-context-engineering-graperoot.png',
@@ -458,7 +458,7 @@ const posts = [
     title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
     seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',
     description:
-      'US AI engineers earn a ~$145K–$185K median base in 2026 ($211K–$277K total comp); frontier labs pay $600K–$1.15M+. Sourced breakdown by level, company, city, and skill.',
+      'US AI engineers earn a ~$145K–$185K median base in 2026 ($211K–$277K total); frontier labs pay $600K–$1.15M+. Breakdown by level, company, and city.',
     date: '2026-08-25',
     author: 'poorna',
     image: '/og-ai-engineer-salary.png',
@@ -485,7 +485,7 @@ const posts = [
     title: 'GitHub\'s Bug Bounty Overhaul: What "AI Slop" Vulnerability Reports Are Doing to Security Research',
     seoTitle: 'GitHub Bug Bounty Overhaul: The "AI Slop" Problem, Explained',
     description:
-      "GitHub's July 2026 bug bounty restructuring — a VIP tier and a new-researcher submission cap — is a direct response to AI-generated vulnerability reports. What it means for engineers.",
+      'GitHub\'s July 2026 bug bounty overhaul — a VIP tier and a new-researcher submission cap — answers a flood of AI-generated reports. What it means for engineers.',
     date: '2026-07-24',
     author: 'poorna',
     image: '/og-github-bug-bounty-ai-slop.png',
@@ -505,7 +505,7 @@ const posts = [
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
     seoTitle: 'Hermes Agent (Nous Research): Official Docs, Install, Free?',
     description:
-      'What Hermes Agent by Nous Research is, where the official documentation and GitHub repo live, whether it is free, and how to install the open-source self-improving AI agent on Mac, Windows, and Linux.',
+      'What Hermes Agent by Nous Research is, where its docs and GitHub live, whether it\'s free, and how to install the self-improving agent on Mac, Windows, Linux.',
     date: '2026-09-23',
     author: 'poorna',
     image: '/og-hermes-agent.png',
@@ -537,7 +537,7 @@ const posts = [
     path: '/blog/what-makes-llms-agentic',
     title: 'What Makes LLMs Agentic?',
     description:
-      'What separates an LLM from an AI agent? The core properties — tool calling, planning, memory, and autonomy — that turn a language model into an agent, with examples of each.',
+      'What separates an LLM from an AI agent? The core properties — tool calling, planning, memory, autonomy — that turn a language model into an agent.',
     date: '2025-08-26',
     author: 'vishnu',
   },
@@ -545,7 +545,7 @@ const posts = [
     path: '/blog/openai-gdpval',
     title: "OpenAI GDPval: The Evaluation of AI's Economic Potential",
     description:
-      "OpenAI's GDPval benchmark explained: how it measures AI on economically valuable knowledge work, its key findings, and what they signal for the future of white-collar jobs.",
+      'OpenAI\'s GDPval benchmark explained: how it measures AI on economically valuable knowledge work, its key findings, and what they signal for white-collar jobs.',
     date: '2025-10-14',
     author: 'vishnu',
   },
@@ -554,7 +554,7 @@ const posts = [
     title: '14 MLOps Best Practices, Ordered by Impact — With Examples of When Each One Saves You',
     seoTitle: '14 MLOps Best Practices Ordered by Impact (2026)',
     description:
-      'An impact-ordered guide to 14 MLOps best practices — versioning, monitoring, CI/CD, eval gates, safe rollouts, and more — each with when it matters most and a concrete example.',
+      'An impact-ordered guide to 14 MLOps best practices — versioning, monitoring, CI/CD, eval gates, safe rollouts — each with when it matters and an example.',
     date: '2026-07-25',
     author: 'poorna',
     image: '/og-mlops-best-practices.png',
@@ -564,7 +564,7 @@ const posts = [
     title: '12 LLM Deployment Challenges — And How to Handle Each One in Production',
     seoTitle: '12 LLM Deployment Challenges & How to Handle Them (2026)',
     description:
-      'The LLM deployment challenges that actually bite in production — cost, latency, hallucinations, prompt injection, and more — each with when it hits hardest and how to handle it.',
+      'The LLM deployment challenges that actually bite in production — cost, latency, hallucinations, prompt injection — each with when it hits and how to handle it.',
     date: '2026-07-25',
     author: 'poorna',
     image: '/og-llm-deployment-challenges.png',
@@ -574,7 +574,7 @@ const posts = [
     title: 'Building Robust AI Data Pipelines: 12 Practices, Ordered by Impact',
     seoTitle: 'Building Robust AI Data Pipelines: 12 Practices (2026)',
     description:
-      'The 12 practices that make AI data pipelines robust — validation gates, idempotency, schema contracts, medallion layers, observability — each with when it matters and an example.',
+      'The 12 practices that make AI data pipelines robust — validation gates, idempotency, schema contracts, medallion layers, observability — with examples.',
     date: '2026-07-26',
     author: 'poorna',
     image: '/og-building-robust-ai-data-pipelines.png',
@@ -582,6 +582,18 @@ const posts = [
 ]
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+
+// Meta descriptions past ~160 chars get truncated mid-sentence in Google's
+// SERP snippet. This is a hard safety net so no page (including future
+// cron-written posts) can ever ship an over-length description: anything over
+// 160 chars is cut back to the last full word at/under 158. Author good
+// <=160 descriptions and this never fires; it only rescues the ones that slip.
+const clampDesc = (d) => {
+  if (!d || d.length <= 160) return d
+  const cut = d.slice(0, 158).replace(/\s+\S*$/, '').trim()
+  if (d.length > 160) console.warn(`SEO warn: description ${d.length} chars > 160, clamped to ${cut.length}: "${d.slice(0, 50)}…"`)
+  return cut
+}
 
 const htmlToText = (html) =>
   html
@@ -622,7 +634,7 @@ function writeRoute({ path, title, seoTitle, description, date, author, image, n
   put(/(<meta property="og:image" content=")[^"]*(")/, ogImage)
   put(/(<meta name="twitter:image" content=")[^"]*(")/, ogImage)
   html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tabTitle)}</title>`)
-  put(/(<meta name="description" content=")[^"]*(")/, esc(description))
+  put(/(<meta name="description" content=")[^"]*(")/, esc(clampDesc(description)))
   put(/(<link rel="canonical" href=")[^"]*(")/, url)
   put(/(<meta property="og:title" content=")[^"]*(")/, esc(title))
   put(/(<meta property="og:description" content=")[^"]*(")/, esc(description))

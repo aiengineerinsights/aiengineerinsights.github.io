@@ -64,9 +64,9 @@ const GDPvalBlogPostFull = () => {
                   />
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
-                      <h3 className="font-semibold text-base lg:text-lg hover:underline">
+                      <span className="block font-semibold text-base lg:text-lg hover:underline">
                         Vishnu Vardhan Sai Lanka
-                      </h3>
+                      </span>
                     </Link>
                     <p className="text-muted-foreground text-sm lg:text-base">AI Engineer</p>
                   </div>

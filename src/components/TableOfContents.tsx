@@ -67,7 +67,7 @@ const TableOfContents = () => {
         onClick={() => setIsOpen(false)}
       />
       <div className="absolute top-20 right-4 w-64 bg-background border rounded-lg p-4 shadow-lg">
-        <h3 className="font-semibold mb-4 text-muted-foreground">On This Page</h3>
+        <p className="font-semibold mb-4 text-muted-foreground">On This Page</p>
         <ul className="space-y-2 max-h-[60vh] overflow-y-auto">
           {headings.map((h) => (
             <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
@@ -98,7 +98,7 @@ const TableOfContents = () => {
       
       {/* Desktop TOC */}
       <aside className="hidden lg:block w-48 pr-6 sticky top-20 h-[calc(100vh-80px)] overflow-y-auto text-xs">
-        <h3 className="font-semibold mb-4 text-muted-foreground">On This Page</h3>
+        <p className="font-semibold mb-4 text-muted-foreground">On This Page</p>
         <ul className="space-y-2">
           {headings.map((h) => (
             <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>

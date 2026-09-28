@@ -49,7 +49,7 @@ const NewsletterSignup = ({
           <Mail className="h-4 w-4 text-white" aria-hidden="true" />
         </div>
         <div className="min-w-0">
-          <h3 className="font-semibold text-base sm:text-lg m-0 leading-snug">{heading}</h3>
+          <h2 className="font-semibold text-base sm:text-lg m-0 leading-snug">{heading}</h2>
           <p className="text-sm text-muted-foreground mt-1 mb-0">{subtext}</p>
         </div>
       </div>

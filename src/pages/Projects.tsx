@@ -112,9 +112,9 @@ const Projects = () => {
                   <div className="p-6 flex-1 flex flex-col">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors flex-1">
+                      <h2 className="text-xl font-semibold group-hover:text-primary transition-colors flex-1">
                         {project.title}
-                      </h3>
+                      </h2>
                       <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors ml-2 flex-shrink-0" />
                     </div>
 
@@ -167,7 +167,7 @@ const Projects = () => {
             {/* GitHub Note */}
             <div className="text-center mt-12">
               <div className="bg-gradient-accent rounded-lg p-6 border border-border max-w-2xl mx-auto">
-                <h3 className="text-lg font-semibold mb-2">Open Source Excellence</h3>
+                <h2 className="text-lg font-semibold mb-2">Open Source Excellence</h2>
                 <p className="text-muted-foreground text-sm">
                   These projects represent the cutting edge of AI engineering. Star them, contribute, and stay updated with the latest developments.
                 </p>

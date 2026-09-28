@@ -97,7 +97,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                   />
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
-                      <h3 className="font-semibold text-base sm:text-lg hover-underline">Vishnu Vardhan Sai Lanka</h3>
+                      <span className="block font-semibold text-base sm:text-lg hover-underline">Vishnu Vardhan Sai Lanka</span>
                     </Link>
                     <p className="text-muted-foreground text-sm sm:text-base">AI Engineer</p>
                   </div>

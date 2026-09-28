@@ -525,7 +525,7 @@ const BlogsPage = () => {
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
               <Search className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">No articles found</h3>
+              <h2 className="text-2xl font-semibold mb-2">No articles found</h2>
               <p className="text-muted-foreground">
                 Try adjusting your search terms or filter criteria.
               </p>
@@ -555,9 +555,9 @@ const BlogsPage = () => {
                       </div>
 
                       {/* Content */}
-                      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                      <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                         {post.title}
-                      </h3>
+                      </h2>
                       <p className="text-muted-foreground mb-4 leading-relaxed">
                         {post.excerpt}
                       </p>

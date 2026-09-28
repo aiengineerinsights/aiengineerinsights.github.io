@@ -47,7 +47,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-1">
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h2 className="font-semibold mb-4">Quick Links</h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
@@ -85,7 +85,7 @@ const Footer = () => {
 
           {/* Resources */}
           <div className="md:col-span-1">
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h2 className="font-semibold mb-4">Resources</h2>
             <ul className="space-y-2 text-sm">
               <li>
                 <button
@@ -120,7 +120,7 @@ const Footer = () => {
 
           {/* Connect */}
           <div className="md:col-span-1">
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h2 className="font-semibold mb-4">Connect</h2>
             <div className="flex space-x-4 mb-4">
               <a
                 href="https://github.com/aiengineerinsights"
