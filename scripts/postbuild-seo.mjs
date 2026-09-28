@@ -238,6 +238,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/rag-chunking-strategies',
+    title: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)',
+    seoTitle: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic',
+    description:
+      'Chunking caps what a RAG retriever can ever find. The four common strategies (fixed-size, recursive, semantic, document-aware), what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation instead of guessing.',
+    date: '2026-09-28',
+    author: 'poorna',
+    image: '/og-rag-chunking-strategies.png',
+    faqs: [
+      { q: 'What is chunking in RAG?', a: "Chunking is splitting a source document into smaller pieces before embedding and storing them in a vector database. It matters because retrieval can only return whatever unit you indexed — if a chunk is too small it's an incomplete fragment, and if it's too large it buries the relevant sentence in irrelevant text, so how you chunk directly caps how good retrieval can ever be." },
+      { q: 'What is the best chunk size for RAG?', a: "There's no universal number, but 200-500 tokens with roughly 10-20% overlap is a commonly cited starting point for prose. The right size depends on document type: code, tables, and long-form prose behave differently, so treat it as a hyperparameter to tune against your own eval set rather than a fixed rule." },
+      { q: 'What is recursive chunking?', a: "Recursive chunking (LangChain's default text splitter) tries to split on the most meaningful boundary first — paragraph breaks — and only falls back to sentences, then words, then raw characters if a chunk is still too big. It keeps natural structure most of the time without requiring extra embedding calls at ingest time." },
+      { q: 'What is semantic chunking?', a: 'Semantic chunking embeds consecutive sentences and starts a new chunk when the similarity between them drops below a threshold, so boundaries track actual topic shifts instead of a fixed length. It typically retrieves more coherent chunks than fixed-size splitting, but costs an embedding call per sentence at ingestion time, which makes it slower and more expensive to index.' },
+      { q: 'Does chunk overlap matter?', a: "Yes — without overlap, information that falls exactly on a chunk boundary can be split across two chunks and effectively lost to retrieval, since neither chunk alone contains the full idea. A common starting point is overlap equal to about 10% of the chunk size; too much overlap just duplicates content and wastes storage and retrieval budget." },
+      { q: 'How do I know if my chunking strategy is working?', a: "Measure it, don't guess — run retrieval evaluation (context precision and context recall) against a labeled eval set for each candidate chunking configuration and compare scores, the same way you'd evaluate any other RAG pipeline change." },
+    ],
+  },
+  {
     path: '/blog/mcp-vs-api',
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',

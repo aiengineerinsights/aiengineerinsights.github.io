@@ -32,6 +32,11 @@ const ALL_POSTS = [
     tag: "AI Models",
   },
   {
+    slug: "/blog/rag-chunking-strategies",
+    title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic",
+    tag: "RAG & Retrieval",
+  },
+  {
     slug: "/blog/rag-evaluation-metrics",
     title: "RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained",
     tag: "RAG & Retrieval",

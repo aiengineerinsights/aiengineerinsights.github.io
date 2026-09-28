@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)",
+      excerpt: "Chunking caps what a RAG retriever can ever find. The four common strategies (fixed-size, recursive, semantic, document-aware), what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation instead of guessing.",
+      readTime: "10 min read",
+      date: "Sep 28, 2026",
+      category: "RAG & Retrieval",
+      icon: Scissors,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/rag-chunking-strategies"
+    },
     {
       title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",
       excerpt: "An agent runtime is the infrastructure that keeps an agent reliable in production — durable state, sandboxed tools, retries, observability, and approval gates. The landscape (LangGraph, Temporal, Bedrock Agents, Letta, and more), how to ship one, use cases, best repos, and a suggested stack.",

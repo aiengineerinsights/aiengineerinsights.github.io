@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 41,
+      title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)",
+      excerpt: "Chunking caps what a RAG retriever can ever find. The four common strategies (fixed-size, recursive, semantic, document-aware), what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation instead of guessing.",
+      readTime: "10 min read",
+      date: "Sep 28, 2026",
+      category: "RAG & Retrieval",
+      icon: Scissors,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/rag-chunking-strategies"
+    },
     {
       id: 40,
       title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",

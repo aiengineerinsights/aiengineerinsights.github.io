@@ -35,6 +35,7 @@ const ClaudeCertifiedArchitectPost = lazy(() => import("./pages/ClaudeCertifiedA
 const CCATrapsPost = lazy(() => import("./pages/CCATrapsPost"));
 const ContextEngineeringGrapeRootPost = lazy(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazy(() => import("./pages/AIEngineerSalaryPost"));
+const RagChunkingStrategiesPost = lazy(() => import("./pages/RagChunkingStrategiesPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -105,6 +106,7 @@ const AppRoutes = () => (
       <Route path="/blog/mlops-best-practices" element={<BlogPost1 />} />
       <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
       <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
+      <Route path="/blog/rag-chunking-strategies" element={<RagChunkingStrategiesPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>
