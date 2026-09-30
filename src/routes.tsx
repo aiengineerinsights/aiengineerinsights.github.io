@@ -36,6 +36,7 @@ const CCATrapsPost = lazy(() => import("./pages/CCATrapsPost"));
 const ContextEngineeringGrapeRootPost = lazy(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazy(() => import("./pages/AIEngineerSalaryPost"));
 const RagChunkingStrategiesPost = lazy(() => import("./pages/RagChunkingStrategiesPost"));
+const VectorDatabaseForRagPost = lazy(() => import("./pages/VectorDatabaseForRagPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -107,6 +108,7 @@ const AppRoutes = () => (
       <Route path="/blog/llm-deployment-challenges" element={<BlogPost2 />} />
       <Route path="/blog/building-robust-ai-data-pipelines" element={<BlogPost3 />} />
       <Route path="/blog/rag-chunking-strategies" element={<RagChunkingStrategiesPost />} />
+      <Route path="/blog/vector-database-for-rag" element={<VectorDatabaseForRagPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

@@ -32,6 +32,11 @@ const ALL_POSTS = [
     tag: "AI Models",
   },
   {
+    slug: "/blog/vector-database-for-rag",
+    title: "Vector Databases for RAG: How to Choose One and Wire It In (2026)",
+    tag: "RAG & Retrieval",
+  },
+  {
     slug: "/blog/rag-chunking-strategies",
     title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic",
     tag: "RAG & Retrieval",

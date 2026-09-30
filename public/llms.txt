@@ -70,6 +70,7 @@
 - [RAG vs Fine-Tuning: Which One Actually Solves Your Problem (2026 Decision Guide)](https://aiengineerinsights.com/blog/rag-vs-fine-tuning): RAG solves a knowledge problem, fine-tuning solves a behavior problem — the side-by-side comparison, when to use each, and the 2026 hybrid (RAFT) pattern
 - [RAG Evaluation Metrics: Faithfulness, Context Precision/Recall Explained](https://aiengineerinsights.com/blog/rag-evaluation-metrics): RAG evaluation splits into retrieval metrics (context precision, context recall) and generation metrics (faithfulness, answer relevancy) — the RAG triad, RAGAS vs TruLens vs DeepEval, and eval pitfalls
 - [RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic](https://aiengineerinsights.com/blog/rag-chunking-strategies): Chunking caps what a RAG retriever can ever find — the four common strategies, what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation
+- [Vector Databases for RAG: How to Choose One and Wire It In](https://aiengineerinsights.com/blog/vector-database-for-rag): Whether a RAG pipeline needs a dedicated vector database, pgvector vs Chroma vs Qdrant vs Weaviate vs Milvus vs Pinecone, open-source vs managed, a minimal Chroma example, and how to choose by stage and scale
 
 ## Pages
 

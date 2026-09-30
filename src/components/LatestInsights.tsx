@@ -9,6 +9,16 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "Vector Databases for RAG: How to Choose One and Wire It In (2026)",
+      excerpt: "Does your RAG pipeline even need a dedicated vector database? pgvector vs Chroma vs Qdrant vs Weaviate vs Milvus vs Pinecone — open-source vs managed, a minimal Chroma code example, and how to choose by stage and scale.",
+      readTime: "11 min read",
+      date: "Sep 30, 2026",
+      category: "RAG & Retrieval",
+      icon: Database,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/vector-database-for-rag"
+    },
+    {
       title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)",
       excerpt: "Chunking caps what a RAG retriever can ever find. The four common strategies (fixed-size, recursive, semantic, document-aware), what chunk size and overlap to start with, and how to measure the effect with retrieval evaluation instead of guessing.",
       readTime: "10 min read",

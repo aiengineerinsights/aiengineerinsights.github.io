@@ -238,6 +238,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/vector-database-for-rag',
+    title: 'Vector Databases for RAG: How to Choose One and Wire It In (2026)',
+    seoTitle: 'Vector Databases for RAG: How to Choose One',
+    description:
+      'Does your RAG app need a dedicated vector database? pgvector vs Chroma vs Qdrant vs Weaviate vs Milvus vs Pinecone — open-source vs managed, and how to choose.',
+    date: '2026-09-30',
+    author: 'poorna',
+    image: '/og-vector-database-for-rag.png',
+    faqs: [
+      { q: 'What is a vector database in RAG?', a: "A vector database is the store that holds the embeddings of your document chunks and answers nearest-neighbour queries against them. In a RAG pipeline it sits between chunking and generation: at ingest time each chunk is embedded and written to the database with an id and metadata, and at query time the user's question is embedded with the same model and the database returns the top-k most similar chunks, which become the context the language model answers from." },
+      { q: 'Do I need a vector database for RAG?', a: "Not always. For small-to-mid scale — up to a few million vectors — pgvector inside Postgres is often enough, especially if you already run Postgres and want vectors next to your relational data. A dedicated vector database earns its place when you need to scale beyond what a single Postgres node handles comfortably, when you rely heavily on metadata filtering combined with vector search, or when you want hybrid (keyword plus vector) search and finer control over the ANN index." },
+      { q: 'What is the best open-source vector database?', a: "There is no single winner — it depends on where you are. Chroma is the easiest to start with because it runs in-process from a pip install and persists to a local folder, which makes it ideal for local development and prototyping. Qdrant, Weaviate, and Milvus are all open-source options built for self-hosted production: Qdrant is known for filtering alongside vector search, Weaviate for built-in hybrid search, and Milvus for a distributed architecture and a wide choice of index types. Pick based on your deployment model and the features you will actually use." },
+      { q: 'Is pgvector good enough for RAG?', a: "Yes, for many production applications. pgvector adds a vector column type, exact nearest-neighbour search by default, and HNSW and IVFFlat indexes for approximate search, and it inherits Postgres transactions, joins, and backups. It is a strong choice up to millions of vectors, particularly if you are already on Postgres. The caveats are that ANN index build time and memory (especially for HNSW) grow with the table, and that scaling beyond one node is a Postgres scaling problem rather than a vector-database feature." },
+      { q: 'Chroma vs Pinecone: which should I use for RAG?', a: "They solve different problems. Chroma is open source and local-first: it runs in-process with a persistent client, so it is great for development, prototyping, and small self-hosted apps, and it also offers a server mode and a managed cloud. Pinecone is a fully managed, closed-source service: you never run infrastructure, it scales without you operating anything, and in return you accept a proprietary store and a vendor dependency. Use Chroma to build and iterate; move to Pinecone (or a managed tier of an open-source database) when you want someone else to run production." },
+      { q: 'How do I know if my vector database is returning good results?', a: "Measure retrieval directly rather than judging the final answers by eye. Build a small eval set of questions with the chunks that should be retrieved, then compute context precision (how much of what was retrieved is relevant) and context recall (how much of what was relevant was retrieved) for each configuration — index type, top-k, filters, embedding model. The database choice only matters to the extent that retrieval quality you can measure improves." },
+    ],
+  },
+  {
     path: '/blog/rag-chunking-strategies',
     title: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic (And How to Pick a Chunk Size)',
     seoTitle: 'RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic',
