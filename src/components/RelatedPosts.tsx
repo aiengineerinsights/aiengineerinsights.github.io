@@ -32,6 +32,11 @@ const ALL_POSTS = [
     tag: "AI Models",
   },
   {
+    slug: "/blog/open-source-ai-agent-frameworks",
+    title: "Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/vector-database-for-rag",
     title: "Vector Databases for RAG: How to Choose One and Wire It In (2026)",
     tag: "RAG & Retrieval",

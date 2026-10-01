@@ -238,6 +238,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/open-source-ai-agent-frameworks',
+    title: 'Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)',
+    seoTitle: 'Open-Source AI Agent Frameworks Compared (2026)',
+    description:
+      'Choosing an open-source AI agent framework: LangGraph vs CrewAI vs AutoGen vs Pydantic AI by programming model, plus a decision guide by use case.',
+    date: '2026-10-01',
+    author: 'poorna',
+    image: '/og-open-source-ai-agent-frameworks.png',
+    faqs: [
+      { q: 'What is an AI agent framework?', a: "An AI agent framework is a library that gives you the scaffolding for building an agent: the reasoning loop that calls a model repeatedly, the plumbing for tool and function calling, state and memory handling, and a way to orchestrate multiple steps or multiple agents. Open-source examples include LangGraph, CrewAI, AutoGen (and its AG2 fork), and Pydantic AI. The framework defines how you write the agent; it is not the production runtime that sandboxes, schedules, and monitors it." },
+      { q: 'What is the best open-source AI agent framework?', a: "There is no single best open-source AI agent framework — the right choice depends on the programming model you want and your use case. LangGraph is the strong pick when you need explicit control over a stateful, branching workflow; CrewAI is the fastest way to stand up a role-based multi-agent team; Pydantic AI is the choice for Python teams that prioritise type safety and testability; and LlamaIndex fits retrieval-heavy applications. Pick by how you want to express the agent's logic, not by feature-list length." },
+      { q: 'CrewAI vs LangGraph: which should I use?', a: "Use CrewAI when you want a high-level, role-based abstraction — define agents with roles and goals, give them tasks, and let the crew run — and speed of getting started matters more than fine-grained control. Use LangGraph when your workflow has real branching, loops, or long-lived state and you want to define it explicitly as a graph of nodes and edges with built-in checkpointing. The trade-off is abstraction and speed (CrewAI) versus explicit control over state and flow (LangGraph)." },
+      { q: 'Is Pydantic AI production-ready?', a: "Pydantic AI is a newer agent framework from the team behind Pydantic, built around type-safe agents, Pydantic-validated structured outputs, and a dependency-injection system that makes agents straightforward to test. It is actively developed and used in production by teams who value those properties, but it is younger than LangGraph or AutoGen, so check the official docs and changelog for current API stability before committing a critical workload to it." },
+      { q: 'What happened to AutoGen?', a: "AutoGen began as a Microsoft Research project for conversational multi-agent systems. As of 2026 the lineage has split: a group of original maintainers created the community fork AG2 (the ag2 package, which preserves the classic autogen namespace), while Microsoft placed the AutoGen repository in maintenance mode and now points new users to Microsoft Agent Framework, which it describes as AutoGen's successor and for which it publishes an AutoGen migration guide. Check the official AutoGen, AG2, and Microsoft Agent Framework docs for current status before starting a new project on any of them." },
+      { q: 'Do I need an agent framework at all?', a: "Not always. For a single agent with a handful of tools, a plain tool-calling loop against the model's API — call the model, execute any tool calls it returns, append results, repeat — is often simpler, easier to debug, and has fewer dependencies. Frameworks earn their place when you need multi-step or multi-agent orchestration, durable state and checkpointing, structured outputs, or built-in observability, and when you would otherwise end up rebuilding those pieces yourself." },
+    ],
+  },
+  {
     path: '/blog/vector-database-for-rag',
     title: 'Vector Databases for RAG: How to Choose One and Wire It In (2026)',
     seoTitle: 'Vector Databases for RAG: How to Choose One',

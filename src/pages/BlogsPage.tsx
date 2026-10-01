@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 43,
+      title: "Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)",
+      excerpt: "A framework decides how you write an agent — not how it runs in production. LangGraph vs CrewAI vs AutoGen vs Pydantic AI by programming model, plus a focused CrewAI vs LangGraph call and a decision guide by use case.",
+      readTime: "13 min read",
+      date: "Oct 1, 2026",
+      category: "AI Agents",
+      icon: Boxes,
+      gradient: "from-sky-600 to-indigo-800",
+      link: "/blog/open-source-ai-agent-frameworks"
+    },
+    {
       id: 42,
       title: "Vector Databases for RAG: How to Choose One and Wire It In (2026)",
       excerpt: "Does your RAG pipeline even need a dedicated vector database? pgvector vs Chroma vs Qdrant vs Weaviate vs Milvus vs Pinecone — open-source vs managed, a minimal Chroma code example, and how to choose by stage and scale.",
