@@ -238,6 +238,42 @@ const posts = [
     ],
   },
   {
+    path: '/blog/ai-engineer-interview-questions',
+    title: 'AI Engineer Interview Questions (2026): What Gets Asked, Round by Round',
+    seoTitle: 'AI Engineer Interview Questions (2026)',
+    description:
+      'A round-by-round AI engineer interview question bank: ML fundamentals, LLM & GenAI depth (RAG, agents, evals), system design, coding, and behavioral.',
+    date: '2026-10-07',
+    author: 'poorna',
+    image: '/og-ai-engineer-interview-questions.png',
+    faqs: [
+      { q: 'What questions are asked in an AI engineer interview?', a: "A typical AI engineer interview loop in 2026 has a recruiter screen, a coding round (standard data structures and algorithms plus practical tasks like wrapping an LLM call with retries or chunking a document), a machine learning and deep learning fundamentals round (bias-variance, overfitting, evaluation metrics, embeddings, attention), an LLM and generative AI depth round (RAG versus fine-tuning, chunking and vector search, hallucination and evaluation, agents and tool calling, prompting, cost and latency), a system design round where you design a real LLM application, often a take-home or project deep-dive, and a behavioral round with AI-specific questions about handling model failures in production and build-versus-API decisions." },
+      { q: 'How do I prepare for an AI engineer interview?', a: "Ground your fundamentals first so you can explain models, training, and evaluation from first principles, then build one end-to-end portfolio project — a real RAG or agent system with retrieval, evaluation, and a deployed interface — that you know cold. Practice explaining trade-offs out loud (RAG versus fine-tuning, chunk size, vector database choice, model routing for cost), mock the AI system design round with a friend or mentor, and prepare behavioral stories about production failures and build-versus-buy decisions." },
+      { q: 'Do AI engineer interviews still ask LeetCode/DSA questions?', a: "Often, yes. Most companies still include at least one coding round with standard data-structures-and-algorithms problems, but in AI engineer loops that round is weighted alongside machine learning fundamentals, LLM and RAG depth, and applied system design rather than being the whole interview. Many teams also replace or supplement pure algorithm problems with practical tasks such as implementing retry logic for an LLM call, chunking a document, or computing cosine similarity. The exact mix varies a lot by company, so ask your recruiter what the loop looks like." },
+      { q: 'What is the difference between an AI engineer and ML engineer interview?', a: "The overlap is large and titles vary by company, but in 2026 AI engineer interviews lean toward LLMs, RAG, agents, prompting, evaluation of generative systems, and designing applied LLM applications end to end. Machine learning engineer interviews lean more toward classical machine learning, modeling and feature engineering, training pipelines, experiment design, and serving or MLOps infrastructure. Both will test fundamentals like bias-variance, evaluation metrics, and data leakage, and both usually include coding and system design rounds." },
+      { q: 'What should I build to pass an AI engineer interview?', a: "Build one end-to-end project that demonstrates a real RAG or agent system rather than several shallow demos: ingest real documents or connect real tools, implement retrieval with a sensible chunking and embedding strategy, add an evaluation set with retrieval and generation metrics, handle failures and guardrails, and deploy a usable interface. Depth beats breadth — interviewers will probe every decision you made, so a project where you can explain why you chose each component, what you measured, and what went wrong is far more valuable than a long list of tutorials." },
+      { q: 'How technical is the AI engineer system design round?', a: "Very. You are asked to design a real LLM or AI application — for example a chatbot over company documents or an agent that books meetings — and then probed on data flow, how retrieval works and why you chose that approach, how you evaluate quality and catch regressions, what failure modes exist and how you handle them, cost and latency at the expected scale, and safety including guardrails, PII handling, and preventing irreversible actions. Strong candidates draw the system, state their assumptions, name the trade-offs explicitly, and explain how they would measure whether it works." },
+    ],
+  },
+  {
+    path: '/blog/embedding-model-for-rag',
+    title: 'How to Choose an Embedding Model for RAG (2026 Guide)',
+    seoTitle: 'How to Choose an Embedding Model for RAG (2026)',
+    description:
+      'How to choose an embedding model for RAG: the four trade-offs that matter (quality, dimensions, context, price), a 2026 shortlist, and how to validate it.',
+    date: '2026-10-05',
+    author: 'poorna',
+    image: '/og-embedding-model-for-rag.png',
+    faqs: [
+      { q: 'What is an embedding model in RAG?', a: "An embedding model turns a chunk of text (or a query) into a fixed-length numerical vector such that semantically similar text ends up close together in vector space. In a RAG pipeline it runs at two points — once when documents are ingested into the vector database, and again on every user query — and the quality of that vector is what the retrieval step searches over, so a weak embedding model caps retrieval quality before generation ever runs." },
+      { q: 'What is the best embedding model for RAG?', a: "There is no single best model — it depends on your corpus, language, chunk length, and budget. A reasonable 2026 shortlist is OpenAI text-embedding-3-large or Voyage voyage-3-large for English-heavy API use, Cohere Embed v4 or Gemini Embedding for multilingual or multimodal needs, and BGE-M3 or Qwen3-Embedding for self-hosted open-weight deployments. Treat the shortlist as a starting point and validate on your own labeled queries before committing." },
+      { q: 'Do embedding dimensions matter for RAG?', a: "Yes — dimensions drive vector database storage and query cost directly, since every vector the database stores and searches is that many floats. Higher-dimensional embeddings are not automatically better retrieval; several current models support dimension reduction (e.g. via Matryoshka representation learning) so you can test lower dimensions against your own eval set before paying for the largest option." },
+      { q: 'Should ingest and query use the same embedding model?', a: "Always. Vectors produced by two different embedding models are not comparable in the same vector space, so mixing models between ingestion and query silently breaks retrieval. The same applies to the input_type or task_type convention some models use to distinguish a query from a document — use it consistently or skip it consistently." },
+      { q: 'API embedding model or self-hosted?', a: "API models (OpenAI, Voyage, Cohere, Gemini) need no infrastructure and get frequent updates, at the cost of per-token pricing and an external dependency on every ingest and query call. Self-hosted open-weight models (BGE-M3, Qwen3-Embedding) avoid that recurring cost and keep data in-house, but require GPU capacity and ops work. Teams with strict data-residency requirements or very high query volume are the ones where self-hosting usually pays off." },
+      { q: 'How do I evaluate embedding models for my own RAG pipeline?', a: "Hold chunking and the vector database constant, embed the same corpus with two or three candidate models, and measure context precision and context recall against a hand-labeled set of 30-100 of your own queries. This routinely overturns the public MTEB leaderboard order because leaderboards average across tasks that are not yours." },
+    ],
+  },
+  {
     path: '/blog/open-source-ai-agent-frameworks',
     title: 'Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)',
     seoTitle: 'Open-Source AI Agent Frameworks Compared (2026)',

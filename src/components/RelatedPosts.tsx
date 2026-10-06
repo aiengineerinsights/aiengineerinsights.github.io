@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-engineer-interview-questions",
+    title: "AI Engineer Interview Questions (2026): What Gets Asked, Round by Round",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/agent-runtimes-explained",
     title: "AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)",
     tag: "AI Agents",
@@ -44,6 +49,11 @@ const ALL_POSTS = [
   {
     slug: "/blog/rag-chunking-strategies",
     title: "RAG Chunking Strategies: Fixed-Size vs Recursive vs Semantic",
+    tag: "RAG & Retrieval",
+  },
+  {
+    slug: "/blog/embedding-model-for-rag",
+    title: "How to Choose an Embedding Model for RAG (2026 Guide)",
     tag: "RAG & Retrieval",
   },
   {

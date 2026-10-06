@@ -38,6 +38,7 @@ const AIEngineerSalaryPost = lazy(() => import("./pages/AIEngineerSalaryPost"));
 const RagChunkingStrategiesPost = lazy(() => import("./pages/RagChunkingStrategiesPost"));
 const VectorDatabaseForRagPost = lazy(() => import("./pages/VectorDatabaseForRagPost"));
 const AgentFrameworksComparedPost = lazy(() => import("./pages/AgentFrameworksComparedPost"));
+const AIEngineerInterviewQuestionsPost = lazy(() => import("./pages/AIEngineerInterviewQuestionsPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -55,6 +56,7 @@ const JevVsLLMPost = lazy(() => import("./pages/JevVsLLMPost"));
 const HowToUseJevPost = lazy(() => import("./pages/HowToUseJevPost"));
 const LLMvsMLClassificationPost = lazy(() => import("./pages/LLMvsMLClassificationPost"));
 const AgentRuntimesPost = lazy(() => import("./pages/AgentRuntimesPost"));
+const EmbeddingModelForRagPost = lazy(() => import("./pages/EmbeddingModelForRagPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -111,6 +113,8 @@ const AppRoutes = () => (
       <Route path="/blog/rag-chunking-strategies" element={<RagChunkingStrategiesPost />} />
       <Route path="/blog/vector-database-for-rag" element={<VectorDatabaseForRagPost />} />
       <Route path="/blog/open-source-ai-agent-frameworks" element={<AgentFrameworksComparedPost />} />
+      <Route path="/blog/embedding-model-for-rag" element={<EmbeddingModelForRagPost />} />
+      <Route path="/blog/ai-engineer-interview-questions" element={<AIEngineerInterviewQuestionsPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

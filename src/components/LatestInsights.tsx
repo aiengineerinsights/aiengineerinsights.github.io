@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,26 @@ import { Link, useNavigate } from "react-router-dom";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "AI Engineer Interview Questions (2026): What Gets Asked, Round by Round",
+      excerpt: "A round-by-round question bank for AI engineer interviews in 2026 — ML/DL fundamentals, LLM & GenAI depth (RAG, agents, evals), system design for AI apps, coding, and behavioral — with what a strong answer covers and how to prepare.",
+      readTime: "14 min read",
+      date: "Oct 7, 2026",
+      category: "AI Engineering Careers",
+      icon: ListChecks,
+      gradient: "from-amber-600 to-orange-800",
+      link: "/blog/ai-engineer-interview-questions"
+    },
+    {
+      title: "How to Choose an Embedding Model for RAG (2026 Guide)",
+      excerpt: "The MTEB leaderboard is a shortlist, not a verdict. The four trade-offs that actually matter (quality, dimensions, context, price), a 2026 shortlist of API and open-weight embedding models, and how to validate the choice on your own corpus.",
+      readTime: "9 min read",
+      date: "Oct 5, 2026",
+      category: "RAG & Retrieval",
+      icon: Layers,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/embedding-model-for-rag"
+    },
     {
       title: "Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)",
       excerpt: "A framework decides how you write an agent — not how it runs in production. LangGraph vs CrewAI vs AutoGen vs Pydantic AI by programming model, plus a focused CrewAI vs LangGraph call and a decision guide by use case.",
