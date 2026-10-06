@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, CheckCircle2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { trackEvent } from "@/lib/analytics";
 
 // On-brand newsletter capture. Our card provides the heading/subtext/styling;
 // beehiiv's hosted form (email + button) is embedded as a tight, single-row
@@ -36,6 +37,7 @@ const NewsletterSignup = ({
         (e.source === iframeRef.current?.contentWindow || data.externalEmbedId === BEEHIIV_FORM_ID)
       ) {
         setSubmitted(true);
+        trackEvent("newsletter_signup", { signup_source_page: window.location.pathname });
       }
     };
     window.addEventListener("message", onMessage);

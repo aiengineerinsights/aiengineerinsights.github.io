@@ -151,6 +151,11 @@ const AIEngineerSkillsPost = () => {
                 </div>
               </section>
 
+              <NewsletterSignup
+                heading="Turn this checklist into a plan"
+                subtext="Get the free 2026 AI engineer roadmap PDF — the skills above sequenced into a month-by-month plan, plus one practical email a week."
+              />
+
               <section className="mb-6 sm:mb-8">
                 <h2 id="the-2026-core" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">3. The LLM Skills That Define the Role in 2026</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">

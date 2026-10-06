@@ -291,7 +291,9 @@ const HowToUseJevPost = () => {
                   <Link to="/blog/what-are-ai-agents" className="text-primary hover:underline">AI agent</Link> loop —
                   or into an orchestration setup like the one in our{" "}
                   <Link to="/blog/hermes-claude-code-orchestration" className="text-primary hover:underline">Hermes + Claude Code</Link>{" "}
-                  post, where Jev can act as the routing and guardrail decision layer in front of the agent runtimes.
+                  post, where Jev can act as the routing and guardrail decision layer in front of the agent runtimes. For
+                  how the routing half compares with RouteLLM, Semantic Router, and gateway load balancers, see our{" "}
+                  <Link to="/blog/llm-routing" className="text-primary hover:underline">LLM routing guide</Link>.
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ol className="space-y-2 text-sm sm:text-base list-decimal list-inside">

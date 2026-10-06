@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import HermesOpenClawHeroDiagram from "@/components/HermesOpenClawHeroDiagram";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const HermesOpenClawPost = () => {
   const compareData = [
@@ -195,6 +196,11 @@ const HermesOpenClawPost = () => {
                   </div>
                 </div>
               </section>
+
+              <NewsletterSignup
+                heading="Running agents for real? Get the AI engineering roadmap"
+                subtext="Agents, RAG, evals, and the skills that get you hired as an AI engineer — one practical email a week, plus the free 2026 roadmap PDF."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. The Biggest Practical Difference: How Skills Are Made</h2>

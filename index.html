@@ -50,9 +50,9 @@
     <meta name="twitter:image" content="https://aiengineerinsights.com/og-image.png" />
 
     <!--
-      Analytics (Microsoft Clarity) is loaded consent-gated at runtime in
-      src/components/CookieConsent.tsx, not here, so no tracking fires before
-      the visitor accepts non-essential cookies.
+      Analytics (Microsoft Clarity) is loaded at runtime in
+      src/components/CookieConsent.tsx, not here. It runs cookieless until the
+      visitor accepts non-essential cookies (Clarity consentv2 API).
     -->
 
 

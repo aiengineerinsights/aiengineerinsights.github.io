@@ -2,7 +2,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ExternalLink, Github, Star, GitFork } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -108,7 +107,15 @@ const Projects = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {projects.map((project, index) => (
-                <Card key={index} className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden h-full flex flex-col">
+                <a
+                  key={index}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} on GitHub (opens in a new tab)`}
+                  className="block h-full rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                <Card className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden h-full flex flex-col">
                   <div className="p-6 flex-1 flex flex-col">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
@@ -149,18 +156,14 @@ const Projects = () => {
                           <span>{project.forks}</span>
                         </div>
                       </div>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="group/btn"
-                        onClick={() => window.open(project.url, '_blank')}
-                      >
+                      <span className="inline-flex items-center rounded-md px-3 h-9 text-sm font-medium group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                         <Github className="h-4 w-4 mr-2" />
                         View
-                      </Button>
+                      </span>
                     </div>
                   </div>
                 </Card>
+                </a>
               ))}
             </div>
 

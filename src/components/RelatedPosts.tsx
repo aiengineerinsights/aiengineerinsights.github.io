@@ -22,6 +22,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/llm-routing",
+    title: "LLM Routing Explained: How an LLM Router Picks the Right Model (RouteLLM, Semantic Router, Jev, AI Gateways) — 2026",
+    tag: "AI Models",
+  },
+  {
     slug: "/blog/jev-vs-ml-classification",
     title: "Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026",
     tag: "AI Models",

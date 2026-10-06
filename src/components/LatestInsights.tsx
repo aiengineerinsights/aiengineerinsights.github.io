@@ -19,6 +19,16 @@ export const insights = [
       link: "/blog/what-is-mcp"
     },
     {
+      title: "LLM Routing Explained: How an LLM Router Picks the Right Model (RouteLLM, Semantic Router, Jev, AI Gateways) — 2026",
+      excerpt: "Most LLM traffic doesn't need a frontier model. What an LLM router does, the four routing signals (rules, embeddings, learned routers, calibrated decision models), what RouteLLM, Semantic Router, Jev, LiteLLM, and OpenRouter actually route on, and how to build and evaluate one.",
+      readTime: "13 min read",
+      date: "Oct 7, 2026",
+      category: "AI Models",
+      icon: Route,
+      gradient: "from-sky-600 to-blue-800",
+      link: "/blog/llm-routing"
+    },
+    {
       title: "AI Engineer Interview Questions (2026): What Gets Asked, Round by Round",
       excerpt: "A round-by-round question bank for AI engineer interviews in 2026 — ML/DL fundamentals, LLM & GenAI depth (RAG, agents, evals), system design for AI apps, coding, and behavioral — with what a strong answer covers and how to prepare.",
       readTime: "14 min read",

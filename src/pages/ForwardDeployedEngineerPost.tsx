@@ -9,6 +9,7 @@ import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import ForwardDeployedHeroDiagram from "@/components/ForwardDeployedHeroDiagram";
 import TopmateCTA from "@/components/TopmateCTA";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const roleCompare = [
   { role: "Forward-Deployed Engineer", owns: "End-to-end production delivery inside the customer", ships: "Working systems in prod", note: "Same person maps it and maintains it" },
@@ -46,6 +47,18 @@ const faqs = [
   {
     q: "Is the forward-deployed engineer role worth it?",
     a: "It's a strong fit if you like shipping real systems against messy real data, enjoy customer contact, and want unusually direct impact and comp. It's a poor fit if you want deep, uninterrupted focus on a single codebase, dislike travel, or prefer platform work over customer-facing delivery.",
+  },
+  {
+    q: "What does the forward-deployed engineer interview process involve?",
+    a: "Expect a recruiter screen, a coding screen, a customer-flavoured design or take-home exercise, and a hiring-manager round, typically over 3–4 weeks. Palantir's loop is known for a 'decomposition' round (breaking a vague real-world problem into data, APIs, and components without coding) and a 'learning' round (extending an unfamiliar system quickly). OpenAI's reported loop includes a roughly one-week take-home that you then present and defend to the team, with evaluation centred on explaining technical choices in plain language and tying them to the customer's use case.",
+  },
+  {
+    q: "How long does it take to become FDE-ready?",
+    a: "If you already ship backend or ML code to production, a focused 90 days is enough to build the specific evidence FDE loops screen for: one real RAG or agent system with an eval suite, a deployment inside a constrained environment, and a written decomposition of a messy problem. If you're starting from scratch, work the AI engineering roadmap first — Foundation and Core AI take most people 6–12 months before the Engineering phase makes sense.",
+  },
+  {
+    q: "Do forward-deployed engineers have to travel?",
+    a: "Usually some, and sometimes a lot. The role exists because being physically or organisationally close to the customer is what unblocks delivery, so postings commonly list travel — OpenAI's FDE listings cite up to ~50%, and Palantir's forward-deployed track has historically been on-site with customers. Remote-embedded variants exist (working inside the customer's cloud rather than their office), but assume regular customer-site time unless the listing says otherwise.",
   },
 ];
 
@@ -107,7 +120,7 @@ const BlogPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
-                      10 min read
+                      14 min read
                     </div>
                   </div>
                 </div>
@@ -117,6 +130,18 @@ const BlogPost = () => {
             <ForwardDeployedHeroDiagram />
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
+              <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-6 sm:mb-8">
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">TL;DR</p>
+                <p className="text-sm sm:text-base leading-relaxed mb-0">
+                  A forward-deployed AI engineer is a software engineer who embeds with one customer, writes production
+                  code against that customer's real data and systems, and stays accountable for the result after launch.
+                  Palantir created the role; OpenAI, Anthropic, Google Cloud, and enterprise-AI firms like Databricks,
+                  Scale AI, and Salesforce now hire for it. Reported 2026 bands run from roughly $127K–$183K base at
+                  Google Cloud to $171K–$295K total compensation at Palantir, with frontier-lab equity pushing totals
+                  higher.
+                </p>
+              </div>
+
               <section className="mb-6 sm:mb-8">
                 <h2 id="what-is-it" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What is a forward-deployed AI engineer?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -205,9 +230,16 @@ const BlogPost = () => {
                   <Link to="/blog/llm-deployment-challenges" className="text-primary hover:underline">LLM deployment challenges</Link>{" "}
                   and{" "}
                   <Link to="/blog/mlops-best-practices" className="text-primary hover:underline">MLOps best practices</Link> —
-                  an FDE is someone who can do all of it inside someone else's org.
+                  an FDE is someone who can do all of it inside someone else's org. For the full, prioritised list with
+                  how to prove each one, see the{" "}
+                  <Link to="/blog/ai-engineer-skills" className="text-primary hover:underline">AI engineer skills guide</Link>.
                 </p>
               </section>
+
+              <NewsletterSignup
+                heading="Want the role? Get the AI engineering roadmap"
+                subtext="The exact skills, projects, and interview prep for AI engineering roles like FDE — one practical email a week, plus the free 2026 roadmap PDF."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="pay" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What does a forward-deployed AI engineer get paid (by company)?</h2>
@@ -247,7 +279,9 @@ const BlogPost = () => {
                   <strong> Software Engineering (Dev), Forward Deployed (Delta), and Deployment Strategist (Echo)</strong>.
                   The <em>Deployment Strategist</em> is the more business/analysis-leaning sibling of the FDSE, so if you're
                   comparing "forward deployed engineer" vs "deployment strategist" salaries, they're two rungs of the same
-                  customer-embedded ladder.
+                  customer-embedded ladder. To see how these bands sit against the broader market, the{" "}
+                  <Link to="/blog/ai-engineer-salary" className="text-primary hover:underline">AI engineer salary guide</Link>{" "}
+                  breaks pay down by experience, company, and location.
                 </p>
               </section>
 
@@ -268,7 +302,136 @@ const BlogPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   New to production AI generally? Start with the fundamentals in our{" "}
                   <Link to="/ai-engineering-roadmap" className="text-primary hover:underline">AI engineering roadmap</Link>,
-                  then build the deployment muscle the FDE role screens for.
+                  then build the deployment muscle the FDE role screens for. If you're deciding whether to aim for FDE or a
+                  platform-side AI engineering role first, the{" "}
+                  <Link to="/blog/how-to-become-an-ai-engineer" className="text-primary hover:underline">how to become an AI engineer</Link>{" "}
+                  guide covers the general path and a realistic timeline by starting point.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="portfolio-projects" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Which portfolio projects signal FDE readiness?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  FDE hiring loops are built around one question: <strong>can this person take a vague problem to a running
+                  system in someone else's environment?</strong> A portfolio answers that only if the projects look like
+                  delivery work, not demos. Four projects that map directly to what the loops test:
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ol className="space-y-2 text-sm sm:text-base list-decimal list-inside">
+                    <li>
+                      <strong>RAG over messy, real data with an eval suite</strong> — not a clean Wikipedia dump. Use a
+                      domain corpus with PDFs, tables, duplicates, and stale versions. Ship retrieval, reranking, and a
+                      regression eval that catches hallucination and grounding failures. Document the chunking decisions
+                      you made and why.
+                    </li>
+                    <li>
+                      <strong>An agentic workflow with tool calls and guardrails</strong> — a multi-step agent that touches
+                      real systems (a database, an internal API, a ticketing tool), with structured outputs, failure
+                      handling, and a human-in-the-loop checkpoint. This is the "working system in prod" signal from the
+                      comparison table above.
+                    </li>
+                    <li>
+                      <strong>A deployment inside constraints</strong> — the same system running in a private VPC or
+                      on-prem-style setup with no outbound internet, secrets management, and observability (latency, token
+                      spend, error rates, drift). Customer-controlled infrastructure is the FDE's home turf, and almost no
+                      candidate portfolio shows it.
+                    </li>
+                    <li>
+                      <strong>A written decomposition memo</strong> — take an ambiguous business problem and produce a
+                      two-page breakdown: data sources, schema, APIs, components, risks, and what you'd ship in week one.
+                      This is exactly what Palantir's decomposition round and OpenAI's case presentation ask for live, so
+                      having one in your portfolio doubles as interview prep.
+                    </li>
+                  </ol>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Each project should ship with a short README that reads like a customer handoff: the problem, the
+                  constraints, the decisions, the eval results, and how to run it. For general guidance on packaging
+                  projects so they get interviews, see the portfolio section of our{" "}
+                  <Link to="/blog/how-to-become-an-ai-engineer#portfolio" className="text-primary hover:underline">how to become an AI engineer</Link>{" "}
+                  guide.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="interview-process" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What does the FDE interview process look like?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  FDE loops differ from standard software engineering loops in one way that matters: alongside coding, they
+                  test whether you can <strong>decompose an ambiguous, customer-shaped problem and explain your decisions to
+                  non-engineers</strong>. The two most-documented loops are Palantir's and OpenAI's.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>Palantir (Forward Deployed Software Engineer).</strong> Per interview-prep guides, the process
+                  runs four stages over roughly 3–4 weeks: a 30-minute recruiter call; a technical screen that is either live
+                  coding (CodePair or Karat) or an online HackerRank assessment covering a coding problem, a SQL query, and an
+                  API task; a virtual or in-person onsite of three 60-minute rounds; and a 60-minute hiring-manager round
+                  that revisits whichever onsite area was weakest. The onsite rounds are drawn from a pool that includes
+                  coding, system design, and two formats with no direct FAANG equivalent: a <em>decomposition</em> round,
+                  where you break a vague real-world challenge into data schema, APIs, and components without writing code,
+                  and a <em>learning</em> round, where you're handed an unfamiliar system in your language of choice and
+                  asked to understand and extend it. Behavioral questions are embedded in nearly every round rather than
+                  isolated in one.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>OpenAI (Forward Deployed Engineer).</strong> Candidate reports and prep guides describe a loop of a
+                  recruiter screen, a take-home project (reported at about one week — one candidate was asked to build a
+                  semantic search setup over a product catalogue and present it back), a live coding screen, a technical
+                  deep dive and solution-design round, and a final panel with the hiring manager. The consistent theme in
+                  reports is that evaluators weight whether you can explain technical choices in plain English, tie them
+                  back to the customer's use case, and adapt the design when the customer's needs change — as much as the
+                  code itself.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The general shape across employers, then, is: <strong>recruiter screen → coding screen → a
+                  customer-flavoured design, decomposition, or take-home exercise → hiring-manager round</strong>. The
+                  coding bar is real but rarely the differentiator; the design and decomposition rounds are. For the LLM
+                  system-design and behavioral question banks that overlap most with FDE loops, work through our{" "}
+                  <Link to="/blog/ai-engineer-interview-questions#system-design" className="text-primary hover:underline">AI engineer interview questions</Link>{" "}
+                  guide, especially the system-design and role-fit sections.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="90-day-plan" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What does a 90-day plan to become FDE-ready look like?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  This plan assumes you can already ship backend or ML code to production. It maps onto the phases of our{" "}
+                  <Link to="/ai-engineering-roadmap" className="text-primary hover:underline">AI engineering roadmap</Link>{" "}
+                  — Phase 3 (Engineering: MLOps &amp; Production), Phase 4 (Data &amp; Infrastructure), Phase 5
+                  (Specialization), and Phase 6 (Leadership &amp; Communication) — and skips Phases 1–2, which you should
+                  have covered. If you're earlier than that, start with the roadmap and come back; the phases are the
+                  prerequisite, not optional.
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-3 text-sm sm:text-base">
+                    <li>
+                      <strong>Days 1–30 — Ship one real system (Roadmap Phase 3 + 5).</strong> Pick a messy domain corpus
+                      and build the RAG pipeline from the portfolio list above, end to end: ingestion, chunking, retrieval,
+                      reranking, generation. Put it in front of at least a few real users. The goal is a running system with
+                      a URL, not a notebook. Reference the LLM core skills in the{" "}
+                      <Link to="/blog/ai-engineer-skills#the-2026-core" className="text-primary hover:underline">skills guide</Link>{" "}
+                      as your checklist.
+                    </li>
+                    <li>
+                      <strong>Days 31–60 — Make it provable and deployable (Roadmap Phase 3 + 4).</strong> Add the eval suite:
+                      a labelled test set, grounding and hallucination checks, and a regression gate in CI. Instrument it —
+                      latency, token spend, error rates, output drift. Then redeploy it inside constraints: private network,
+                      secrets management, no outbound calls except the model endpoint. This is the month that separates
+                      "built a demo" from "can deliver inside a customer's environment".
+                    </li>
+                    <li>
+                      <strong>Days 61–90 — Build the customer-facing muscle and prep the loop (Roadmap Phase 6).</strong>{" "}
+                      Write the decomposition memo for a second, different business problem. Present your shipped system to a
+                      non-engineer and iterate until they can explain it back to you. Run mock rounds against the
+                      system-design and behavioral sections of the{" "}
+                      <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">interview questions guide</Link>,
+                      then apply to the hirers listed above with the portfolio and memo as your evidence.
+                    </li>
+                  </ul>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Before you negotiate, anchor on the bands in the pay table above and the broader{" "}
+                  <Link to="/blog/ai-engineer-salary#by-company" className="text-primary hover:underline">AI engineer salary by company</Link>{" "}
+                  data; the FDE premium is mostly equity, so compare total compensation, not base.
                 </p>
               </section>
 
@@ -302,6 +465,9 @@ const BlogPost = () => {
                   <li>• <a href="https://getperspective.ai/blog/palantir-forward-deployed-engineering-playbook-anthropic-openai-copying" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Perspective AI — Palantir's FDE playbook</a></li>
                   <li>• <a href="https://www.paraform.com/blog/openai-forward-deployed-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Paraform — OpenAI's Forward Deployed Engineer role breakdown</a></li>
                   <li>• <a href="https://www.levels.fyi/companies/palantir/salaries/software-engineer/title/fdse" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Palantir Forward Deployed Software Engineer salaries</a></li>
+                  <li>• <a href="https://www.aced.io/guides/palantir-forward-deployed-engineer-interview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Aced (formerly Exponent) — Palantir Forward Deployed Engineer interview guide</a></li>
+                  <li>• <a href="https://www.aced.io/experiences/openai-forward-deployed-engineer-interview-0b9c09" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Aced — OpenAI Forward Deployed Engineer interview experience report</a></li>
+                  <li>• <a href="https://www.educative.io/courses/forward-deployed-engineer/interview-guide-openai-forward-deployed-engineers" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Educative — Interview guide for OpenAI Forward Deployed Engineers</a></li>
                 </ul>
               </section>
             </article>

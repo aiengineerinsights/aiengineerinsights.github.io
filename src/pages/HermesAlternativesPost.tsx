@@ -1,22 +1,23 @@
 import { ArrowLeft, Clock, User, Calendar, GitFork, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import HermesAlternativesHeroDiagram from "@/components/HermesAlternativesHeroDiagram";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const HermesAlternativesPost = () => {
   const shortlistData = [
-    { tool: "OpenClaw", type: "Personal agent (turnkey)", best: "The broadest multi-channel personal assistant — 20+ messaging channels + a skill marketplace" },
-    { tool: "LangGraph", type: "Framework (build-your-own)", best: "Building stateful, multi-step agent workflows as an explicit graph" },
-    { tool: "CrewAI", type: "Framework (build-your-own)", best: "Standing up role-based multi-agent 'crews' quickly" },
-    { tool: "Microsoft AutoGen", type: "Framework (build-your-own)", best: "Multi-agent systems modeled as conversations between agents" },
-    { tool: "Open Interpreter", type: "Local agent (single)", best: "Running code locally from natural language — a coding/automation agent" },
-    { tool: "Agent Zero", type: "Framework (build-your-own)", best: "A flexible, general-purpose agentic framework to shape yourself" },
+    { tool: "OpenClaw", href: "/blog/hermes-agent-vs-openclaw", type: "Personal agent (turnkey)", best: "The broadest multi-channel personal assistant — 20+ messaging channels + a skill marketplace" },
+    { tool: "LangGraph", href: "https://github.com/langchain-ai/langgraph", type: "Framework (build-your-own)", best: "Building stateful, multi-step agent workflows as an explicit graph" },
+    { tool: "CrewAI", href: "https://github.com/crewAIInc/crewAI", type: "Framework (build-your-own)", best: "Standing up role-based multi-agent 'crews' quickly" },
+    { tool: "Microsoft AutoGen", href: "https://github.com/microsoft/autogen", type: "Framework (build-your-own)", best: "Multi-agent systems modeled as conversations between agents" },
+    { tool: "Open Interpreter", href: "https://github.com/OpenInterpreter/open-interpreter", type: "Local agent (single)", best: "Running code locally from natural language — a coding/automation agent" },
+    { tool: "Agent Zero", href: "https://github.com/frdel/agent-zero", type: "Framework (build-your-own)", best: "A flexible, general-purpose agentic framework to shape yourself" },
   ];
 
   return (
@@ -81,6 +82,10 @@ const HermesAlternativesPost = () => {
                       Aug 10, 2026
                     </div>
                     <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span>Updated <time dateTime="2026-10-07">Oct 7, 2026</time></span>
+                    </div>
+                    <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       9 min read
                     </div>
@@ -91,6 +96,18 @@ const HermesAlternativesPost = () => {
 
             {/* Hero Diagram */}
             <HermesAlternativesHeroDiagram />
+
+            {/* TL;DR — short, self-contained direct answer */}
+            <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 border-l-4 border-primary" aria-label="TL;DR">
+              <p className="text-sm sm:text-base leading-relaxed">
+                <strong>TL;DR:</strong> The closest alternative to Nous Research's <strong>Hermes Agent</strong> is{" "}
+                <strong>OpenClaw</strong>, the other MIT-licensed, self-hosted personal agent, which trades Hermes's lean,
+                self-improving design for 20+ messaging channels and a skill marketplace. If you're building a custom
+                multi-agent system rather than running a personal assistant, use a framework instead —{" "}
+                <strong>LangGraph</strong>, <strong>CrewAI</strong>, or <strong>Microsoft AutoGen</strong> — and pick{" "}
+                <strong>Open Interpreter</strong> for running code locally from natural language.
+              </p>
+            </div>
 
             {/* Article Content */}
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
@@ -144,6 +161,11 @@ const HermesAlternativesPost = () => {
                 </p>
               </section>
 
+              <NewsletterSignup
+                heading="Building with agents? Get the AI engineering roadmap"
+                subtext="Agent frameworks, RAG, evals, and the skills that get you hired as an AI engineer — one practical email a week, plus the free 2026 roadmap PDF."
+              />
+
               <section className="mb-6 sm:mb-8">
                 <h2 id="frameworks" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">4. The Frameworks (a Different Shape): LangGraph, CrewAI, AutoGen</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -153,17 +175,17 @@ const HermesAlternativesPost = () => {
                 </p>
                 <ul className="space-y-3 text-sm sm:text-base text-muted-foreground mb-4">
                   <li>
-                    <strong>#2 LangGraph — best for stateful, multi-step workflows.</strong> A graph-based framework for
+                    <strong>#2 <a href="https://github.com/langchain-ai/langgraph" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">LangGraph</a> — best for stateful, multi-step workflows.</strong> A graph-based framework for
                     building agent workflows as explicit nodes and edges, with persistent state across steps. Developer-oriented
                     and well-suited to flows you need to control precisely.
                   </li>
                   <li>
-                    <strong>#3 CrewAI — best for role-based multi-agent orchestration.</strong> An open-source framework for
+                    <strong>#3 <a href="https://github.com/crewAIInc/crewAI" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">CrewAI</a> — best for role-based multi-agent orchestration.</strong> An open-source framework for
                     composing "crews" of agents that each play a role and collaborate on a task. A fast on-ramp to multi-agent
                     setups.
                   </li>
                   <li>
-                    <strong>#4 Microsoft AutoGen — best for conversation-driven multi-agent systems.</strong> A multi-agent
+                    <strong>#4 <a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Microsoft AutoGen</a> — best for conversation-driven multi-agent systems.</strong> A multi-agent
                     framework that models work as a conversation between agents (and, optionally, humans). Strong when the
                     problem decomposes into agents talking to each other.
                   </li>
@@ -179,12 +201,12 @@ const HermesAlternativesPost = () => {
                 <h2 id="local-and-general" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. Local Execution and General-Purpose: Open Interpreter, Agent Zero</h2>
                 <ul className="space-y-3 text-sm sm:text-base text-muted-foreground mb-4">
                   <li>
-                    <strong>#5 Open Interpreter — best for running code locally from natural language.</strong> A local
+                    <strong>#5 <a href="https://github.com/OpenInterpreter/open-interpreter" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Open Interpreter</a> — best for running code locally from natural language.</strong> A local
                     coding/automation agent: you describe what you want, it writes and runs code on your machine. Narrower
                     than a full personal agent, but excellent as a hands-on local tool.
                   </li>
                   <li>
-                    <strong>#6 Agent Zero — best for a general-purpose framework you shape yourself.</strong> An open-source,
+                    <strong>#6 <a href="https://github.com/frdel/agent-zero" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Agent Zero</a> — best for a general-purpose framework you shape yourself.</strong> An open-source,
                     general-purpose agentic framework designed to be flexible and customizable rather than opinionated out of
                     the box.
                   </li>
@@ -202,6 +224,10 @@ const HermesAlternativesPost = () => {
                   <div className="min-w-full inline-block align-middle">
                     <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
                       <Table>
+                        <TableCaption className="caption-top mt-0 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">
+                          Hermes Agent vs six open-source alternatives (OpenClaw, LangGraph, CrewAI, Microsoft AutoGen, Open
+                          Interpreter, Agent Zero), compared by type and best use case — as of October 2026.
+                        </TableCaption>
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Tool</TableHead>
@@ -211,13 +237,21 @@ const HermesAlternativesPost = () => {
                         </TableHeader>
                         <TableBody>
                           <TableRow>
-                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">Hermes Agent (baseline)</TableCell>
+                            <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">
+                              <Link to="/blog/hermes-agent-nous-research-guide" className="text-primary hover:underline">Hermes Agent</Link> (baseline)
+                            </TableCell>
                             <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Personal agent (turnkey)</TableCell>
                             <TableCell className="text-xs sm:text-sm px-2 sm:px-4">A turnkey, self-improving personal agent with strong security defaults</TableCell>
                           </TableRow>
                           {shortlistData.map((row, index) => (
                             <TableRow key={index}>
-                              <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">{row.tool}</TableCell>
+                              <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">
+                                {row.href.startsWith("/") ? (
+                                  <Link to={row.href} className="text-primary hover:underline">{row.tool}</Link>
+                                ) : (
+                                  <a href={row.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{row.tool}</a>
+                                )}
+                              </TableCell>
                               <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{row.type}</TableCell>
                               <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{row.best}</TableCell>
                             </TableRow>
@@ -277,6 +311,17 @@ const HermesAlternativesPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   <strong>Open Interpreter</strong> — it's a local agent that writes and runs code on your machine from
                   natural-language instructions, which makes it a strong pick for local coding and automation specifically.
+                </p>
+
+                <h3 id="faq-openclaw" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Is OpenClaw better than Hermes Agent?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Neither is strictly better — they're the same shape with different trade-offs. Hermes Agent is lean,
+                  self-improving (it distills solved tasks into reusable skills), and ships strong security defaults.
+                  OpenClaw is a TypeScript gateway with 20+ messaging channels and the ClawHub skill marketplace: the broadest
+                  integrations on day one, but more to operate and harden. Pick Hermes for a lean, secure-by-default assistant;
+                  pick OpenClaw for the widest channel coverage. Our{" "}
+                  <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes Agent vs OpenClaw comparison</Link>{" "}
+                  goes deeper.
                 </p>
               </section>
 

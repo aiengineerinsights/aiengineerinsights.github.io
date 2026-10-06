@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { installClickTracking } from "@/lib/analytics";
 
-// Lightweight cookie-consent gate. Stores the choice in localStorage and only
-// loads non-essential analytics (Microsoft Clarity + Google Analytics 4) after
-// the visitor accepts. This is the foundation for a full CMP later — when AdSense
+// Lightweight cookie-consent gate. Stores the choice in localStorage. Microsoft
+// Clarity loads on every visit but runs cookieless until consent (requires the
+// "Cookie consent" toggle ON in Clarity → Settings → Setup); accepting grants
+// analytics storage via the consentv2 API. GA4 stays behind Consent Mode below. This is the foundation for a full CMP later — when AdSense
 // is added, the same consent signal should drive Google Consent Mode. It is NOT
 // yet an IAB TCF / Google-certified CMP, which EEA personalized ads will require.
 const STORAGE_KEY = "aei-cookie-consent";
@@ -30,6 +32,18 @@ function loadClarity() {
     y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", CLARITY_ID);
   /* eslint-enable */
+}
+
+// Clarity Consent API v2: grants/revokes cookie storage for the live session.
+// Without a grant Clarity keeps recording cookieless (no cross-page/visit linking).
+function setClarityConsent(granted: boolean) {
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  if (typeof w.clarity !== "function") return;
+  w.clarity("consentv2", {
+    ad_Storage: "denied",
+    analytics_Storage: granted ? "granted" : "denied",
+  });
 }
 
 // Google Analytics 4 uses Consent Mode v2. The gtag base + config live in
@@ -68,8 +82,9 @@ const CookieConsent = () => {
 
   useEffect(() => {
     const existing = getConsent();
+    loadClarity();
     if (existing === "accepted") {
-      loadClarity();
+      setClarityConsent(true);
       setAnalyticsConsent(true);
     } else if (existing === null) {
       setVisible(true);
@@ -78,7 +93,11 @@ const CookieConsent = () => {
     // Footer "Cookie settings" link re-opens the banner via this event.
     const reopen = () => setVisible(true);
     window.addEventListener("open-cookie-settings", reopen);
-    return () => window.removeEventListener("open-cookie-settings", reopen);
+    const uninstallClickTracking = installClickTracking();
+    return () => {
+      window.removeEventListener("open-cookie-settings", reopen);
+      uninstallClickTracking();
+    };
   }, []);
 
   // SPA pageview tracking: fire a GA page_view on every route change (and the
@@ -92,10 +111,11 @@ const CookieConsent = () => {
   const choose = (consent: Consent) => {
     window.localStorage.setItem(STORAGE_KEY, consent);
     if (consent === "accepted") {
-      loadClarity();
+      setClarityConsent(true);
       setAnalyticsConsent(true);
       trackPageview(location.pathname + location.search);
     } else {
+      setClarityConsent(false);
       setAnalyticsConsent(false);
     }
     setVisible(false);

@@ -1,7 +1,7 @@
 import { ArrowLeft, Clock, User, Calendar, Scale, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -53,6 +53,10 @@ const threeWay = [
 
 // Q&A also emitted as FAQPage JSON-LD at build time (see postbuild-seo.mjs).
 const faqs = [
+  {
+    q: "Should I use an LLM or a traditional classifier?",
+    a: "Ask in order and stop at the first yes. If you have labeled, in-distribution data and a stable label set, train a traditional classifier (logistic regression, XGBoost, or a small fine-tuned transformer) and calibrate it with Platt scaling or isotonic regression. If the decision needs reasoning or world knowledge at low volume, use an LLM for the label but don't threshold on its self-reported confidence. If you need a typed, thresholdable decision now with no labels or a fast-changing label set, use a calibrated decision model like Jev and verify its calibration on your own data.",
+  },
   {
     q: "Can an LLM be used as a classifier?",
     a: "Yes, and for genuine zero-shot work — no training data, brand-new or long-tail labels, low volume, or tasks that need world knowledge and reasoning about the text — it is often the right call. The mistake is treating it as a drop-in replacement for a trained classifier on a stable, high-volume task: it is slower, far more expensive per call, non-deterministic, prompt-sensitive, and the confidence number it reports is not a calibrated probability.",
@@ -139,6 +143,10 @@ const LLMvsMLClassificationPost = () => {
                       Sep 23, 2026
                     </div>
                     <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span>Updated <time dateTime="2026-10-07">Oct 7, 2026</time></span>
+                    </div>
+                    <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       13 min read
                     </div>
@@ -148,6 +156,20 @@ const LLMvsMLClassificationPost = () => {
             </header>
 
             <ClassificationHeroDiagram />
+
+            {/* TL;DR — short, self-contained direct answer */}
+            <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 border-l-4 border-primary" aria-label="TL;DR">
+              <p className="text-sm sm:text-base leading-relaxed">
+                <strong>TL;DR:</strong> If you have labeled, in-distribution data and a stable label set, use a{" "}
+                <strong>traditional ML classifier</strong> (logistic regression, XGBoost, or a small fine-tuned transformer)
+                calibrated with Platt scaling or isotonic regression — it is the cheapest, most accurate, and most auditable
+                option. Use an <strong>LLM as a classifier</strong> only for low-volume, zero-shot, or reasoning-heavy
+                labeling, and never threshold on its self-reported confidence: that number is generated text, not a
+                calibrated probability. A calibrated decision model like TypeSafe AI's <strong>Jev</strong> fits the middle —
+                no labels or a fast-changing label set — and mostly replaces the LLM-as-classifier hack, not a trained
+                classifier.
+              </p>
+            </div>
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -211,6 +233,11 @@ const LLMvsMLClassificationPost = () => {
                 </p>
               </section>
 
+              <NewsletterSignup
+                heading="Get the weekly AI engineering brief"
+                subtext="Classifiers, calibration, agents, and the tools worth using — one practical email a week. Plus the free roadmap PDF."
+              />
+
               <section className="mb-6 sm:mb-8">
                 <h2 id="llm-as-classifier" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Why is "LLM as classifier" usually the wrong call?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -262,11 +289,6 @@ const LLMvsMLClassificationPost = () => {
                   option is aimed at.
                 </p>
               </section>
-
-              <NewsletterSignup
-                heading="Get the weekly AI engineering brief"
-                subtext="Classifiers, calibration, agents, and the tools worth using — one practical email a week. Plus the free roadmap PDF."
-              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="where-jev-fits" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Where does Jev fit — the zero-shot calibrated middle?</h2>
@@ -382,6 +404,10 @@ const LLMvsMLClassificationPost = () => {
                   <div className="min-w-full inline-block align-middle">
                     <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
                       <Table>
+                        <TableCaption className="caption-top mt-0 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">
+                          Traditional ML classifier vs LLM-as-classifier vs Jev, compared on calibration, training-data needs,
+                          cost and latency, accuracy, zero-shot flexibility, and auditability — as of October 2026.
+                        </TableCaption>
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Approach</TableHead>

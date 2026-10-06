@@ -44,58 +44,51 @@ const TableOfContents = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Mobile TOC Toggle Button
-  const MobileTocButton = () => (
-    <div className="lg:hidden fixed top-20 right-4 z-50">
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        size="sm"
-        variant="outline"
-        className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-      >
-        {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-        <span className="sr-only">Toggle table of contents</span>
-      </Button>
-    </div>
-  );
-
-  // Mobile TOC Overlay
-  const MobileTocOverlay = () => (
-    <div className={`lg:hidden fixed inset-0 z-40 ${isOpen ? 'block' : 'hidden'}`}>
-      <div 
-        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-        onClick={() => setIsOpen(false)}
-      />
-      <div className="absolute top-20 right-4 w-64 bg-background border rounded-lg p-4 shadow-lg">
-        <p className="font-semibold mb-4 text-muted-foreground">On This Page</p>
-        <ul className="space-y-2 max-h-[60vh] overflow-y-auto">
-          {headings.map((h) => (
-            <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
-              <a
-                href={`#${h.id}`}
-                onClick={(e) => {
-                  handleClick(e, h.id);
-                  setIsOpen(false);
-                }}
-                className={`block hover:text-primary transition-colors text-sm py-1 ${
-                  activeId === h.id ? "text-primary font-medium" : "text-muted-foreground/70"
-                }`}
-              >
-                {h.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-
   return (
     <>
-      {/* Mobile TOC */}
-      <MobileTocButton />
-      <MobileTocOverlay />
-      
+      {/* Mobile TOC — rendered inline (not as nested components) so the overlay
+          isn't remounted on every activeId change while the reader scrolls. */}
+      <div className="lg:hidden fixed top-20 right-4 z-50">
+        <Button
+          onClick={() => setIsOpen((open) => !open)}
+          size="sm"
+          variant="outline"
+          aria-expanded={isOpen}
+          aria-controls="mobile-toc"
+          className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        >
+          {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          <span className="sr-only">Toggle table of contents</span>
+        </Button>
+      </div>
+      <div id="mobile-toc" className={`lg:hidden fixed inset-0 z-40 ${isOpen ? 'block' : 'hidden'}`}>
+        <div 
+          className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
+        <div className="absolute top-20 right-4 w-64 bg-background border rounded-lg p-4 shadow-lg">
+          <p className="font-semibold mb-4 text-muted-foreground">On This Page</p>
+          <ul className="space-y-2 max-h-[60vh] overflow-y-auto">
+            {headings.map((h) => (
+              <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
+                <a
+                  href={`#${h.id}`}
+                  onClick={(e) => {
+                    handleClick(e, h.id);
+                    setIsOpen(false);
+                  }}
+                  className={`block hover:text-primary transition-colors text-sm py-1 ${
+                    activeId === h.id ? "text-primary font-medium" : "text-muted-foreground/70"
+                  }`}
+                >
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       {/* Desktop TOC */}
       <aside className="hidden lg:block w-48 pr-6 sticky top-20 h-[calc(100vh-80px)] overflow-y-auto text-xs">
         <p className="font-semibold mb-4 text-muted-foreground">On This Page</p>

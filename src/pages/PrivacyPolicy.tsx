@@ -56,8 +56,9 @@ const PrivacyPolicy = () => {
               <p className="text-muted-foreground leading-relaxed">
                 We use Microsoft Clarity and Google Analytics (GA4) to understand how visitors use the site (for example,
                 which articles are read and where people click). These tools may capture usage data and behavioral metrics
-                such as pages visited, referring site, approximate location, and device or browser type. Analytics are
-                loaded only after you accept non-essential cookies. See Microsoft's and Google's privacy documentation for
+                such as pages visited, referring site, approximate location, and device or browser type. Microsoft Clarity
+                runs without cookies until you accept non-essential cookies; Google Analytics sets no cookies unless you
+                accept. See Microsoft's and Google's privacy documentation for
                 details on their processing.
               </p>
             </section>

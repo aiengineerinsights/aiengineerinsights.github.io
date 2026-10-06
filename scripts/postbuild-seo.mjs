@@ -110,7 +110,26 @@ const posts = [
     ],
   },
   {
+    path: '/blog/llm-routing',
+    title: 'LLM Routing Explained: How an LLM Router Picks the Right Model (RouteLLM, Semantic Router, Jev, AI Gateways) — 2026',
+    seoTitle: 'LLM Routing Explained: Routers Compared (2026)',
+    description:
+      'LLM routing explained: what an LLM router does, the four routing signals, RouteLLM vs Semantic Router vs Jev vs AI gateways, and how to build and evaluate one.',
+    date: '2026-10-07',
+    author: 'poorna',
+    image: '/og-llm-routing.png',
+    faqs: [
+      { q: 'What is LLM routing?', a: 'LLM routing is a cheap decision made before an expensive model call: for each incoming request, a router picks which model (or model tier) should answer it, based on difficulty, intent, cost, latency, or policy. The goal is to send the easy majority of traffic to a small, cheap model and reserve the frontier model for the hard minority, so you cut cost and latency without a visible drop in quality.' },
+      { q: 'What is the difference between an LLM router and an AI gateway?', a: "An AI gateway (LiteLLM, Portkey, OpenRouter's core proxy) sits in front of many providers and handles keys, rate limits, retries, fallbacks, and load balancing across deployments of a model — it decides which copy of a model serves a request. An LLM router decides which model should answer at all, based on the content of the request. Many products do both; the routing signal (rules, embeddings, a learned router, or a calibrated decision model) is the part that determines quality and cost." },
+      { q: 'How much does LLM routing actually save?', a: "Published results, on the authors' own benchmarks: RouteLLM (Ong et al., 2024) reports cost reductions of over 2× in certain cases without compromising response quality; Hybrid LLM (Ding et al., 2024) reports up to 40% fewer calls to the large model with no drop in response quality; FrugalGPT (Chen, Zaharia, Zou, 2023) reports matching the best individual LLM with up to 98% cost reduction using cascades and related tricks. Your number depends on how much of your traffic is genuinely easy, so measure it on your own logs before putting it in a budget." },
+      { q: 'What is RouteLLM?', a: "RouteLLM is an open-source framework and paper from LMSYS and UC Berkeley (Ong et al., 2024) for training routers that dynamically choose between a stronger and a weaker LLM at inference time. The routers are trained on human preference data (plus data augmentation) to predict when the weaker model's answer would be preferred, and the paper reports that trained routers kept working even when the strong and weak models were swapped at test time." },
+      { q: 'Can I use Jev as an LLM router?', a: "Yes — routing by complexity is one of the use cases TypeSafe and LangChain document for it. You ask Jev a Choice question (simple vs complex, or small / medium / frontier) and get back a label plus a calibrated confidence in one non-autoregressive pass, with no training data. The practical rules: route to the cheap model only on high-confidence 'simple', send every mid-range confidence (roughly 0.3–0.8) to the stronger model by default, and keep attacker-controlled text out of the fields the decision hinges on, because prompt injection has been shown to move Jev's verdicts." },
+      { q: 'How do I evaluate an LLM router?', a: 'Build a labeled eval set of real requests where you already know which tier answers acceptably, then measure three things for each routing configuration: router accuracy (how often it picks the cheapest acceptable tier), the quality delta versus sending everything to the frontier model (graded by your existing evals or an LLM judge with human spot checks), and the realized cost and latency. Log every production decision with its confidence and outcome so you can re-run that evaluation as traffic and models drift.' },
+    ],
+  },
+  {
     path: '/blog/jev-vs-ml-classification',
+    dateModified: '2026-10-07',
     title: 'Jev vs LLMs vs Traditional ML: The Right Way to Classify in 2026',
     seoTitle: 'Jev vs LLMs vs Traditional ML for Classification',
     description:
@@ -119,6 +138,7 @@ const posts = [
     author: 'poorna',
     image: '/og-llm-vs-traditional-ml-classification.png',
     faqs: [
+      { q: 'Should I use an LLM or a traditional classifier?', a: "Ask in order and stop at the first yes. If you have labeled, in-distribution data and a stable label set, train a traditional classifier (logistic regression, XGBoost, or a small fine-tuned transformer) and calibrate it with Platt scaling or isotonic regression. If the decision needs reasoning or world knowledge at low volume, use an LLM for the label but don't threshold on its self-reported confidence. If you need a typed, thresholdable decision now with no labels or a fast-changing label set, use a calibrated decision model like Jev and verify its calibration on your own data." },
       { q: 'Can an LLM be used as a classifier?', a: 'Yes, and for genuine zero-shot work — no training data, brand-new or long-tail labels, low volume, or tasks that need world knowledge and reasoning about the text — it is often the right call. The mistake is treating it as a drop-in replacement for a trained classifier on a stable, high-volume task: it is slower, far more expensive per call, non-deterministic, prompt-sensitive, and the confidence number it reports is not a calibrated probability.' },
       { q: "Is an LLM's confidence score a real probability?", a: "No. When you prompt a model to 'give a confidence from 0 to 100', the number is generated text, not a measured probability. Token log-probabilities are not class probabilities either, and RLHF post-training distorts them further: OpenAI's GPT-4 Technical Report shows the pre-trained model was well-calibrated and post-training reduced that calibration. If you need a number to threshold on, you have to measure calibration (ECE, reliability diagram) rather than trust the model's self-report." },
       { q: 'What is calibration in machine learning?', a: "A classifier is calibrated when its probabilities match reality: among all the cases it calls about 90% likely, roughly 90% actually belong to that class. You measure it with Expected Calibration Error (ECE) and a reliability diagram. Traditional classifiers are calibrated after training with Platt scaling or isotonic regression (scikit-learn's CalibratedClassifierCV); modern neural networks tend to be overconfident, which Guo et al. 2017 showed temperature scaling can fix." },
@@ -147,6 +167,7 @@ const posts = [
   },
   {
     path: '/blog/jev-vs-llm',
+    dateModified: '2026-10-07',
     title: 'Jev vs LLMs: When to Use a Calibrated Decision Model (2026)',
     seoTitle: 'Jev vs LLMs: When to Use a Decision Model',
     description:
@@ -160,6 +181,7 @@ const posts = [
       { q: 'Is Jev really 400× cheaper and 200× faster than an LLM?', a: "Those are TypeSafe's own claims — up to ~193.6× faster and ~444.6× cheaper on workflows the vendor selected, with a wider quoted range of 40–200× and 40–400×. One independent critique notes the 444.6× benchmark used the average of two other models' answers as the reference, so it measures agreement rather than accuracy. Verified pricing is $0.042 per million input tokens with free output tokens." },
       { q: 'How is RLCD different from RLHF?', a: 'RLHF (used to train most chat LLMs) optimizes the model toward answers human raters approve of. RLCD — Reinforcement Learning for Calibrated Decisions, used for Jev — optimizes the model’s confidence to match its real accuracy, so a 90% confidence should be right about 90% of the time. RLHF makes text people like; RLCD makes probabilities you can threshold on.' },
       { q: "Can I trust Jev's confidence score?", a: 'Partly. An independent study measured an expected calibration error of about 0.107 — roughly 4.4× a well-calibrated baseline. Confidence is most reliable near 0 and 1 and shakiest in the 0.3–0.8 band, and on unanswerable questions Jev was right only 44.7% of the time while averaging 0.74 confidence. Treat the extremes as usable signals and route the middle band to a human or an LLM.' },
+      { q: 'Should I use Jev or an LLM?', a: "Use Jev when the answer is one of a fixed set of labels or a score, the decision is consumed by code, it happens often enough that latency and output tokens matter, and a wrong-but-well-typed answer is recoverable — routing, triage, classification, moderation. Use an LLM when you need text, reasoning, an explanation, a task you can't enumerate in advance, or context beyond Jev's 32,000 tokens. In most systems you use both: Jev routes, scores, or checks, and the LLM does the open-ended work." },
       { q: 'Is Jev safe to use as a guardrail on untrusted input?', a: "Not on its own. A VentureBeat report and an Octomind demo showed prompt injection shifting Jev's block probability from 0.76 to 0.48 after a fake 'user pre-approved' field was added to the input. Jev is useful as one fast signal in a guardrail, but it should not be the sole gate for real actions on content an attacker can influence." },
     ],
   },
@@ -485,6 +507,7 @@ const posts = [
   },
   {
     path: '/blog/hermes-agent-alternatives',
+    dateModified: '2026-10-07',
     title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
     seoTitle: 'Best Hermes Agent Alternatives in 2026 (Compared)',
     description:
@@ -492,6 +515,13 @@ const posts = [
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-alternatives.png',
+    faqs: [
+      { q: 'What is the best alternative to Hermes Agent?', a: "For a like-for-like swap, OpenClaw is the best alternative — it's the other MIT-licensed, self-hosted personal agent, and the only one on this list of the same shape. If you're actually building a custom multi-agent system rather than running a personal assistant, the best alternative is a framework instead: LangGraph, CrewAI, or Microsoft AutoGen." },
+      { q: 'Are these Hermes alternatives free and open-source?', a: "The tools here are open-source projects you can self-host, and Hermes Agent and OpenClaw are both MIT-licensed. As always, you pay for the model inference you use via your own API keys, and you should check each project's own repository for its current license and terms before committing." },
+      { q: 'Is LangGraph or CrewAI a replacement for Hermes Agent?', a: "Not directly — they're a different shape. LangGraph and CrewAI are frameworks for building agent systems, not turnkey personal agents you install and run. They're the right answer when you're building a custom multi-agent product, and the wrong answer when you just want a ready-to-use assistant like Hermes or OpenClaw." },
+      { q: 'Which alternative is best for running code locally?', a: "Open Interpreter — it's a local agent that writes and runs code on your machine from natural-language instructions, which makes it a strong pick for local coding and automation specifically." },
+      { q: 'Is OpenClaw better than Hermes Agent?', a: "Neither is strictly better — they're the same shape with different trade-offs. Hermes Agent is lean, self-improving (it distills solved tasks into reusable skills), and ships strong security defaults. OpenClaw is a TypeScript gateway with 20+ messaging channels and the ClawHub skill marketplace: the broadest integrations on day one, but more to operate and harden. Pick Hermes for a lean, secure-by-default assistant; pick OpenClaw for the widest channel coverage." },
+    ],
   },
   {
     path: '/blog/hermes-agent-troubleshooting',
@@ -562,6 +592,7 @@ const posts = [
   },
   {
     path: '/blog/forward-deployed-ai-engineer',
+    dateModified: '2026-10-07',
     title: 'The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It',
     seoTitle: 'Forward-Deployed AI Engineer: Role, Pay, and Path (2026)',
     description:
@@ -569,6 +600,16 @@ const posts = [
     date: '2026-07-29',
     author: 'poorna',
     image: '/og-forward-deployed-ai-engineer.png',
+    faqs: [
+      { q: 'What is a forward-deployed engineer in simple terms?', a: "A software engineer who embeds with a customer — on-site, remote, or inside their cloud — learns the domain, and writes production code against the customer's real data and systems. The defining trait is end-to-end ownership: the person who scopes the problem is the person who keeps it running months later." },
+      { q: 'How is an FDE different from a consultant or solutions engineer?', a: "Consultants deliver reports and recommendations; solutions engineers configure an existing product. An FDE builds and owns the actual system that runs in production. It's a builder role with delivery accountability, not an advisory or configuration role." },
+      { q: 'How much does a forward-deployed AI engineer make?', a: 'Reported bands in 2026: Google Cloud roughly $127K–$183K base plus equity, and OpenAI mid-level roughly $160K–$280K in San Francisco (with up to ~50% travel). Lab equity can push total compensation well above base. Treat specific numbers as point-in-time and role-dependent.' },
+      { q: 'Which companies hire forward-deployed engineers?', a: "Palantir originated the role and still hires heavily for it (as Forward Deployed and Deployment Strategist tracks). The frontier AI labs — OpenAI and Anthropic — now hire FDEs, as does Google Cloud, plus enterprise-AI firms like Salesforce, Databricks, and Scale AI. Search for 'forward deployed engineer jobs' at these companies' careers pages, where hiring has risen sharply through 2025–2026." },
+      { q: 'Is the forward-deployed engineer role worth it?', a: "It's a strong fit if you like shipping real systems against messy real data, enjoy customer contact, and want unusually direct impact and comp. It's a poor fit if you want deep, uninterrupted focus on a single codebase, dislike travel, or prefer platform work over customer-facing delivery." },
+      { q: 'What does the forward-deployed engineer interview process involve?', a: "Expect a recruiter screen, a coding screen, a customer-flavoured design or take-home exercise, and a hiring-manager round, typically over 3–4 weeks. Palantir's loop is known for a 'decomposition' round (breaking a vague real-world problem into data, APIs, and components without coding) and a 'learning' round (extending an unfamiliar system quickly). OpenAI's reported loop includes a roughly one-week take-home that you then present and defend to the team, with evaluation centred on explaining technical choices in plain language and tying them to the customer's use case." },
+      { q: 'How long does it take to become FDE-ready?', a: "If you already ship backend or ML code to production, a focused 90 days is enough to build the specific evidence FDE loops screen for: one real RAG or agent system with an eval suite, a deployment inside a constrained environment, and a written decomposition of a messy problem. If you're starting from scratch, work the AI engineering roadmap first — Foundation and Core AI take most people 6–12 months before the Engineering phase makes sense." },
+      { q: 'Do forward-deployed engineers have to travel?', a: "Usually some, and sometimes a lot. The role exists because being physically or organisationally close to the customer is what unblocks delivery, so postings commonly list travel — OpenAI's FDE listings cite up to ~50%, and Palantir's forward-deployed track has historically been on-site with customers. Remote-embedded variants exist (working inside the customer's cloud rather than their office), but assume regular customer-site time unless the listing says otherwise." },
+    ],
   },
   {
     path: '/blog/github-bug-bounty-ai-slop',
@@ -702,7 +743,7 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
-function writeRoute({ path, title, seoTitle, description, date, author, image, noindex, faqs }, appHtml) {
+function writeRoute({ path, title, seoTitle, description, date, dateModified, author, image, noindex, faqs }, appHtml) {
   // Canonical/og:url use the TRAILING-SLASH form because GitHub Pages serves
   // directory URLs (/blog/x/) with 200 and 301-redirects the no-slash form to
   // it. Pointing canonical at the no-slash URL (a redirect) made Google index
@@ -750,7 +791,7 @@ function writeRoute({ path, title, seoTitle, description, date, author, image, n
       url,
       image: ogImage,
       datePublished: date,
-      dateModified: date,
+      dateModified: dateModified || date,
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       publisher: { '@id': `${SITE}/#organization` },
       author: AUTHORS[author] || AUTHORS.team,

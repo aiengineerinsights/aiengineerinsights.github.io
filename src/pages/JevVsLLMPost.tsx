@@ -1,7 +1,7 @@
 import { ArrowLeft, Clock, User, Calendar, Zap, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -52,6 +52,10 @@ const faqs = [
   {
     q: "Can I trust Jev's confidence score?",
     a: "Partly. An independent study measured an expected calibration error of about 0.107 — roughly 4.4× a well-calibrated baseline. Confidence is most reliable near 0 and 1 and shakiest in the 0.3–0.8 band, and on unanswerable questions Jev was right only 44.7% of the time while averaging 0.74 confidence. Treat the extremes as usable signals and route the middle band to a human or an LLM.",
+  },
+  {
+    q: "Should I use Jev or an LLM?",
+    a: "Use Jev when the answer is one of a fixed set of labels or a score, the decision is consumed by code, it happens often enough that latency and output tokens matter, and a wrong-but-well-typed answer is recoverable — routing, triage, classification, moderation. Use an LLM when you need text, reasoning, an explanation, a task you can't enumerate in advance, or context beyond Jev's 32,000 tokens. In most systems you use both: Jev routes, scores, or checks, and the LLM does the open-ended work.",
   },
   {
     q: "Is Jev safe to use as a guardrail on untrusted input?",
@@ -118,6 +122,10 @@ const JevVsLLMPost = () => {
                       Sep 23, 2026
                     </div>
                     <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span>Updated <time dateTime="2026-10-07">Oct 7, 2026</time></span>
+                    </div>
+                    <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       11 min read
                     </div>
@@ -127,6 +135,20 @@ const JevVsLLMPost = () => {
             </header>
 
             <JevVsLLMHeroDiagram />
+
+            {/* TL;DR — short, self-contained direct answer */}
+            <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 border-l-4 border-primary" aria-label="TL;DR">
+              <p className="text-sm sm:text-base leading-relaxed">
+                <strong>TL;DR:</strong> <strong>Jev</strong>, TypeSafe AI's "System One" model, and <strong>LLMs</strong>{" "}
+                do different jobs: an LLM generates text and reasons step by step, while Jev returns one typed decision — a
+                Choice of up to 255 labels, a Score, or a probability — with a calibrated confidence in a single
+                non-autoregressive pass. Use Jev for narrow, high-frequency decisions consumed by code (routing,
+                classification, moderation); use an LLM for generation, reasoning, explanations, open-ended tasks, or
+                inputs beyond Jev's 32k-token context. Jev's calibration is imperfect (an independent study measured ECE ≈
+                0.107) and prompt injection can shift its verdict, so it should not be the sole gate on untrusted input —
+                most production systems use both.
+              </p>
+            </div>
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -167,6 +189,10 @@ const JevVsLLMPost = () => {
                   <div className="min-w-full inline-block align-middle">
                     <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
                       <Table>
+                        <TableCaption className="caption-top mt-0 px-2 sm:px-4 py-2 text-left text-xs sm:text-sm">
+                          Jev (TypeSafe AI) vs a typical frontier LLM, compared on output, latency, cost, calibration,
+                          reasoning, context window, training signal, and best use — as of October 2026.
+                        </TableCaption>
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Aspect</TableHead>
