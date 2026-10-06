@@ -83,8 +83,10 @@ const CookieConsent = () => {
   useEffect(() => {
     const existing = getConsent();
     loadClarity();
+    // Explicitly deny storage up front for anyone who hasn't accepted, so Clarity
+    // stays cookieless even if the dashboard "Cookie consent" toggle is off.
+    setClarityConsent(existing === "accepted");
     if (existing === "accepted") {
-      setClarityConsent(true);
       setAnalyticsConsent(true);
     } else if (existing === null) {
       setVisible(true);
