@@ -39,6 +39,7 @@ const RagChunkingStrategiesPost = lazy(() => import("./pages/RagChunkingStrategi
 const VectorDatabaseForRagPost = lazy(() => import("./pages/VectorDatabaseForRagPost"));
 const AgentFrameworksComparedPost = lazy(() => import("./pages/AgentFrameworksComparedPost"));
 const AIEngineerInterviewQuestionsPost = lazy(() => import("./pages/AIEngineerInterviewQuestionsPost"));
+const WhatIsMCPPost = lazy(() => import("./pages/WhatIsMCPPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Authors = lazy(() => import("./pages/Authors"));
@@ -115,6 +116,7 @@ const AppRoutes = () => (
       <Route path="/blog/open-source-ai-agent-frameworks" element={<AgentFrameworksComparedPost />} />
       <Route path="/blog/embedding-model-for-rag" element={<EmbeddingModelForRagPost />} />
       <Route path="/blog/ai-engineer-interview-questions" element={<AIEngineerInterviewQuestionsPost />} />
+      <Route path="/blog/what-is-mcp" element={<WhatIsMCPPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

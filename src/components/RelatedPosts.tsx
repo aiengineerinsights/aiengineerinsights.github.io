@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/what-is-mcp",
+    title: "What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/ai-engineer-interview-questions",
     title: "AI Engineer Interview Questions (2026): What Gets Asked, Round by Round",
     tag: "AI Engineering Careers",

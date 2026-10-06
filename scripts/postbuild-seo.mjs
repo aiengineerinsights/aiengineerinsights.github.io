@@ -238,6 +238,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/what-is-mcp',
+    title: 'What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)',
+    seoTitle: 'What Is MCP (Model Context Protocol)? (2026)',
+    description:
+      'What the Model Context Protocol (MCP) is, what an MCP server exposes (tools, resources, prompts), its architecture, and how MCP fits with AI agents.',
+    date: '2026-10-08',
+    author: 'poorna',
+    image: '/og-what-is-mcp.png',
+    faqs: [
+      { q: 'What is MCP?', a: "MCP (Model Context Protocol) is an open standard for connecting AI applications to external tools, data sources, and workflows. It was introduced and open-sourced by Anthropic in November 2024 and defines a client-server protocol: an AI app (the host) runs MCP clients that connect to MCP servers, and each server exposes capabilities — tools, resources, and prompts — that the AI can discover and use at runtime. The goal is that a tool integrated once as an MCP server works with any MCP-compatible AI application." },
+      { q: 'What does MCP stand for?', a: "MCP stands for Model Context Protocol. 'Model' refers to the AI model, 'context' is the external information and tools the model needs to do useful work, and 'protocol' means it is a standardized, specified way of exchanging that context — not a product or a library." },
+      { q: 'What is an MCP server?', a: "An MCP server is a program that exposes capabilities to AI applications over the Model Context Protocol. It can expose three kinds of things: tools (functions the model can call), resources (data the host can read into context), and prompts (reusable prompt templates). A server can run locally on your machine, communicating over stdio, or remotely as a web service using Streamable HTTP. Examples include servers for the filesystem, Git, GitHub, Slack, and databases." },
+      { q: 'What is MCP in AI?', a: "In AI systems, MCP is the standard way an AI agent or assistant discovers and calls external tools and data at runtime. Instead of hard-coding each integration into the agent, the agent connects to MCP servers, asks each one what it offers, and calls those capabilities through a common message format (JSON-RPC 2.0). It sits alongside agent frameworks, which handle reasoning and orchestration, and agent-to-agent protocols like A2A, which handle communication between agents." },
+      { q: 'Who created MCP and is it open source?', a: "Anthropic introduced MCP and open-sourced it on November 25, 2024, releasing a specification, SDKs, and a repository of reference servers. It is an open standard with a public, versioned specification maintained at modelcontextprotocol.io, and the SDKs and reference servers are developed in the open on GitHub under the modelcontextprotocol organization." },
+      { q: 'Is MCP only for Claude?', a: "No. MCP started at Anthropic, but it is an open standard and is not tied to Claude. The official MCP documentation lists AI assistants including Claude and ChatGPT and developer tools such as Visual Studio Code and Cursor as supporting the protocol, and OpenAI documents MCP support in both its Agents SDK and its platform API. Any application that implements an MCP client can use any MCP server." },
+    ],
+  },
+  {
     path: '/blog/ai-engineer-interview-questions',
     title: 'AI Engineer Interview Questions (2026): What Gets Asked, Round by Round',
     seoTitle: 'AI Engineer Interview Questions (2026)',

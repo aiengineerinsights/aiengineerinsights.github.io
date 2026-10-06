@@ -150,7 +150,10 @@ const MCPvsAPIPost = () => {
                   and any <strong>MCP host</strong> — Claude, ChatGPT, an IDE like Cursor, or your own{" "}
                   <Link to="/blog/what-are-ai-agents" className="text-primary hover:underline">AI agent</Link> — can
                   discover and use it without custom glue. Anthropic's own phrase for it is a "USB-C port for AI
-                  applications."
+                  applications." If you want the full plain-English explainer — what an MCP server is, the host/client/server
+                  roles, and the architecture — see{" "}
+                  <Link to="/blog/what-is-mcp" className="text-primary hover:underline">What Is MCP?</Link>{" "}
+                  This article focuses on how MCP compares to a plain API.
                 </p>
               </section>
 

@@ -74,6 +74,7 @@
 - [Vector Databases for RAG: How to Choose One and Wire It In](https://aiengineerinsights.com/blog/vector-database-for-rag): Whether a RAG pipeline needs a dedicated vector database, pgvector vs Chroma vs Qdrant vs Weaviate vs Milvus vs Pinecone, open-source vs managed, a minimal Chroma example, and how to choose by stage and scale
 - [Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI](https://aiengineerinsights.com/blog/open-source-ai-agent-frameworks): How to choose an agent framework by programming model (graph vs crew vs conversation vs type-safe functions), a focused CrewAI vs LangGraph comparison, and a decision guide by use case — with the reminder that a framework is not a production runtime
 - [AI Engineer Interview Questions (2026): What Gets Asked, Round by Round](https://aiengineerinsights.com/blog/ai-engineer-interview-questions): A round-by-round question bank — ML/DL fundamentals, LLM & GenAI depth (RAG, agents, evals), system design for AI apps, coding, and behavioral — with what a strong answer covers and how to prepare
+- [What Is MCP (Model Context Protocol)? A Plain-English Guide](https://aiengineerinsights.com/blog/what-is-mcp): What the Model Context Protocol is, what an MCP server is (tools, resources, prompts), the host/client/server architecture and JSON-RPC transport, and how MCP fits with AI agents — the explainer companion to the MCP vs API comparison
 
 ## Pages
 

@@ -9,6 +9,16 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)",
+      excerpt: "MCP is an open standard from Anthropic for connecting AI apps to external tools and data — the \"USB-C port for AI.\" What an MCP server is, the host/client/server roles, the JSON-RPC architecture, and how MCP fits with AI agents.",
+      readTime: "10 min read",
+      date: "Oct 8, 2026",
+      category: "AI Agents",
+      icon: Network,
+      gradient: "from-indigo-600 to-purple-800",
+      link: "/blog/what-is-mcp"
+    },
+    {
       title: "AI Engineer Interview Questions (2026): What Gets Asked, Round by Round",
       excerpt: "A round-by-round question bank for AI engineer interviews in 2026 — ML/DL fundamentals, LLM & GenAI depth (RAG, agents, evals), system design for AI apps, coding, and behavioral — with what a strong answer covers and how to prepare.",
       readTime: "14 min read",
