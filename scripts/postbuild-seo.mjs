@@ -574,6 +574,24 @@ const posts = [
     image: '/og-context-engineering-graperoot.png',
   },
   {
+    path: '/blog/ai-agent-security-prompt-injection',
+    title: 'AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)',
+    seoTitle: 'AI Agent Security: Prompt Injection & Credential Theft',
+    description:
+      'Real CVEs across Cursor, Copilot, Codex, and Semantic Kernel show prompt injection stealing credentials from AI coding agents. How it works and how to defend yours.',
+    date: '2026-10-07',
+    author: 'poorna',
+    image: '/og-ai-agent-security-prompt-injection.png',
+    faqs: [
+      { q: 'What is prompt injection in an AI coding agent?', a: "Prompt injection is when content the agent reads — a GitHub issue, a PR comment, an MCP tool response, a fetched web page, an error log — contains instructions crafted to look like legitimate input but are actually commands for the model to follow. Because LLMs process instructions and data through the same channel, the agent can't reliably tell 'the user told me to do this' apart from 'a webpage told me to do this.'" },
+      { q: 'Can prompt injection actually steal credentials from a coding agent?', a: 'Yes, and it has been demonstrated against production tools. Researchers showed Claude Code Security Review, Gemini CLI Action, and GitHub Copilot Agent could all be hijacked through GitHub issue/PR content to leak API keys and tokens from their own CI runner environment — using GitHub itself as the exfiltration channel, no external server required.' },
+      { q: 'Is this just a theoretical risk, or are there real CVEs?', a: 'Real CVEs exist across major tools: CVE-2025-49150 (Cursor, RCE via MCP), CVE-2025-53773 (Copilot, auto-approve privilege escalation), CVE-2025-58335 (Junie, data exfiltration), CVE-2025-61260 (Codex CLI, command injection), and CVE-2025-53097 (Roo Code, credential theft). Microsoft also disclosed two CVEs in Semantic Kernel that chained prompt injection into full host-level remote code execution.' },
+      { q: "What is the 'Rule of Two' for agent security?", a: 'A guideline from Meta\'s security team: an agent should satisfy no more than two of (A) processing untrusted input, (B) accessing sensitive data, and (C) changing state or communicating externally. An agent that does all three — reads an untrusted GitHub issue, holds API keys, and can push commits — is exactly the shape every documented credential-theft incident takes.' },
+      { q: 'How do I actually defend an AI coding agent against this?', a: 'Least privilege, not blocklisting. Scope tools to an allowlist instead of trying to block dangerous commands one by one. Run agents in sandboxed, ephemeral environments with scoped, short-lived credentials rather than long-lived developer tokens. Require explicit human approval for shell execution, network calls, and any credential-adjacent action. Treat every MCP server and every piece of repository content as untrusted input.' },
+      { q: 'Does running an agent in a sandbox fully solve the problem?', a: "No — sandbox escapes exist too. Microsoft's Semantic Kernel disclosure showed an agent sandbox could be defeated through an unvalidated file-path parameter, letting an attacker write a payload straight to the host's Startup folder from inside the 'isolated' sandbox. Sandboxing reduces blast radius; it doesn't replace capability scoping and human approval gates." },
+    ],
+  },
+  {
     path: '/blog/ai-engineer-salary',
     title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
     seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',

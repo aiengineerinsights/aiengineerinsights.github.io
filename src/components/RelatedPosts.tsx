@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-agent-security-prompt-injection",
+    title: "AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)",
+    tag: "AI Security",
+  },
+  {
     slug: "/blog/what-is-mcp",
     title: "What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)",
     tag: "AI Agents",

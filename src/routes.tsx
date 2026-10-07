@@ -28,6 +28,7 @@ const HermesModelsPost = lazy(() => import("./pages/HermesModelsPost"));
 const HermesSecurityPost = lazy(() => import("./pages/HermesSecurityPost"));
 const HermesAlternativesPost = lazy(() => import("./pages/HermesAlternativesPost"));
 const HermesTroubleshootingPost = lazy(() => import("./pages/HermesTroubleshootingPost"));
+const AgentSecurityPost = lazy(() => import("./pages/AgentSecurityPost"));
 const OpenAIHuggingFacePost = lazy(() => import("./pages/OpenAIHuggingFacePost"));
 const GithubBugBountyPost = lazy(() => import("./pages/GithubBugBountyPost"));
 const ForwardDeployedEngineerPost = lazy(() => import("./pages/ForwardDeployedEngineerPost"));
@@ -95,6 +96,7 @@ const AppRoutes = () => (
       <Route path="/blog/ai-engineer-salary" element={<AIEngineerSalaryPost />} />
       <Route path="/blog/forward-deployed-ai-engineer" element={<ForwardDeployedEngineerPost />} />
       <Route path="/blog/context-engineering-graperoot" element={<ContextEngineeringGrapeRootPost />} />
+      <Route path="/blog/ai-agent-security-prompt-injection" element={<AgentSecurityPost />} />
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />

@@ -9,6 +9,16 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)",
+      excerpt: "Prompt injection against AI coding agents is exploited today — real CVEs across Cursor, Copilot, Codex, and Semantic Kernel, plus cross-vendor credential-theft disclosures. How it works and how to defend your agents.",
+      readTime: "11 min read",
+      date: "Oct 7, 2026",
+      category: "AI Security",
+      icon: ShieldAlert,
+      gradient: "from-rose-600 to-orange-700",
+      link: "/blog/ai-agent-security-prompt-injection"
+    },
+    {
       title: "What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)",
       excerpt: "MCP is an open standard from Anthropic for connecting AI apps to external tools and data — the \"USB-C port for AI.\" What an MCP server is, the host/client/server roles, the JSON-RPC architecture, and how MCP fits with AI agents.",
       readTime: "10 min read",
