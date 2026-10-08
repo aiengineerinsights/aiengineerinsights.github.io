@@ -1,4 +1,4 @@
-   import { createRoot } from 'react-dom/client';
+   import { createRoot, hydrateRoot } from 'react-dom/client';
    import App from './App.tsx';
    import './index.css';
 
@@ -9,7 +9,16 @@
      if (rootElement) {
        console.log('Root element found, rendering App');
        try {
-         createRoot(rootElement).render(<App />);
+         // Prerendered routes ship full HTML in #root: hydrate it in place so the
+         // content stays painted. createRoot would wipe it, show the Suspense
+         // fallback until the route chunk loads, then re-render (slow LCP/INP).
+         if (rootElement.hasChildNodes()) {
+           hydrateRoot(rootElement, <App />, {
+             onRecoverableError: (error) => console.warn('Hydration fallback:', error),
+           });
+         } else {
+           createRoot(rootElement).render(<App />);
+         }
          console.log('App rendered successfully');
        } catch (error) {
          console.error('Error rendering App:', error);
