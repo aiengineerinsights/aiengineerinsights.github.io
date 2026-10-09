@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/mcp-server-trust-permissions",
+    title: "MCP Server Trust: How to Vet and Scope AI Agent Permissions Before You Connect One",
+    tag: "Agentic Security",
+  },
+  {
     slug: "/blog/ai-agent-security-prompt-injection",
     title: "AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)",
     tag: "AI Security",

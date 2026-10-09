@@ -592,6 +592,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/mcp-server-trust-permissions',
+    title: 'MCP Server Trust: How to Vet and Scope AI Agent Permissions Before You Connect One',
+    seoTitle: 'MCP Server Trust: Vetting & Scoping Agent Permissions',
+    description:
+      "OWASP's MCP Top 10 catalogs tool poisoning, rug pulls, and token passthrough. The scoping checklist that neutralizes each before you connect a new MCP server.",
+    date: '2026-10-09',
+    author: 'poorna',
+    image: '/og-mcp-server-trust-permissions.png',
+    faqs: [
+      { q: 'What is MCP server trust scoping?', a: "It's the practice of treating every Model Context Protocol server as untrusted supply chain — like a new npm package — until you've reviewed its tool manifest, scoped the credentials it receives, and set up a way to detect if its behavior changes later. The alternative, connecting any MCP server with a long-lived, broadly scoped token and never re-checking it, is how tool poisoning and rug-pull attacks succeed." },
+      { q: 'What is a tool poisoning attack against an MCP server?', a: "OWASP's MCP Top 10 (MCP03) describes it as an adversary embedding instructions inside a tool's name, description, or parameter text — the part the model treats as authoritative, not the part a human reviews. Invariant Labs first disclosed this in April 2025: a tool description can tell the model to 'ignore previous instructions' or quietly read ~/.ssh/id_rsa, and the agent follows it because tool descriptions aren't rendered as prose a user reads before approving." },
+      { q: "What is an MCP 'rug pull' attack?", a: "A dynamic version of tool poisoning: a tool's definition looks safe when you approve it, then changes after the fact. Microsoft Learn's AI attack catalog documents the pattern — a trusted tool like send_slack_message is silently altered server-side to exfiltrate data instead, and because agents don't routinely re-verify a tool's definition after the first approval, the malicious version executes without any approval prompt firing again." },
+      { q: 'What is token passthrough and why is it dangerous in MCP?', a: "It's when an MCP server forwards a token it received from the client straight to an upstream API instead of validating and re-issuing its own. The official MCP authorization spec explicitly forbids this: a server MUST NOT pass through a token it didn't issue, because a downstream API may wrongly trust the token as already validated — the classic 'confused deputy' pattern that lets an attacker access resources the original token was never meant to reach." },
+      { q: 'How do I scope AI agent permissions for MCP servers in practice?', a: "Apply least privilege at every layer: grant the narrowest OAuth scope a task needs rather than the broadest the server advertises, use short-lived audience-bound tokens instead of standing credentials, statically scan each tool's declared description for model-directed imperatives before connecting, and pin the tool manifest so you can diff it on every server update." },
+      { q: 'Are official MCP reference servers safe to use?', a: "They're educational references, not hardened production software. Anthropic's own SECURITY.md for the modelcontextprotocol/servers repo states plainly that the reference servers are intended to demonstrate SDK usage and that its bug-bounty program does not cover vulnerabilities found in them — the bounty applies only to the MCP SDKs." },
+    ],
+  },
+  {
     path: '/blog/ai-engineer-salary',
     title: 'AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City',
     seoTitle: 'AI Engineer Salary 2026: US Pay by Level, Company & City',

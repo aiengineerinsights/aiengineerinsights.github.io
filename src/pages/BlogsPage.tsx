@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 49,
+      title: "MCP Server Trust: How to Vet and Scope AI Agent Permissions Before You Connect One",
+      excerpt: "OWASP's MCP Top 10 catalogs tool poisoning, rug pulls, and token passthrough. The scoping checklist that neutralizes each before you connect a new MCP server.",
+      readTime: "10 min read",
+      date: "Oct 9, 2026",
+      category: "Agentic Security",
+      icon: ShieldCheck,
+      gradient: "from-indigo-600 to-violet-700",
+      link: "/blog/mcp-server-trust-permissions"
+    },
+    {
       id: 48,
       title: "AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)",
       excerpt: "Prompt injection against AI coding agents is exploited today — real CVEs across Cursor, Copilot, Codex, and Semantic Kernel, plus cross-vendor credential-theft disclosures. How it works and how to defend your agents.",
