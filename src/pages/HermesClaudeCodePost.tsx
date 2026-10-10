@@ -292,6 +292,10 @@ const HermesClaudeCodePost = () => {
                   </ol>
                 </div>
               </section>
+              <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                If you&apos;re evaluating Hermes against OpenClaw for this kind of orchestration, read our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison first.
+              </p>
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>

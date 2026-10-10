@@ -242,6 +242,10 @@ const HermesModelsPost = () => {
                   <li>• <strong>Need control over inference?</strong> Bring your own endpoint and self-host — you pay only for your own inference.</li>
                 </ul>
               </section>
+              <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                Choosing the agent before the model? Our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison breaks down how the two runtimes differ on skills, memory, and security.
+              </p>
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Frequently Asked Questions</h2>

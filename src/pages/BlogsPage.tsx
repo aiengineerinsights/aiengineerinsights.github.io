@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 50,
+      title: "AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026",
+      excerpt: "A guardrail is a check your code makes around a model call, not a hope that the model behaves. The three checkpoints (input, tool-call, output), the five mechanisms (rules, guard models, judges, decision models, human approval), what NeMo Guardrails, Guardrails AI, and Llama Guard actually do, and how to measure false positives and negatives on your own traffic.",
+      readTime: "14 min read",
+      date: "Oct 10, 2026",
+      category: "AI Security",
+      icon: ShieldCheck,
+      gradient: "from-emerald-600 to-teal-800",
+      link: "/blog/ai-guardrails"
+    },
+    {
       id: 49,
       title: "MCP Server Trust: How to Vet and Scope AI Agent Permissions Before You Connect One",
       excerpt: "OWASP's MCP Top 10 catalogs tool poisoning, rug pulls, and token passthrough. The scoping checklist that neutralizes each before you connect a new MCP server.",

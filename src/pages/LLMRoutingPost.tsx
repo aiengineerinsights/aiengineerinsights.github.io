@@ -459,7 +459,9 @@ log_outcome(request.id, tier, answer)`}</code>
                   into "slightly more expensive," never into "silently worse." If the router is doing its job inside
                   an <Link to="/blog/what-are-ai-agents" className="text-primary hover:underline">agent loop</Link>,
                   the same decision point is also where you'd gate risky tool calls — a different question to the
-                  same cheap decision layer.
+                  same cheap decision layer. Our{" "}
+                  <Link to="/blog/ai-guardrails" className="text-primary hover:underline">AI guardrails guide</Link>{" "}
+                  covers that tool-call checkpoint and the input and output checks around it.
                 </p>
               </section>
 

@@ -5,10 +5,10 @@
   <url><loc>https://aiengineerinsights.com/resources/</loc></url>
   <url><loc>https://aiengineerinsights.com/projects/</loc></url>
   <url><loc>https://aiengineerinsights.com/authors/</loc></url>
-  <url><loc>https://aiengineerinsights.com/ai-engineering-roadmap/</loc></url>
+  <url><loc>https://aiengineerinsights.com/ai-engineering-roadmap/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://aiengineerinsights.com/newsletter/</loc></url>
   <url><loc>https://aiengineerinsights.com/privacy/</loc></url>
-  <url><loc>https://aiengineerinsights.com/downloads/ai-roadmap.pdf</loc></url>
+  <url><loc>https://aiengineerinsights.com/blog/ai-guardrails/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/llm-routing/</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/jev-vs-ml-classification/</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/what-is-jev/</loc><lastmod>2026-09-23</lastmod></url>
@@ -28,8 +28,8 @@
   <url><loc>https://aiengineerinsights.com/blog/hermes-agent-models/</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/hermes-agent-security/</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/hermes-agent-alternatives/</loc><lastmod>2026-08-10</lastmod></url>
-  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-troubleshooting/</loc><lastmod>2026-08-10</lastmod></url>
-  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-vs-openclaw/</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-troubleshooting/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://aiengineerinsights.com/blog/hermes-agent-vs-openclaw/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/claude-certified-architect-exam-traps/</loc><lastmod>2026-08-07</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/claude-certified-architect-exam/</loc><lastmod>2026-08-07</lastmod></url>
   <url><loc>https://aiengineerinsights.com/blog/ai-engineer-salary/</loc><lastmod>2026-08-25</lastmod></url>

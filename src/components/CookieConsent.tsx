@@ -15,9 +15,31 @@ const CLARITY_ID = "xqhw41e9ob";
 type Consent = "accepted" | "declined";
 
 let clarityLoaded = false;
+// Defer the Clarity tag until the page has loaded and the main thread is idle,
+// so its three origins don't compete with the LCP request on slow mobile links.
+// The clarity() queue stub below is installed immediately, so consent calls made
+// before the tag arrives are buffered.
 function loadClarity() {
   if (clarityLoaded || typeof window === "undefined") return;
   clarityLoaded = true;
+  // Same queue stub as Clarity's official snippet (queues `arguments` objects).
+  const w = window as Window & { clarity?: { (...args: unknown[]): void; q?: IArguments[] } };
+  w.clarity =
+    w.clarity ||
+    function () {
+      // eslint-disable-next-line prefer-rest-params
+      (w.clarity!.q = w.clarity!.q || []).push(arguments);
+    };
+  const inject = () => injectClarityTag();
+  const whenIdle = () =>
+    "requestIdleCallback" in window
+      ? (window as Window & { requestIdleCallback: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback(inject, { timeout: 4000 })
+      : setTimeout(inject, 2000);
+  if (document.readyState === "complete") whenIdle();
+  else window.addEventListener("load", whenIdle, { once: true });
+}
+
+function injectClarityTag() {
   /* eslint-disable */
   (function (c: any, l: any, a: any, r: any, i: any) {
     c[a] =

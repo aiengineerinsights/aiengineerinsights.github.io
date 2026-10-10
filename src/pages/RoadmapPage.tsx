@@ -187,8 +187,11 @@ const RoadmapPage = () => {
         <div className="max-w-4xl mx-auto">
           <header className="mb-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              AI Engineering Roadmap 2026: Step-by-Step Guide (Free PDF)
+              AI Engineer Roadmap 2026: The Complete AI Roadmap, Step by Step (Free PDF)
             </h1>
+            <p className="text-sm text-muted-foreground mb-4">
+              Updated <time dateTime="2026-10-10">Oct 10, 2026</time>
+            </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               A complete, practical roadmap to become an AI engineer — from Python and math fundamentals through
               machine learning, MLOps, data engineering, and specializing in LLMs and agents. Six phases, curated
@@ -206,6 +209,18 @@ const RoadmapPage = () => {
               </Button>
             </div>
           </header>
+
+          {/* TL;DR — short, self-contained direct answer */}
+          <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-10 border-l-4 border-primary" aria-label="TL;DR">
+            <p className="text-sm sm:text-base leading-relaxed">
+              <strong>TL;DR — the AI engineer roadmap for 2026 in six phases:</strong> (1) programming &amp; math
+              fundamentals, 2–4 months; (2) machine learning &amp; deep learning, 3–6 months; (3) MLOps &amp; production
+              systems, 3–5 months — the phase most people skip and the one that gets you hired; (4) data engineering
+              &amp; infrastructure, 2–4 months; then (5) specialize — LLMs, RAG, and agents are the highest-demand
+              focus — and (6) grow team and communication skills. From basic programming, expect roughly 12–18 months
+              to a hireable level. This AI roadmap is also available as a free PDF.
+            </p>
+          </div>
 
           <section className="mb-10">
             <h2 id="how-to-become" className="text-2xl font-bold mb-3">How do you become an AI engineer?</h2>

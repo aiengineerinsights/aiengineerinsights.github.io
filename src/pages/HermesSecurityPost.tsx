@@ -239,6 +239,10 @@ const HermesSecurityPost = () => {
                   <li>• <strong>Don't expose local dashboards or gateways to the network without auth.</strong> An open port is an open door into your agent.</li>
                 </ul>
               </section>
+              <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                Weighing Hermes against its closest peer on exactly these defaults? Our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison covers how the two differ on command approval, isolation, and how much hardening each needs.
+              </p>
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">7. Frequently Asked Questions</h2>

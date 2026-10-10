@@ -61,6 +61,7 @@ const pages = [
   },
   {
     path: '/ai-engineering-roadmap',
+    dateModified: '2026-10-10',
     title: 'AI Engineering Roadmap 2026: How to Become an AI Engineer (Free PDF)',
     seoTitle: 'AI Engineer Roadmap 2026: How to Become One (Free PDF)',
     description:
@@ -107,6 +108,24 @@ const posts = [
       { q: 'How do you sandbox tool execution for an agent?', a: "Never run model-generated code or shell commands directly on a host that has real credentials or data. Use an isolated execution environment — a microVM (E2B), a container with strict resource/network limits (Modal, Docker), or a managed code-interpreter tool (OpenAI, Bedrock, Vertex) — so a bad or adversarial tool call can't escape its sandbox, exhaust the host, or exfiltrate secrets." },
       { q: 'What should I use to trace and monitor an agent runtime in production?', a: 'Instrument every model call and tool call as a span so you can see the full execution tree, not just the final answer. LangSmith, Langfuse, and Arize Phoenix are the common purpose-built options; several now follow the OpenTelemetry GenAI semantic conventions, so you can also route agent traces into a general-purpose observability stack. Track token usage and cost per span, not just per request, since a single agent turn can trigger many nested calls.' },
       { q: "What's a good default production stack for agent runtimes in 2026?", a: 'For most teams: LangGraph for the agent graph with Postgres-backed checkpointing for durable state, E2B or Modal for sandboxed tool/code execution, Langfuse for tracing and cost observability, and a queue (SQS or Redis) in front of a worker pool for scaling. Move the durability layer to Temporal or Restate once you need cross-service sagas, very long-running workflows (days+), or strict enterprise reliability guarantees that a single framework\'s checkpointer doesn\'t give you.' },
+    ],
+  },
+  {
+    path: '/blog/ai-guardrails',
+    title: 'AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026',
+    seoTitle: 'AI Guardrails Explained: LLM & Agent Guardrails (2026)',
+    description:
+      'AI guardrails explained: input, output, and tool-call guardrails, how they are built (rules, guard models, Jev), NeMo vs Guardrails AI, and how to evaluate.',
+    date: '2026-10-10',
+    author: 'poorna',
+    image: '/og-ai-guardrails.png',
+    faqs: [
+      { q: 'What are AI guardrails?', a: 'AI guardrails are checks that run outside the model, around each call, to keep an LLM application inside the behaviour you intend: they validate what goes into the model (input guardrails), what it is allowed to do (tool-call or execution guardrails), and what comes out (output guardrails). Each check can be implemented as deterministic rules and schema validation, a trained guard or classifier model, a calibrated decision model, or a policy engine with human approval. They are a layer you control, separate from whatever safety training the model vendor did.' },
+      { q: 'What is the difference between AI guardrails and model alignment or safety training?', a: "Alignment and safety training live inside the model weights: the vendor trains the model to refuse harmful requests, and you cannot change or inspect that behaviour. Guardrails live in your application code around the model: you decide the policy, you can log every verdict, and you can swap the mechanism without changing the model. You need both. Palo Alto's Unit 42 found that when a platform's internal model alignment was insufficient, its output filters did not reliably catch the harmful content either, so neither layer substitutes for the other." },
+      { q: 'What are the main types of LLM guardrails?', a: "By placement: input guardrails (before the model sees the prompt), retrieval or context guardrails (on documents and memory pulled into the context), tool-call or execution guardrails (on the specific action an agent wants to take), and output guardrails (on the final answer before a user or downstream system receives it). NVIDIA's NeMo Guardrails uses almost the same split — input, dialog, retrieval, execution, and output rails. By mechanism: rules and schema validation, guard or classifier models such as Llama Guard, LLM-as-judge, calibrated decision models, and policy engines with human approval." },
+      { q: 'NeMo Guardrails vs Guardrails AI: what is the difference?', a: "Both are open source under Apache 2.0, but they are shaped differently. NVIDIA's NeMo Guardrails is conversation-flow-centric: you write rails in its Colang language and it supports input, dialog, retrieval, execution, and output rails, so it fits chat assistants and RAG apps where you want to steer the dialogue. Guardrails AI is validator-centric: you compose Validators from Guardrails Hub into input and output Guards and it also generates structured output from Pydantic models, so it fits pipelines where you need validated, typed results. Many teams use one of them for content checks and still gate tool calls separately with a decision model or human approval." },
+      { q: 'Do AI guardrails stop prompt injection?', a: "They reduce it; they do not eliminate it. OWASP's LLM01:2025 entry says plainly that it is unclear whether there are fool-proof methods of prevention for prompt injection, and recommends layered mitigations: constrain model behaviour, define and validate output formats, filter inputs and outputs, enforce least privilege, require human approval for high-risk actions, segregate external content, and test adversarially. The most robust layer is the one an attacker cannot talk past: scoped credentials and tool-call gates that evaluate the action itself, with uncertain cases escalated to a human rather than allowed." },
+      { q: 'How do you evaluate whether a guardrail works?', a: "Measure it like a classifier on your own traffic: build a labelled set of real requests (benign and attack), run each guardrail configuration, and report the false positive rate (benign traffic blocked) and the false negative rate (attacks let through) separately, plus the added latency and cost per request. Published numbers show why your own measurement matters: in Unit 42's 2025 test of three platforms with filters at their strictest, benign-prompt block rates ranged from 0.1% to 13.1% and jailbreak pass rates from 8% to 47%. Log every verdict with its confidence and outcome so you can re-run the evaluation as traffic, models, and attacks drift." },
     ],
   },
   {
@@ -525,6 +544,7 @@ const posts = [
   },
   {
     path: '/blog/hermes-agent-troubleshooting',
+    dateModified: '2026-10-10',
     title: 'Hermes Agent Troubleshooting: Fixing the Most Common Errors',
     seoTitle: 'Hermes Agent Troubleshooting: Fix Common Errors',
     description:
@@ -532,11 +552,19 @@ const posts = [
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-troubleshooting.png',
+    faqs: [
+      { q: "What does hermes doctor actually check?", a: "It runs Hermes's built-in diagnostics across your configuration and provider setup \u2014 the common failure points like a broken PATH, missing API keys, a too-small model, or an out-of-date build \u2014 and reports what's wrong so you can fix it. Always try it first." },
+      { q: "What does hermes doctor --fix do?", a: "It runs the same diagnostics as hermes doctor and then attempts automatic repairs where possible \u2014 for example forcing IPv4 when the IPv6 route check fails. It does not rewrite malformed YAML or custom-provider config; those are reported for you to fix by hand. Re-run hermes doctor afterwards: exit code 0 means nothing is left." },
+      { q: "Why do I get \"hermes: command not found\" right after installing?", a: "The installer added a PATH entry to your shell rc file, but your open terminal hasn't reloaded it. Run source ~/.bashrc or source ~/.zshrc, or simply open a new terminal window." },
+      { q: "Why does Hermes fail on the very first message?", a: "Your chosen model is below the 64,000-token context-window minimum Hermes requires. Run hermes model and pick a provider/model with a larger context window." },
+      { q: "Where does Hermes store my API keys and settings?", a: "Secrets live in ~/.hermes/.env and settings in ~/.hermes/config.yaml. If you hit a provider or auth error, verify the key in .env, then reconfigure with hermes model." },
+    ],
   },
   {
     path: '/blog/hermes-agent-vs-openclaw',
+    dateModified: '2026-10-10',
     title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
-    seoTitle: 'Hermes Agent vs OpenClaw: Which to Run (2026)',
+    seoTitle: 'Hermes vs OpenClaw (2026): Which AI Agent to Run?',
     description:
       'Hermes Agent vs OpenClaw, with real Reddit and forum reviews: architecture, skills, memory, security, cost, and a clear pick-by-need verdict.',
     date: '2026-08-10',
@@ -578,7 +606,7 @@ const posts = [
     title: 'AI Coding Agent Security: How Prompt Injection Leads to Credential Theft (and How to Stop It)',
     seoTitle: 'AI Agent Security: Prompt Injection & Credential Theft',
     description:
-      'Real CVEs across Cursor, Copilot, Codex, and Semantic Kernel show prompt injection stealing credentials from AI coding agents. How it works and how to defend yours.',
+      'Real CVEs in Cursor, Copilot, Codex, and Semantic Kernel show prompt injection stealing credentials from AI coding agents. How it works and how to defend.',
     date: '2026-10-07',
     author: 'poorna',
     image: '/og-ai-agent-security-prompt-injection.png',

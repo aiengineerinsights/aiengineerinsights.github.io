@@ -111,6 +111,20 @@ const HermesTroubleshootingPost = () => {
                   <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">guide to installing Hermes Agent</Link>{" "}
                   first, then come back here when something misbehaves.
                 </p>
+                <h3 id="doctor-fix" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What does <code>hermes doctor --fix</code> do?</h3>
+                <div className="bg-muted/50 p-4 sm:p-5 rounded-lg mb-4 font-mono text-xs sm:text-sm overflow-x-auto">
+                  <div>hermes doctor --fix</div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The <code>--fix</code> flag tells <code>hermes doctor</code> to attempt automatic repairs where it safely can,
+                  instead of only reporting. Per the{" "}
+                  <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">official CLI reference</a>,
+                  that includes fixes like setting <code>network.force_ipv4: true</code> when the IPv6 route check fails. It
+                  deliberately does <strong>not</strong> rewrite everything: malformed YAML structure and custom-endpoint /
+                  custom-provider warnings are reported with guidance, and you edit the config yourself. The command exits{" "}
+                  <code>0</code> when no issues remain and <code>1</code> when problems persist — so re-run plain{" "}
+                  <code>hermes doctor</code> after <code>--fix</code> to confirm what's left.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -225,6 +239,10 @@ const HermesTroubleshootingPost = () => {
                   explains what each part does and why it's built that way.
                 </p>
               </section>
+              <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                Still deciding whether Hermes is the right agent at all? See our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison for when OpenClaw&apos;s gateway-first design is the better fit.
+              </p>
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Frequently Asked Questions</h2>
@@ -234,6 +252,14 @@ const HermesTroubleshootingPost = () => {
                   It runs Hermes's built-in diagnostics across your configuration and provider setup — the common failure
                   points like a broken PATH, missing API keys, a too-small model, or an out-of-date build — and reports what's
                   wrong so you can fix it. Always try it first.
+                </p>
+
+                <h3 id="faq-doctor-fix" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What does <code>hermes doctor --fix</code> do?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  It runs the same diagnostics as <code>hermes doctor</code> and then attempts automatic repairs where possible
+                  — for example forcing IPv4 when the IPv6 route check fails. It does not rewrite malformed YAML or
+                  custom-provider config; those are reported for you to fix by hand. Re-run <code>hermes doctor</code>{" "}
+                  afterwards: exit code <code>0</code> means nothing is left.
                 </p>
 
                 <h3 id="faq-command-not-found" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Why do I get "hermes: command not found" right after installing?</h3>
@@ -258,6 +284,7 @@ const HermesTroubleshootingPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Sources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
+                  <li>• <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official CLI command reference (hermes doctor, --fix)</a></li>
                   <li>• <a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official Quickstart</a></li>
                   <li>• <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent on GitHub</a></li>
                 </ul>

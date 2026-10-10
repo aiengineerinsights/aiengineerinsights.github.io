@@ -60,6 +60,7 @@ const JevVsLLMPost = lazyWithReload(() => import("./pages/JevVsLLMPost"));
 const HowToUseJevPost = lazyWithReload(() => import("./pages/HowToUseJevPost"));
 const LLMvsMLClassificationPost = lazyWithReload(() => import("./pages/LLMvsMLClassificationPost"));
 const LLMRoutingPost = lazyWithReload(() => import("./pages/LLMRoutingPost"));
+const AIGuardrailsPost = lazyWithReload(() => import("./pages/AIGuardrailsPost"));
 const AgentRuntimesPost = lazyWithReload(() => import("./pages/AgentRuntimesPost"));
 const EmbeddingModelForRagPost = lazyWithReload(() => import("./pages/EmbeddingModelForRagPost"));
 
@@ -85,6 +86,7 @@ const AppRoutes = () => (
       <Route path="/blog/how-to-use-jev" element={<HowToUseJevPost />} />
       <Route path="/blog/jev-vs-ml-classification" element={<LLMvsMLClassificationPost />} />
       <Route path="/blog/llm-routing" element={<LLMRoutingPost />} />
+      <Route path="/blog/ai-guardrails" element={<AIGuardrailsPost />} />
       {/* Renamed from the original slug; keep the old URL redirecting so early links/indexing don't 404. */}
       <Route path="/blog/llm-vs-traditional-ml-classification" element={<Navigate to="/blog/jev-vs-ml-classification" replace />} />
       <Route path="/blog/agent-runtimes-explained" element={<AgentRuntimesPost />} />

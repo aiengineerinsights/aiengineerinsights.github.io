@@ -98,6 +98,10 @@ const HermesOpenClawPost = () => {
                       Aug 10, 2026
                     </div>
                     <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span>Updated <time dateTime="2026-10-10">Oct 10, 2026</time></span>
+                    </div>
+                    <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       11 min read
                     </div>
@@ -109,10 +113,21 @@ const HermesOpenClawPost = () => {
             {/* Hero Diagram */}
             <HermesOpenClawHeroDiagram />
 
+            {/* TL;DR — short, self-contained direct answer */}
+            <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 border-l-4 border-primary" aria-label="TL;DR">
+              <p className="text-sm sm:text-base leading-relaxed">
+                <strong>TL;DR — Hermes vs OpenClaw:</strong> pick <strong>OpenClaw</strong> if you want breadth out of the
+                box — a resident gateway with 20+ messaging channels and a marketplace of ready-made skills. Pick{" "}
+                <strong>Hermes Agent</strong> if you want an agent that writes its own skills as it works and ships with
+                stronger security defaults. Both are MIT-licensed and self-hosted; the OpenClaw vs Hermes choice comes down
+                to breadth and integrations versus a learning agent loop and safer defaults.
+              </p>
+            </div>
+
             {/* Article Content */}
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
-                <h2 id="the-difference" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. What's the Real Difference?</h2>
+                <h2 id="the-difference" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. Hermes vs OpenClaw: What's the Real Difference?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Strip away the marketing and the two projects disagree about <strong>where the center of the system
                   should be</strong>. OpenClaw puts a <strong>resident gateway</strong> at the center: a daemon that owns

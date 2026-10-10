@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-guardrails",
+    title: "AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026",
+    tag: "AI Security",
+  },
+  {
     slug: "/blog/mcp-server-trust-permissions",
     title: "MCP Server Trust: How to Vet and Scope AI Agent Permissions Before You Connect One",
     tag: "Agentic Security",
