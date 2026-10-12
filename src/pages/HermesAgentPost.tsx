@@ -125,6 +125,29 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="official-documentation" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Where Is the Official Hermes Agent Documentation?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The official Hermes Agent documentation is published by Nous Research at{" "}
+                  <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent.nousresearch.com/docs</a>,
+                  and the source code lives in the{" "}
+                  <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">NousResearch/hermes-agent</a>{" "}
+                  GitHub repository. The pages you'll use most:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>• <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Installation</a> — official install steps for macOS, Linux, and Windows</li>
+                  <li>• <a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Quickstart</a> — first run, choosing a model, and your first session</li>
+                  <li>• <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">CLI commands reference</a> — every <code>hermes</code> command, including <code>hermes doctor</code> and <code>--fix</code></li>
+                  <li>• <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub repository</a> — README, releases, and issues</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  This guide is an independent explainer, not the official docs. For step-by-step help, see our{" "}
+                  <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">Hermes Agent install guide</Link>{" "}
+                  and{" "}
+                  <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">troubleshooting guide</Link>.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="hermes-agent-vs-hermes-llm" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">2. Hermes Agent vs. Hermes LLM vs. OpenHermes — Which Is Which?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The name "Hermes" is overloaded, and search results mix three different things (four, if you count the
