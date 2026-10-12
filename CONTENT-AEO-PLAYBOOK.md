@@ -110,6 +110,9 @@ Our React post components already support this — use them deliberately:
 - **E-E-A-T** → the author card (real byline + date) and Person JSON-LD, already
   emitted by `scripts/postbuild-seo.mjs`.
 - **Internal links** → contextual links to related posts build the topic cluster.
+- **Explore with AI** → one-click CTA that opens ChatGPT/Claude/Perplexity/AI Mode with the
+  article attached and the reader's next question asked, so each conversation reads and cites
+  the post (`docs/adr/0001-explore-with-ai-cta.md`). Page order: `docs/POST-STRUCTURE.md`.
 
 ## 6. Evidence caveats (don't over-trust magnitudes)
 

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesHeroDiagram from "@/components/HermesHeroDiagram";
 
@@ -94,6 +95,8 @@ const HermesAgentPost = () => {
             <HermesHeroDiagram />
 
             {/* Article Content */}
+            <ExploreWithAI path="/blog/hermes-agent-nous-research-guide" variant="strip" />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="what-is-hermes-agent" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. What Is Hermes Agent?</h2>
@@ -338,6 +341,9 @@ const HermesAgentPost = () => {
                   <li>• <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Troubleshooting common errors</Link> — starting with <code>hermes doctor</code></li>
                 </ul>
               </section>
+
+              <ExploreWithAI path="/blog/hermes-agent-nous-research-guide" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Frequently Asked Questions</h2>

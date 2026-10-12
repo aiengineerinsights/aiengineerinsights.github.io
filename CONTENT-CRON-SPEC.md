@@ -65,16 +65,19 @@ Substantive change only — never a cosmetic date bump.
 Match the existing posts exactly (`src/pages/MCPvsAPIPost.tsx` and
 `src/pages/WhatAreAIAgentsPost.tsx` are the reference implementations).
 
-**Page structure**
+**Page structure** — full reference: `docs/POST-STRUCTURE.md`
 
 ```
 Navigation → back link → header (category chip, H1, lede, author card)
-→ hero SVG diagram → <article className="prose">
-   numbered <section id="..."> blocks
-   → FAQ → References
-→ NewsletterSignup (mid/late) → TopmateCTA (career posts only)
-→ RelatedPosts → Footer
+→ hero SVG diagram → TL;DR box → <ExploreWithAI variant="strip" />
+→ <article className="prose">
+   numbered <section id="..."> blocks (NewsletterSignup ~35–40% down)
+   → <ExploreWithAI variant="questions" /> → FAQ → References
+→ TopmateCTA (career posts only) → RelatedPosts → Footer
 ```
+
+Every post gets an entry in `src/config/exploreWithAI.ts` (3–4 next questions
+from Search Console + FAQ). See `docs/adr/0001-explore-with-ai-cta.md`.
 
 **Writing rules**
 - BLUF: answer the query in the first paragraph, before any preamble.

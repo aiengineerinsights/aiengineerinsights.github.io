@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import LLMRoutingHeroDiagram from "@/components/LLMRoutingHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -196,6 +197,9 @@ const LLMRoutingPost = () => {
                 stronger model, log every decision, and measure router accuracy and quality delta on your own logs.
               </p>
             </div>
+
+            <ExploreWithAI path="/blog/llm-routing" variant="strip" />
+
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -547,6 +551,9 @@ log_outcome(request.id, tier, answer)`}</code>
                   </ul>
                 </div>
               </section>
+
+              <ExploreWithAI path="/blog/llm-routing" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>

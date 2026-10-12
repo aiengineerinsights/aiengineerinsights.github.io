@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesAlternativesHeroDiagram from "@/components/HermesAlternativesHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -110,6 +111,8 @@ const HermesAlternativesPost = () => {
             </div>
 
             {/* Article Content */}
+            <ExploreWithAI path="/blog/hermes-agent-alternatives" variant="strip" />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="quick-answer" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. The Quick Answer: What Should You Use Instead of Hermes?</h2>
@@ -280,6 +283,9 @@ const HermesAlternativesPost = () => {
                   commit to a heavier framework.
                 </p>
               </section>
+
+              <ExploreWithAI path="/blog/hermes-agent-alternatives" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">8. Frequently Asked Questions</h2>

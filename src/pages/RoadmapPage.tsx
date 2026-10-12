@@ -2,6 +2,7 @@ import { FileDown, Code, Brain, Settings, Database, Target, Users } from "lucide
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -222,6 +223,8 @@ const RoadmapPage = () => {
             </p>
           </div>
 
+          <ExploreWithAI path="/ai-engineering-roadmap" variant="strip" />
+
           <section className="mb-10">
             <h2 id="how-to-become" className="text-2xl font-bold mb-3">How do you become an AI engineer?</h2>
             <p className="text-muted-foreground leading-relaxed mb-3">
@@ -328,6 +331,8 @@ const RoadmapPage = () => {
               engineers are building on today.
             </p>
           </section>
+
+          <ExploreWithAI path="/ai-engineering-roadmap" variant="questions" />
 
           <section className="mb-6">
             <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>

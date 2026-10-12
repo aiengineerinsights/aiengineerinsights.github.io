@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesOpenClawHeroDiagram from "@/components/HermesOpenClawHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -125,6 +126,8 @@ const HermesOpenClawPost = () => {
             </div>
 
             {/* Article Content */}
+            <ExploreWithAI path="/blog/hermes-agent-vs-openclaw" variant="strip" />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="the-difference" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. Hermes vs OpenClaw: What's the Real Difference?</h2>
@@ -358,6 +361,9 @@ const HermesOpenClawPost = () => {
                   workflow — the migrate command makes that nearly free.
                 </p>
               </section>
+
+              <ExploreWithAI path="/blog/hermes-agent-vs-openclaw" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Frequently Asked Questions</h2>

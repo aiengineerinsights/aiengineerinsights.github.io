@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesTroubleshootingHeroDiagram from "@/components/HermesTroubleshootingHeroDiagram";
 
@@ -94,6 +95,8 @@ const HermesTroubleshootingPost = () => {
             <HermesTroubleshootingHeroDiagram />
 
             {/* Article Content */}
+            <ExploreWithAI path="/blog/hermes-agent-troubleshooting" variant="strip" />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="run-doctor-first" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. Always Start With <code>hermes doctor</code></h2>
@@ -242,6 +245,10 @@ const HermesTroubleshootingPost = () => {
               <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
                 Still deciding whether Hermes is the right agent at all? See our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison for when OpenClaw&apos;s gateway-first design is the better fit.
               </p>
+
+
+              <ExploreWithAI path="/blog/hermes-agent-troubleshooting" variant="questions" />
+
 
 
               <section className="mb-6 sm:mb-8">

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import AIGuardrailsHeroDiagram from "@/components/AIGuardrailsHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -245,6 +246,9 @@ const AIGuardrailsPost = () => {
                 to 13.1% and jailbreak pass rates from 8% to 47% across platforms with filters at their strictest.
               </p>
             </div>
+
+            <ExploreWithAI path="/blog/ai-guardrails" variant="strip" />
+
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -663,6 +667,9 @@ def handle(user_msg, session):
                   </ul>
                 </div>
               </section>
+
+              <ExploreWithAI path="/blog/ai-guardrails" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>

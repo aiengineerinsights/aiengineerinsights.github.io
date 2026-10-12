@@ -11,7 +11,8 @@ export type ConversionEvent =
   | "roadmap_pdf_download"
   | "newsletter_signup"
   | "affiliate_click"
-  | "outbound_click";
+  | "outbound_click"
+  | "ai_explore_click";
 
 export function trackEvent(name: ConversionEvent, params: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
@@ -42,6 +43,9 @@ export function installClickTracking(): () => void {
     } catch {
       return;
     }
+
+    // "Explore with AI" links fire their own ai_explore_click event (ExploreWithAI.tsx).
+    if (link.hasAttribute("data-ai-explore")) return;
 
     const page = window.location.pathname;
     if (ROADMAP_PDF.test(url.pathname)) {

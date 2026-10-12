@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import ForwardDeployedHeroDiagram from "@/components/ForwardDeployedHeroDiagram";
 import TopmateCTA from "@/components/TopmateCTA";
@@ -128,6 +129,9 @@ const BlogPost = () => {
             </header>
 
             <ForwardDeployedHeroDiagram />
+
+            <ExploreWithAI path="/blog/forward-deployed-ai-engineer" variant="strip" />
+
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-6 sm:mb-8">
@@ -445,6 +449,9 @@ const BlogPost = () => {
                   generalist builders who are comfortable owning the whole path from problem to production.
                 </p>
               </section>
+
+              <ExploreWithAI path="/blog/forward-deployed-ai-engineer" variant="questions" />
+
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
