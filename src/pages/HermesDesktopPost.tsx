@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import HermesDesktopHeroDiagram from "@/components/HermesDesktopHeroDiagram";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { HERMES_CHEAT_SHEET } from "@/config/newsletterBonuses";
 
 const HermesDesktopPost = () => {
   const surfaceData = [
@@ -195,6 +197,12 @@ const HermesDesktopPost = () => {
                   <code>~/.hermes/</code>, so you rarely need to open a config file yourself.
                 </p>
               </section>
+
+              <NewsletterSignup
+                heading="Get the one-page Hermes Agent cheat sheet"
+                subtext="Every install, model, skills, and fix command on one printable page, free when you join. Plus one practical AI engineering email a week."
+                bonus={HERMES_CHEAT_SHEET}
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="open-dashboard" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">4. How Do I Open the Hermes Dashboard?</h2>

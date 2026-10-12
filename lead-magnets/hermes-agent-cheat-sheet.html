@@ -1,0 +1,137 @@
+<!doctype html>
+<!--
+  Source for public/downloads/hermes-agent-cheat-sheet.pdf — the newsletter-only
+  bonus offered on the Hermes posts (see NewsletterSignup `bonus` prop).
+  Every command here is taken from our Hermes posts, which cite the official docs.
+
+  Rebuild the PDF after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --no-pdf-header-footer --print-to-pdf=public/downloads/hermes-agent-cheat-sheet.pdf \
+      lead-magnets/hermes-agent-cheat-sheet.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Hermes Agent Cheat Sheet — AI Engineer Insights</title>
+<style>
+  @page { size: A4; margin: 10mm 11mm 8mm; }
+  * { box-sizing: border-box; }
+  body { font: 9pt/1.32 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1530; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #6d28d9; padding-bottom: 6px; margin-bottom: 9px; }
+  h1 { font-size: 20pt; margin: 0; letter-spacing: -0.3px; }
+  h1 span { color: #6d28d9; }
+  .sub { color: #5b5470; font-size: 9pt; margin-top: 2px; }
+  .brand { text-align: right; font-size: 8.5pt; color: #5b5470; }
+  .brand b { color: #1c1530; font-size: 10pt; }
+  .cols { columns: 2; column-gap: 14px; }
+  section { break-inside: avoid; margin: 0 0 8px; border: 1px solid #e4def2; border-radius: 6px; padding: 7px 9px 6px; }
+  h2 { font-size: 10.5pt; margin: 0 0 5px; color: #6d28d9; text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 2.4px 0; vertical-align: top; border-bottom: 1px dotted #e4def2; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { width: 54%; padding-right: 8px; }
+  code { font: 8.2pt/1.28 "SF Mono", Menlo, Consolas, monospace; background: #f3effb; padding: 0.5px 3px; border-radius: 3px; word-break: break-word; }
+  .tip { background: #f6f2ff; border-left: 3px solid #6d28d9; padding: 5px 8px; margin: 6px 0 0; font-size: 8.8pt; }
+  footer { margin-top: 4px; border-top: 1px solid #e4def2; padding-top: 6px; font-size: 8.4pt; color: #5b5470; display: flex; justify-content: space-between; gap: 10px; }
+  a { color: #6d28d9; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Hermes Agent <span>Cheat Sheet</span></h1>
+    <div class="sub">Install, configure, fix and run Nous Research's open-source agent. One page.</div>
+  </div>
+  <div class="brand"><b>AI Engineer Insights</b><br />aiengineerinsights.com · Oct 2026</div>
+</header>
+
+<div class="cols">
+  <section>
+    <h2>1 · Install</h2>
+    <table>
+      <tr><td><code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code></td><td>Official installer (macOS, Linux, WSL2)</td></tr>
+      <tr><td><code>pip install hermes-agent</code></td><td>Python install</td></tr>
+      <tr><td><code>docker pull nousresearch/hermes-agent:latest</code></td><td>Container image</td></tr>
+      <tr><td><code>docker run -it -v ~/.hermes:/root/.hermes nousresearch/hermes-agent:latest</code></td><td>Run it; the volume keeps config and memory between runs</td></tr>
+    </table>
+    <div class="tip"><b>Windows:</b> run the agent under WSL2. If PowerShell blocks the script, use an Administrator shell or install inside WSL2.</div>
+  </section>
+
+  <section>
+    <h2>2 · First run &amp; models</h2>
+    <table>
+      <tr><td><code>hermes setup --portal</code></td><td>Easiest start: Nous Portal model + Tool Gateway tools</td></tr>
+      <tr><td><code>hermes model</code></td><td>Choose or switch provider and model, paste API key</td></tr>
+      <tr><td><code>hermes</code> / <code>hermes --tui</code></td><td>Start the agent (modern TUI)</td></tr>
+      <tr><td><code>hermes gateway setup</code></td><td>Telegram, Discord, Slack, WhatsApp, Signal</td></tr>
+    </table>
+    <div class="tip"><b>Rule:</b> the model needs a context window of at least <b>64,000 tokens</b>, or the first message fails.</div>
+  </section>
+
+  <section>
+    <h2>3 · Sessions</h2>
+    <table>
+      <tr><td><code>hermes --continue</code> / <code>hermes -c</code></td><td>Resume your last session</td></tr>
+      <tr><td><code>hermes sessions list</code></td><td>Find a saved chat</td></tr>
+      <tr><td><code>/model</code></td><td>Switch model inside a session</td></tr>
+      <tr><td><code>/voice on</code></td><td>Voice mode (needs the voice extra)</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>4 · Skills</h2>
+    <table>
+      <tr><td><code>/skills</code></td><td>Browse skills inside a session</td></tr>
+      <tr><td><code>/skill skill-name</code></td><td>Load a skill mid-session</td></tr>
+      <tr><td><code>hermes -s "skill-name"</code></td><td>Load a skill at launch</td></tr>
+      <tr><td><code>hermes skills create</code></td><td>Scaffold a new skill</td></tr>
+      <tr><td><code>~/.hermes/skills/</code></td><td>Where skills live</td></tr>
+    </table>
+    <div class="tip">Turn on <code>write_approval</code> so skills the agent writes are staged for review, not applied silently.</div>
+  </section>
+
+  <section>
+    <h2>5 · Web UI &amp; desktop</h2>
+    <table>
+      <tr><td><code>hermes dashboard</code></td><td>Start the local web dashboard</td></tr>
+      <tr><td><code>http://127.0.0.1:9119</code></td><td>Open it in any browser (runs locally)</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>6 · Files that matter</h2>
+    <table>
+      <tr><td><code>~/.hermes/.env</code></td><td>API keys and secrets</td></tr>
+      <tr><td><code>~/.hermes/config.yaml</code></td><td>Settings</td></tr>
+      <tr><td><code>~/.hermes/skills/</code></td><td>Skills</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>7 · Fix it</h2>
+    <table>
+      <tr><td><code>hermes doctor</code></td><td><b>Run first.</b> Checks PATH, keys, model, build</td></tr>
+      <tr><td><code>hermes doctor --fix</code></td><td>Same checks plus automatic repairs; YAML and custom-provider issues are left for you</td></tr>
+      <tr><td><code>hermes update</code></td><td>Latest version, then re-run <code>hermes doctor</code></td></tr>
+      <tr><td><code>hermes: command not found</code></td><td><code>source ~/.zshrc</code> or <code>source ~/.bashrc</code>, or open a new terminal</td></tr>
+      <tr><td>Context-window error</td><td><code>hermes model</code>, pick a 64k+ model</td></tr>
+      <tr><td>Provider / auth failed</td><td>Check the key in <code>~/.hermes/.env</code>, then <code>hermes model</code></td></tr>
+      <tr><td>Docker forgets everything</td><td>Mount <code>-v ~/.hermes:/root/.hermes</code></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>8 · Migrate</h2>
+    <table>
+      <tr><td><code>hermes claw migrate</code></td><td>Import an OpenClaw setup (preview first)</td></tr>
+      <tr><td><code>hermes import-agent claude-code</code></td><td>Bring CLAUDE.md, permissions and MCP servers across</td></tr>
+    </table>
+  </section>
+</div>
+
+<footer>
+  <div>Full guides: <a href="https://aiengineerinsights.com/blog/hermes-agent-troubleshooting/?utm_source=cheatsheet&amp;utm_medium=pdf">Troubleshooting</a> · <a href="https://aiengineerinsights.com/blog/hermes-agent-alternatives/?utm_source=cheatsheet&amp;utm_medium=pdf">Alternatives</a> · <a href="https://aiengineerinsights.com/blog/hermes-agent-vs-openclaw/?utm_source=cheatsheet&amp;utm_medium=pdf">vs OpenClaw</a></div>
+  <div>Commands change; check <code>hermes --help</code> and the official docs.</div>
+</footer>
+</body>
+</html>

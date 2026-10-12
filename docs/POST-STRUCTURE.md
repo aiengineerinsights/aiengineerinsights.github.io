@@ -48,6 +48,13 @@ Navigation
 - New posts with no Search Console data yet: draft questions from the FAQ and
   the closest existing post's queries, then revise after 4 weeks of data.
 
+**NewsletterSignup**
+- Heading and subtext tailored to the post. The free roadmap PDF is public, so it is not a
+  reason to subscribe on its own.
+- Where a subscriber-only download fits the post's intent, pass `bonus` (see
+  `src/config/newsletterBonuses.ts`; Hermes posts use `HERMES_CHEAT_SHEET`). Sources for bonus
+  PDFs live in `lead-magnets/`.
+
 **FAQ**
 - The in-page questions must match `faqs` in `scripts/postbuild-seo.mjs` exactly
   (that file emits the FAQPage schema).

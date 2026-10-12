@@ -497,9 +497,9 @@ const posts = [
   {
     path: '/blog/hermes-agent-desktop-web-ui',
     title: 'Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent',
-    seoTitle: 'Hermes Agent Desktop App & Web UI (Dashboard) Guide',
+    seoTitle: 'Hermes Web UI at 127.0.0.1:9119 & Desktop App Guide',
     description:
-      'Hermes Agent beyond the terminal: the Desktop app and browser dashboard for sessions, keys, skills, memory, and schedules — no YAML editing.',
+      'Run hermes dashboard, then open http://127.0.0.1:9119: the local web UI for sessions, keys, skills, memory and schedules. Plus the Desktop app.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-desktop-web-ui.png',
@@ -528,9 +528,9 @@ const posts = [
     path: '/blog/hermes-agent-alternatives',
     dateModified: '2026-10-07',
     title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
-    seoTitle: 'Best Hermes Agent Alternatives in 2026 (Compared)',
+    seoTitle: '6 Hermes Agent Alternatives (2026): OpenClaw, Agent Zero & More',
     description:
-      'The best open-source Hermes Agent alternatives in 2026 — OpenClaw, LangGraph, CrewAI, AutoGen, Open Interpreter, Agent Zero — with a clear \'best for\' each.',
+      'OpenClaw is the closest swap. Open Interpreter for local code, Agent Zero for general use, LangGraph or CrewAI if you are building. Table + 1-minute picker.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-alternatives.png',
@@ -546,9 +546,9 @@ const posts = [
     path: '/blog/hermes-agent-troubleshooting',
     dateModified: '2026-10-10',
     title: 'Hermes Agent Troubleshooting: Fixing the Most Common Errors',
-    seoTitle: 'Hermes Agent Troubleshooting: Fix Common Errors',
+    seoTitle: 'Hermes Agent Errors: hermes doctor --fix & Common Fixes',
     description:
-      'Fix the most common Hermes Agent errors: command not found, context-window limits, Windows/WSL2 install, auth failures, and Docker persistence.',
+      'What hermes doctor --fix repairs, plus fixes for "hermes: command not found", provider authentication failed, update failures, context-window and Docker errors.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-troubleshooting.png',
@@ -839,10 +839,7 @@ function writeRoute({ path, title, seoTitle, description, date, dateModified, au
 
   // Thank-you/confirmation routes: keep them out of search indexes.
   if (noindex) {
-    html = html.replace(
-      '</head>',
-      '    <meta name="robots" content="noindex, follow" />\n  </head>'
-    )
+    html = html.replace(/(<meta name="robots" content=")[^"]*(")/, '$1noindex, follow$2')
   }
 
   if (date) {

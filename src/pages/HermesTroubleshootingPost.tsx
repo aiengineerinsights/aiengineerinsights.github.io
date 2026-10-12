@@ -9,6 +9,8 @@ import RelatedPosts from "@/components/RelatedPosts";
 import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesTroubleshootingHeroDiagram from "@/components/HermesTroubleshootingHeroDiagram";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { HERMES_CHEAT_SHEET } from "@/config/newsletterBonuses";
 
 const HermesTroubleshootingPost = () => {
   const symptomData = [
@@ -161,6 +163,12 @@ const HermesTroubleshootingPost = () => {
                   </div>
                 </div>
               </section>
+
+              <NewsletterSignup
+                heading="Get the one-page Hermes Agent cheat sheet"
+                subtext="Every install, model, skills, and fix command on one printable page, free when you join. Plus one practical AI engineering email a week."
+                bonus={HERMES_CHEAT_SHEET}
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="command-not-found" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">3. Why does <code>hermes: command not found</code> happen?</h2>

@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { Mail, CheckCircle2 } from "lucide-react";
+import { Mail, CheckCircle2, Download } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
+import type { NewsletterBonus } from "@/config/newsletterBonuses";
 
 // On-brand newsletter capture. Our card provides the heading/subtext/styling;
 // beehiiv's hosted form (email + button) is embedded as a tight, single-row
@@ -17,12 +18,14 @@ interface NewsletterSignupProps {
   heading?: string;
   subtext?: string;
   className?: string;
+  bonus?: NewsletterBonus;
 }
 
 const NewsletterSignup = ({
   heading = "Get the AI engineering newsletter",
   subtext = "Practical, engineering-first breakdowns on AI agents, LLMs, and breaking into the field — plus the free roadmap PDF when you join. No spam.",
   className = "",
+  bonus,
 }: NewsletterSignupProps) => {
   const [submitted, setSubmitted] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -37,12 +40,15 @@ const NewsletterSignup = ({
         (e.source === iframeRef.current?.contentWindow || data.externalEmbedId === BEEHIIV_FORM_ID)
       ) {
         setSubmitted(true);
-        trackEvent("newsletter_signup", { signup_source_page: window.location.pathname });
+        trackEvent("newsletter_signup", {
+          signup_source_page: window.location.pathname,
+          ...(bonus ? { signup_bonus: bonus.href } : {}),
+        });
       }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [bonus]);
 
   return (
     <Card className={`my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-br from-purple-600/10 to-indigo-600/10 border-purple-600/30 ${className}`}>
@@ -63,11 +69,22 @@ const NewsletterSignup = ({
           aria-live="polite"
         >
           <CheckCircle2 className="h-5 w-5 text-emerald-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
-          <div>
+          <div className="min-w-0">
             <p className="font-medium text-sm sm:text-base m-0">You're on the list — one more step.</p>
             <p className="text-sm text-muted-foreground mt-1 mb-0">
               Check your inbox and click the confirmation link. Your free roadmap PDF is on the way. (Can't find it? Peek in spam/promotions.)
             </p>
+            {bonus && (
+              <a
+                href={bonus.href}
+                target="_blank"
+                rel="noopener"
+                className="mt-3 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-purple-600 to-indigo-700 px-4 py-2 text-sm font-medium text-white no-underline hover:opacity-90"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" />
+                Download your {bonus.label}
+              </a>
+            )}
           </div>
         </div>
       ) : (

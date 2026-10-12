@@ -9,6 +9,8 @@ import RelatedPosts from "@/components/RelatedPosts";
 import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesHeroDiagram from "@/components/HermesHeroDiagram";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import { HERMES_CHEAT_SHEET } from "@/config/newsletterBonuses";
 
 const HermesAgentPost = () => {
   const installData = [
@@ -245,6 +247,12 @@ const HermesAgentPost = () => {
                   <Link to="/blog/hermes-agent-skills" className="text-primary hover:underline">deep dive on Hermes Agent skills</Link>.
                 </p>
               </section>
+
+              <NewsletterSignup
+                heading="Get the one-page Hermes Agent cheat sheet"
+                subtext="Every install, model, skills, and fix command on one printable page, free when you join. Plus one practical AI engineering email a week."
+                bonus={HERMES_CHEAT_SHEET}
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="download-and-install" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. How to Download Hermes Agent (Mac, Windows, Linux)</h2>

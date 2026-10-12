@@ -10,6 +10,7 @@ import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import SalaryHeroDiagram from "@/components/SalaryHeroDiagram";
 import TopmateCTA from "@/components/TopmateCTA";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const sourceCompare = [
   { source: "Glassdoor (Aug 2026)", figure: "$145,070 median base · $116,534–$183,111 typical", measures: "Self-reported base pay across the broad US market" },
@@ -286,6 +287,11 @@ const AIEngineerSalaryPost = () => {
                   role is one of the more accessible doors into frontier-lab compensation.
                 </p>
               </section>
+
+              <NewsletterSignup
+                heading="Want the skills that pay most? Get the AI engineer roadmap"
+                subtext="What to learn, in what order, to move into the higher pay bands — one practical email a week, plus the free 2026 roadmap PDF."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="by-location" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer salary by location</h2>

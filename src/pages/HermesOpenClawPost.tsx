@@ -10,6 +10,7 @@ import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import HermesOpenClawHeroDiagram from "@/components/HermesOpenClawHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { HERMES_CHEAT_SHEET } from "@/config/newsletterBonuses";
 
 const HermesOpenClawPost = () => {
   const compareData = [
@@ -216,8 +217,9 @@ const HermesOpenClawPost = () => {
               </section>
 
               <NewsletterSignup
-                heading="Running agents for real? Get the AI engineering roadmap"
-                subtext="Agents, RAG, evals, and the skills that get you hired as an AI engineer — one practical email a week, plus the free 2026 roadmap PDF."
+                heading="Get the one-page Hermes Agent cheat sheet"
+                subtext="Every install, model, skills, and fix command on one printable page, free when you join. Plus one practical AI engineering email a week."
+                bonus={HERMES_CHEAT_SHEET}
               />
 
               <section className="mb-6 sm:mb-8">

@@ -1,8 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 
 User-agent: Bingbot
 Allow: /
+Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 
 User-agent: Twitterbot
 Allow: /
@@ -70,5 +72,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 
 Sitemap: https://aiengineerinsights.com/sitemap.xml
