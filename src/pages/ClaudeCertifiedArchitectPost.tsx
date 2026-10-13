@@ -160,7 +160,9 @@ const ClaudeCertifiedArchitectPost = () => {
                   also see it written CCA-F). It's one of four certifications in the program — Associate (CCAO-F, for
                   business users), Developer (CCDV-F, for engineers), <strong>Architect – Foundations (CCAR-F, this
                   one)</strong>, and Architect – Professional (CCAR-P). By June 2026, Anthropic reported more than
-                  10,000 Claude certifications earned across the program.
+                  10,000 Claude certifications earned across the program. For all four exams side by side, plus the free
+                  Anthropic Academy courses, see our{" "}
+                  <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">guide to Anthropic certifications</Link>.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   What makes CCAR-F different from most vendor certs is the format. It's <strong>scenario-based, not

@@ -95,6 +95,24 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "How do I measure my router's accuracy before trusting it?", askFor: "what logs I keep and how I judge a good answer today" },
     ],
   },
+  "/blog/anthropic-certifications": {
+    topic: "Anthropic certifications",
+    questions: [
+      { q: "Which Claude certification fits my role and experience?", askFor: "my job, how I use Claude today, and whether I write code" },
+      { q: "Can I get a Claude certification if my company isn't an Anthropic partner?", askFor: "where I work and whether we build on Claude for clients" },
+      { q: "Build me a study plan for the Claude Developer or Architect exam", askFor: "which exam, my experience with the Claude API and agents, and my weekly hours" },
+      { q: "Is a Claude certification worth it for my AI career?", askFor: "my current role, target role, and what I've already built" },
+    ],
+  },
+  "/blog/what-makes-llms-agentic": {
+    topic: "agentic AI",
+    questions: [
+      { q: "Does my use case need an AI agent or just a single LLM call?", askFor: "what I'm trying to automate and how predictable the steps are" },
+      { q: "Agentic AI vs AI agents vs workflows: which am I building?", askFor: "what my system does today and who decides each step" },
+      { q: "Which model and framework should I use to build an agent?", askFor: "my task, language, budget, and whether I need to self-host" },
+      { q: "How do I keep an agentic system safe in production?", askFor: "which tools and data my agent can touch" },
+    ],
+  },
   "/blog/ai-guardrails": {
     topic: "AI guardrails",
     questions: [

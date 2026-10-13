@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/anthropic-certifications",
+    title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/ai-guardrails",
     title: "AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026",
     tag: "AI Security",
@@ -223,7 +228,7 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/what-makes-llms-agentic",
-    title: "What Makes LLMs Agentic?",
+    title: "What Is Agentic AI? What Makes LLMs Agentic (2026)",
     tag: "AI Agents",
   },
   {

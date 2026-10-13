@@ -125,6 +125,14 @@ const AICodingAgentsPost = () => {
                   <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">what makes an LLM agentic</Link>{" "}
                   is the foundation.)
                 </p>
+                <h3 id="what-is-ai-coding-agent" className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">What is an AI coding agent?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>An AI coding agent is an LLM-powered tool that completes a programming task on its own, not
+                  just suggests code:</strong> it reads your repository, plans the change, edits files, runs commands and
+                  tests, reads the errors, and iterates until the task passes, then hands you a diff or a pull request to
+                  review. That loop of acting on the codebase is what separates an agent from autocomplete or a chat
+                  assistant, which only propose text for you to paste.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -358,6 +366,11 @@ const AICodingAgentsPost = () => {
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">11. Frequently Asked Questions</h2>
+
+                <h3 id="faq-what" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is an AI coding agent?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  An AI coding agent is an LLM-powered tool that completes a programming task on its own rather than only suggesting code: it reads your repository, plans the change, edits files, runs commands and tests, reads the errors, and iterates until the task passes, then hands you a diff or pull request to review. Claude Code, Codex CLI, Cursor's agent mode, GitHub Copilot's coding agent, Aider, and Devin are all examples; autocomplete and chat assistants that only propose text are not agents.
+                </p>
 
                 <h3 id="faq-best" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is the best AI coding agent in 2026?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">

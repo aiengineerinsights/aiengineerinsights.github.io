@@ -111,6 +111,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/anthropic-certifications',
+    title: 'Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses',
+    seoTitle: 'Anthropic Certifications 2026: Claude Exams & Free Courses',
+    description:
+      'All 4 Anthropic Claude certifications (Associate, Developer, Architect): cost, format, who can take them, and the free Anthropic Academy courses to prep.',
+    date: '2026-10-13',
+    author: 'poorna',
+    image: '/og-anthropic-certifications.png',
+    faqs: [
+      { q: "What certifications does Anthropic offer?", a: "Anthropic offers four proctored Claude certifications, delivered by Pearson VUE: Claude Certified Associate – Foundations (CCAO-F) for business users, Claude Certified Developer – Foundations (CCDV-F) for engineers building on the API, Claude Certified Architect – Foundations (CCAR-F, often written CCA-F) for builders of agent systems, and Claude Certified Architect – Professional (CCAR-P) for senior solution architects. Separately, the free Anthropic Academy courses give certificates of completion, and the nomination-only Claude Frontier Academy awards a Claude Resident Engineer badge." },
+      { q: "Is the Anthropic certification free?", a: "No. The exams are paid per attempt; prep providers report $99 for the Associate exam, $125 each for Developer and Architect – Foundations, and $175 for Architect – Professional, and Anthropic says tiered partners get a discounted first attempt. What is free: the Anthropic Academy courses on Skilljar, which anyone can take, and joining the Claude Partner Network as a firm." },
+      { q: "Can an individual take a Claude certification exam without a partner company?", a: "Not directly. Pearson VUE states that certification is open to organizations in the Claude Partner Network, and registration runs through the Anthropic Partner Academy, which partner firms get access to. In practice you need to work at, or contract for, a partner firm. If you are not near one, take the free Anthropic Academy courses and build public Claude projects; that covers most of the learning without the exam." },
+      { q: "Which Anthropic certification should I take first?", a: "Match it to your job. Business users who use Claude daily but do not code should start with the Associate (CCAO-F). Software engineers building on the Claude API should start with the Developer (CCDV-F). Engineers who design agent systems with tools, MCP, and Claude Code should take Architect – Foundations (CCAR-F). Architect – Professional (CCAR-P) is for people with several years of systems architecture experience who already deliver production LLM solutions." },
+      { q: "Are Anthropic Academy courses free, and do they give a certificate?", a: "Yes, the Anthropic Academy courses at anthropic.skilljar.com are free; you sign up with an email address and no Claude subscription is needed. Completing a course gives a certificate of completion that you can add to LinkedIn, but it is not a Claude certification: the certifications require passing a proctored Pearson VUE exam." },
+      { q: "How long is a Claude certification valid, and how many times can I retake the exam?", a: "Prep providers report that Claude certifications are valid for 12 months. Pearson VUE's retake policy allows up to four attempts per exam in any rolling 12-month period, with a 14-day wait after the first attempt, 30 days after the second, and 90 days after the third." },
+    ],
+  },
+  {
     path: '/blog/ai-guardrails',
     title: 'AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026',
     seoTitle: 'AI Guardrails Explained: LLM & Agent Guardrails (2026)',
@@ -540,6 +558,7 @@ const posts = [
       { q: 'Are these Hermes alternatives free and open-source?', a: "The tools here are open-source projects you can self-host, and Hermes Agent and OpenClaw are both MIT-licensed. As always, you pay for the model inference you use via your own API keys, and you should check each project's own repository for its current license and terms before committing." },
       { q: 'Is LangGraph or CrewAI a replacement for Hermes Agent?', a: "Not directly — they're a different shape. LangGraph and CrewAI are frameworks for building agent systems, not turnkey personal agents you install and run. They're the right answer when you're building a custom multi-agent product, and the wrong answer when you just want a ready-to-use assistant like Hermes or OpenClaw." },
       { q: 'Which alternative is best for running code locally?', a: "Open Interpreter — it's a local agent that writes and runs code on your machine from natural-language instructions, which makes it a strong pick for local coding and automation specifically." },
+      { q: "Is Manus a Hermes Agent alternative?", a: "Only if you want a hosted service instead of a self-hosted agent. Manus, the autonomous AI agent that launched in March 2025, runs multi-step tasks such as research, browsing, coding, and spreadsheet analysis in its own cloud sandbox, so there is nothing to install. But it is a closed-source commercial product billed on credits, and your tasks and files run on its servers. Hermes Agent and OpenClaw are open-source agents you run on your own machine or server with your own model keys. Choose Manus for zero setup; choose Hermes or OpenClaw for control, privacy, and self-hosting." },
       { q: 'Is OpenClaw better than Hermes Agent?', a: "Neither is strictly better — they're the same shape with different trade-offs. Hermes Agent is lean, self-improving (it distills solved tasks into reusable skills), and ships strong security defaults. OpenClaw is a TypeScript gateway with 20+ messaging channels and the ClawHub skill marketplace: the broadest integrations on day one, but more to operate and harden. Pick Hermes for a lean, secure-by-default assistant; pick OpenClaw for the widest channel coverage." },
     ],
   },
@@ -731,11 +750,21 @@ const posts = [
   },
   {
     path: '/blog/what-makes-llms-agentic',
-    title: 'What Makes LLMs Agentic?',
+    title: 'What Is Agentic AI? What Makes LLMs Agentic (2026)',
+    seoTitle: 'What Is Agentic AI? How LLMs Become Agents (2026)',
     description:
-      'What separates an LLM from an AI agent? The core properties — tool calling, planning, memory, autonomy — that turn a language model into an agent.',
+      'Agentic AI explained: a clear definition, agentic AI vs AI agents vs generative AI, and the tool calling, planning, and coding skills that make LLMs agentic.',
     date: '2025-08-26',
+    dateModified: '2026-10-13',
     author: 'vishnu',
+    faqs: [
+      { q: "What is agentic AI?", a: "Agentic AI is an AI system, usually built around a large language model, that pursues a goal over multiple steps with limited human supervision: it plans, calls tools such as APIs, code execution, search, or file access, observes the results, and decides what to do next. OpenAI's governance paper defines agenticness as the degree to which a system can adaptably achieve complex goals in complex environments with limited direct supervision, so it is a matter of degree, not a yes-or-no label." },
+      { q: "What is the difference between agentic AI and AI agents?", a: "Agentic AI is the property or the category; an AI agent is one system that has it. In Anthropic's terms, agentic systems include both workflows, where LLMs and tools follow predefined code paths, and agents, where the LLM dynamically directs its own process and tool use. So every AI agent is agentic AI, but an agentic workflow with fixed steps is not an agent in that stricter sense." },
+      { q: "What is the difference between agentic AI and generative AI?", a: "Generative AI produces content in response to a prompt: text, code, or images, in one pass, and a human decides what to do with it. Agentic AI uses a generative model as its reasoning engine but adds a loop around it, so the system can act on its output: run the code it wrote, call an API, read the result, and try again until the goal is met." },
+      { q: "What makes an LLM agentic?", a: "Three trained capabilities: reliable tool calling (choosing when to call a tool and filling its arguments correctly), multi-step planning and reasoning (chain of thought shaped by reinforcement learning), and strong coding, because code is the most general action an agent can take. Around the model, an agentic system adds a control loop, memory beyond the context window, and permissions and sandboxes that limit what it can do." },
+      { q: "What are examples of agentic AI?", a: "Coding agents such as Claude Code, Cursor's agent mode, and OpenAI Codex that run tests, edit files, and open pull requests; deep-research assistants that search, read, and write a cited report; computer-use and browser agents that operate websites and desktop apps; and open-source agent runtimes such as Hermes Agent and OpenClaw that run tasks on a schedule with skills and memory." },
+      { q: "When should you use agentic AI instead of a single LLM call?", a: "Only when simpler solutions fall short. Anthropic's guidance is that for many applications, optimizing a single LLM call with retrieval and in-context examples is enough, and that you should add multi-step agentic systems only when they demonstrably improve outcomes. Agents trade latency, cost, and predictability for flexibility, so they fit open-ended tasks where the steps cannot be known in advance." },
+    ],
   },
   {
     path: '/blog/openai-gdpval',

@@ -321,6 +321,11 @@ const HermesAlternativesPost = () => {
                   natural-language instructions, which makes it a strong pick for local coding and automation specifically.
                 </p>
 
+                <h3 id="faq-manus" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Is Manus a Hermes Agent alternative?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Only if you want a hosted service instead of a self-hosted agent. Manus, the autonomous AI agent that launched in March 2025, runs multi-step tasks such as research, browsing, coding, and spreadsheet analysis in its own cloud sandbox, so there is nothing to install. But it is a closed-source commercial product billed on credits, and your tasks and files run on its servers. Hermes Agent and OpenClaw are open-source agents you run on your own machine or server with your own model keys. Choose Manus for zero setup; choose Hermes or OpenClaw for control, privacy, and self-hosting.
+                </p>
+
                 <h3 id="faq-openclaw" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Is OpenClaw better than Hermes Agent?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Neither is strictly better — they're the same shape with different trade-offs. Hermes Agent is lean,

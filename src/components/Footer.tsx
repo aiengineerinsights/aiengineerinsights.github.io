@@ -88,12 +88,9 @@ const Footer = () => {
             <h2 className="font-semibold mb-4">Resources</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <button
-                  onClick={() => handleAnchorNavigation('#roadmap')}
-                  className="text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Career Roadmap
-                </button>
+                <Link to="/ai-engineering-roadmap" className="text-muted-foreground hover:text-primary transition-colors">
+                  AI Engineer Roadmap 2026
+                </Link>
               </li>
               <li>
                 <a

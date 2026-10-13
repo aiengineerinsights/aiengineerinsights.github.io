@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
+import ExploreWithAI from "@/components/ExploreWithAI";
 import profilePic from "@/assets/vishnu_lanka.jpg";
 import coverPic from "@/assets/agentic_llms_cover.png";
 import cotPic from "@/assets/agentic_llms_cot.png";
@@ -28,6 +29,34 @@ const RefLink = ({
     {children}
   </a>
 );
+
+// Q&A also emitted as FAQPage JSON-LD at build time (see postbuild-seo.mjs).
+const faqs = [
+  {
+    q: "What is agentic AI?",
+    a: "Agentic AI is an AI system, usually built around a large language model, that pursues a goal over multiple steps with limited human supervision: it plans, calls tools such as APIs, code execution, search, or file access, observes the results, and decides what to do next. OpenAI's governance paper defines agenticness as the degree to which a system can adaptably achieve complex goals in complex environments with limited direct supervision, so it is a matter of degree, not a yes-or-no label.",
+  },
+  {
+    q: "What is the difference between agentic AI and AI agents?",
+    a: "Agentic AI is the property or the category; an AI agent is one system that has it. In Anthropic's terms, agentic systems include both workflows, where LLMs and tools follow predefined code paths, and agents, where the LLM dynamically directs its own process and tool use. So every AI agent is agentic AI, but an agentic workflow with fixed steps is not an agent in that stricter sense.",
+  },
+  {
+    q: "What is the difference between agentic AI and generative AI?",
+    a: "Generative AI produces content in response to a prompt: text, code, or images, in one pass, and a human decides what to do with it. Agentic AI uses a generative model as its reasoning engine but adds a loop around it, so the system can act on its output: run the code it wrote, call an API, read the result, and try again until the goal is met.",
+  },
+  {
+    q: "What makes an LLM agentic?",
+    a: "Three trained capabilities: reliable tool calling (choosing when to call a tool and filling its arguments correctly), multi-step planning and reasoning (chain of thought shaped by reinforcement learning), and strong coding, because code is the most general action an agent can take. Around the model, an agentic system adds a control loop, memory beyond the context window, and permissions and sandboxes that limit what it can do.",
+  },
+  {
+    q: "What are examples of agentic AI?",
+    a: "Coding agents such as Claude Code, Cursor's agent mode, and OpenAI Codex that run tests, edit files, and open pull requests; deep-research assistants that search, read, and write a cited report; computer-use and browser agents that operate websites and desktop apps; and open-source agent runtimes such as Hermes Agent and OpenClaw that run tasks on a schedule with skills and memory.",
+  },
+  {
+    q: "When should you use agentic AI instead of a single LLM call?",
+    a: "Only when simpler solutions fall short. Anthropic's guidance is that for many applications, optimizing a single LLM call with retrieval and in-context examples is enough, and that you should add multi-step agentic systems only when they demonstrably improve outcomes. Agents trade latency, cost, and predictability for flexibility, so they fit open-ended tasks where the steps cannot be known in advance.",
+  },
+];
 
 const AgenticLLMsBlogPost = () => {
   // Original examples (kept as is)
@@ -80,11 +109,11 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-                What Makes LLMs Agentic?
+                What Is Agentic AI? What Makes LLMs Agentic (2026)
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                Exploring the key capabilities of tool calling, reasoning, and advanced coding that makes LLMs agentic in nature.
+                A clear definition of agentic AI, how it differs from AI agents and generative AI, and the capabilities (tool calling, planning, and coding) that make an LLM agentic.
               </p>
 
               {/* Author Info */}
@@ -108,7 +137,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      August 26, 2025
+                      August 26, 2025 · Updated Oct 13, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -118,6 +147,19 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                 </div>
               </Card>
             </header>
+
+            <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-8 sm:mb-10">
+              <p className="text-sm sm:text-base leading-relaxed m-0">
+                <strong>TL;DR:</strong> Agentic AI is an AI system, usually built on a large language model, that works
+                toward a goal over several steps with limited human supervision: it plans, calls tools (APIs, code
+                execution, search, files), observes the results, and decides what to do next. Generative AI produces an
+                answer; agentic AI acts on it. An LLM becomes agentic through three trained capabilities, reliable tool
+                calling, multi-step planning, and strong coding, wrapped in a loop with memory and permissions. Use it
+                only when a single well-prompted LLM call is not enough.
+              </p>
+            </div>
+
+            <ExploreWithAI path="/blog/what-makes-llms-agentic" variant="strip" />
 
             {/* Intro */}
             <section className="mb-6 sm:mb-8">
@@ -137,6 +179,80 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
 
             {/* Article Content */}
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-justify">
+              <section className="mb-8 sm:mb-10">
+                <h2 id="what-is-agentic-ai" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What is agentic AI?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>Agentic AI is an AI system that pursues a goal over multiple steps with limited human
+                  supervision, deciding for itself which actions to take along the way.</strong> In practice it is a
+                  large language model running in a loop: it plans, calls a tool, reads the result, and plans again
+                  until the task is done or it needs to ask a human.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The most careful definition comes from OpenAI's{" "}
+                  <RefLink href="https://cdn.openai.com/papers/practices-for-governing-agentic-ai-systems.pdf">Practices for Governing Agentic AI Systems</RefLink>,
+                  which treats agenticness as a matter of degree: "the degree to which a system can adaptably achieve
+                  complex goals in complex environments with limited direct supervision." It breaks that into goal
+                  complexity, environmental complexity, adaptability, and independent execution. A chatbot scores low on
+                  all four; a coding agent that fixes a failing test suite on its own scores high.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Anthropic's{" "}
+                  <RefLink href="https://www.anthropic.com/research/building-effective-agents">Building Effective Agents</RefLink>{" "}
+                  draws the line engineers use day to day. It calls all of these <em>agentic systems</em>, then splits
+                  them in two: "Workflows are systems where LLMs and tools are orchestrated through predefined code
+                  paths," while agents "are systems where LLMs dynamically direct their own processes and tool usage,
+                  maintaining control over how they accomplish tasks." The more decisions the model makes instead of
+                  your code, the more agentic the system is.
+                </p>
+              </section>
+
+              <section className="mb-8 sm:mb-10">
+                <h2 id="agentic-ai-vs-ai-agents" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Agentic AI vs AI agents vs generative AI</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The three terms overlap, and most confusion comes from using them interchangeably:
+                </p>
+                <div className="overflow-x-auto rounded-xl border border-border -mx-4 sm:mx-0 mb-4">
+                  <div className="min-w-full inline-block align-middle">
+                    <table className="w-full text-left text-xs sm:text-sm mx-4 sm:mx-0">
+                      <thead className="bg-muted/40">
+                        <tr>
+                          <th className="p-2 sm:p-3 font-medium">Term</th>
+                          <th className="p-2 sm:p-3 font-medium">What it means</th>
+                          <th className="p-2 sm:p-3 font-medium">Example</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-t">
+                          <td className="p-2 sm:p-3 font-medium">Generative AI</td>
+                          <td className="p-2 sm:p-3">A model that produces content from a prompt in one pass; a human decides what to do with it</td>
+                          <td className="p-2 sm:p-3">Asking a chatbot to draft a SQL query</td>
+                        </tr>
+                        <tr className="border-t">
+                          <td className="p-2 sm:p-3 font-medium">Agentic AI</td>
+                          <td className="p-2 sm:p-3">The property, or the category of systems, that act toward a goal with limited supervision; includes fixed workflows and full agents</td>
+                          <td className="p-2 sm:p-3">A pipeline that drafts the query, runs it, and fixes errors in a loop</td>
+                        </tr>
+                        <tr className="border-t">
+                          <td className="p-2 sm:p-3 font-medium">AI agent</td>
+                          <td className="p-2 sm:p-3">One system where the LLM chooses its own steps and tools at run time</td>
+                          <td className="p-2 sm:p-3">A data agent that decides which tables to inspect, which queries to run, and when it is done</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  For the anatomy of a single agent (the model, tools, memory, and loop) see our guide to{" "}
+                  <Link to="/blog/what-are-ai-agents" className="text-primary hover:underline">what AI agents are</Link>.
+                  For the frameworks that implement the loop, see{" "}
+                  <Link to="/blog/open-source-ai-agent-frameworks" className="text-primary hover:underline">open-source AI agent frameworks compared</Link>,
+                  and for the production layer underneath them,{" "}
+                  <Link to="/blog/agent-runtimes-explained" className="text-primary hover:underline">agent runtimes explained</Link>.
+                  The rest of this post looks one level down: what has to be true of the <em>model</em> for any of this
+                  to work.
+                </p>
+              </section>
+
               {/* Overview image */}
               <div className="mb-6 sm:mb-8">
                 <img
@@ -536,6 +652,18 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                     .
                   </li>
                 </ul>
+              </section>
+
+              <ExploreWithAI path="/blog/what-makes-llms-agentic" variant="questions" />
+
+              <section className="mb-8 sm:mb-10">
+                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
+                {faqs.map((f) => (
+                  <div key={f.q} className="mb-4">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-1">{f.q}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.a}</p>
+                  </div>
+                ))}
               </section>
 
               {/* Conclusion */}

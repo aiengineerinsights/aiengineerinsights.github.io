@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 51,
+      title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
+      excerpt: "Four proctored Claude certifications (Associate, Developer, Architect Foundations, Architect Professional), what each tests and costs, who is allowed to sit them, which free Anthropic Academy courses prepare you for which exam, and where the Claude Frontier Academy fits.",
+      readTime: "9 min read",
+      date: "Oct 13, 2026",
+      category: "AI Engineering Careers",
+      icon: Award,
+      gradient: "from-purple-600 to-orange-600",
+      link: "/blog/anthropic-certifications"
+    },
+    {
       id: 50,
       title: "AI Guardrails Explained: Input, Output, and Tool-Call Guardrails for LLM Apps and Agents (NeMo, Guardrails AI, Llama Guard, Jev) — 2026",
       excerpt: "A guardrail is a check your code makes around a model call, not a hope that the model behaves. The three checkpoints (input, tool-call, output), the five mechanisms (rules, guard models, judges, decision models, human approval), what NeMo Guardrails, Guardrails AI, and Llama Guard actually do, and how to measure false positives and negatives on your own traffic.",
@@ -500,7 +511,7 @@ const BlogsPage = () => {
     },
     {
       id: 3,
-      title: "What Makes LLMs Agentic?",
+      title: "What Is Agentic AI? What Makes LLMs Agentic (2026)",
       excerpt: "Exploring the key capabilities of tool calling, reasoning, and advanced coding, that makes LLMs agentic in nature.",
       readTime: "7 min read",
       date: "Aug 18, 2025",
