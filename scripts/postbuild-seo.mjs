@@ -246,7 +246,8 @@ const posts = [
     seoTitle: 'RAG vs Fine-Tuning: 2026 Decision Guide',
     description:
       'RAG solves a knowledge problem, fine-tuning a behavior problem — not competitors. When to choose each, the hybrid RAFT pattern, and where small models win.',
-    date: '2026-09-18',
+    date: '2026-10-13',
+    dateModified: '2026-10-13',
     author: 'poorna',
     image: '/og-rag-vs-fine-tuning.png',
     faqs: [

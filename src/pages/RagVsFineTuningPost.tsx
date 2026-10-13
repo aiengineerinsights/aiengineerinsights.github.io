@@ -136,7 +136,7 @@ const RagVsFineTuningPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Sep 18, 2026
+                      Updated Oct 13, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -421,6 +421,33 @@ const RagVsFineTuningPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="2026-update" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">2026 update: has the market changed its mind?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  No. A year after Menlo Ventures first clocked RAG at 51% production adoption versus 9% for
+                  fine-tuning, its{" "}
+                  <RefLink href="https://menlovc.com/2025-the-state-of-generative-ai-in-the-enterprise">2025 State of Generative AI in the Enterprise report</RefLink>{" "}
+                  (surveying ~500 U.S. enterprise decision-makers, published December 2025) finds the ranking
+                  unchanged: prompt design is still the dominant customization technique, RAG is second, and{" "}
+                  <strong>fine-tuning remains a niche technique used primarily by frontier teams</strong> — grouped
+                  with tool calling, context engineering, and reinforcement learning as the "more advanced"
+                  approaches most enterprises still skip. The same report found only 16% of enterprise AI deployments
+                  (27% of startup ones) qualify as true agents that plan, act, and adapt — most production systems are
+                  still a single model call or a fixed workflow, which is exactly the kind of system this guide's
+                  RAG-first, fine-tune-the-leftover-behavior sequence is built for.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The academic case hasn't moved either. An EMNLP study,{" "}
+                  <RefLink href="https://arxiv.org/abs/2312.05934">Ovadia et al., "Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs"</RefLink>,
+                  tested both approaches head-to-head on knowledge-intensive tasks (MMLU and current-events QA) and
+                  found RAG consistently beat unsupervised fine-tuning for injecting both existing and entirely new
+                  factual knowledge — and that LLMs struggle to reliably learn new facts through fine-tuning at all,
+                  unless they see many paraphrased repetitions of the same fact during training. That's the same
+                  conclusion IBM and Red Hat's engineering guidance reach independently, and it's why the advice in
+                  this guide hasn't changed: fine-tuning is for how a model behaves, not what it knows.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
                 {faqs.map((f) => (
                   <div key={f.q} className="mb-4">
@@ -447,6 +474,8 @@ const RagVsFineTuningPost = () => {
                   <li>• <RefLink href="https://www.together.ai/blog/finetuning">Together AI — Fine-tuning Llama-3-8B (math benchmark, cost)</RefLink></li>
                   <li>• <RefLink href="https://predibase.com/blog/how-checkr-streamlines-background-checks-with-fine-tuned-small-language">Predibase — How Checkr streamlines background checks with fine-tuned small models</RefLink></li>
                   <li>• <RefLink href="https://www.computerworld.com/article/3541362/checkr-ditches-gpt-4-for-a-smaller-genai-model-streamlines-background-checks.html">Computerworld — Checkr ditches GPT-4 for a smaller genAI model</RefLink></li>
+                  <li>• <RefLink href="https://menlovc.com/2025-the-state-of-generative-ai-in-the-enterprise">Menlo Ventures — 2025: The State of Generative AI in the Enterprise</RefLink></li>
+                  <li>• <RefLink href="https://arxiv.org/abs/2312.05934">Ovadia et al. — Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs (EMNLP)</RefLink></li>
                 </ul>
               </section>
             </article>
