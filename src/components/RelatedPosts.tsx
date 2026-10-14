@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-agent-memory",
+    title: "AI Agent Memory: Short-Term vs Long-Term, and How to Actually Implement It (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/anthropic-certifications",
     title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
     tag: "AI Engineering Careers",

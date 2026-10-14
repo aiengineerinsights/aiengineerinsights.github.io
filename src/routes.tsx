@@ -64,6 +64,7 @@ const LLMRoutingPost = lazyWithReload(() => import("./pages/LLMRoutingPost"));
 const AIGuardrailsPost = lazyWithReload(() => import("./pages/AIGuardrailsPost"));
 const AgentRuntimesPost = lazyWithReload(() => import("./pages/AgentRuntimesPost"));
 const EmbeddingModelForRagPost = lazyWithReload(() => import("./pages/EmbeddingModelForRagPost"));
+const AIAgentMemoryPost = lazyWithReload(() => import("./pages/AIAgentMemoryPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -128,6 +129,7 @@ const AppRoutes = () => (
       <Route path="/blog/embedding-model-for-rag" element={<EmbeddingModelForRagPost />} />
       <Route path="/blog/ai-engineer-interview-questions" element={<AIEngineerInterviewQuestionsPost />} />
       <Route path="/blog/what-is-mcp" element={<WhatIsMCPPost />} />
+      <Route path="/blog/ai-agent-memory" element={<AIAgentMemoryPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

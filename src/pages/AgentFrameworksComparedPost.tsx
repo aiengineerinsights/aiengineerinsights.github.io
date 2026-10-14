@@ -91,6 +91,7 @@ const AgentFrameworksComparedPost = () => {
                 AI compare, a focused CrewAI vs LangGraph section, and a situation-by-situation recommendation. It
                 also draws the line between a framework and the{" "}
                 <Link to="/blog/agent-runtimes-explained" className="text-primary hover:underline">agent runtime</Link>{" "}
+                and how it manages <Link to="/blog/ai-agent-memory" className="text-primary hover:underline">agent memory</Link>{" "}
                 you will still need in production.
               </p>
 

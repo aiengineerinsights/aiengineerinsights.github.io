@@ -9,6 +9,16 @@ import { Link, useNavigate } from "react-router-dom";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "AI Agent Memory: Short-Term vs Long-Term, and How to Actually Implement It (2026)",
+      excerpt: "A context window is not memory. Short-term memory (sliding windows, summarization) vs long-term memory (vector retrieval, knowledge graphs) — Mem0, Letta (MemGPT), Zep (Graphiti), and LangMem compared, with a working code example.",
+      readTime: "12 min read",
+      date: "Oct 14, 2026",
+      category: "AI Agents",
+      icon: Brain,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/ai-agent-memory"
+    },
+    {
       title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
       excerpt: "Four proctored Claude certifications (Associate, Developer, Architect Foundations, Architect Professional), what each tests and costs, who is allowed to sit them, which free Anthropic Academy courses prepare you for which exam, and where the Claude Frontier Academy fits.",
       readTime: "9 min read",

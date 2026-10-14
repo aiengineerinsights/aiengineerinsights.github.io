@@ -298,6 +298,25 @@ const posts = [
     ],
   },
   {
+    path: '/blog/ai-agent-memory',
+    title: 'AI Agent Memory: Short-Term vs Long-Term, and How to Actually Implement It (2026)',
+    seoTitle: 'AI Agent Memory: Short-Term vs Long-Term (2026)',
+    description:
+      'AI agent memory explained: context window management vs long-term vector/graph storage. Mem0 vs Letta vs Zep vs LangMem compared, plus a working code example.',
+    date: '2026-10-14',
+    author: 'poorna',
+    image: '/og-ai-agent-memory.png',
+    faqs: [
+      { q: 'What is agent memory in AI?', a: "Agent memory is how an AI agent keeps and reuses information beyond what fits in a single prompt. Short-term memory is the context window for the current session — managed with sliding windows and summarization — and long-term memory persists across sessions, usually in a vector store, a knowledge graph, or both, so the agent can recall relevant facts about a user or task without re-reading its entire history." },
+      { q: 'What is the difference between short-term and long-term memory in AI agents?', a: "Short-term memory is the model's context window for the current conversation: it holds recent turns and disappears when the session ends or the window fills up, so it's managed with sliding windows and summarization/compression. Long-term memory is stored outside the context window — typically as embeddings in a vector database or facts in a knowledge graph — and is retrieved and injected back into the prompt only when relevant, which is what lets an agent remember a user across days or sessions." },
+      { q: 'Do AI agents need long-term memory, or is a big context window enough?', a: "A bigger context window helps but doesn't substitute for memory: cramming everything into the prompt is expensive, slow, and research on long-context models (e.g. the \"lost in the middle\" findings) shows retrieval quality over a huge context degrades, it doesn't just get free. Long-term memory earns its place when an agent needs to recall facts across sessions, personalize to a specific user, or keep straight which facts changed over time — things a stateless context window can't do no matter how large it is." },
+      { q: 'What is the difference between RAG and agent memory?', a: "RAG retrieves from a mostly static external knowledge corpus — docs, a wiki, a codebase — that the agent didn't create. Agent memory is built from the agent's own interactions: facts extracted from conversations, user preferences, and task history, which get written as the agent runs, not pre-indexed ahead of time. A production agent typically uses RAG for domain knowledge and a memory layer for personalization and continuity, side by side." },
+      { q: 'What is Mem0 used for?', a: 'Mem0 is an open-source memory layer you drop into an existing LLM application: it extracts facts from conversation turns with an LLM call, stores them with embeddings, and exposes a search call you run before generating a response so the model sees relevant prior facts. It is aimed at adding user/session memory to assistants and chatbots without building a memory pipeline from scratch.' },
+      { q: 'What is Letta (MemGPT) and how is it different from Mem0?', a: "Letta is the productized successor to the MemGPT research project. Its defining idea is that the agent itself edits its memory through tool calls — it decides what stays in a fixed \"core memory\" block in the prompt versus what gets paged out to an \"archival\" vector store it can query. That's a different bet from Mem0, where an extraction pipeline (not the agent) decides what to remember; Letta runs as a self-hostable server rather than a library you call." },
+      { q: 'What is a knowledge graph for agent memory, and when do I need one?', a: "A knowledge-graph memory stores facts as entities and relationships instead of unstructured text chunks, and a temporal implementation like Graphiti timestamps each relationship so a later contradicting fact invalidates the old one instead of silently overwriting it. Reach for it when relationships between entities matter and you need to answer \"what was true then\" as well as \"what's true now\" — a vector store alone can tell you a fact is similar to your query, but not whether it's still valid." },
+    ],
+  },
+  {
     path: '/blog/what-is-mcp',
     title: 'What Is MCP (Model Context Protocol)? A Plain-English Guide for AI Engineers (2026)',
     seoTitle: 'What Is MCP (Model Context Protocol)? (2026)',

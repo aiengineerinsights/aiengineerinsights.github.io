@@ -23,6 +23,15 @@ export interface ExploreConfig {
 }
 
 export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
+  "/blog/ai-agent-memory": {
+    topic: "AI agent memory",
+    questions: [
+      { q: "Should my agent use Mem0, Letta, or Zep for memory?", askFor: "what my agent does, whether I'm already on LangGraph, and whether relationships between facts matter" },
+      { q: "Do I need long-term memory or is RAG enough for my use case?", askFor: "whether my agent needs to persist facts across sessions or just retrieve from a static knowledge base" },
+      { q: "How do I build a basic memory layer myself without a third-party tool?", askFor: "my stack (Python/JS), which vector store I already use, and roughly how many users" },
+      { q: "How should I handle facts that change over time in agent memory?", askFor: "how often the underlying facts change and whether I need to query past states" },
+    ],
+  },
   "/blog/hermes-agent-alternatives": {
     topic: "Hermes Agent alternatives",
     questions: [

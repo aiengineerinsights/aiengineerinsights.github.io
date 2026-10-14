@@ -331,7 +331,7 @@ const AIAgentsExplainedPost = () => {
                     <li><strong>Pick a capable model.</strong> Agent reliability lives and dies on the reasoning core; use a strong frontier model while you're getting it working.</li>
                     <li><strong>Define one clear goal and a small tool set.</strong> Two or three good tools beat ten flaky ones. Narrow scope first.</li>
                     <li><strong>Wrap it in a loop.</strong> Let the model plan, call a tool, read the result, and decide again — with a hard stop on steps or cost.</li>
-                    <li><strong>Add memory and guardrails.</strong> Persist what matters, validate tool inputs/outputs, and keep a human in the loop for risky actions.</li>
+                    <li><strong>Add memory and guardrails.</strong> Persist what matters — see our guide to <Link to="/blog/ai-agent-memory" className="text-primary hover:underline">AI agent memory</Link> for short-term vs long-term approaches — validate tool inputs/outputs, and keep a human in the loop for risky actions.</li>
                     <li><strong>Evaluate relentlessly.</strong> Agents fail in long, compounding ways — build evals before you scale, not after.</li>
                   </ol>
                 </div>
