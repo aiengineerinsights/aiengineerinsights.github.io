@@ -285,7 +285,7 @@ const posts = [
     seoTitle: 'RAG Evaluation Metrics: Faithfulness, Precision, Recall',
     description:
       'RAG evaluation, explained: retrieval metrics (context precision & recall) vs generation (faithfulness, answer relevancy), the RAG triad, and RAGAS vs TruLens.',
-    date: '2026-09-21',
+    date: '2026-10-15',
     author: 'poorna',
     image: '/og-rag-evaluation-metrics.png',
     faqs: [
@@ -295,6 +295,8 @@ const posts = [
       { q: 'RAGAS vs TruLens vs DeepEval — which should I use?', a: 'They fit different stages. RAGAS is the fastest path to scored, standardized RAG metrics for offline comparison of pipeline configurations. TruLens adds OpenTelemetry-based tracing so you can watch faithfulness and relevance drift on live production traffic, not just an eval set. DeepEval is built pytest-style, so RAG quality becomes a CI gate that can block a merge. Many teams run more than one: RAGAS or TruLens in development, DeepEval in CI, TruLens (or Arize Phoenix) in production.' },
       { q: 'Does a high faithfulness score mean the RAG system is correct?', a: "No. Faithfulness only checks that the answer's claims trace back to the retrieved context — it can't tell you if that context was itself wrong or stale. A RAG system can score 0.95 on faithfulness and still give a confidently wrong business answer if the underlying documents were outdated or incorrect. RAG evaluation frameworks operate at the inference layer; they don't substitute for keeping the knowledge base accurate." },
       { q: 'Do I need labeled ground truth to evaluate a RAG pipeline?', a: "Not for the core generation-side metrics. Faithfulness and answer relevancy are reference-free — they only need the question, retrieved context, and generated answer. Context recall is the exception: it requires a ground-truth answer to check whether retrieval pulled back everything necessary, so it's typically added once you have a labeled eval set." },
+      { q: 'What is answer correctness, and how is it different from faithfulness?', a: "Faithfulness checks whether the answer is consistent with the retrieved context — internal consistency, not truth. Answer correctness checks the answer against a human-written reference answer, combining a factual F1 score over claims with semantic similarity between the two texts. A response can score high on faithfulness and still be wrong if the retrieved chunk itself was outdated or incorrect; answer correctness is the metric that catches that faithful-but-wrong case, at the cost of needing a labeled gold set." },
+      { q: 'Should I use Arize Phoenix instead of RAGAS?', a: 'They solve different problems, not competing ones. RAGAS is an offline metrics library for scoring a pipeline against a fixed eval set during development. Arize Phoenix is a production observability platform: it traces every span (embedding, retrieval, reranking, generation) on OpenTelemetry and runs LLM-as-judge evaluators against live traffic after the fact, so you can localize a bad answer to the exact step that caused it. Most production RAG stacks run both — RAGAS or TruLens in development, Phoenix (or TruLens) watching sampled production traffic for drift.' },
     ],
   },
   {

@@ -58,6 +58,14 @@ const faqs = [
     q: "Do I need labeled ground truth to evaluate a RAG pipeline?",
     a: "Not for the core generation-side metrics. Faithfulness and answer relevancy are reference-free — they only need the question, retrieved context, and generated answer. Context recall is the exception: it requires a ground-truth answer to check whether retrieval pulled back everything necessary, so it's typically added once you have a labeled eval set.",
   },
+  {
+    q: "What is answer correctness, and how is it different from faithfulness?",
+    a: "Faithfulness checks whether the answer is consistent with the retrieved context — internal consistency, not truth. Answer correctness checks the answer against a human-written reference answer, combining a factual F1 score over claims with semantic similarity between the two texts. A response can score high on faithfulness and still be wrong if the retrieved chunk itself was outdated or incorrect; answer correctness is the metric that catches that faithful-but-wrong case, at the cost of needing a labeled gold set.",
+  },
+  {
+    q: "Should I use Arize Phoenix instead of RAGAS?",
+    a: "They solve different problems, not competing ones. RAGAS is an offline metrics library for scoring a pipeline against a fixed eval set during development. Arize Phoenix is a production observability platform: it traces every span (embedding, retrieval, reranking, generation) on OpenTelemetry and runs LLM-as-judge evaluators against live traffic after the fact, so you can localize a bad answer to the exact step that caused it. Most production RAG stacks run both — RAGAS or TruLens in development, Phoenix (or TruLens) watching sampled production traffic for drift.",
+  },
 ];
 
 const RagEvaluationMetricsPost = () => {
@@ -116,7 +124,7 @@ const RagEvaluationMetricsPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Sep 21, 2026
+                      Oct 15, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -266,6 +274,57 @@ const RagEvaluationMetricsPost = () => {
                 </p>
               </section>
 
+              <section className="mb-6 sm:mb-8">
+                <h2 id="answer-correctness" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Faithful but wrong: why you also need an answer correctness metric</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  A faithfulness score of 0.95 doesn't mean the answer is <em>right</em> — it means the answer is
+                  consistent with whatever was retrieved. If the retrieved chunk itself contains a stale price or a
+                  wrong number, a perfectly faithful answer still repeats the error. <strong>Answer correctness</strong>{" "}
+                  closes that gap by scoring the generated answer against a human-written reference answer, not against
+                  the retrieved context. RAGAS computes it as a weighted blend of a factual F1 score (claims the answer
+                  and reference agree on, versus false positives and false negatives) and the semantic similarity
+                  between the two texts — commonly weighted around 0.75 factual / 0.25 semantic (
+                  <RefLink href="https://krishnaik.in/tutorials/ragas/answer-correctness">RAGAS answer correctness docs</RefLink>
+                  ). One practitioner checklist for production RAG puts a concrete number on the gap: a pipeline that
+                  scored 0.91 on answer relevancy and 0.88 on faithfulness still shipped a wrong account number to a
+                  user, because the model faithfully repeated a chunk that was itself incorrect — the exact failure
+                  mode faithfulness cannot catch (
+                  <RefLink href="https://lazar-milicevic.com/blog/rag-evaluation-metrics-a-12-point-checklist-2026">RAG evaluation metrics — a 12-point checklist</RefLink>
+                  ).
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The practical rule: ship both. Gate on faithfulness (commonly ≥0.9–0.95) to catch ungrounded
+                  claims, and gate separately on answer correctness against a small labeled gold set (commonly
+                  ≥0.85) to catch the faithful-but-wrong case. The two metrics fail independently and point at
+                  different fixes — a faithfulness miss means tighten the generation prompt, an answer-correctness
+                  miss with high faithfulness means go fix the retrieved document or the knowledge base, not the model.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="production-monitoring" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Taking RAG eval into production: Arize Phoenix</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  RAGAS and DeepEval answer "is this pipeline good on my eval set" offline. The open question in
+                  production is different: is quality drifting on <em>live</em> traffic, and which span in a
+                  multi-step trace caused a bad answer? <strong>Arize Phoenix</strong>, built on OpenTelemetry/
+                  OpenInference, captures spans for each pipeline step — embedding, retrieval, reranking, generation
+                  — and runs LLM-as-judge evaluators (hallucination, QA correctness, relevance) against those spans
+                  after the fact, so a bad answer can be traced to the exact step that produced it rather than
+                  treated as one opaque failure (
+                  <RefLink href="https://arize.com/resources/llm-evaluation">Arize — LLM evaluation methods and metrics guide</RefLink>
+                  ; <RefLink href="https://thegeocommunity.com/blogs/generative-engine-optimization/arize-phoenix-llm-observability">Arize Phoenix — open-source LLM observability and eval guide</RefLink>
+                  ). It runs fully locally with Apache-2.0 licensing, which matters for teams whose data-governance
+                  review blocks sending every production trace to a third-party SaaS.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The resulting production stack most teams converge on: RAGAS or TruLens during development to
+                  compare configurations, DeepEval as a pytest-style CI gate once the eval set stabilizes, and Phoenix
+                  (or TruLens) in production to watch faithfulness and answer-correctness for drift on a sampled slice
+                  of real traffic — one documented pattern samples roughly 5% of production traffic weekly and alerts
+                  on faithfulness drift before users report problems.
+                </p>
+              </section>
+
               <NewsletterSignup
                 heading="Get the weekly AI engineering brief"
                 subtext="RAG, agents, evals, and the tools worth using — one practical email a week. Plus the free roadmap PDF."
@@ -323,6 +382,10 @@ const RagEvaluationMetricsPost = () => {
                   <li>• <RefLink href="https://atlan.com/know/llm-evaluation-frameworks-compared/">Atlan — RAGAS vs TruLens vs DeepEval, 2026 Guide</RefLink></li>
                   <li>• <RefLink href="https://helpmetest.com/blog/rag-evaluation-frameworks-comparison/">RAG Evaluation Frameworks Compared: RAGAS vs TruLens vs DeepEval</RefLink></li>
                   <li>• <RefLink href="https://arjunjaggi.com/blog/rag-evaluation">RAG Evaluation: RAGAS, Faithfulness, and LLM-as-Judge</RefLink></li>
+                  <li>• <RefLink href="https://krishnaik.in/tutorials/ragas/answer-correctness">RAGAS Answer Correctness: Factual F1 Plus Semantic Similarity</RefLink></li>
+                  <li>• <RefLink href="https://lazar-milicevic.com/blog/rag-evaluation-metrics-a-12-point-checklist-2026">RAG Evaluation Metrics: A 12-Point Checklist (2026)</RefLink></li>
+                  <li>• <RefLink href="https://arize.com/resources/llm-evaluation">Arize — LLM Evaluation: Methods, Metrics, RAG & Agent Evals Guide</RefLink></li>
+                  <li>• <RefLink href="https://thegeocommunity.com/blogs/generative-engine-optimization/arize-phoenix-llm-observability">Arize Phoenix — Open-Source LLM Observability & Eval Guide</RefLink></li>
                 </ul>
               </section>
             </article>
