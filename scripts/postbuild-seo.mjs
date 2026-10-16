@@ -285,7 +285,8 @@ const posts = [
     seoTitle: 'RAG Evaluation Metrics: Faithfulness, Precision, Recall',
     description:
       'RAG evaluation, explained: retrieval metrics (context precision & recall) vs generation (faithfulness, answer relevancy), the RAG triad, and RAGAS vs TruLens.',
-    date: '2026-10-15',
+    date: '2026-09-21',
+    dateModified: '2026-10-15',
     author: 'poorna',
     image: '/og-rag-evaluation-metrics.png',
     faqs: [
@@ -858,6 +859,19 @@ const htmlToText = (html) =>
 const dist = 'dist'
 const template = readFileSync(join(dist, 'index.html'), 'utf8')
 
+// Internal links render as <Link to="/blog/x">, but GitHub Pages serves /blog/x/
+// and 301-redirects the no-slash form. Search Console reported those no-slash
+// URLs as "Redirect error" / "Page with redirect", and Google was slow to index
+// the real pages. Point every link to a known route at the served URL instead.
+// hydrateRoot keeps the server-rendered href, so this also holds after the
+// bundle loads.
+const ROUTE_PATHS = new Set([...pages, ...posts].map((r) => r.path).filter((p) => p !== '/'))
+function withTrailingSlashLinks(appHtml) {
+  return appHtml.replace(/href="(\/[^"#?]*?)([#?][^"]*)?"/g, (m, path, rest = '') =>
+    ROUTE_PATHS.has(path) ? `href="${path}/${rest}"` : m
+  )
+}
+
 function writeRoute({ path, title, seoTitle, description, date, dateModified, author, image, noindex, faqs }, appHtml) {
   // Canonical/og:url use the TRAILING-SLASH form because GitHub Pages serves
   // directory URLs (/blog/x/) with 200 and 301-redirects the no-slash form to
@@ -934,7 +948,7 @@ function writeRoute({ path, title, seoTitle, description, date, dateModified, au
 
   // Full server-rendered page content inside #root: crawlers see the real
   // article; React re-renders over it once the bundle loads.
-  html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
+  html = html.replace('<div id="root"></div>', `<div id="root">${withTrailingSlashLinks(appHtml)}</div>`)
 
   const outFile =
     path === '/'
@@ -960,7 +974,7 @@ try {
     writeRoute(route, appHtml)
     if (route.date) {
       fullTexts.push(
-        `# ${route.title}\n\nURL: ${SITE}${route.path}\nDate: ${route.date}\nAuthor: ${(AUTHORS[route.author] || AUTHORS.team).name}\n\n${htmlToText(appHtml)}`
+        `# ${route.title}\n\nURL: ${SITE}${route.path}/\nDate: ${route.date}\nAuthor: ${(AUTHORS[route.author] || AUTHORS.team).name}\n\n${htmlToText(appHtml)}`
       )
     }
   }

@@ -157,7 +157,7 @@ const CookieConsent = () => {
         <p className="text-sm text-muted-foreground max-w-2xl">
           We use cookies for analytics to understand how the site is used and improve it. You can accept or decline
           non-essential cookies. See our{" "}
-          <Link to="/privacy" className="text-primary hover:underline">
+          <Link to="/privacy/" className="text-primary hover:underline">
             Privacy Policy
           </Link>
           .

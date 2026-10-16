@@ -128,6 +128,7 @@ const HermesAlternativesPost = () => {
                   <li>• <strong>Building a custom multi-agent system?</strong> <strong>LangGraph</strong>, <strong>CrewAI</strong>, or <strong>Microsoft AutoGen</strong>.</li>
                   <li>• <strong>Just want to run code locally from natural language?</strong> <strong>Open Interpreter</strong>.</li>
                   <li>• <strong>Want a general-purpose agentic framework to mold?</strong> <strong>Agent Zero</strong>.</li>
+                  <li>• <strong>Looking for a Hermes desktop alternative?</strong> Check first that you need one: Hermes already ships a native desktop app and a local web UI (see our <Link to="/blog/hermes-agent-desktop-web-ui" className="text-primary hover:underline">Hermes desktop and web UI guide</Link>). OpenClaw is driven mainly through messaging apps rather than a desktop window, Agent Zero runs in your browser, and Open Interpreter is terminal-first.</li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   New to Hermes itself? Start with our{" "}

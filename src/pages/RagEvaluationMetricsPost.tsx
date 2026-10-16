@@ -124,7 +124,7 @@ const RagEvaluationMetricsPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Oct 15, 2026
+                      Sep 21, 2026 · Updated Oct 15, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
