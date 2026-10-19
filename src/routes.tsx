@@ -52,6 +52,7 @@ const RoadmapPage = lazyWithReload(() => import("./pages/RoadmapPage"));
 const NewsletterPage = lazyWithReload(() => import("./pages/NewsletterPage"));
 const SubscribedPage = lazyWithReload(() => import("./pages/SubscribedPage"));
 const AIAgentsExplainedPost = lazyWithReload(() => import("./pages/AIAgentsExplainedPost"));
+const MultiAgentOrchestrationPost = lazyWithReload(() => import("./pages/MultiAgentOrchestrationPost"));
 const MCPvsAPIPost = lazyWithReload(() => import("./pages/MCPvsAPIPost"));
 const RagVsFineTuningPost = lazyWithReload(() => import("./pages/RagVsFineTuningPost"));
 const HermesClaudeCodePost = lazyWithReload(() => import("./pages/HermesClaudeCodePost"));
@@ -79,6 +80,7 @@ const AppRoutes = () => (
       <Route path="/newsletter" element={<NewsletterPage />} />
       <Route path="/subscribed" element={<SubscribedPage />} />
       <Route path="/blog/what-are-ai-agents" element={<AIAgentsExplainedPost />} />
+      <Route path="/blog/multi-agent-orchestration-patterns" element={<MultiAgentOrchestrationPost />} />
       <Route path="/blog/mcp-vs-api" element={<MCPvsAPIPost />} />
       <Route path="/blog/rag-vs-fine-tuning" element={<RagVsFineTuningPost />} />
       <Route path="/blog/hermes-claude-code-orchestration" element={<HermesClaudeCodePost />} />

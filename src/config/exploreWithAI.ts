@@ -23,6 +23,15 @@ export interface ExploreConfig {
 }
 
 export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
+  "/blog/multi-agent-orchestration-patterns": {
+    topic: "multi-agent orchestration",
+    questions: [
+      { q: "Which orchestration pattern fits my use case?", askFor: "what my task looks like — a fixed sequence of steps, independent sub-tasks, or something I can't decompose ahead of time" },
+      { q: "Should I use LangGraph, CrewAI, or Microsoft Agent Framework?", askFor: "my stack, how much control I need over routing, and how fast I need a prototype" },
+      { q: "How do I stop context from getting lost at agent handoffs?", askFor: "what data each of my agents needs to see from prior steps" },
+      { q: "Is my multi-agent design over-engineered?", askFor: "a description of my current agent setup and what problem it's solving" },
+    ],
+  },
   "/blog/ai-agent-memory": {
     topic: "AI agent memory",
     questions: [

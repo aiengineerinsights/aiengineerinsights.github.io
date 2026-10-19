@@ -47,6 +47,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/multi-agent-orchestration-patterns",
+    title: "Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/llm-routing",
     title: "LLM Routing Explained: How an LLM Router Picks the Right Model (RouteLLM, Semantic Router, Jev, AI Gateways) — 2026",
     tag: "AI Models",

@@ -93,6 +93,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/multi-agent-orchestration-patterns',
+    title: 'Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)',
+    seoTitle: 'Multi-Agent Orchestration Patterns Explained (2026)',
+    description:
+      'The five multi-agent orchestration patterns in production (sequential, concurrent, handoff, group chat, hierarchical), when to use each, and how LangGraph, CrewAI, Microsoft Agent Framework, and Google ADK implement them.',
+    date: '2026-10-19',
+    author: 'poorna',
+    image: '/og-multi-agent-orchestration-patterns.png',
+    faqs: [
+      { q: "What is multi-agent orchestration?", a: "Multi-agent orchestration is the layer that coordinates two or more AI agents working on the same overall task — deciding which agent runs when, what each one sees of the shared task state, and how their outputs combine. It sits above a single agent's own reasoning loop: each agent still plans, uses tools, and observes results, but the orchestration layer controls the handoffs, parallelism, and aggregation between agents." },
+      { q: "What are the main multi-agent orchestration patterns?", a: "Microsoft's Agent Framework documentation names five built-in orchestrations: sequential (agents run in a fixed pipeline order), concurrent (the same task fans out to multiple agents and results fan back in), handoff (control transfers between agents based on context), group chat (agents share one conversation and take turns), and Magentic/hierarchical (a manager agent plans and dispatches to workers). Most production systems combine two or more of these rather than picking just one." },
+      { q: "What's the difference between orchestration and a single agent's tool loop?", a: "A single agent's loop (reason, act, observe, repeat) happens inside one agent working with one set of tools. Orchestration is the layer above that: it decides which of several agents runs next, routes context between them, and merges their separate outputs. You can have a sophisticated single-agent loop with no orchestration at all, or simple agents coordinated by rich orchestration — they're independent concerns." },
+      { q: "Which framework should I use for multi-agent orchestration?", a: "Pick by how much control you need versus how fast you want to ship. LangGraph gives the most explicit control via a graph of nodes and edges, at the cost of more setup. CrewAI gets a role-based multi-agent workflow running in the least code. Microsoft Agent Framework (the successor to AutoGen and Semantic Kernel) ships sequential, concurrent, handoff, group-chat, and Magentic orchestrations out of the box. Google's Agent Development Kit (ADK) favors hierarchical agent trees and pairs with the A2A protocol for cross-vendor agent calls." },
+      { q: 'When should I use hierarchical orchestration instead of a single bigger agent?', a: "Use hierarchical orchestration — an orchestrator planning and dispatching to specialized workers — when a task decomposes into sub-tasks whose shape you don't know ahead of time, or when different sub-tasks need different tools, context, or models. Anthropic's own multi-agent research system uses an orchestrator-worker pattern for exactly this. For tasks with a known, fixed sequence of steps, a plain sequential pipeline is simpler and cheaper to run." },
+      { q: 'What goes wrong in multi-agent systems?', a: "The common failure modes are context loss at handoffs, runaway cost and latency from agents calling each other in loops, and non-deterministic routing that makes debugging hard. Microsoft's own guidance recommends starting with the simplest pattern (sequential) that solves the problem and adding concurrency, handoff, or hierarchy only once a single agent or a fixed pipeline demonstrably can't handle the task." },
+    ],
+  },
+  {
     path: '/blog/agent-runtimes-explained',
     title: 'AI Agent Runtimes Explained: The Production Layer Every Agent Framework Is Missing (2026)',
     seoTitle: 'AI Agent Runtimes Explained (2026)',

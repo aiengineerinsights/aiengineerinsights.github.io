@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 53,
+      title: "Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)",
+      excerpt: "Multi-agent orchestration is the layer that coordinates several agents, not a single agent's own loop. The five patterns in production use (sequential, concurrent, handoff, group chat, hierarchical), when to use each, and how LangGraph, CrewAI, Microsoft Agent Framework, and Google ADK implement them.",
+      readTime: "11 min read",
+      date: "Oct 19, 2026",
+      category: "AI Agents",
+      icon: Network,
+      gradient: "from-blue-600 to-violet-800",
+      link: "/blog/multi-agent-orchestration-patterns"
+    },
+    {
       id: 52,
       title: "AI Agent Memory: Short-Term vs Long-Term, and How to Actually Implement It (2026)",
       excerpt: "A context window is not memory. Short-term memory (sliding windows, summarization) vs long-term memory (vector retrieval, knowledge graphs) — Mem0, Letta (MemGPT), Zep (Graphiti), and LangMem compared, with a working code example.",
