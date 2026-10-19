@@ -85,7 +85,7 @@ const HermesAlternativesPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      <span>Updated <time dateTime="2026-10-07">Oct 7, 2026</time></span>
+                      <span>Updated <time dateTime="2026-10-19">Oct 19, 2026</time></span>
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />

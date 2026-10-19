@@ -97,7 +97,7 @@ const posts = [
     title: 'Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)',
     seoTitle: 'Multi-Agent Orchestration Patterns Explained (2026)',
     description:
-      'The five multi-agent orchestration patterns in production (sequential, concurrent, handoff, group chat, hierarchical), when to use each, and how LangGraph, CrewAI, Microsoft Agent Framework, and Google ADK implement them.',
+      'Five multi-agent orchestration patterns (sequential, concurrent, handoff, group chat, hierarchical), when to use each, and how LangGraph, CrewAI, ADK do them.',
     date: '2026-10-19',
     author: 'poorna',
     image: '/og-multi-agent-orchestration-patterns.png',
@@ -585,7 +585,7 @@ const posts = [
   },
   {
     path: '/blog/hermes-agent-alternatives',
-    dateModified: '2026-10-07',
+    dateModified: '2026-10-19',
     title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
     seoTitle: '6 Hermes Agent Alternatives (2026): OpenClaw, Agent Zero & More',
     description:

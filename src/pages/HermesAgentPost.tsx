@@ -96,6 +96,19 @@ const HermesAgentPost = () => {
             {/* Hero Diagram */}
             <HermesHeroDiagram />
 
+            <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-8 sm:mb-10">
+              <p className="text-sm sm:text-base leading-relaxed m-0">
+                <strong>TL;DR:</strong> Hermes Agent is Nous Research's open-source, self-improving AI agent: it runs
+                tasks in a loop, turns solved tasks into reusable skills, and works from a terminal, a desktop app, or
+                messaging apps. It is MIT-licensed and free; you pay only for the model you connect. The official docs
+                are at{" "}
+                <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent.nousresearch.com/docs</a>{" "}
+                and the code is at{" "}
+                <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/NousResearch/hermes-agent</a>.
+                This guide is an independent explainer of how it works and how to install it.
+              </p>
+            </div>
+
             {/* Article Content */}
             <ExploreWithAI path="/blog/hermes-agent-nous-research-guide" variant="strip" />
 
