@@ -93,6 +93,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/what-is-an-agent-harness',
+    title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness² Optimizes One)",
+    seoTitle: 'What Is an Agent Harness? Harness Engineering (2026)',
+    description:
+      "What an agent harness is, its 8 parts, harness vs runtime vs framework, what harness engineering means, and how Google's Harness² optimizes harnesses.",
+    date: '2026-10-19',
+    author: 'poorna',
+    image: '/og-what-is-an-agent-harness.png',
+    faqs: [
+      { q: "What is an agent harness?", a: "An agent harness is everything around a language model that lets it act as an agent: the system prompt, the tools and the guidance on using them, guardrails, memory, skills, subagents, scripts, plugins, and the loop that runs them. Google's Harness² README defines it as the system around a model that enables it to act as an agent. The model supplies the reasoning; the harness decides what it sees, what it can do, and how its work is checked. Claude Code, Codex, OpenCode, and Hermes Agent are all harnesses." },
+      { q: "What is harness engineering?", a: "Harness engineering is the work of designing that system so an agent does reliable work: writing the instructions and docs it reads, encoding rules as linters and tests it can run, giving it ways to record and recover progress, and adding review loops. OpenAI used the term in February 2026 for how a team shipped a product whose code was written by Codex, and Anthropic's guidance on long-running agents describes the same practice: a feature list, a progress file, an init script, and clean git commits so each new session knows where things stand." },
+      { q: "What is the difference between an agent harness and an agent runtime?", a: "The harness decides how well the agent does a task: prompts, tools, memory, skills, guardrails. The runtime decides whether the agent keeps running safely in production: durable state, sandboxed tool execution, retries, tracing, and human approval gates. You can swap a better harness onto the same runtime, or run the same harness on a sturdier runtime. Google's Harness² is a harness optimizer, not a runtime; its README notes it runs executors with unrestricted network access and, for Codex, with the sandbox disabled." },
+      { q: "What is Google Harness²?", a: "Harness² (google-research/harness2, Apache-2.0, released October 2026 with the paper Harness²: Recursive Agent Harnessing for an Open World) is a research framework that improves an agent's harness automatically while keeping the model weights frozen. For each task it proposes harness edits, probes them on that task, and composes a refined harness from the differences in behaviour, without ground-truth feedback. It also keeps a persistent store of adopted harnesses and lessons that guides later tasks. The paper reports gains of up to 11.5 points on WorkBuddy-Bench and 11.8 percentage points on LAB." },
+      { q: "Is Harness² for personal use or enterprise?", a: "Neither. It is research code for AI engineers and researchers: the README says it is not an officially supported Google product, it runs agents through OpenCode or Codex from the command line on Linux, and it is built for benchmark runs, not for chatting with. For a personal agent, use something like Hermes Agent or OpenClaw; for production, put your harness on a proper agent runtime." },
+      { q: "Do I need a harness optimizer like Harness²?", a: "Probably not yet. Most teams get more from hand-built harness engineering first: clear instructions, runnable tests, a progress log, and guardrails on tool calls. A harness optimizer becomes worth trying when you already run an agent on many similar tasks, have a way to compare runs, and can afford the extra rollouts each round of optimization costs." },
+    ],
+  },
+  {
     path: '/blog/multi-agent-orchestration-patterns',
     title: 'Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)',
     seoTitle: 'Multi-Agent Orchestration Patterns Explained (2026)',

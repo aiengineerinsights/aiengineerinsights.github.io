@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/what-is-an-agent-harness",
+    title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness\u00b2 Optimizes One)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/ai-agent-memory",
     title: "AI Agent Memory: Short-Term vs Long-Term, and How to Actually Implement It (2026)",
     tag: "AI Agents",

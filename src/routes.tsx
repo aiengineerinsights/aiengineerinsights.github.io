@@ -36,6 +36,7 @@ const GithubBugBountyPost = lazyWithReload(() => import("./pages/GithubBugBounty
 const ForwardDeployedEngineerPost = lazyWithReload(() => import("./pages/ForwardDeployedEngineerPost"));
 const ClaudeCertifiedArchitectPost = lazyWithReload(() => import("./pages/ClaudeCertifiedArchitectPost"));
 const AnthropicCertificationsPost = lazyWithReload(() => import("./pages/AnthropicCertificationsPost"));
+const AgentHarnessPost = lazyWithReload(() => import("./pages/AgentHarnessPost"));
 const CCATrapsPost = lazyWithReload(() => import("./pages/CCATrapsPost"));
 const ContextEngineeringGrapeRootPost = lazyWithReload(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazyWithReload(() => import("./pages/AIEngineerSalaryPost"));
@@ -91,6 +92,7 @@ const AppRoutes = () => (
       <Route path="/blog/jev-vs-ml-classification" element={<LLMvsMLClassificationPost />} />
       <Route path="/blog/llm-routing" element={<LLMRoutingPost />} />
       <Route path="/blog/anthropic-certifications" element={<AnthropicCertificationsPost />} />
+      <Route path="/blog/what-is-an-agent-harness" element={<AgentHarnessPost />} />
       <Route path="/blog/ai-guardrails" element={<AIGuardrailsPost />} />
       {/* Renamed from the original slug; keep the old URL redirecting so early links/indexing don't 404. */}
       <Route path="/blog/llm-vs-traditional-ml-classification" element={<Navigate to="/blog/jev-vs-ml-classification" replace />} />

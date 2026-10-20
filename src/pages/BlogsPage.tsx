@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 54,
+      title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness\u00b2 Optimizes One)",
+      excerpt: "An agent harness is everything around the model that lets it act: prompts, tools, guardrails, memory, skills. The eight parts, harness vs runtime vs framework, what harness engineering means, and what Google's Harness\u00b2 automates.",
+      readTime: "10 min read",
+      date: "Oct 19, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-sky-600 to-indigo-700",
+      link: "/blog/what-is-an-agent-harness"
+    },
+    {
       id: 53,
       title: "Multi-Agent Orchestration Patterns: Sequential, Concurrent, Handoff, and Hierarchical Explained (2026)",
       excerpt: "Multi-agent orchestration is the layer that coordinates several agents, not a single agent's own loop. The five patterns in production use (sequential, concurrent, handoff, group chat, hierarchical), when to use each, and how LangGraph, CrewAI, Microsoft Agent Framework, and Google ADK implement them.",

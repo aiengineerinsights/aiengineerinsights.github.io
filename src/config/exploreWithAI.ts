@@ -131,6 +131,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "How do I keep an agentic system safe in production?", askFor: "which tools and data my agent can touch" },
     ],
   },
+  "/blog/what-is-an-agent-harness": {
+    topic: "agent harnesses",
+    questions: [
+      { q: "Which harness changes would most improve my agent?", askFor: "what my agent does, how it fails today, and which model it uses" },
+      { q: "Do I need a better harness, a better model, or a runtime?", askFor: "my agent's failure modes and whether it runs in production" },
+      { q: "Write an AGENTS.md / CLAUDE.md for my project", askFor: "my repo's stack, build and test commands, and what done means" },
+      { q: "Is Google Harness² worth trying for my use case?", askFor: "how many similar tasks my agent runs and my budget for extra runs" },
+    ],
+  },
   "/blog/ai-guardrails": {
     topic: "AI guardrails",
     questions: [

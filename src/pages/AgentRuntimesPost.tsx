@@ -157,6 +157,12 @@ const AgentRuntimesPost = () => {
                   framework alone, then discover in production that they need durable state, sandboxing, and
                   observability the framework never promised.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  A runtime is also different from an <strong>agent harness</strong>, the prompts, tools, memory, skills,
+                  and guardrails around the model that decide how well the agent does the task. See{" "}
+                  <Link to="/blog/what-is-an-agent-harness" className="text-primary hover:underline">what is an agent harness</Link>{" "}
+                  for that layer and how Google's Harness² tries to optimize it automatically.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
