@@ -1,7 +1,7 @@
 import { FileDown, Code, Brain, Settings, Database, Target, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import ExploreWithAI from "@/components/ExploreWithAI";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -49,7 +49,7 @@ const phases = [
       { text: "Coursera ML (Andrew Ng)", url: "https://www.coursera.org/learn/machine-learning" },
       { text: "Deep Learning Specialization", url: "https://www.coursera.org/specializations/deep-learning" },
       { text: "fast.ai Course", url: "https://course.fast.ai/" },
-      { text: "PyTorch Tutorials", url: "https://pytorch.org/tutorials/" },
+      { text: "PyTorch Tutorials", url: "https://docs.pytorch.org/tutorials/" },
     ],
   },
   {
@@ -66,7 +66,7 @@ const phases = [
       "Model serving, API design, and performance optimization",
     ],
     resources: [
-      { text: "Google MLOps Guide", url: "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" },
+      { text: "Google MLOps Guide", url: "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" },
       { text: "Full Stack Deep Learning", url: "https://fullstackdeeplearning.com/" },
       { text: "Docker Curriculum", url: "https://docker-curriculum.com/" },
     ],
@@ -86,7 +86,7 @@ const phases = [
     ],
     resources: [
       { text: "Data Engineering Zoomcamp", url: "https://github.com/DataTalksClub/data-engineering-zoomcamp" },
-      { text: "GCP Data Engineer Path", url: "https://cloud.google.com/certification/data-engineer" },
+      { text: "GCP Data Engineer Path", url: "https://cloud.google.com/learn/certification/data-engineer" },
       { text: "dbt Docs", url: "https://docs.getdbt.com/docs/introduction" },
     ],
   },
@@ -104,8 +104,8 @@ const phases = [
       "AI product management and business applications",
     ],
     resources: [
-      { text: "Hugging Face Course", url: "https://huggingface.co/course/chapter1" },
-      { text: "OpenAI Cookbook", url: "https://platform.openai.com/docs/overview" },
+      { text: "Hugging Face Course", url: "https://huggingface.co/learn/llm-course/chapter1/1" },
+      { text: "OpenAI Cookbook", url: "https://developers.openai.com/cookbook" },
       { text: "Stanford CS231n", url: "https://cs231n.stanford.edu/" },
     ],
   },
@@ -123,8 +123,8 @@ const phases = [
       "Ethics, bias detection, and responsible-AI practices",
     ],
     resources: [
-      { text: "re:Work by Google", url: "https://rework.withgoogle.com/" },
-      { text: "AI Ethics (DeepLearning.AI)", url: "https://learn.deeplearning.ai/ai-ethics" },
+      { text: "re:Work by Google", url: "https://rework.withgoogle.com/intl/en/" },
+      { text: "Ethics of AI (University of Helsinki)", url: "https://ethics-of-ai.mooc.fi/" },
     ],
   },
 ];
@@ -314,6 +314,20 @@ const RoadmapPage = () => {
           />
 
           <section className="mb-10">
+            <h2 id="free-ai-courses" className="text-2xl font-bold mb-4">Best free resources to learn AI engineering</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              You don't need a paid course to follow this roadmap. These free courses map onto its phases:
+            </p>
+            <ul className="space-y-2 text-muted-foreground mb-4">
+              <li>• <a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Machine Learning Crash Course</a> — ML fundamentals for beginners (Core AI phase)</li>
+              <li>• <a href="https://course.fast.ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">fast.ai Practical Deep Learning for Coders</a> — hands-on deep learning, code first</li>
+              <li>• <a href="https://huggingface.co/learn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hugging Face Learn</a> — free LLM and AI agents courses</li>
+              <li>• <a href="https://www.deeplearning.ai/short-courses/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">DeepLearning.AI short courses</a> — one-to-two-hour courses on RAG, agents, and evaluation</li>
+              <li>• <a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Anthropic Academy</a> — free Claude API, MCP, and Claude Code courses with certificates of completion (see our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">guide to Anthropic certifications</Link>)</li>
+            </ul>
+          </section>
+
+          <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">Where to go next</h2>
             <p className="text-muted-foreground leading-relaxed">
               Once you reach the specialization phase, our articles go deep on the highest-demand tracks: running{" "}
@@ -325,7 +339,7 @@ const RoadmapPage = () => {
                 what makes an LLM agentic
               </Link>
               , and the{" "}
-              <Link to="/blog/hermes-agent-nous-research-guide" className="text-primary hover:underline">
+              <Link to="/blog/open-source-ai-agent-frameworks" className="text-primary hover:underline">
                 open-source agent frameworks
               </Link>{" "}
               engineers are building on today.

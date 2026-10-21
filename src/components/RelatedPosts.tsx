@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Mail } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
@@ -6,6 +6,16 @@ import ShareButtons from "@/components/ShareButtons";
 const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
+  {
+    slug: "/blog/claude-managed-agents",
+    title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/claude-code-skills",
+    title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+    tag: "AI Tools",
+  },
   {
     slug: "/blog/what-is-an-agent-harness",
     title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness\u00b2 Optimizes One)",

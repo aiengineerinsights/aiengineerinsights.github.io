@@ -2,7 +2,7 @@ import { ArrowLeft, Clock, User, Calendar, Boxes, BarChart3 } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -51,6 +51,10 @@ const faqs = [
   {
     q: "Do I need an agent framework at all?",
     a: "Not always. For a single agent with a handful of tools, a plain tool-calling loop against the model's API — call the model, execute any tool calls it returns, append results, repeat — is often simpler, easier to debug, and has fewer dependencies. Frameworks earn their place when you need multi-step or multi-agent orchestration, durable state and checkpointing, structured outputs, or built-in observability, and when you would otherwise end up rebuilding those pieces yourself.",
+  },
+  {
+    q: "What is an AI agent swarm?",
+    a: "An agent swarm is a multi-agent system where several specialised agents pass work between each other, usually through handoffs, instead of one agent doing everything. The name was popularised by OpenAI's experimental Swarm library in 2024, a lightweight demo of agents and handoffs that OpenAI later replaced with the production-ready OpenAI Agents SDK. In practice a swarm is one of the multi-agent orchestration patterns; LangGraph, CrewAI, and the OpenAI Agents SDK can all build one, and the hard parts are the same as for any multi-agent system: deciding who acts next, sharing context, and stopping.",
   },
 ];
 

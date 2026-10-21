@@ -1,7 +1,8 @@
 
 import { Github, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 
 const Footer = () => {
   const navigate = useNavigate();

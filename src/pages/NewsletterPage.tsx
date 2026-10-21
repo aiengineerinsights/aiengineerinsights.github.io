@@ -1,7 +1,7 @@
 import { Mail, Wrench, BookOpen, Briefcase, Flame, Clock, Ban, Download } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";

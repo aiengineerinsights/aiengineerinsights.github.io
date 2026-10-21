@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);

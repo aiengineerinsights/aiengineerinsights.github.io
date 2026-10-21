@@ -93,6 +93,42 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/claude-managed-agents',
+    title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
+    seoTitle: "Claude Managed Agents: What It Is, Pricing & Setup (2026)",
+    description:
+      "Claude Managed Agents explained: Agents, Environments, Sessions, a quickstart, $0.08/session-hour pricing, vs the Agent SDK and AgentCore.",
+    date: '2026-10-20',
+    author: 'poorna',
+    image: '/og-claude-managed-agents.png',
+    faqs: [
+      { q: "What is Claude Managed Agents?", a: "Claude Managed Agents is Anthropic's hosted service for running Claude as an autonomous agent. Anthropic describes it as a pre-built, configurable agent harness that runs in managed infrastructure, best for long-running tasks and asynchronous work. You define an agent (model, system prompt, tools, MCP servers, skills) and an environment (a cloud sandbox Anthropic manages, or your own), then start sessions that Anthropic runs, keeping their state and event history on its side. It launched in public beta on April 8, 2026." },
+      { q: "How much does Claude Managed Agents cost?", a: "Two charges: tokens at the standard model rates, plus $0.08 per session-hour of runtime. Runtime is measured to the millisecond and only counts while a session's status is running, not while it is idle or terminated, and it replaces separate container-hour billing. Web search costs $10 per 1,000 searches, the Batch API discount does not apply, and pinning inference to the US adds a 1.1x multiplier. Anthropic's own example, a one-hour Opus 5.5 session with 50,000 input and 15,000 output tokens, costs $0.58, or about $0.43 with prompt caching." },
+      { q: "What is the difference between Claude Managed Agents and the Claude Agent SDK?", a: "Where the agent runs. The Claude Agent SDK is a library that runs Claude Code's agent harness in a process you operate, so you host the loop, the sandbox, and the state. Managed Agents is the same idea hosted by Anthropic: Anthropic runs the agent loop, provides the sandbox, stores the session and its events, and you talk to it over an API. Choose the SDK for full control and your own infrastructure; choose Managed Agents to skip running agent infrastructure." },
+      { q: "Is Claude Managed Agents generally available?", a: "Not yet. As of October 2026 it is in public beta: every endpoint requires the managed-agents-2026-04-01 beta header, though access is enabled by default for all API accounts. Some features, such as MCP tunnels and the memory feature Anthropic calls dreaming, are in a narrower research preview that you have to request." },
+      { q: "What tools can a Claude Managed Agent use?", a: "The built-in agent toolset includes bash, read, write, edit, glob, grep, web fetch, and web search. You can also add custom tools that your own code executes, connect MCP servers through the MCP connector (with OAuth credentials stored in vaults), and attach skills to the agent." },
+      { q: "What are the downsides of Claude Managed Agents?", a: "It runs Claude models only, so teams that want to mix providers see lock-in; session data lives in Anthropic's managed storage; it is not currently eligible for Zero Data Retention or HIPAA BAA coverage; it is still in beta; and Anthropic does not document sandbox CPU, memory, or maximum session length. Agents running unattended can also run up token costs, so set per-session budgets." },
+    ],
+  },
+  {
+    path: '/blog/claude-code-skills',
+    title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+    seoTitle: "Claude Code Skills: Best Skills & How to Create One (2026)",
+    description:
+      "What Claude Code skills are, the SKILL.md format, the best skills to install, how to build one with skill-creator, and the plugin marketplace.",
+    date: '2026-10-20',
+    author: 'poorna',
+    image: '/og-claude-code-skills.png',
+    faqs: [
+      { q: "What are Claude Code skills?", a: "Skills are folders of instructions, scripts, and resources that Claude discovers and loads when a task needs them. Each skill has a SKILL.md file with a name and a description; Claude keeps only that short metadata in context and loads the full instructions, and any bundled files, when your request matches the description. In Claude Code you can also run a skill directly with /skill-name. Skills are an open standard (Agent Skills) and work in Claude Code, the Claude apps, and the Claude API." },
+      { q: "How do I create a Claude Code skill?", a: "Create a folder under ~/.claude/skills/ (for yourself) or .claude/skills/ (for a project), add a SKILL.md file with YAML frontmatter containing a name and a description that says what the skill does and when to use it, then write the instructions below it. Add reference files or scripts next to it if needed. The easiest route is Anthropic's skill-creator skill, installed with /plugin install skill-creator@claude-plugins-official, which drafts the skill, writes test prompts, runs evals, and improves the description." },
+      { q: "What are the best Claude skills?", a: "Start with Anthropic's official ones: skill-creator for building your own, the document skills (docx, pdf, pptx, xlsx), frontend-design, mcp-builder, and webapp-testing, all in the anthropics/skills repository. The official claude-plugins-official marketplace adds plugins such as code-review, feature-dev, commit-commands, and security-guidance. Popular community packs like obra/superpowers exist too, but Anthropic doesn't review third-party skills, so read them before installing." },
+      { q: "Is there a Claude skills marketplace?", a: "Yes. Skills are distributed through plugin marketplaces. Anthropic runs the official marketplace, claude-plugins-official, which Claude Code adds automatically, plus a community marketplace (claude-community) and a web catalog at claude.com/marketplace/plugins. You can add any marketplace with /plugin marketplace add owner/repo, for example /plugin marketplace add anthropics/skills, and install with /plugin install name@marketplace." },
+      { q: "What is the difference between skills, subagents, MCP, and hooks?", a: "A skill adds knowledge or a workflow to Claude's main context when it's relevant. A subagent is a separate worker with its own context that returns a summary. An MCP server connects Claude to external tools and data; skills teach Claude how to use them. A hook is a deterministic script that runs on events, which is where Anthropic recommends putting guardrails. A plugin packages any of these for sharing." },
+      { q: "Are Claude skills safe to install?", a: "Only from sources you trust. Anthropic's guidance is to use skills you wrote yourself or got from Anthropic, to audit every bundled file, and to treat installing a skill like installing software. Plugins are riskier still: Anthropic's docs warn that an installed plugin can execute arbitrary code on your machine with your user privileges, and that it doesn't review third-party marketplaces." },
+    ],
+  },
+  {
     path: '/blog/what-is-an-agent-harness',
     title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness² Optimizes One)",
     seoTitle: 'What Is an Agent Harness? Harness Engineering (2026)',
@@ -425,6 +461,7 @@ const posts = [
       { q: 'Is Pydantic AI production-ready?', a: "Pydantic AI is a newer agent framework from the team behind Pydantic, built around type-safe agents, Pydantic-validated structured outputs, and a dependency-injection system that makes agents straightforward to test. It is actively developed and used in production by teams who value those properties, but it is younger than LangGraph or AutoGen, so check the official docs and changelog for current API stability before committing a critical workload to it." },
       { q: 'What happened to AutoGen?', a: "AutoGen began as a Microsoft Research project for conversational multi-agent systems. As of 2026 the lineage has split: a group of original maintainers created the community fork AG2 (the ag2 package, which preserves the classic autogen namespace), while Microsoft placed the AutoGen repository in maintenance mode and now points new users to Microsoft Agent Framework, which it describes as AutoGen's successor and for which it publishes an AutoGen migration guide. Check the official AutoGen, AG2, and Microsoft Agent Framework docs for current status before starting a new project on any of them." },
       { q: 'Do I need an agent framework at all?', a: "Not always. For a single agent with a handful of tools, a plain tool-calling loop against the model's API — call the model, execute any tool calls it returns, append results, repeat — is often simpler, easier to debug, and has fewer dependencies. Frameworks earn their place when you need multi-step or multi-agent orchestration, durable state and checkpointing, structured outputs, or built-in observability, and when you would otherwise end up rebuilding those pieces yourself." },
+      { q: "What is an AI agent swarm?", a: "An agent swarm is a multi-agent system where several specialised agents pass work between each other, usually through handoffs, instead of one agent doing everything. The name was popularised by OpenAI's experimental Swarm library in 2024, a lightweight demo of agents and handoffs that OpenAI later replaced with the production-ready OpenAI Agents SDK. In practice a swarm is one of the multi-agent orchestration patterns; LangGraph, CrewAI, and the OpenAI Agents SDK can all build one, and the hard parts are the same as for any multi-agent system: deciding who acts next, sharing context, and stopping." },
     ],
   },
   {

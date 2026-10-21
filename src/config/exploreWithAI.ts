@@ -140,6 +140,24 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Is Google Harness² worth trying for my use case?", askFor: "how many similar tasks my agent runs and my budget for extra runs" },
     ],
   },
+  "/blog/claude-code-skills": {
+    topic: "Claude Code skills",
+    questions: [
+      { q: "Which Claude Code skills should I install for my workflow?", askFor: "my stack and the tasks I repeat most" },
+      { q: "Write a SKILL.md for a task I repeat", askFor: "the task, the steps, and an example of good output" },
+      { q: "Should this be a skill, a hook, a subagent, or an MCP server?", askFor: "what I want Claude to do and whether it must always happen" },
+      { q: "Is this third-party skill or plugin safe to install?", askFor: "the skill or plugin repo and what it says it does" },
+    ],
+  },
+  "/blog/claude-managed-agents": {
+    topic: "Claude Managed Agents",
+    questions: [
+      { q: "Should I use Claude Managed Agents or the Agent SDK?", askFor: "where my agent must run, my data rules, and whether I use other model providers" },
+      { q: "Estimate my Claude Managed Agents cost", askFor: "model, session length, and tokens per session" },
+      { q: "Design a Managed Agents setup for my use case", askFor: "the task, tools it needs, and how long it runs" },
+      { q: "How do I keep a hosted agent safe and on budget?", askFor: "which tools and data the agent can touch" },
+    ],
+  },
   "/blog/ai-guardrails": {
     topic: "AI guardrails",
     questions: [

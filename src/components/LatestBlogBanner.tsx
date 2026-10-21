@@ -1,6 +1,6 @@
 import { TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import { insights } from "@/components/LatestInsights";
 
 const LatestBlogBanner = () => {

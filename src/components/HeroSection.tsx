@@ -1,7 +1,7 @@
 
 import { ArrowRight, Sparkles, Target, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {

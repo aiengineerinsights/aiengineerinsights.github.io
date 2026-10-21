@@ -1,7 +1,7 @@
 import { ArrowLeft, Clock, User, Calendar, Database, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
@@ -253,7 +253,7 @@ const BlogPost3 = () => {
                   <li>• <a href="https://greatexpectations.io/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Great Expectations — data validation</a></li>
                   <li>• <a href="https://airflow.apache.org/docs/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Apache Airflow — orchestration docs</a></li>
                   <li>• <a href="https://openlineage.io/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenLineage — data lineage standard</a></li>
-                  <li>• <a href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google — MLOps &amp; data pipeline architecture</a></li>
+                  <li>• <a href="https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google — MLOps &amp; data pipeline architecture</a></li>
                 </ul>
               </section>
             </article>

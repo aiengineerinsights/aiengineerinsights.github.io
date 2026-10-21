@@ -37,6 +37,8 @@ const ForwardDeployedEngineerPost = lazyWithReload(() => import("./pages/Forward
 const ClaudeCertifiedArchitectPost = lazyWithReload(() => import("./pages/ClaudeCertifiedArchitectPost"));
 const AnthropicCertificationsPost = lazyWithReload(() => import("./pages/AnthropicCertificationsPost"));
 const AgentHarnessPost = lazyWithReload(() => import("./pages/AgentHarnessPost"));
+const ClaudeCodeSkillsPost = lazyWithReload(() => import("./pages/ClaudeCodeSkillsPost"));
+const ClaudeManagedAgentsPost = lazyWithReload(() => import("./pages/ClaudeManagedAgentsPost"));
 const CCATrapsPost = lazyWithReload(() => import("./pages/CCATrapsPost"));
 const ContextEngineeringGrapeRootPost = lazyWithReload(() => import("./pages/ContextEngineeringGrapeRootPost"));
 const AIEngineerSalaryPost = lazyWithReload(() => import("./pages/AIEngineerSalaryPost"));
@@ -93,6 +95,8 @@ const AppRoutes = () => (
       <Route path="/blog/llm-routing" element={<LLMRoutingPost />} />
       <Route path="/blog/anthropic-certifications" element={<AnthropicCertificationsPost />} />
       <Route path="/blog/what-is-an-agent-harness" element={<AgentHarnessPost />} />
+      <Route path="/blog/claude-code-skills" element={<ClaudeCodeSkillsPost />} />
+      <Route path="/blog/claude-managed-agents" element={<ClaudeManagedAgentsPost />} />
       <Route path="/blog/ai-guardrails" element={<AIGuardrailsPost />} />
       {/* Renamed from the original slug; keep the old URL redirecting so early links/indexing don't 404. */}
       <Route path="/blog/llm-vs-traditional-ml-classification" element={<Navigate to="/blog/jev-vs-ml-classification" replace />} />

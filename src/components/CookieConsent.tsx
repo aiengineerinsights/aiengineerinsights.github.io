@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import { Button } from "@/components/ui/button";
 import { installClickTracking } from "@/lib/analytics";
 

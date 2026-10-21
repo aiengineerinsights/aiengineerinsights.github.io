@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Mail, CheckCircle2, Download } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 import { trackEvent } from "@/lib/analytics";
 import type { NewsletterBonus } from "@/config/newsletterBonuses";
 

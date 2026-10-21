@@ -1,7 +1,7 @@
 import { CheckCircle, ArrowRight, Code, Brain, Database, Settings, Users, Target, FileDown, BookOpen, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 // Served from public/ (stable path) so the prerendered HTML links to a real
 // URL. A Vite asset import resolves to a dev path during SSR prerender and 404s.
 const pdfFile = '/downloads/ai-roadmap.pdf';
@@ -13,41 +13,41 @@ const resourceLinks = [
     { text: "Real Python", url: "https://realpython.com/" },
     { text: "3Blue1Brown (Math)", url: "https://www.3blue1brown.com/" },
     { text: "Khan Academy Statistics", url: "https://www.khanacademy.org/math/statistics-probability" },
-    { text: "Git Handbook", url: "https://guides.github.com/introduction/git-handbook/" }
+    { text: "Git Handbook", url: "https://docs.github.com/en/get-started/using-git/about-git" }
   ],
   // Core AI
   [
     { text: "Coursera ML (Andrew Ng)", url: "https://www.coursera.org/learn/machine-learning" },
     { text: "Deep Learning Specialization", url: "https://www.coursera.org/specializations/deep-learning" },
     { text: "fast.ai Course", url: "https://course.fast.ai/" },
-    { text: "PyTorch Docs", url: "https://pytorch.org/tutorials/" },
-    { text: "Papers with Code", url: "https://paperswithcode.com/" }
+    { text: "PyTorch Docs", url: "https://docs.pytorch.org/tutorials/" },
+    { text: "Hugging Face Papers", url: "https://huggingface.co/papers/trending" }
   ],
   // Engineering
   [
-    { text: "Google MLOps Guide", url: "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" },
+    { text: "Google MLOps Guide", url: "https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning" },
     { text: "Full Stack Deep Learning", url: "https://fullstackdeeplearning.com/" },
     { text: "Docker Curriculum", url: "https://docker-curriculum.com/" },
-    { text: "AWS ML University", url: "https://aws.amazon.com/training/learning-paths/machine-learning/" }
+    { text: "AWS ML University", url: "https://aws.amazon.com/training/learn-about/ai/" }
   ],
   // Data
   [
     { text: "Data Engineering Zoomcamp", url: "https://github.com/DataTalksClub/data-engineering-zoomcamp" },
-    { text: "GCP Data Engineer Path", url: "https://cloud.google.com/certification/data-engineer" },
+    { text: "GCP Data Engineer Path", url: "https://cloud.google.com/learn/certification/data-engineer" },
     { text: "dbt Docs", url: "https://docs.getdbt.com/docs/introduction" }
   ],
   // Specialization
   [
-    { text: "Hugging Face Transformers", url: "https://huggingface.co/course/chapter1" },
-    { text: "OpenAI Cookbook", url: "https://platform.openai.com/docs/overview" },
+    { text: "Hugging Face Transformers", url: "https://huggingface.co/learn/llm-course/chapter1/1" },
+    { text: "OpenAI Cookbook", url: "https://developers.openai.com/cookbook" },
     { text: "Stanford CS231n", url: "https://cs231n.stanford.edu/" },
-    { text: "MIT OpenCourseWare Robotics", url: "https://ocw.mit.edu/courses/6-141-robotic-science-and-systems-i-fall-2020/" }
+    { text: "MIT Robotic Manipulation", url: "https://manipulation.csail.mit.edu/" }
   ],
   // Leadership
   [
-    { text: "Wharton Communication Course", url: "https://www.coursera.org/learn/wharton-communication" },
-    { text: "Google Guide to Engineering Mgmt", url: "https://rework.withgoogle.com/" },
-    { text: "AI Ethics (DeepLearning.AI)", url: "https://learn.deeplearning.ai/ai-ethics" }
+    { text: "Wharton Communication Course", url: "https://www.coursera.org/learn/wharton-communication-skills" },
+    { text: "Google Guide to Engineering Mgmt", url: "https://rework.withgoogle.com/intl/en/" },
+    { text: "Ethics of AI (University of Helsinki)", url: "https://ethics-of-ai.mooc.fi/" }
   ]
 ];
 

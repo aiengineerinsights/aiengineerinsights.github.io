@@ -7,13 +7,35 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 
 const BlogsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 57,
+      title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
+      excerpt: "Anthropic now runs your Claude agent for you: the loop, the sandbox, and the state. The four building blocks, a quickstart, exact pricing, how it compares with the Agent SDK and AWS and Google's platforms, and when to use it.",
+      readTime: "10 min read",
+      date: "Oct 20, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-violet-600 to-fuchsia-700",
+      link: "/blog/claude-managed-agents"
+    },
+    {
+      id: 56,
+      title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+      excerpt: "A skill teaches Claude a task once, then loads itself when the task comes up. The SKILL.md format, where skills live, skills vs subagents vs MCP vs hooks, skill-creator, the best skills, and marketplace safety.",
+      readTime: "11 min read",
+      date: "Oct 20, 2026",
+      category: "AI Tools",
+      icon: Wrench,
+      gradient: "from-amber-600 to-orange-700",
+      link: "/blog/claude-code-skills"
+    },
     {
       id: 54,
       title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness\u00b2 Optimizes One)",

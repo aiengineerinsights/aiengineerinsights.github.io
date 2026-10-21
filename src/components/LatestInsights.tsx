@@ -2,12 +2,33 @@
 import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "@/components/SiteLink";
 
 // Single source of truth for the post feed, newest FIRST. The homepage grid,
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
+      excerpt: "Anthropic now runs your Claude agent for you: the loop, the sandbox, and the state. The four building blocks, a quickstart, exact pricing, how it compares with the Agent SDK and AWS and Google's platforms, and when to use it.",
+      readTime: "10 min read",
+      date: "Oct 20, 2026",
+      category: "AI Agents",
+      icon: Bot,
+      gradient: "from-violet-600 to-fuchsia-700",
+      link: "/blog/claude-managed-agents"
+    },
+    {
+      title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+      excerpt: "A skill teaches Claude a task once, then loads itself when the task comes up. The SKILL.md format, where skills live, skills vs subagents vs MCP vs hooks, skill-creator, the best skills, and marketplace safety.",
+      readTime: "11 min read",
+      date: "Oct 20, 2026",
+      category: "AI Tools",
+      icon: Wrench,
+      gradient: "from-amber-600 to-orange-700",
+      link: "/blog/claude-code-skills"
+    },
     {
       title: "What Is an Agent Harness? Harness Engineering Explained (and How Google's Harness\u00b2 Optimizes One)",
       excerpt: "An agent harness is everything around the model that lets it act: prompts, tools, guardrails, memory, skills. The eight parts, harness vs runtime vs framework, what harness engineering means, and what Google's Harness\u00b2 automates.",
