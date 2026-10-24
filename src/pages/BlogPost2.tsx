@@ -168,7 +168,8 @@ const BlogPost2 = () => {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                Getting an LLM to work in a demo is easy. Making it fast, affordable, safe, and consistently correct
+                The biggest LLM deployment challenges in production are cost, latency, hallucinations, and prompt injection.
+                Getting an LLM to work in a demo is easy; making it fast, affordable, safe, and consistently correct
                 under real traffic is the hard part. Here are the challenges that actually bite in production, when each
                 one hits, and how to handle it — with concrete examples.
               </p>

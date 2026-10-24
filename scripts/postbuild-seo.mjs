@@ -63,7 +63,7 @@ const pages = [
     path: '/ai-engineering-roadmap',
     dateModified: '2026-10-10',
     title: 'AI Engineering Roadmap 2026: How to Become an AI Engineer (Free PDF)',
-    seoTitle: 'AI Engineer Roadmap 2026: How to Become One (Free PDF)',
+    seoTitle: 'AI Engineer Roadmap 2026: AI Engineering Roadmap + PDF',
     description:
       'How to become an AI engineer in 2026 — a step-by-step roadmap from Python and math to ML, MLOps, and LLMs/agents. Six phases, curated resources, and a free PDF.',
   },
@@ -297,7 +297,7 @@ const posts = [
   {
     path: '/blog/how-to-use-jev',
     title: 'How to Use Jev: A Practical Guide + Use Cases for AI Engineers (2026)',
-    seoTitle: 'How to Use Jev: Practical Guide + Use Cases',
+    seoTitle: 'How to Use Jev: Step-by-Step Guide + Use Cases',
     description:
       'How to use Jev: get access, the three typed outputs, LangChain/Pydantic/Cloudflare integrations, real use cases, a routing + guardrail pattern, and the caveat.',
     date: '2026-09-23',
@@ -679,7 +679,7 @@ const posts = [
     path: '/blog/hermes-agent-vs-openclaw',
     dateModified: '2026-10-10',
     title: 'Hermes Agent vs OpenClaw: Which Open-Source AI Agent Should You Run?',
-    seoTitle: 'Hermes vs OpenClaw (2026): Which AI Agent to Run?',
+    seoTitle: 'Hermes Agent vs OpenClaw (2026): Which One to Run?',
     description:
       'Hermes Agent vs OpenClaw, with real Reddit and forum reviews: architecture, skills, memory, security, cost, and a clear pick-by-need verdict.',
     date: '2026-08-10',
@@ -813,7 +813,7 @@ const posts = [
   {
     path: '/blog/hermes-agent-nous-research-guide',
     title: 'Hermes Agent by Nous Research: The Self-Improving Open-Source AI Agent, Explained',
-    seoTitle: 'Hermes Agent (Nous Research): Official Docs, Install, Free?',
+    seoTitle: 'Hermes Agent Docs: Official Documentation + Install Guide',
     description:
       'What Hermes Agent by Nous Research is, where its docs and GitHub live, whether it\'s free, and how to install the self-improving agent on Mac, Windows, Linux.',
     date: '2026-09-23',
@@ -882,7 +882,7 @@ const posts = [
   {
     path: '/blog/llm-deployment-challenges',
     title: '12 LLM Deployment Challenges — And How to Handle Each One in Production',
-    seoTitle: '12 LLM Deployment Challenges & How to Handle Them (2026)',
+    seoTitle: 'LLM Deployment Challenges: 12 Problems + Fixes (2026)',
     description:
       'The LLM deployment challenges that actually bite in production — cost, latency, hallucinations, prompt injection — each with when it hits and how to handle it.',
     date: '2026-07-25',

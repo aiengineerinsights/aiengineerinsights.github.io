@@ -71,7 +71,7 @@ const HermesOpenClawPost = () => {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                Both are MIT-licensed, self-hosted AI agents that hold memory and act on your behalf. The short answer:
+                Hermes Agent vs OpenClaw: both are MIT-licensed, self-hosted AI agents that hold memory and act on your behalf. The short answer:
                 <strong> OpenClaw is a gateway/control plane built for breadth</strong> — 20+ messaging channels and a
                 marketplace of ready-made skills — while <strong>Hermes Agent is an agent runtime built to learn</strong>,
                 writing its own skills as it works and shipping stronger security defaults. Pick on that axis, not on hype —

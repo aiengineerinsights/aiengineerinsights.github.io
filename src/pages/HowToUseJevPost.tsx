@@ -103,8 +103,8 @@ const HowToUseJevPost = () => {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                <strong>Jev returns a typed, calibrated decision — a label or score plus a confidence — that your
-                code acts on directly.</strong> No text to parse, no "answer only yes or no" prompt. That makes it
+                <strong>How to use Jev: get access, define the decision (labels or a score), call it, and branch your
+                code on the typed result and its confidence.</strong> Jev returns a calibrated decision your code acts on directly. No text to parse, no "answer only yes or no" prompt. That makes it
                 a good fit for the decision points inside an agent loop: which model to route to, whether a tool
                 call is safe to run, what label a message gets. This is the practical guide: how to get access,
                 what the output types are, the integrations (LangChain, Pydantic, Cloudflare), the real use cases,

@@ -59,8 +59,10 @@ const HermesAgentPost = () => {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                What is Hermes AI, how do you download the desktop app on Mac, Windows, or Linux, and what makes its
-                architecture worth studying? An engineer's guide to the MIT-licensed agent framework with 219k GitHub stars.
+                Hermes Agent's official documentation lives at{" "}
+                <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent.nousresearch.com/docs</a>.
+                This guide sums up those docs in one place: what Hermes AI is, how to install it and download the desktop app on
+                Mac, Windows, or Linux, and what makes the architecture of this MIT-licensed, 219k-star agent worth studying.
               </p>
 
               {/* Author Info */}

@@ -188,13 +188,13 @@ const RoadmapPage = () => {
         <div className="max-w-4xl mx-auto">
           <header className="mb-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              AI Engineer Roadmap 2026: The Complete AI Roadmap, Step by Step (Free PDF)
+              AI Engineer Roadmap 2026: The Complete AI Engineering Roadmap, Step by Step (Free PDF)
             </h1>
             <p className="text-sm text-muted-foreground mb-4">
               Updated <time dateTime="2026-10-10">Oct 10, 2026</time>
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              A complete, practical roadmap to become an AI engineer — from Python and math fundamentals through
+              This AI engineer roadmap (also called the AI engineering roadmap) takes you from Python and math fundamentals through
               machine learning, MLOps, data engineering, and specializing in LLMs and agents. Six phases, curated
               resources, and a free downloadable PDF. Built by practitioners, not theorists.
             </p>
