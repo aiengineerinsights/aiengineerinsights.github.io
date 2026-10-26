@@ -93,6 +93,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/ai-agent-sandboxing',
+    title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
+    seoTitle: "AI Agent Sandboxing: gVisor vs microVMs (2026)",
+    description:
+      "How AI agent sandboxing works: process sandboxes vs containers vs gVisor vs Firecracker microVMs, how Docker Sandboxes/E2B/Modal/K8s Agent Sandbox differ, and why sandboxing alone isn't enough.",
+    date: '2026-10-23',
+    author: 'poorna',
+    image: '/og-ai-agent-sandboxing.png',
+    faqs: [
+      { q: "What is AI agent sandboxing?", a: "AI agent sandboxing is running the code, shell commands, or file/network actions an AI agent generates inside an isolated, disposable environment instead of directly on a host with real credentials and data. The isolation can be a process-level filter (bubblewrap, seccomp), a container, a user-space kernel like gVisor, or a hardware-isolated microVM like Firecracker — each trades compatibility and performance for how hard the boundary is to break out of." },
+      { q: "Why do AI agents need sandboxing at all?", a: "Because agents execute model-generated actions, not just model-generated text: coding agents run shell commands, data agents run Python/SQL, computer-use agents click and type. A hijacked or simply buggy tool call on an unsandboxed host can read SSH keys, exfiltrate secrets, or modify files outside the task's scope. Microsoft's own disclosure of two CVEs in Semantic Kernel showed a prompt-injection-controlled agent could chain into full host-level remote code execution when nothing contained it." },
+      { q: "What's the difference between a container and gVisor for sandboxing agents?", a: "A plain container (runc) isolates with Linux namespaces and cgroups, but every syscall the containerized process makes still reaches the single, shared host kernel directly — a kernel bug is a potential escape route. gVisor interposes a user-space kernel called the Sentry that re-implements the Linux syscall ABI itself; the application's syscalls are trapped and serviced by the Sentry, and only a small, seccomp-filtered set (gVisor's own docs put it at roughly 60–70 distinct calls) ever reaches the host kernel, regardless of what the application does." },
+      { q: "Is a microVM like Firecracker safer than gVisor for agent sandboxing?", a: "They isolate differently rather than one being strictly safer. Firecracker boots a real, separate guest kernel per microVM under hardware KVM virtualization, so compatibility is that of an ordinary Linux box and there's no per-syscall interception tax — the trade-off is a per-guest memory cost and a boot step (mitigated with snapshot-restore). gVisor's user-space kernel reaches near-container weight and needs no hardware virtualization support, but it doesn't reimplement 100% of the Linux syscall surface, so syscall-heavy or exotic workloads can hit compatibility gaps. For arbitrary, unpredictable agent-generated code, the hardware boundary and fuller compatibility of a microVM is generally the safer default; gVisor is the better fit when you need container-like density and speed for more predictable workloads." },
+      { q: "Does sandboxing alone make an AI agent safe?", a: "No. Microsoft's Semantic Kernel disclosure demonstrated a sandbox escape through an unvalidated file-path parameter that let an attacker write a payload straight to the host's Startup folder from inside an 'isolated' sandbox. Sandboxing reduces blast radius; it doesn't replace least-privilege tool scoping, short-lived scoped credentials, network egress controls, and human approval gates for high-risk actions — the same controls covered in prompt-injection defense for coding agents." },
+      { q: "What should I actually use to sandbox my agent's tool calls?", a: "Match the tool to the workload: E2B or Docker Sandboxes (both Firecracker-class microVMs) for per-task code-interpreter execution where you want hardware isolation and fast snapshot-restore boot; Modal when you need gVisor-backed sandboxes with GPU passthrough for heavier compute; Kubernetes Agent Sandbox (the kubernetes-sigs/agent-sandbox CRDs, pluggable to gVisor or Kata) when you're already running agent workloads on Kubernetes and want a standard, declarative primitive instead of hand-rolled pods. None of these substitute for scoping the credentials and network access the sandbox is given in the first place." },
+    ],
+  },
+  {
     path: '/blog/claude-managed-agents',
     title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
     seoTitle: "Claude Managed Agents: What It Is, Pricing & Setup (2026)",

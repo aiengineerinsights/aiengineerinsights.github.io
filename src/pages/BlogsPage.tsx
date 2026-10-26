@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 58,
+      title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
+      excerpt: "AI agent sandboxing isolates an agent's shell/code/file/network actions from the host. The four isolation boundaries (process sandbox, container, gVisor, microVM), Docker Sandboxes vs E2B vs Modal vs Kubernetes Agent Sandbox compared, and why sandboxing alone isn't enough.",
+      readTime: "10 min read",
+      date: "Oct 23, 2026",
+      category: "Agentic Security",
+      icon: ShieldCheck,
+      gradient: "from-slate-600 to-cyan-800",
+      link: "/blog/ai-agent-sandboxing"
+    },
+    {
       id: 57,
       title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
       excerpt: "Anthropic now runs your Claude agent for you: the loop, the sandbox, and the state. The four building blocks, a quickstart, exact pricing, how it compares with the Agent SDK and AWS and Google's platforms, and when to use it.",

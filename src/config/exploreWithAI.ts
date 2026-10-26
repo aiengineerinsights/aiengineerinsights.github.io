@@ -149,6 +149,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Is this third-party skill or plugin safe to install?", askFor: "the skill or plugin repo and what it says it does" },
     ],
   },
+  "/blog/ai-agent-sandboxing": {
+    topic: "AI agent sandboxing",
+    questions: [
+      { q: "Which sandbox should I use for my agent's tool calls?", askFor: "what my agent runs (shell, code, browser), my stack (local, cloud, Kubernetes), and how often it spins up a sandbox" },
+      { q: "gVisor vs Firecracker: which fits my workload?", askFor: "whether my agent's code is predictable or arbitrary, and whether I have hardware virtualization available" },
+      { q: "How do I lock down a Docker container for an untrusted agent?", askFor: "what the agent needs to do and whether it needs network access" },
+      { q: "Does my current setup actually sandbox the agent or just the tool call?", askFor: "a description of how my agent currently runs" },
+    ],
+  },
   "/blog/claude-managed-agents": {
     topic: "Claude Managed Agents",
     questions: [

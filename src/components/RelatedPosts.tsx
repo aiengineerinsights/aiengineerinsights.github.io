@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-agent-sandboxing",
+    title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
+    tag: "Agentic Security",
+  },
+  {
     slug: "/blog/claude-managed-agents",
     title: "Claude Managed Agents Explained: What It Is, How It Works, Pricing, and When to Use It (2026)",
     tag: "AI Agents",
