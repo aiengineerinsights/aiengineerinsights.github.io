@@ -834,10 +834,11 @@ const posts = [
     seoTitle: 'Hermes Agent Docs: Official Documentation + Install Guide',
     description:
       'What Hermes Agent by Nous Research is, where its docs and GitHub live, whether it\'s free, and how to install the self-improving agent on Mac, Windows, Linux.',
-    date: '2026-09-23',
+    date: '2026-10-27',
     author: 'poorna',
     image: '/og-hermes-agent.png',
     faqs: [
+      { q: 'What is new in Hermes Agent v0.22?', a: 'Hermes Agent v0.22.0, "The Threshold Release" (October 13, 2026), adds app connectors (Linear, Notion) through the Nous tool gateway, one-click local models via a bundled llama.cpp runtime, a free-trial-model guided first-run setup chat, and stable SemVer release channels. Managed installs now require Python 3.14, and the Windows desktop app is MSIX-only.' },
       { q: 'What is Hermes AI?', a: '"Hermes AI" usually refers to Hermes Agent, Nous Research\'s open-source autonomous AI agent framework — though it can also mean the separate Hermes family of fine-tuned LLMs from the same lab. The agent is the framework that plans, calls tools, and executes tasks; the LLMs are models that can power it.' },
       { q: 'Is Hermes Agent free?', a: 'Yes — the Hermes Agent framework is MIT-licensed and free to download, self-host, and modify from github.com/NousResearch/hermes-agent. You pay only for the model inference you use, either via your own API keys (OpenAI, Anthropic, OpenRouter) or a Nous Portal subscription tier.' },
       { q: 'Does Hermes Agent run on Windows?', a: 'Yes. Windows 10/11 gets a native EXE installer for the desktop app, or a one-line PowerShell install (iex (irm https://hermes-agent.nousresearch.com/install.ps1)) for the CLI. WSL2 is also supported via the Linux install script.' },

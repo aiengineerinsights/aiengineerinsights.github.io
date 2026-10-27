@@ -84,7 +84,7 @@ const HermesAgentPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Sep 23, 2026
+                      Oct 27, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -137,11 +137,48 @@ const HermesAgentPost = () => {
                   <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>• <strong>License:</strong> MIT — audit it, self-host it, fork it</li>
                     <li>• <strong>GitHub:</strong> ~219k stars, ~41k forks, 81% Python / 16% TypeScript</li>
-                    <li>• <strong>Current version:</strong> v0.19.0 (desktop app shipped June 2, 2026 as public preview)</li>
+                    <li>• <strong>Current version:</strong> v0.22.0, "The Threshold Release" (October 13, 2026) — adds connectors, one-click local models, and stable release channels</li>
                     <li>• <strong>Model-agnostic:</strong> OpenAI, Anthropic, OpenRouter, or 300+ models via Nous Portal</li>
                     <li>• <strong>Persistent memory:</strong> projects, solution paths, and full-text session search (FTS5)</li>
                   </ul>
                 </div>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="whats-new-v022" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">2. What's New in Hermes Agent v0.22, "The Threshold Release"</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Nous Research tagged <strong>v0.22.0</strong> on October 13, 2026 — the first curated release since
+                  v0.21.0, rolling up the patch tags in between. The headline change: a fresh desktop install now opens
+                  a guided setup chat running on a free trial model (<code>nous/welcome</code>), so a newcomer can talk
+                  to Hermes before they own an API key. Three other additions matter for anyone evaluating it today:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>
+                    • <strong>Connectors.</strong> The agent can act inside hosted apps like Linear and Notion through
+                    the Nous tool gateway — sign in once in your browser and the tools are usable in the same turn, no
+                    Nous account required to start.
+                  </li>
+                  <li>
+                    • <strong>One-click local models.</strong> Hermes now installs and tunes a <code>llama.cpp</code> runtime
+                    for your hardware (CPU, CUDA, Metal, Vulkan, ROCm) and picks a model that fits your GPU and RAM — no
+                    API key, no cloud cost.
+                  </li>
+                  <li>
+                    • <strong>Stable SemVer channels.</strong> Installs now follow tested, tagged releases by default
+                    instead of every commit on <code>main</code>; switch back with <code>hermes update --set-channel main</code>.
+                  </li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Two upgrade-breaking changes worth knowing before you update: managed installs now require{" "}
+                  <strong>Python 3.14</strong>, and the <strong>Windows desktop app is MSIX-only</strong> (Windows 11
+                  22H2+) — the old NSIS/EXE installer is gone. The <code>pip install hermes-agent</code> package has not
+                  been republished since v0.19.0, so <code>pip install -U hermes-agent</code> will not pull v0.22; use the
+                  installer script or Docker (<code>nousresearch/hermes-agent:stable</code>) to get the current release.
+                  Sources:{" "}
+                  <a href="https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent v0.22.0 release notes (GitHub)</a>{" "}
+                  and{" "}
+                  <a href="https://agentos.guide/hermes-agent-v0-22" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Agent OS's v0.22 walkthrough</a>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -168,7 +205,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="hermes-agent-vs-hermes-llm" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">2. Hermes Agent vs. Hermes LLM vs. OpenHermes — Which Is Which?</h2>
+                <h2 id="hermes-agent-vs-hermes-llm" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">3. Hermes Agent vs. Hermes LLM vs. OpenHermes — Which Is Which?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The name "Hermes" is overloaded, and search results mix three different things (four, if you count the
                   French fashion house Hermès — that one does not ship a CLI):
@@ -195,7 +232,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="architecture-deep-dive" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">3. Architecture: What's Actually in the Repo</h2>
+                <h2 id="architecture-deep-dive" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">4. Architecture: What's Actually in the Repo</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent GitHub repository</a> is
                   organized the way you would design an agent platform from first principles:
@@ -246,7 +283,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="self-improving-loop" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">4. The Self-Improving Loop: Skills as Procedural Memory</h2>
+                <h2 id="self-improving-loop" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. The Self-Improving Loop: Skills as Procedural Memory</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Most agent frameworks treat every task as a cold start. Hermes's built-in learning loop is different:
                   when the agent solves a problem, it can <strong>distill the solution path into a named, reusable skill</strong>.
@@ -270,7 +307,7 @@ const HermesAgentPost = () => {
               />
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="download-and-install" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">5. How to Download Hermes Agent (Mac, Windows, Linux)</h2>
+                <h2 id="download-and-install" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">6. How to Download Hermes Agent (Mac, Windows, Linux)</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The official download source is <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent.nousresearch.com</a> —
                   no account gate, no waitlist. The <strong>Hermes Desktop app</strong> (public preview since June 2026) gives
@@ -311,7 +348,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="models-and-pricing" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">6. Models, Nous Portal, and Pricing</h2>
+                <h2 id="models-and-pricing" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">7. Models, Nous Portal, and Pricing</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The framework itself is free and open source. Bring your own API keys (OpenAI, Anthropic, OpenRouter, or
                   any compatible endpoint), or use <strong>Nous Portal</strong> — Nous Research's hosted gateway to 300+
@@ -323,7 +360,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="engineers-take" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">7. An Engineer's Take: Why This One Matters</h2>
+                <h2 id="engineers-take" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">8. An Engineer's Take: Why This One Matters</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Plenty of agent frameworks demo well. Three things make Hermes worth your reading time as an engineer:
                 </p>
@@ -348,7 +385,7 @@ const HermesAgentPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="explore-the-cluster" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">8. The Full Hermes Agent Guide: Every Spoke in One Place</h2>
+                <h2 id="explore-the-cluster" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. The Full Hermes Agent Guide: Every Spoke in One Place</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   This page is the hub. Each of the guides below goes deep on one part of Hermes Agent — start here, then
                   branch out to whichever one matches what you're trying to do:
@@ -369,7 +406,7 @@ const HermesAgentPost = () => {
 
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Frequently Asked Questions</h2>
+                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Frequently Asked Questions</h2>
 
                 <h3 id="faq-what-is-hermes-ai" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is Hermes AI?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -400,15 +437,16 @@ const HermesAgentPost = () => {
 
                 <h3 id="faq-hermes-pip-docker" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Can I install Hermes Agent with pip or Docker instead of the one-line script?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Yes. Beyond the curl/PowerShell one-liners in the table above, Hermes Agent also ships as a <strong>pip package</strong> and a{" "}
-                  <strong>Docker image</strong> for teams that prefer a pinned, scriptable install — useful in CI, a devcontainer, or any environment where
-                  piping a shell script isn't an option. The full command-by-command walkthrough for pip, Docker, and every OS is in our{" "}
+                  Docker, yes — the <strong>Docker image</strong> (<code>nousresearch/hermes-agent:stable</code>) is a pinned, scriptable
+                  install good for CI or a devcontainer. <strong>pip is stale</strong>: the PyPI package was last published at v0.19.0, so{" "}
+                  <code>pip install -U hermes-agent</code> will not bring you to v0.22 or later — use the installer script or Docker instead
+                  for the current release. The full command-by-command walkthrough for every OS is in our{" "}
                   <Link to="/blog/how-to-install-hermes-agent" className="text-primary hover:underline">Hermes Agent install guide</Link>.
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="resources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Resources</h2>
+                <h2 id="resources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">11. Resources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official website & downloads</a></li>
                   <li>• <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent documentation</a></li>
