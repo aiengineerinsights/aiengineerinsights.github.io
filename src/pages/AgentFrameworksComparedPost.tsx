@@ -350,6 +350,9 @@ const AgentFrameworksComparedPost = () => {
                   prototype in CrewAI to validate that the task decomposes well, then rebuild the production
                   version in LangGraph once the shape of the workflow is known.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you want a turnkey personal agent rather than a framework to build with, start with our <Link to="/blog/hermes-agent-alternatives" className="text-primary hover:underline">Hermes Agent alternatives</Link> roundup instead.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

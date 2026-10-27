@@ -263,6 +263,9 @@ const AgentHarnessPost = () => {
                   they are what you use to build your own harness, compared in our{" "}
                   <Link to="/blog/open-source-ai-agent-frameworks" className="text-primary hover:underline">open-source agent frameworks guide</Link>.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Two concrete examples of harness pieces you can study today: <Link to="/blog/claude-code-skills" className="text-primary hover:underline">Claude Code skills</Link>, which load instructions into context only when needed, and <Link to="/blog/claude-managed-agents" className="text-primary hover:underline">Claude Managed Agents</Link>, where Anthropic hosts the whole harness and sandbox for you.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

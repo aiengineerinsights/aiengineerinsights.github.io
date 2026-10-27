@@ -276,6 +276,9 @@ ollama run qwen2.5-coder:7b --num-ctx 8192 --temperature 0.3 --repeat-penalty 1.
 ollama run llama3.2-vision:11b --keep-alive 15m --num-ctx 4096`}
                   </pre>
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Once local models are running, you can put them to work: <Link to="/blog/hermes-agent-models" className="text-primary hover:underline">Hermes Agent</Link> and <Link to="/blog/agent-zero-vs-hermes-agent" className="text-primary hover:underline">Agent Zero</Link> both accept Ollama models, and the same machine can serve <Link to="/blog/embedding-model-for-rag" className="text-primary hover:underline">embeddings for a local RAG setup</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

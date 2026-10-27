@@ -344,6 +344,17 @@ const RoadmapPage = () => {
               </Link>{" "}
               engineers are building on today.
             </p>
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              When you reach the job search, see{" "}
+              <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">
+                AI engineer interview questions
+              </Link>{" "}
+              for what gets asked at each level, and{" "}
+              <Link to="/blog/ai-engineer-salary" className="text-primary hover:underline">
+                AI engineer salary
+              </Link>{" "}
+              for what the role pays.
+            </p>
           </section>
 
           <ExploreWithAI path="/ai-engineering-roadmap" variant="questions" />

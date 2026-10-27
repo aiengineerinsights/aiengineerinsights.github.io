@@ -236,7 +236,10 @@ const BlogPost1 = () => {
                       <span className="text-muted-foreground">{p.example}</span>
                     </p>
                   </div>
-                </section>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Before any of this, the data has to arrive clean: see <Link to="/blog/building-robust-ai-data-pipelines" className="text-primary hover:underline">building robust AI data pipelines</Link>. Once models are live, the problems shift to <Link to="/blog/llm-deployment-challenges" className="text-primary hover:underline">LLM deployment challenges</Link> and <Link to="/blog/rag-evaluation-metrics" className="text-primary hover:underline">measuring retrieval quality</Link>.
+                </p>
+              </section>
               ))}
 
               <section className="mb-6 sm:mb-8">

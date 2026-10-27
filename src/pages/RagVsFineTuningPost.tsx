@@ -219,6 +219,9 @@ const RagVsFineTuningPost = () => {
                     <li>• <strong>You don't have labeled examples.</strong> RAG needs documents, which most teams already have; fine-tuning needs curated input/output pairs, which most teams don't.</li>
                   </ul>
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you go with RAG, most retrieval quality comes from two early choices: the <Link to="/blog/embedding-model-for-rag" className="text-primary hover:underline">embedding model</Link> and the <Link to="/blog/rag-chunking-strategies" className="text-primary hover:underline">chunking strategy</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

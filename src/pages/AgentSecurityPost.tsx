@@ -227,6 +227,9 @@ const AgentSecurityPost = () => {
                   less than 50% mitigation against adaptive attackers. The architectural fix isn't a smarter filter; it's
                   removing the agent's ability to reach sensitive capabilities at all unless explicitly scoped.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The same risk shows up in AI-generated security reports; see how <Link to="/blog/github-bug-bounty-ai-slop" className="text-primary hover:underline">AI slop is hitting GitHub bug bounties</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

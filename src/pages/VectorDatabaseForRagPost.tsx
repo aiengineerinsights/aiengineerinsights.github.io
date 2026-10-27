@@ -310,6 +310,9 @@ const VectorDatabaseForRagPost = () => {
                   A reasonable rule: prototype on something you can run locally, and make the self-host vs
                   managed call when you know your actual query volume, filter patterns, and who will be on-call.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  What you store is decided upstream of the database: see <Link to="/blog/embedding-model-for-rag" className="text-primary hover:underline">how to choose an embedding model for RAG</Link> and <Link to="/blog/rag-chunking-strategies" className="text-primary hover:underline">RAG chunking strategies</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

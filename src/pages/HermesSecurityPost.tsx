@@ -238,6 +238,9 @@ const HermesSecurityPost = () => {
                   <li>• <strong>Review agent-authored skills.</strong> Enable <code>write_approval</code> so skill writes are staged for you.</li>
                   <li>• <strong>Don't expose local dashboards or gateways to the network without auth.</strong> An open port is an open door into your agent.</li>
                 </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Weighing Hermes's defaults against other agents' security models? Our <Link to="/blog/hermes-agent-alternatives" className="text-primary hover:underline">Hermes Agent alternatives</Link> roundup and the <Link to="/blog/ai-agent-sandboxing" className="text-primary hover:underline">AI agent sandboxing guide</Link> compare how each one contains what the agent runs.
+                </p>
               </section>
               <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
                 Weighing Hermes against its closest peer on exactly these defaults? Our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison covers how the two differ on command approval, isolation, and how much hardening each needs.

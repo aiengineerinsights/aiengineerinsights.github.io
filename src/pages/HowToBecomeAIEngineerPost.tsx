@@ -247,6 +247,9 @@ const HowToBecomeAIEngineerPost = () => {
                   standard coding rounds, and let your portfolio carry the interview.
                 </p>
                 <TopmateCTA />
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  When you start interviewing, practise with our <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">AI engineer interview questions</Link>. If you want a credential on the way, our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">Anthropic certifications guide</Link> covers the Claude exams and free courses.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

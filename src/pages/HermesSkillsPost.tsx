@@ -245,6 +245,9 @@ const HermesSkillsPost = () => {
                   That means a procedure your agent learned can be handed to a teammate&apos;s agent — the accumulated
                   know-how is not locked inside one install.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Hermes skills follow the same <code>SKILL.md</code> idea as Anthropic's tooling; see <Link to="/blog/claude-code-skills" className="text-primary hover:underline">Claude Code skills</Link> for how the format works there. If a skill misbehaves after an update, the <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Hermes troubleshooting guide</Link> is the place to start.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

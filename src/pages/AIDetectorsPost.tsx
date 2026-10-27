@@ -268,6 +268,9 @@ const AIDetectorsPost = () => {
                     Track provenance at the source (what your pipeline generated), disclose AI use where required, and treat detector
                     output as advisory only.</li>
                 </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you are building the other side, keeping model output safe rather than detecting it, see our guide to <Link to="/blog/ai-guardrails" className="text-primary hover:underline">AI guardrails</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

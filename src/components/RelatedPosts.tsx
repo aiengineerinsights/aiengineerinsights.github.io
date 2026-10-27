@@ -288,15 +288,41 @@ const ALL_POSTS = [
   },
 ];
 
+// Hand-picked related posts for cluster pages, so hubs and spokes link to each
+// other deliberately (e.g. the Hermes and RAG clusters, career pages).
+const CURATED: Record<string, string[]> = {
+  "/blog/hermes-agent-nous-research-guide": ["/blog/hermes-agent-alternatives", "/blog/how-to-install-hermes-agent", "/blog/hermes-agent-troubleshooting"],
+  "/blog/how-to-install-hermes-agent": ["/blog/hermes-agent-troubleshooting", "/blog/hermes-agent-models", "/blog/hermes-agent-alternatives"],
+  "/blog/hermes-agent-troubleshooting": ["/blog/how-to-install-hermes-agent", "/blog/hermes-agent-desktop-web-ui", "/blog/hermes-agent-alternatives"],
+  "/blog/hermes-agent-desktop-web-ui": ["/blog/hermes-agent-troubleshooting", "/blog/hermes-agent-alternatives", "/blog/agent-zero-vs-hermes-agent"],
+  "/blog/hermes-agent-vs-openclaw": ["/blog/agent-zero-vs-hermes-agent", "/blog/hermes-agent-alternatives", "/blog/hermes-agent-nous-research-guide"],
+  "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],
+  "/blog/best-ai-coding-agents": ["/blog/claude-code-skills", "/blog/hermes-claude-code-orchestration", "/blog/what-is-an-agent-harness"],
+  "/blog/claude-managed-agents": ["/blog/agent-runtimes-explained", "/blog/what-is-an-agent-harness", "/blog/claude-code-skills"],
+  "/blog/claude-code-skills": ["/blog/best-ai-coding-agents", "/blog/hermes-agent-skills", "/blog/anthropic-certifications"],
+  "/blog/ai-engineer-salary": ["/blog/ai-engineer-interview-questions", "/blog/how-to-become-an-ai-engineer", "/blog/ai-engineer-skills"],
+  "/blog/how-to-become-an-ai-engineer": ["/blog/ai-engineer-interview-questions", "/blog/ai-engineer-skills", "/blog/anthropic-certifications"],
+  "/blog/embedding-model-for-rag": ["/blog/rag-chunking-strategies", "/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics"],
+  "/blog/rag-chunking-strategies": ["/blog/embedding-model-for-rag", "/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics"],
+  "/blog/vector-database-for-rag": ["/blog/embedding-model-for-rag", "/blog/rag-chunking-strategies", "/blog/rag-vs-fine-tuning"],
+  "/blog/rag-evaluation-metrics": ["/blog/rag-chunking-strategies", "/blog/embedding-model-for-rag", "/blog/rag-vs-fine-tuning"],
+  "/blog/rag-vs-fine-tuning": ["/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics", "/blog/embedding-model-for-rag"],
+};
+
 const RelatedPosts = ({ current }: { current: string }) => {
   const currentPost = ALL_POSTS.find((p) => p.slug === current);
-  const others = ALL_POSTS.filter((p) => p.slug !== current);
-  // Same-tag posts first, then the rest, capped at three
-  const currentTag = currentPost?.tag;
-  const related = [
-    ...others.filter((p) => p.tag === currentTag),
-    ...others.filter((p) => p.tag !== currentTag),
-  ].slice(0, 3);
+  const curated = (CURATED[current] ?? [])
+    .map((slug) => ALL_POSTS.find((p) => p.slug === slug))
+    .filter((p): p is (typeof ALL_POSTS)[number] => Boolean(p));
+  // Otherwise take the posts that follow this one within its tag (wrapping
+  // around), so every post gets linked from its neighbours instead of the
+  // newest posts collecting all the links. Fill from other tags if needed.
+  const sameTag = ALL_POSTS.filter((p) => p.tag === currentPost?.tag);
+  const at = sameTag.findIndex((p) => p.slug === current);
+  const neighbours = at < 0 ? sameTag : [...sameTag.slice(at + 1), ...sameTag.slice(0, at)];
+  const related = [...curated, ...neighbours, ...ALL_POSTS]
+    .filter((p, i, arr) => p.slug !== current && arr.findIndex((q) => q.slug === p.slug) === i)
+    .slice(0, 3);
 
   // Canonical URL for this post (trailing slash, matching how it's served).
   const shareUrl = `${SITE}${current}/`;

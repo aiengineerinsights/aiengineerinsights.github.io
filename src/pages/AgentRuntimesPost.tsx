@@ -230,6 +230,9 @@ const AgentRuntimesPost = () => {
                   frameworks match Temporal or Restate's durability guarantees out of the box — that's the trade-off
                   the next section covers.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you would rather not run the runtime yourself, Anthropic now hosts one: see <Link to="/blog/claude-managed-agents" className="text-primary hover:underline">Claude Managed Agents</Link> for what it handles and what it costs.
+                </p>
               </section>
 
               <NewsletterSignup

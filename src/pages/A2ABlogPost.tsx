@@ -230,6 +230,9 @@ class FileContent(BaseModel):
                       <li><strong>Skills and Modalities:</strong> Each agent lists its <strong>skills</strong> – essentially the tasks or domains it can handle – in the card. A skill comes with a name, description, example usage, and even preferred input/output formats. Listing skills transforms the black-box agent into something discoverable and invokable by other agents.</li>
                       <li><strong>Default I/O Formats:</strong> The Agent Card can specify default input and output content types (MIME types) that the agent expects, plus overrides per skill. This is a clever way to set expectations on how to communicate. For example, an agent might generally take `text/plain` input, but for a particular skill it might also accept `application/json`.</li>
                   </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  A2A connects agents to each other; MCP connects an agent to tools and data. See <Link to="/blog/what-is-mcp" className="text-primary hover:underline">what MCP is</Link>, <Link to="/blog/mcp-vs-api" className="text-primary hover:underline">MCP vs a plain API</Link>, and <Link to="/blog/multi-agent-orchestration-patterns" className="text-primary hover:underline">multi-agent orchestration patterns</Link> for where each fits.
+                </p>
               </section>
 
               <section>

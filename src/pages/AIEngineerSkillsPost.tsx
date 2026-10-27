@@ -231,6 +231,9 @@ const AIEngineerSkillsPost = () => {
                   for how those skills price out by level.
                 </p>
                 <TopmateCTA />
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Want to see how these skills get tested? Our <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">AI engineer interview questions</Link> guide maps them to real interview rounds.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

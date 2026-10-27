@@ -404,6 +404,9 @@ claude plugin install <name>@<marketplace> --scope project   # from your shell`}
                   <code>pdf</code>) are referenced by ID and custom skills are uploaded through <code>/v1/skills</code>.
                   Custom skills don't sync between these surfaces, so keep the source in a repo.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If you want to prove you can build with Claude Code, skills included, our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">Anthropic certifications guide</Link> covers the developer and architect exams.
+                </p>
               </section>
 
               <ExploreWithAI path="/blog/claude-code-skills" variant="questions" />

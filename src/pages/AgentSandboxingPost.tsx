@@ -298,6 +298,9 @@ const AgentSandboxingPost = () => {
                   isolation and adds a <code>SandboxWarmPool</code> to eliminate the roughly one-second cold start a
                   freshly scheduled pod otherwise adds.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Hosted agent platforms bundle this choice for you: <Link to="/blog/claude-managed-agents" className="text-primary hover:underline">Claude Managed Agents</Link>, for example, runs each session in an Anthropic-managed cloud sandbox or one you host yourself.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

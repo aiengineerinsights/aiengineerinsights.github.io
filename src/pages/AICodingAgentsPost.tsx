@@ -221,6 +221,9 @@ const AICodingAgentsPost = () => {
                   local one — and keep your code and data under your control. For cost-conscious or privacy-sensitive teams,
                   this is often the smartest default, and a good way to learn what the paid tools do under the hood.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  To extend Claude Code with reusable, on-demand instructions and scripts, see our guide to <Link to="/blog/claude-code-skills" className="text-primary hover:underline">Claude Code skills</Link>, and for running it under an orchestrator, <Link to="/blog/hermes-claude-code-orchestration" className="text-primary hover:underline">Hermes + Claude Code</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

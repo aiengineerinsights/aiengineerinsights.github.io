@@ -189,6 +189,9 @@ const HermesClaudeCodePost = () => {
                   <Link to="/blog/best-ai-coding-agents" className="text-primary hover:underline">ranked guide to AI coding agents</Link>{" "}
                   covers where Claude Code fits.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Claude Code can also carry reusable procedures of its own; see <Link to="/blog/claude-code-skills" className="text-primary hover:underline">Claude Code skills</Link> for how to package them so Hermes's delegated runs pick them up.
+                </p>
               </section>
 
               <NewsletterSignup

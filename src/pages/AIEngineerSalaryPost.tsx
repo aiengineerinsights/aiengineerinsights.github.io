@@ -473,6 +473,9 @@ const AIEngineerSalaryPost = () => {
                   are ultimately paying for. New to the field entirely? See{" "}
                   <Link to="/blog/how-to-become-an-ai-engineer" className="text-primary hover:underline">how to become an AI engineer</Link>.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Higher offers come down to the interview loop; our <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">AI engineer interview questions</Link> guide covers what gets asked at each level.
+                </p>
               </section>
 
               <ExploreWithAI path="/blog/ai-engineer-salary" variant="questions" />

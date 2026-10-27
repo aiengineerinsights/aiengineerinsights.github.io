@@ -199,6 +199,9 @@ const HermesModelsPost = () => {
                     </div>
                   </div>
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Running models locally on a Mac? Our <Link to="/blog/ollama-mac-local-ai-2025" className="text-primary hover:underline">Ollama on Apple Silicon guide</Link> covers setup and which models fit in memory.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -241,6 +244,9 @@ const HermesModelsPost = () => {
                   <li>• <strong>Cost-sensitive or high-volume?</strong> Default to a cheaper model, turn on history compaction, and only reach for a premium model when a task actually needs it.</li>
                   <li>• <strong>Need control over inference?</strong> Bring your own endpoint and self-host — you pay only for your own inference.</li>
                 </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If a model change leaves Hermes erroring or stuck, our <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Hermes troubleshooting guide</Link> walks through the usual fixes. Comparing Hermes with other agents instead? See <Link to="/blog/hermes-agent-alternatives" className="text-primary hover:underline">Hermes Agent alternatives</Link>.
+                </p>
               </section>
               <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
                 Choosing the agent before the model? Our <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes vs OpenClaw</Link> comparison breaks down how the two runtimes differ on skills, memory, and security.

@@ -240,6 +240,9 @@ const HermesInstallPost = () => {
                   Deciding whether Hermes is even the right agent for you? See our{" "}
                   <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes Agent vs OpenClaw comparison</Link>.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Install worked but something else is failing? Our <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Hermes Agent troubleshooting guide</Link> covers the common errors and <code>hermes doctor --fix</code>. And if Hermes turns out not to fit, see the <Link to="/blog/hermes-agent-alternatives" className="text-primary hover:underline">best Hermes Agent alternatives</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

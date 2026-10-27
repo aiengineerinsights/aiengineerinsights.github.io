@@ -279,6 +279,9 @@ const CCATrapsPost = () => {
                   <Link to="/blog/claude-certified-architect-exam" className="text-primary hover:underline">main exam guide</Link>, and the underlying agent concepts are in{" "}
                   <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">What Makes LLMs Agentic</Link>.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Deciding which Anthropic exam to take, or where this one fits? See our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">guide to all Anthropic certifications</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

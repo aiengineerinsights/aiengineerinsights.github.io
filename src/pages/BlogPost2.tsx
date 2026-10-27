@@ -237,7 +237,10 @@ const BlogPost2 = () => {
                       <span className="text-muted-foreground">{c.example}</span>
                     </p>
                   </div>
-                </section>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Two fixes deserve their own deep dives: <Link to="/blog/llm-routing" className="text-primary hover:underline">LLM routing</Link> to cut cost and latency, and <Link to="/blog/ai-guardrails" className="text-primary hover:underline">AI guardrails</Link> against hallucinations and prompt injection.
+                </p>
+              </section>
               ))}
 
               <section className="mb-6 sm:mb-8">

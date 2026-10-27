@@ -179,6 +179,9 @@ const GDPvalBlogPostFull = () => {
                     className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
                   />
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  GDPval measures agents doing real deliverables; for what makes that possible, see <Link to="/blog/what-are-ai-agents" className="text-primary hover:underline">what AI agents are</Link> and <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">what makes an LLM agentic</Link>.
+                </p>
               </section>
 
               <section className="mb-6 lg:mb-8">

@@ -303,6 +303,9 @@ const AIAgentsExplainedPost = () => {
                   <Link to="/blog/google-a2a" className="text-primary hover:underline">A2A protocol</Link> is one attempt
                   at a standard for how those peer agents talk to each other.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  For a measured look at how close models are to doing real professional work, see our breakdown of <Link to="/blog/openai-gdpval" className="text-primary hover:underline">OpenAI's GDPval benchmark</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

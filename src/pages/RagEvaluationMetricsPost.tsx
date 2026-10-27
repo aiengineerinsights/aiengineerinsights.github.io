@@ -340,6 +340,9 @@ const RagEvaluationMetricsPost = () => {
                     <li>• <strong>Re-run 2–3 times and average</strong> on borderline cases; LLM-judge scores are reported to vary by roughly ±0.05 between runs on the same input due to judge non-determinism.</li>
                   </ul>
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  When context relevance scores are low, the usual culprits are upstream: revisit <Link to="/blog/rag-chunking-strategies" className="text-primary hover:underline">your chunking strategy</Link> and <Link to="/blog/embedding-model-for-rag" className="text-primary hover:underline">your embedding model</Link> before tuning the prompt.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
