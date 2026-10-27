@@ -131,9 +131,9 @@ const posts = [
   {
     path: '/blog/claude-code-skills',
     title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
-    seoTitle: "Claude Code Skills: Best Skills & How to Create One (2026)",
+    seoTitle: "Claude Code Skills: How to Add, Use & Create Them (2026)",
     description:
-      "What Claude Code skills are, the SKILL.md format, the best skills to install, how to build one with skill-creator, and the plugin marketplace.",
+      "How to add skills to Claude Code: put a SKILL.md folder in ~/.claude/skills or install one from a plugin marketplace. Plus the best skills and skill-creator.",
     date: '2026-10-20',
     author: 'poorna',
     image: '/og-claude-code-skills.png',
@@ -559,9 +559,9 @@ const posts = [
   {
     path: '/blog/best-ai-coding-agents',
     title: 'The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)',
-    seoTitle: 'Best AI Coding Agents 2026 (Claude Code vs Cursor)',
+    seoTitle: 'Best AI Coding Agents 2026: Claude Code, Cursor, Copilot, Devin',
     description:
-      'The best AI coding agents in 2026, ranked by fit not hype: Claude Code vs Cursor vs Copilot, plus Codex, Aider, Cline, Devin. Comparison table and how to pick.',
+      'Terminal coding agents vs AI IDEs, compared: Claude Code, Codex, Aider and Cline vs Cursor, Copilot and Devin. Comparison table and which one fits your team.',
     date: '2026-08-14',
     author: 'poorna',
     image: '/og-best-ai-coding-agents.png',
@@ -629,10 +629,11 @@ const posts = [
   {
     path: '/blog/hermes-agent-desktop-web-ui',
     title: 'Hermes Agent Desktop App & Web UI: The Visual Way to Run Your Agent',
-    seoTitle: 'Hermes Web UI at 127.0.0.1:9119 & Desktop App Guide',
+    seoTitle: 'Hermes Web Dashboard & GUI: Open http://127.0.0.1:9119',
     description:
-      'Run hermes dashboard, then open http://127.0.0.1:9119: the local web UI for sessions, keys, skills, memory and schedules. Plus the Desktop app.',
+      'Run hermes dashboard, open http://127.0.0.1:9119 on the same machine. Hermes web UI for sessions, keys and skills, fixes if it won\'t load, plus the Desktop app.',
     date: '2026-08-10',
+    dateModified: '2026-10-27',
     author: 'poorna',
     image: '/og-hermes-agent-desktop-web-ui.png',
   },

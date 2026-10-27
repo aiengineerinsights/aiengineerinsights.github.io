@@ -280,6 +280,17 @@ const HermesDesktopPost = () => {
                   stays on your computer unless you explicitly change the host binding to allow network access.
                 </p>
 
+                <h3 id="faq-9119-not-loading" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Why won't http://127.0.0.1:9119 open?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Usually one of four things. The server isn't running: start <code>hermes dashboard</code> and keep that
+                  terminal open, because closing it stops the dashboard. You're on a different device: <code>127.0.0.1</code>{" "}
+                  always means "this computer", so open it on the machine running Hermes. The address is mistyped: it's{" "}
+                  <code>http://</code> (not https), with a normal colon before the port, not a period
+                  (<code>127.0.0.1.9119</code>) or a full-width colon (<code>127.0.0.1：9119</code>). Or the install itself
+                  is broken: run <code>hermes doctor</code> and see our{" "}
+                  <Link to="/blog/hermes-agent-troubleshooting" className="text-primary hover:underline">Hermes troubleshooting guide</Link>.
+                </p>
+
                 <h3 id="faq-desktop-platforms" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What platforms does the Hermes Desktop app support?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   macOS and Windows, via an installer you download from{" "}
