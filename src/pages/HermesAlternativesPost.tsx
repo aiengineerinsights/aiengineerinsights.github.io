@@ -85,7 +85,7 @@ const HermesAlternativesPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      <span>Updated <time dateTime="2026-10-19">Oct 19, 2026</time></span>
+                      <span>Updated <time dateTime="2026-10-27">Oct 27, 2026</time></span>
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -128,7 +128,19 @@ const HermesAlternativesPost = () => {
                   <li>• <strong>Building a custom multi-agent system?</strong> <strong>LangGraph</strong>, <strong>CrewAI</strong>, or <strong>Microsoft AutoGen</strong>.</li>
                   <li>• <strong>Just want to run code locally from natural language?</strong> <strong>Open Interpreter</strong>.</li>
                   <li>• <strong>Want a general-purpose agentic framework to mold?</strong> <strong>Agent Zero</strong>.</li>
-                  <li>• <strong>Looking for a Hermes desktop alternative?</strong> Check first that you need one: Hermes already ships a native desktop app and a local web UI (see our <Link to="/blog/hermes-agent-desktop-web-ui" className="text-primary hover:underline">Hermes desktop and web UI guide</Link>). OpenClaw is driven mainly through messaging apps rather than a desktop window, Agent Zero runs in your browser, and Open Interpreter is terminal-first.</li>
+                  <li>• <strong>Looking for a Hermes desktop alternative?</strong> Check first that you need one: Hermes already ships a native desktop app and a local web UI (see our <Link to="/blog/hermes-agent-desktop-web-ui" className="text-primary hover:underline">Hermes desktop and web UI guide</Link>). If you still want a different app with a GUI, see <a href="#desktop-alternatives" className="text-primary hover:underline">Hermes desktop alternatives</a> below.</li>
+                </ul>
+
+                <h3 id="desktop-alternatives" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Hermes Desktop Alternatives (Agents With a GUI)</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If what you want is an agent you can drive from an app window instead of a terminal, these are the options
+                  with a real graphical interface:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>• <strong>Hermes Desktop (no switch needed).</strong> Hermes already has a native app for macOS and Windows plus a local web dashboard at <code>http://127.0.0.1:9119</code>. Our <Link to="/blog/hermes-agent-desktop-web-ui" className="text-primary hover:underline">Hermes desktop and web UI guide</Link> covers both.</li>
+                  <li>• <strong>OpenClaw for macOS.</strong> OpenClaw ships a menu bar app (<code>OpenClaw.app</code>) with WebChat, voice input, notifications and macOS permission prompts. On first run you point it at a Gateway on this Mac or a remote one (<a href="https://docs.openclaw.ai/platforms/macos" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenClaw macOS docs</a>).</li>
+                  <li>• <strong>Agent Zero.</strong> The A0 Launcher is a desktop installer for macOS, Windows and Linux. Agent Zero itself runs in Docker and you use it through a browser web UI, with its own Linux desktop inside the container (<a href="https://github.com/agent0ai/agent-zero" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Agent Zero on GitHub</a>).</li>
+                  <li>• <strong>Not a desktop app:</strong> Open Interpreter is terminal-first, and LangGraph, CrewAI and AutoGen are libraries you build your own interface on top of.</li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   New to Hermes itself? Start with our{" "}
@@ -212,9 +224,12 @@ const HermesAlternativesPost = () => {
                     than a full personal agent, but excellent as a hands-on local tool.
                   </li>
                   <li>
-                    <strong>#6 <a href="https://github.com/frdel/agent-zero" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Agent Zero</a> — best for a general-purpose framework you shape yourself.</strong> An open-source,
-                    general-purpose agentic framework designed to be flexible and customizable rather than opinionated out of
-                    the box.
+                    <strong>#6 <a href="https://github.com/agent0ai/agent-zero" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Agent Zero</a> — best for a general-purpose agent you shape yourself.</strong> An MIT-licensed,
+                    general-purpose agent from Agent Zero s.r.o. (Brno, Czech Republic) that runs inside its own Docker
+                    container, writes and runs its own code and tools, and is driven from a browser web UI. You install it with
+                    the A0 Launcher desktop app or straight from Docker (<code>agent0ai/agent-zero</code>). It is flexible and
+                    customizable rather than opinionated out of the box. Full head-to-head:{" "}
+                    <Link to="/blog/agent-zero-vs-hermes-agent" className="text-primary hover:underline">Agent Zero vs Hermes Agent vs OpenClaw</Link>.
                   </li>
                 </ul>
               </section>

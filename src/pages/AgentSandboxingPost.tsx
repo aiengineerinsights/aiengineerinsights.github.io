@@ -216,6 +216,13 @@ const AgentSandboxingPost = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  For a real-world example of the container boundary, look at Agent Zero: the whole agent, including a
+                  Linux desktop and browser, runs inside one Docker container, and reaching your host's files requires
+                  installing a separate connector on purpose. That is a sensible default for a personal agent, but it
+                  still shares the host kernel, which is where the stronger boundaries below come in (see{" "}
+                  <Link to="/blog/agent-zero-vs-hermes-agent" className="text-primary hover:underline">Agent Zero vs Hermes Agent vs OpenClaw</Link>).
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   <strong>gVisor's own architecture documentation</strong> explains the user-space-kernel approach
                   plainly: the Sentry re-implements enough of the Linux syscall ABI in memory-safe Go that the
                   sandboxed workload never makes a host syscall directly — it only talks to the Sentry, which then

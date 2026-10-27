@@ -149,6 +149,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Is this third-party skill or plugin safe to install?", askFor: "the skill or plugin repo and what it says it does" },
     ],
   },
+  "/blog/agent-zero-vs-hermes-agent": {
+    topic: "Agent Zero vs Hermes Agent",
+    questions: [
+      { q: "Should I run Agent Zero, Hermes Agent or OpenClaw?", askFor: "what tasks I want the agent to do, where I want to talk to it (browser, terminal, chat apps), and my hardware" },
+      { q: "How do I set up Agent Zero with a local model?", askFor: "my OS, whether Docker is installed, and my GPU or RAM" },
+      { q: "Is Agent Zero's Docker sandbox enough for my use case?", askFor: "what files, accounts and networks the agent would need to touch" },
+      { q: "Can I use Agent Zero and Hermes together?", askFor: "what I already run Hermes for and what I'd want Agent Zero to handle" },
+    ],
+  },
   "/blog/ai-agent-sandboxing": {
     topic: "AI agent sandboxing",
     questions: [

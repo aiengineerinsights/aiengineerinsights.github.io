@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/agent-zero-vs-hermes-agent",
+    title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/ai-agent-sandboxing",
     title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
     tag: "Agentic Security",

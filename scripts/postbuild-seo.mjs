@@ -93,6 +93,23 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/agent-zero-vs-hermes-agent',
+    title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
+    seoTitle: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which to Run?",
+    description:
+      "Agent Zero runs in its own Docker Linux computer; Hermes Agent learns skills on your machine; OpenClaw lives in your chat apps. Table, install and how to pick.",
+    date: '2026-10-27',
+    author: 'poorna',
+    image: '/og-agent-zero-vs-hermes-agent.png',
+    faqs: [
+      { q: "What is the difference between Agent Zero and Hermes Agent?", a: "Agent Zero gives the agent its own Linux computer inside Docker, which you watch and steer from a browser UI with a desktop, browser and document editors. Hermes Agent runs on your machine as a personal agent loop that writes reusable skills from the tasks it completes. Agent Zero is contained by default and built for visible, hands-on work; Hermes is built to improve at your recurring tasks." },
+      { q: "Is Agent Zero free and open source?", a: "Yes. Agent Zero is MIT-licensed and free to self-host, as are Hermes Agent and OpenClaw. You pay only for the model usage behind your API keys, or nothing extra if you run local models through Ollama or LM Studio." },
+      { q: "Is Agent Zero better than OpenClaw?", a: "It depends on the job. OpenClaw is better if you want one assistant inside 20+ messaging apps with a marketplace of ready-made skills. Agent Zero is better if you want the agent to do hands-on work in a sandboxed Linux desktop and browser that you can watch, and to customize its prompts and tools." },
+      { q: "Does Agent Zero need Docker?", a: "Yes. Agent Zero runs as a Docker container, from a small VPS or Raspberry Pi to a GPU server. The A0 Launcher desktop app and the one-line installer check for Docker and help set it up; if Docker is already running you can start it with docker run -p 80:80 -v a0_usr:/a0/usr agent0ai/agent-zero." },
+      { q: "Can I run Agent Zero and Hermes Agent together?", a: "Yes. They don't conflict: Agent Zero lives in its own container and Hermes runs on your machine. Some people use Hermes as the always-on personal agent and open Agent Zero for sandboxed, hands-on tasks. Agent Zero also supports MCP and A2A, which makes connecting it to other agents possible." },
+    ],
+  },
+  {
     path: '/blog/ai-agent-sandboxing',
     title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
     seoTitle: "AI Agent Sandboxing: gVisor vs microVMs (2026)",
@@ -659,11 +676,11 @@ const posts = [
   },
   {
     path: '/blog/hermes-agent-alternatives',
-    dateModified: '2026-10-19',
+    dateModified: '2026-10-27',
     title: 'The Best Hermes Agent Alternatives in 2026 (Open-Source AI Agents Compared)',
     seoTitle: '6 Hermes Agent Alternatives (2026): OpenClaw, Agent Zero & More',
     description:
-      'OpenClaw is the closest swap. Open Interpreter for local code, Agent Zero for general use, LangGraph or CrewAI if you are building. Table + 1-minute picker.',
+      'OpenClaw is the closest swap, Agent Zero for general use, LangGraph or CrewAI if you are building. Plus desktop/GUI alternatives, a table and a 1-minute picker.',
     date: '2026-08-10',
     author: 'poorna',
     image: '/og-hermes-agent-alternatives.png',

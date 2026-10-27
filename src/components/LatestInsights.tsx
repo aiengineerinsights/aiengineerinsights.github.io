@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
+      excerpt: "Agent Zero gives the agent its own Linux computer in Docker; Hermes Agent is a personal agent loop that writes its own skills; OpenClaw routes one assistant through 20+ chat apps. Side-by-side table, safety, install commands and how to pick.",
+      readTime: "10 min read",
+      date: "Oct 27, 2026",
+      category: "AI Agents",
+      icon: GitCompare,
+      gradient: "from-cyan-600 to-sky-800",
+      link: "/blog/agent-zero-vs-hermes-agent"
+    },
+    {
       title: "AI Agent Sandboxing Explained: Process Sandboxes vs Containers vs gVisor vs microVMs (2026)",
       excerpt: "AI agent sandboxing isolates an agent's shell/code/file/network actions from the host. The four isolation boundaries (process sandbox, container, gVisor, microVM), Docker Sandboxes vs E2B vs Modal vs Kubernetes Agent Sandbox compared, and why sandboxing alone isn't enough.",
       readTime: "10 min read",

@@ -147,6 +147,11 @@ const HermesOpenClawPost = () => {
                   <Link to="/blog/what-makes-llms-agentic" className="text-primary hover:underline">what actually makes an LLM agentic</Link>{" "}
                   first — both of these are honest implementations of those properties, just weighted differently.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Also weighing Agent Zero, the agent that runs inside its own Docker-sandboxed Linux computer? See our{" "}
+                  <Link to="/blog/agent-zero-vs-hermes-agent" className="text-primary hover:underline">Agent Zero vs Hermes Agent vs OpenClaw</Link>{" "}
+                  three-way comparison.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

@@ -305,6 +305,8 @@ const AgentFrameworksComparedPost = () => {
                   <li>• <strong>Semantic Kernel and Microsoft Agent Framework.</strong> Semantic Kernel is Microsoft's long-standing SDK for integrating models into .NET, Python, and Java applications; Microsoft Agent Framework is the newer, consolidated direction Microsoft now points AutoGen users to (
                     <RefLink href="https://learn.microsoft.com/semantic-kernel/">Semantic Kernel docs</RefLink>
                     ; <RefLink href="https://learn.microsoft.com/agent-framework/">Microsoft Agent Framework docs</RefLink>).</li>
+                  <li>• <strong>Agent Zero.</strong> Less a library you import than a complete, MIT-licensed agent you run: it gets its own Linux computer inside Docker (desktop, browser, office apps), spawns subordinate agents, and exposes every prompt and tool for editing, with MCP and A2A support (
+                    <RefLink href="https://github.com/agent0ai/agent-zero">Agent Zero on GitHub</RefLink>). We compare it with the other turnkey agents in <Link to="/blog/agent-zero-vs-hermes-agent" className="text-primary hover:underline">Agent Zero vs Hermes Agent vs OpenClaw</Link>.</li>
                 </ul>
               </section>
 
