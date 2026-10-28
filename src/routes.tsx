@@ -16,6 +16,7 @@ const BlogPost2 = lazyWithReload(() => import("./pages/BlogPost2"));
 const BlogPost3 = lazyWithReload(() => import("./pages/BlogPost3"));
 const OllamaBlogPost = lazyWithReload(() => import("./pages/OllamaBlogPost"));
 const HermesAgentPost = lazyWithReload(() => import("./pages/HermesAgentPost"));
+const RagPillarPost = lazyWithReload(() => import("./pages/RagPillarPost"));
 const HermesOpenClawPost = lazyWithReload(() => import("./pages/HermesOpenClawPost"));
 const ClaudeWatermarkPost = lazyWithReload(() => import("./pages/ClaudeWatermarkPost"));
 const AIDetectorsPost = lazyWithReload(() => import("./pages/AIDetectorsPost"));
@@ -118,6 +119,7 @@ const AppRoutes = () => (
       <Route path="/blog/openai-models-hacked-hugging-face" element={<OpenAIHuggingFacePost />} />
       <Route path="/blog/github-bug-bounty-ai-slop" element={<GithubBugBountyPost />} />
       <Route path="/blog/hermes-agent-nous-research-guide" element={<HermesAgentPost />} />
+      <Route path="/blog/retrieval-augmented-generation-guide" element={<RagPillarPost />} />
       <Route path="/blog/hermes-agent-vs-openclaw" element={<HermesOpenClawPost />} />
       <Route path="/blog/how-to-install-hermes-agent" element={<HermesInstallPost />} />
       <Route path="/blog/hermes-agent-skills" element={<HermesSkillsPost />} />

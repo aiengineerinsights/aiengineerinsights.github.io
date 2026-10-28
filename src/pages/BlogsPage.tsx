@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 60,
+      title: "Retrieval-Augmented Generation (RAG): The Complete Guide for AI Engineers",
+      excerpt: "RAG pairs an LLM with a retrieval system so it answers from your actual documents instead of guessing from memorized training data. How the pipeline works, Naive vs Advanced vs Modular RAG, every layer of the stack, and when to use it over fine-tuning.",
+      readTime: "9 min read",
+      date: "Oct 28, 2026",
+      category: "RAG & Retrieval",
+      icon: Database,
+      gradient: "from-purple-600 to-violet-800",
+      link: "/blog/retrieval-augmented-generation-guide"
+    },
+    {
       id: 59,
       title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
       excerpt: "Agent Zero gives the agent its own Linux computer in Docker; Hermes Agent is a personal agent loop that writes its own skills; OpenClaw routes one assistant through 20+ chat apps. Side-by-side table, safety, install commands and how to pick.",

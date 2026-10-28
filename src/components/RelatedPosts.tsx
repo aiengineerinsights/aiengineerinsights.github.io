@@ -107,6 +107,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/retrieval-augmented-generation-guide",
+    title: "Retrieval-Augmented Generation (RAG): The Complete Guide for AI Engineers",
+    tag: "RAG & Retrieval",
+  },
+  {
     slug: "/blog/vector-database-for-rag",
     title: "Vector Databases for RAG: How to Choose One and Wire It In (2026)",
     tag: "RAG & Retrieval",
@@ -306,7 +311,8 @@ const CURATED: Record<string, string[]> = {
   "/blog/rag-chunking-strategies": ["/blog/embedding-model-for-rag", "/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics"],
   "/blog/vector-database-for-rag": ["/blog/embedding-model-for-rag", "/blog/rag-chunking-strategies", "/blog/rag-vs-fine-tuning"],
   "/blog/rag-evaluation-metrics": ["/blog/rag-chunking-strategies", "/blog/embedding-model-for-rag", "/blog/rag-vs-fine-tuning"],
-  "/blog/rag-vs-fine-tuning": ["/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics", "/blog/embedding-model-for-rag"],
+  "/blog/rag-vs-fine-tuning": ["/blog/retrieval-augmented-generation-guide", "/blog/vector-database-for-rag", "/blog/rag-evaluation-metrics"],
+  "/blog/retrieval-augmented-generation-guide": ["/blog/rag-vs-fine-tuning", "/blog/embedding-model-for-rag", "/blog/vector-database-for-rag"],
 };
 
 const RelatedPosts = ({ current }: { current: string }) => {

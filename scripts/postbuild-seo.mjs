@@ -387,6 +387,26 @@ const posts = [
     ],
   },
   {
+    path: '/blog/retrieval-augmented-generation-guide',
+    title: 'Retrieval-Augmented Generation (RAG): The Complete Guide for AI Engineers',
+    seoTitle: 'RAG (Retrieval-Augmented Generation): Complete Guide',
+    description:
+      'RAG pairs an LLM with a retrieval system so it answers from your documents, not just memory. How it works, Naive vs Advanced vs Modular RAG, the full stack, and when to use it over fine-tuning.',
+    date: '2026-10-28',
+    dateModified: '2026-10-28',
+    author: 'poorna',
+    image: '/og-retrieval-augmented-generation-guide.png',
+    faqs: [
+      { q: 'What is RAG in simple terms?', a: "RAG (Retrieval-Augmented Generation) is a way to make an LLM's answers more accurate by giving it relevant documents to read at the moment it answers, instead of relying only on what it memorized during training. The model retrieves the most relevant passages from a knowledge base, then generates its answer grounded in that retrieved text." },
+      { q: 'Why does RAG reduce hallucinations?', a: "Because the model is answering from text placed directly in its context window rather than purely from parameters learned during training, it has a concrete source to draw from and can be asked to cite it. NIST's AI glossary and IBM both describe RAG's core value this way: it lets an LLM's knowledge be updated or corrected without retraining, which keeps answers closer to the actual source documents." },
+      { q: 'Is RAG the same as fine-tuning?', a: 'No. RAG changes what the model sees at inference time (retrieved context); fine-tuning changes the model\'s weights in a training run. They solve different problems and are often combined — see our full breakdown in RAG vs fine-tuning.' },
+      { q: 'What are the three core components of a RAG system?', a: "Academic surveys of RAG architecture formalize RAG as three parts: retrieval (fetching relevant chunks for a query), generation (the LLM producing a response from query plus context), and augmentation (indexing, fine-tuning, and embedding refinements that improve the pipeline end to end)." },
+      { q: "What's the difference between Naive, Advanced, and Modular RAG?", a: 'Naive RAG is a single retrieve-then-generate pass. Advanced RAG adds pre-retrieval steps (query rewriting, routing) and post-retrieval steps (reranking, context compression) around that pass. Modular RAG goes further, treating retriever, reranker, and generator as swappable modules an orchestrator can run sequentially, iteratively, conditionally, or in parallel — the pattern most production agentic-RAG systems now use.' },
+      { q: 'Do I need a vector database to build RAG?', a: 'You need some retrieval index — a vector database is the most common choice because it supports fast approximate nearest-neighbor search over embeddings, but keyword search (BM25) and hybrid retrieval (vector + keyword) are also valid and often outperform pure vector search on exact-term queries like product codes or names.' },
+      { q: 'How do I know if my RAG system is working well?', a: 'Measure retrieval quality (precision/recall of the chunks returned) separately from generation quality (faithfulness — does the answer actually match the retrieved context — and answer relevance). Our RAG evaluation metrics guide covers the frameworks (RAGAS and others) teams use for this.' },
+    ],
+  },
+  {
     path: '/blog/rag-evaluation-metrics',
     title: 'RAG Evaluation Metrics: Faithfulness, Context Precision/Recall, and How to Actually Measure a RAG Pipeline',
     seoTitle: 'RAG Evaluation Metrics: Faithfulness, Precision, Recall',
