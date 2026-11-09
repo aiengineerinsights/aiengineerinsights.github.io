@@ -115,7 +115,7 @@ const RagChunkingStrategiesPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Sep 28, 2026
+                      Oct 29, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -133,8 +133,10 @@ const RagChunkingStrategiesPost = () => {
                 <h2 id="what-is" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What is chunking in RAG?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   In a{" "}
-                  <Link to="/blog/rag-vs-fine-tuning" className="text-primary hover:underline">retrieval-augmented generation pipeline</Link>,
-                  chunking is the step where a source document gets split into smaller pieces before each piece is
+                  <Link to="/blog/retrieval-augmented-generation-guide" className="text-primary hover:underline">retrieval-augmented generation pipeline</Link>{" "}
+                  (see our full{" "}
+                  <Link to="/blog/retrieval-augmented-generation-guide" className="text-primary hover:underline">RAG guide</Link>{" "}
+                  for how this step fits the rest of the pipeline), chunking is the step where a source document gets split into smaller pieces before each piece is
                   embedded and stored in a vector database. It happens before retrieval even starts, but it silently
                   caps what retrieval can ever return: the retriever can only hand back whatever unit you indexed, so
                   a badly chosen chunk boundary is a ceiling nothing downstream can fix (
