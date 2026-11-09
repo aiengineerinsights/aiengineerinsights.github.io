@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-agent-observability",
+    title: "AI Agent Observability: Tracing, Metrics, and Evals Explained",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/agent-zero-vs-hermes-agent",
     title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
     tag: "AI Agents",
@@ -296,6 +301,9 @@ const ALL_POSTS = [
 // Hand-picked related posts for cluster pages, so hubs and spokes link to each
 // other deliberately (e.g. the Hermes and RAG clusters, career pages).
 const CURATED: Record<string, string[]> = {
+  "/blog/ai-agent-observability": ["/blog/ai-agent-memory", "/blog/multi-agent-orchestration-patterns", "/blog/rag-evaluation-metrics"],
+  "/blog/multi-agent-orchestration-patterns": ["/blog/ai-agent-observability", "/blog/ai-agent-memory", "/blog/open-source-ai-agent-frameworks"],
+  "/blog/ai-agent-memory": ["/blog/ai-agent-observability", "/blog/multi-agent-orchestration-patterns", "/blog/retrieval-augmented-generation-guide"],
   "/blog/hermes-agent-nous-research-guide": ["/blog/hermes-agent-alternatives", "/blog/how-to-install-hermes-agent", "/blog/hermes-agent-troubleshooting"],
   "/blog/how-to-install-hermes-agent": ["/blog/hermes-agent-troubleshooting", "/blog/hermes-agent-models", "/blog/hermes-agent-alternatives"],
   "/blog/hermes-agent-troubleshooting": ["/blog/how-to-install-hermes-agent", "/blog/hermes-agent-desktop-web-ui", "/blog/hermes-agent-alternatives"],

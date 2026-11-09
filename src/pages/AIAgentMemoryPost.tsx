@@ -345,7 +345,10 @@ const AIAgentMemoryPost = () => {
                   <Link to="/blog/rag-vs-fine-tuning" className="text-primary hover:underline">RAG vs fine-tuning guide</Link>{" "}
                   for the adjacent decision of whether to retrieve knowledge at all versus bake it into model
                   weights — memory is a third axis on top of that, about what persists from the agent's own
-                  interactions rather than from a static corpus.
+                  interactions rather than from a static corpus. And because context loss across sessions is a
+                  failure mode that only shows up in a trace, not a passing output check, our{" "}
+                  <Link to="/blog/ai-agent-observability" className="text-primary hover:underline">AI agent observability guide</Link>{" "}
+                  covers how trajectory evaluation catches it.
                 </p>
               </section>
 

@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,16 @@ import { Link } from "@/components/SiteLink";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "AI Agent Observability: Tracing, Metrics, and Evals Explained",
+      excerpt: "Agent observability traces the nested span tree behind one agent request — invoke_agent, chat, execute_tool, sub-agent handoffs — via OpenTelemetry's GenAI semantic conventions. Langfuse vs LangSmith vs Arize Phoenix vs MLflow compared, plus trajectory evals vs output-only evals.",
+      readTime: "12 min read",
+      date: "Nov 9, 2026",
+      category: "AI Agents",
+      icon: Activity,
+      gradient: "from-violet-600 to-indigo-800",
+      link: "/blog/ai-agent-observability"
+    },
     {
       title: "Retrieval-Augmented Generation (RAG): The Complete Guide for AI Engineers",
       excerpt: "RAG pairs an LLM with a retrieval system so it answers from your actual documents instead of guessing from memorized training data. How the pipeline works, Naive vs Advanced vs Modular RAG, every layer of the stack, and when to use it over fine-tuning.",

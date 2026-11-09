@@ -23,6 +23,15 @@ export interface ExploreConfig {
 }
 
 export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
+  "/blog/ai-agent-observability": {
+    topic: "AI agent observability",
+    questions: [
+      { q: "Which agent observability tool should I use — Langfuse, LangSmith, Phoenix, or MLflow?", askFor: "my stack, whether I need self-hosting, and whether RAG evaluation matters as much as tracing" },
+      { q: "How do I instrument my multi-agent system with OpenTelemetry GenAI spans?", askFor: "my framework, how many agents I run, and whether they hand off work to each other" },
+      { q: "How do I write a trajectory eval instead of just checking the final output?", askFor: "what my agent's tools are and what a correct sequence of tool calls looks like for a typical task" },
+      { q: "What should I trace first if I only have an hour to add observability?", askFor: "my current stack and whether cost, latency, or correctness is hurting me most right now" },
+    ],
+  },
   "/blog/multi-agent-orchestration-patterns": {
     topic: "multi-agent orchestration",
     questions: [

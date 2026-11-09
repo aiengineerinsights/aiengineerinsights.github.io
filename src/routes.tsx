@@ -72,6 +72,7 @@ const EmbeddingModelForRagPost = lazyWithReload(() => import("./pages/EmbeddingM
 const AIAgentMemoryPost = lazyWithReload(() => import("./pages/AIAgentMemoryPost"));
 const AgentSandboxingPost = lazyWithReload(() => import("./pages/AgentSandboxingPost"));
 const AgentZeroVsHermesPost = lazyWithReload(() => import("./pages/AgentZeroVsHermesPost"));
+const AgentObservabilityPost = lazyWithReload(() => import("./pages/AgentObservabilityPost"));
 
 const AppRoutes = () => (
   <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -144,6 +145,7 @@ const AppRoutes = () => (
       <Route path="/blog/ai-agent-memory" element={<AIAgentMemoryPost />} />
       <Route path="/blog/ai-agent-sandboxing" element={<AgentSandboxingPost />} />
       <Route path="/blog/agent-zero-vs-hermes-agent" element={<AgentZeroVsHermesPost />} />
+      <Route path="/blog/ai-agent-observability" element={<AgentObservabilityPost />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>

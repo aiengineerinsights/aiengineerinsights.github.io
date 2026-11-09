@@ -294,7 +294,10 @@ const MultiAgentOrchestrationPost = () => {
                   execution, observability — lives one layer below orchestration, in what each agent runs on. Our guide
                   to{" "}
                   <Link to="/blog/agent-runtimes-explained" className="text-primary hover:underline">AI agent runtimes</Link>{" "}
-                  covers that infrastructure layer in depth.
+                  covers that infrastructure layer in depth, and once agents start handing off work to each other
+                  you also need to trace those handoffs — see our guide to{" "}
+                  <Link to="/blog/ai-agent-observability" className="text-primary hover:underline">AI agent observability</Link>{" "}
+                  for how OpenTelemetry's GenAI spans capture a multi-agent call graph.
                 </p>
               </section>
 

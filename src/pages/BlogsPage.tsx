@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 61,
+      title: "AI Agent Observability: Tracing, Metrics, and Evals Explained",
+      excerpt: "Agent observability traces the nested span tree behind one agent request — invoke_agent, chat, execute_tool, sub-agent handoffs — via OpenTelemetry's GenAI semantic conventions. Langfuse vs LangSmith vs Arize Phoenix vs MLflow compared, plus trajectory evals vs output-only evals.",
+      readTime: "12 min read",
+      date: "Nov 9, 2026",
+      category: "AI Agents",
+      icon: Activity,
+      gradient: "from-violet-600 to-indigo-800",
+      link: "/blog/ai-agent-observability"
+    },
     {
       id: 60,
       title: "Retrieval-Augmented Generation (RAG): The Complete Guide for AI Engineers",

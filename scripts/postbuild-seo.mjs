@@ -29,6 +29,24 @@ const AUTHORS = {
 
 const pages = [
   {
+    path: '/blog/ai-agent-observability',
+    title: 'AI Agent Observability: Tracing, Metrics, and Evals Explained',
+    seoTitle: 'AI Agent Observability: Tracing, Metrics, Evals (2026)',
+    description:
+      'AI agent observability explained: OpenTelemetry GenAI span trees (invoke_agent/chat/execute_tool), Langfuse vs LangSmith vs Arize Phoenix vs MLflow, and trajectory evals vs output-only evals.',
+    date: '2026-11-09',
+    author: 'poorna',
+    image: '/og-ai-agent-observability.png',
+    faqs: [
+      { q: 'What is AI agent observability?', a: "AI agent observability is the practice of capturing, tracing, and evaluating everything an AI agent does during a request — not just a single request/response timing, but the full nested tree of model calls, tool calls, retrieval steps, and hand-offs to other agents. It's built on OpenTelemetry's GenAI semantic conventions, which standardize spans like invoke_agent, chat, and execute_tool so different tools can read the same traces." },
+      { q: 'How is AI agent observability different from traditional APM?', a: "Traditional APM measures a request's duration and error rate as one span, which is fine when the server does one deterministic thing. An agent's single request can fan out into dozens of nested spans — a planning step, several model calls, multiple tool calls, and handoffs to sub-agents — and a slow or wrong answer could come from any one of them. APM gives you the total time; agent observability gives you the span tree that explains it." },
+      { q: 'What is the OpenTelemetry GenAI semantic convention?', a: "It's a set of standard span names and attributes (gen_ai.operation.name, gen_ai.request.model, gen_ai.response.model, gen_ai.usage.input_tokens/output_tokens, gen_ai.agent.name, gen_ai.tool.name, gen_ai.conversation.id) that different tools emit and read the same way, covering operations like invoke_agent, chat, execute_tool, and plan. As of mid/late 2026 it's still marked 'Development' status in the OpenTelemetry spec, not yet frozen, so attribute names can still shift between releases." },
+      { q: 'Should I use Langfuse, LangSmith, Arize Phoenix, or MLflow for agent observability?', a: "It depends mostly on your stack and hosting needs. Langfuse is OTel-native and MIT-licensed, a strong default if you want to self-host and need a dedicated multi-agent view. LangSmith is the obvious pick if you're already deep in LangChain/LangGraph, but it's closed-source and self-hosting is Enterprise-only. Arize Phoenix is the strongest choice if RAG/retrieval evaluation metrics matter as much as tracing. MLflow fits teams that already use it for experiment tracking and want tracing in the same tool, now with native GenAI semconv export." },
+      { q: 'What is trajectory evaluation for AI agents?', a: "Trajectory evaluation scores the sequence of steps an agent took — which tools it called, in what order, with what arguments — rather than just checking whether the final output looks correct. It catches failures an output-only check misses: the agent picked the wrong tool but still produced a plausible-looking answer, it ran an unsafe sequence that happened to land on a correct-looking end state, or it claims success while the underlying system state never actually changed." },
+      { q: 'How do you instrument a multi-agent system for observability?', a: "Give each agent its own gen_ai.agent.name attribute, and make sure the calling agent — not the agent being called — emits the invoke_agent span for that handoff. That convention is what lets a tracing UI reconstruct the full call graph between agents instead of a flat list of disconnected spans, which is the difference between seeing 'agent A handed off to agent B' and just seeing two unrelated traces." },
+    ],
+  },
+  {
     path: '/',
     title: 'AIEngineerInsights.com - Your Companion on the AI Engineering Journey',
     seoTitle: 'AI Engineer Insights — Practical AI Engineering Guides',
