@@ -99,7 +99,7 @@ const AICodingAgentsPost = () => {
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground space-y-1 flex-shrink-0">
                     <div className="flex items-center"><BarChart3 className="h-4 w-4 mr-1" />Intermediate</div>
-                    <div className="flex items-center"><Calendar className="h-4 w-4 mr-1" />Aug 14, 2026</div>
+                    <div className="flex items-center"><Calendar className="h-4 w-4 mr-1" />Updated Nov 10, 2026</div>
                     <div className="flex items-center"><Clock className="h-4 w-4 mr-1" />15 min read</div>
                   </div>
                 </div>
@@ -368,7 +368,47 @@ const AICodingAgentsPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">11. Frequently Asked Questions</h2>
+                <h2 id="nov-2026-update" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">12. What Changed Since Launch (November 2026 Update)</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Three months on, the benchmark picture and the adoption picture both moved — and they tell slightly
+                  different stories.
+                </p>
+                <h3 id="benchmarks-updated" className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">SWE-bench Verified is effectively saturated</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  As of the leaderboard update on November 6, 2026, the top score on SWE-bench Verified is{" "}
+                  <strong>Claude Opus 5 at 96.0%</strong> (provider-reported), with <strong>Claude Fable 5 at 95.0%</strong>{" "}
+                  the best independently-measured result. Vals AI, which runs an independent SWE-bench Verified board, has
+                  stopped scoring new model releases on it, saying performance has saturated. SWE-bench's own co-creator
+                  made the same point back when the board hit the low-90s. The practical upshot: for frontier-model
+                  comparisons, the community has shifted to harder, fresher boards — <strong>SWE-bench Pro</strong> (Scale
+                  AI, 1,865 real-repo tasks), <strong>Terminal-Bench 4.0</strong> (Stanford/Laude Institute, terminal-agent
+                  work), and tool-specific boards like Cursor's own <strong>CursorBench 4.0</strong>. Treat any single
+                  SWE-bench Verified number you see quoted after mid-2026 as near the ceiling of what that test can tell you
+                  — it no longer separates the frontier.
+                </p>
+                <h3 id="adoption-updated" className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">Claude Code and Copilot are the adoption leaders, not just the benchmark leaders</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The Stack Overflow 2026 Developer Survey (over 17,000 respondents) found <strong>65.9% of developers now
+                  use an AI coding assistant or coding agent</strong> — ahead of general-purpose chat tools (62.5%). Among
+                  coding-agent users specifically, <strong>Claude Code leads at 66% and GitHub Copilot follows at 59%</strong>,
+                  making this the first year coding agents have clearly separated from the broader "I use ChatGPT sometimes"
+                  category. The same survey found only 6% of respondents switched tools over the past year specifically to
+                  cut token costs — a sign that workflow fit, not price, is still the dominant switching driver, which backs
+                  up the "pick by category, not by benchmark" verdict at the top of this post.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Two things also shipped in this window worth knowing if you're standardizing a team: Anthropic's{" "}
+                  <Link to="/blog/claude-managed-agents" className="text-primary hover:underline">Claude Managed Agents</Link>{" "}
+                  (hosted, longer-running background agents — the closest Anthropic has come to a Devin-style offering), and{" "}
+                  <Link to="/blog/what-is-an-agent-harness" className="text-primary hover:underline">agent harness engineering</Link>{" "}
+                  becoming its own named discipline as teams tune the scaffolding around a model rather than just swapping
+                  models. Both reinforce this post's original point: the gap between tools is increasingly about the harness
+                  and the workflow, not the base model underneath it.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">13. Frequently Asked Questions</h2>
 
                 <h3 id="faq-what" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">What is an AI coding agent?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -412,7 +452,7 @@ const AICodingAgentsPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">12. Sources</h2>
+                <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">14. Sources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Anthropic — Claude Code (docs &amp; settings)</a></li>
                   <li>• <a href="https://cursor.com/docs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Cursor — docs, models &amp; rules</a></li>
@@ -421,6 +461,8 @@ const AICodingAgentsPost = () => {
                   <li>• <a href="https://github.com/cline/cline" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Cline — VS Code agent, Plan/Act (MIT)</a></li>
                   <li>• <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenCode — multi-provider open-source agent</a></li>
                   <li>• <a href="https://www.swebench.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SWE-bench — the coding benchmark leaderboard</a></li>
+                  <li>• <a href="https://llmlearner.com/rankings/swe-bench-verified" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">LLMLearner — SWE-bench Verified leaderboard (Nov 2026)</a></li>
+                  <li>• <a href="https://survey.stackoverflow.co/2026/ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Stack Overflow — 2026 Developer Survey, AI section</a></li>
                   <li>• <a href="https://www.sitepoint.com/claude-code-vs-cursor-vs-copilot-the-2026-developer-comparison/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SitePoint — Claude Code vs Cursor vs Copilot (2026)</a></li>
                   <li>• <a href="https://news.ycombinator.com/item?id=46563650" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hacker News — Cursor vs Claude Code workflow thread</a></li>
                 </ul>

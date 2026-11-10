@@ -617,7 +617,7 @@ const posts = [
     seoTitle: 'Best AI Coding Agents 2026: Claude Code, Cursor, Copilot, Devin',
     description:
       'Terminal coding agents vs AI IDEs, compared: Claude Code, Codex, Aider and Cline vs Cursor, Copilot and Devin. Comparison table and which one fits your team.',
-    date: '2026-08-14',
+    date: '2026-11-10',
     author: 'poorna',
     image: '/og-best-ai-coding-agents.png',
   },
