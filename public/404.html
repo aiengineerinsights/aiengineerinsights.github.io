@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>AIEngineerInsights.com - Redirecting...</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for it to work
-      // with Internet Explorer (it is currently > 512 bytes)
-
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part and not the real directory.
-      // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 0;
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found — AI Engineer Insights</title>
+    <!--
+      Real 404 page. Previously this was the spa-github-pages JS redirect
+      (404 -> /?/path -> homepage), which Google reported as "Redirect error".
+      Every real route is prerendered to its own index.html, and moved URLs get
+      a static redirect stub under public/blog/<old-slug>/, so nothing needs it.
+    -->
+    <meta name="robots" content="noindex">
+    <style>
+      :root { --bg:#f7f9fb; --fg:#0f172a; --muted:#475569; --accent:#0e7490; }
+      @media (prefers-color-scheme: dark) { :root { --bg:#0a0f16; --fg:#e2e8f0; --muted:#94a3b8; --accent:#22d3ee; } }
+      body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; }
+      main { max-width:40rem; margin:0 auto; padding:4rem 1rem; }
+      h1 { font-size:1.9rem; line-height:1.2; margin:0 0 .75rem; }
+      p { color:var(--muted); }
+      ul { padding-left:1.1rem; }
+      a { color:var(--accent); }
+    </style>
   </head>
   <body>
+    <main>
+      <h1>This page doesn't exist</h1>
+      <p>The link may be old or mistyped. Try one of these instead:</p>
+      <ul>
+        <li><a href="/blogs/">All articles</a></li>
+        <li><a href="/ai-engineering-roadmap/">AI Engineer Roadmap 2026</a></li>
+        <li><a href="/blog/best-ai-coding-agents/">Best AI coding agents</a></li>
+        <li><a href="/blog/hermes-agent-alternatives/">Hermes Agent alternatives</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </main>
   </body>
 </html>

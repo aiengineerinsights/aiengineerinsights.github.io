@@ -111,6 +111,40 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/openclaw-alternatives',
+    title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
+    seoTitle: "9 Best OpenClaw Alternatives (2026): Safer & Lighter Picks",
+    description:
+      "Best OpenClaw alternatives 2026: Hermes Agent, NanoClaw, nanobot, ZeroClaw, PicoClaw, Letta, Agent Zero, IronClaw, Moltis. Licenses, channels, picks.",
+    date: '2026-11-10',
+    author: 'poorna',
+    image: '/og-openclaw-alternatives.png',
+    faqs: [
+      { q: "What is the best OpenClaw alternative?", a: "For most people it is Hermes Agent from Nous Research: it is MIT-licensed, supports the main messaging apps and ships stricter security defaults. If you want maximum isolation, NanoClaw runs each agent in its own container; if you want something tiny, nanobot, ZeroClaw or PicoClaw." },
+      { q: "Is OpenClaw safe to use?", a: "It can be, if you keep it updated and harden it, but it has had serious issues in 2026, including CVE-2026-25253 (CVSS 8.8, fixed in v2026.1.29) and hundreds of malicious skills found on ClawHub. Keep the gateway off the public internet, vet every skill, and give it only the credentials it needs." },
+      { q: "What is a lightweight alternative to OpenClaw?", a: "nanobot (Python), ZeroClaw (Rust), PicoClaw (Go) and Moltis (Rust) are all much smaller than OpenClaw. ZeroClaw has the widest channel support of the four, nanobot is the easiest to read, and PicoClaw targets tiny devices." },
+      { q: "Is Hermes Agent better than OpenClaw?", a: "It depends on what you need. OpenClaw has the most messaging channels and the biggest skill marketplace. Hermes Agent has stricter security defaults and an agent that writes its own reusable skills from the work it completes. Both are free and MIT-licensed." },
+      { q: "Are OpenClaw alternatives free?", a: "Yes. Every alternative in this list is open source and free to self-host under MIT or Apache-2.0. You pay only for the model usage behind your API keys, or nothing extra if you run local models." },
+    ],
+  },
+  {
+    path: '/blog/claude-code-vs-cursor',
+    title: "Claude Code vs Cursor (2026): Which AI Coding Tool Should You Use?",
+    seoTitle: "Claude Code vs Cursor (2026): Which AI Coding Tool to Use?",
+    description:
+      "Claude Code is an agent you delegate to; Cursor is an AI editor you work inside. Workflow, models, features, pricing, and how to use both together.",
+    date: '2026-11-10',
+    author: 'poorna',
+    image: '/og-claude-code-vs-cursor.png',
+    faqs: [
+      { q: "Is Claude Code better than Cursor?", a: "Neither is better at everything. Claude Code is better for delegating multi-file, multi-step tasks to an autonomous agent and for working in the terminal or CI. Cursor is better for hands-on editing with fast completions and for switching between models from several vendors." },
+      { q: "Does Cursor use the same Claude models as Claude Code?", a: "Cursor offers Claude models alongside GPT, Grok and its own Composer model, and bills premium models at API list prices on its Premium plan and up. Claude Code only uses Anthropic models, with Opus 5.5 as the default, and wraps them in Anthropic's own agent harness." },
+      { q: "Can I use Claude Code and Cursor together?", a: "Yes. The Claude Code extension installs inside Cursor, or you can run the claude command in Cursor's terminal. Many developers use Cursor for inline edits and Claude Code for larger delegated tasks, sharing one AGENTS.md file for project instructions." },
+      { q: "Which is cheaper, Claude Code or Cursor?", a: "Cursor is cheaper to start, with a free plan and Plus at $8 a month. Claude Code starts at $20 a month with Claude Pro. For heavy use, Claude's Max ($100) and Ultra ($200) plans cap your bill, while Cursor's premium-model usage is billed at API rates." },
+      { q: "Should I switch from Cursor to Claude Code?", a: "Try Claude Code on one real multi-file task before switching. If you mostly want the agent to finish whole tasks, Claude Code is worth it; if you mostly want faster typing and inline edits, keep Cursor. You don't have to choose, because Claude Code runs inside Cursor." },
+    ],
+  },
+  {
     path: '/blog/agent-zero-vs-hermes-agent',
     title: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which Should You Run?",
     seoTitle: "Agent Zero vs Hermes Agent vs OpenClaw (2026): Which to Run?",

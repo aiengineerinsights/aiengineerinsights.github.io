@@ -176,6 +176,9 @@ const HermesAlternativesPost = () => {
                   <Link to="/blog/hermes-agent-vs-openclaw" className="text-primary hover:underline">Hermes Agent vs OpenClaw comparison</Link>{" "}
                   for the side-by-side on skills, memory, security, and cost.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Looking to replace OpenClaw rather than Hermes? See our <Link to="/blog/openclaw-alternatives" className="text-primary hover:underline">OpenClaw alternatives</Link> guide, which covers NanoClaw, nanobot, ZeroClaw, PicoClaw and more.
+                </p>
               </section>
 
               <NewsletterSignup

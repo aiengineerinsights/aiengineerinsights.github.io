@@ -7,6 +7,16 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/openclaw-alternatives",
+    title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/claude-code-vs-cursor",
+    title: "Claude Code vs Cursor (2026): Which AI Coding Tool Should You Use?",
+    tag: "AI Coding",
+  },
+  {
     slug: "/blog/ai-agent-observability",
     title: "AI Agent Observability: Tracing, Metrics, and Evals Explained",
     tag: "AI Agents",
@@ -309,6 +319,8 @@ const CURATED: Record<string, string[]> = {
   "/blog/hermes-agent-troubleshooting": ["/blog/how-to-install-hermes-agent", "/blog/hermes-agent-desktop-web-ui", "/blog/hermes-agent-alternatives"],
   "/blog/hermes-agent-desktop-web-ui": ["/blog/hermes-agent-troubleshooting", "/blog/hermes-agent-alternatives", "/blog/agent-zero-vs-hermes-agent"],
   "/blog/hermes-agent-vs-openclaw": ["/blog/agent-zero-vs-hermes-agent", "/blog/hermes-agent-alternatives", "/blog/hermes-agent-nous-research-guide"],
+  "/blog/claude-code-vs-cursor": ["/blog/what-is-an-agent-harness", "/blog/best-ai-coding-agents", "/blog/claude-code-skills"],
+  "/blog/openclaw-alternatives": ["/blog/hermes-agent-vs-openclaw", "/blog/hermes-agent-alternatives", "/blog/agent-zero-vs-hermes-agent"],
   "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],
   "/blog/best-ai-coding-agents": ["/blog/claude-code-skills", "/blog/hermes-claude-code-orchestration", "/blog/what-is-an-agent-harness"],
   "/blog/claude-managed-agents": ["/blog/agent-runtimes-explained", "/blog/what-is-an-agent-harness", "/blog/claude-code-skills"],

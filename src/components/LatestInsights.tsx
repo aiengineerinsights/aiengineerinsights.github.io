@@ -10,6 +10,26 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
+      excerpt: "Why people leave OpenClaw (CVE-2026-25253, malicious ClawHub skills, size) and the 9 alternatives worth running instead: Hermes Agent, NanoClaw, nanobot, ZeroClaw, PicoClaw, Letta, Agent Zero, IronClaw and Moltis, compared by license, channels and use case.",
+      readTime: "11 min read",
+      date: "Nov 10, 2026",
+      category: "AI Agents",
+      icon: Layers,
+      gradient: "from-orange-600 to-red-800",
+      link: "/blog/openclaw-alternatives"
+    },
+    {
+      title: "Claude Code vs Cursor (2026): Which AI Coding Tool Should You Use?",
+      excerpt: "Claude Code is an agent you delegate whole tasks to from the terminal, IDE or CI; Cursor is an AI editor built on VS Code with completions, an agent and cloud agents. Side-by-side table, pricing, and how to run Claude Code inside Cursor.",
+      readTime: "10 min read",
+      date: "Nov 10, 2026",
+      category: "AI Coding",
+      icon: GitCompare,
+      gradient: "from-violet-600 to-indigo-800",
+      link: "/blog/claude-code-vs-cursor"
+    },
+    {
       title: "AI Agent Observability: Tracing, Metrics, and Evals Explained",
       excerpt: "Agent observability traces the nested span tree behind one agent request — invoke_agent, chat, execute_tool, sub-agent handoffs — via OpenTelemetry's GenAI semantic conventions. Langfuse vs LangSmith vs Arize Phoenix vs MLflow compared, plus trajectory evals vs output-only evals.",
       readTime: "12 min read",

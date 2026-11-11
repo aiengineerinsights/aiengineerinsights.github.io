@@ -260,6 +260,9 @@ const HermesOpenClawPost = () => {
                   an autonomous agent's blast radius is exactly its execution and credential model. Read that part of each
                   project's docs before you connect real accounts.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  If security is the reason you are rethinking OpenClaw, our <Link to="/blog/openclaw-alternatives" className="text-primary hover:underline">OpenClaw alternatives roundup</Link> compares nine safer and lighter options, from NanoClaw's per-agent containers to IronClaw's WebAssembly sandbox.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

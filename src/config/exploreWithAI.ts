@@ -158,6 +158,24 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Is this third-party skill or plugin safe to install?", askFor: "the skill or plugin repo and what it says it does" },
     ],
   },
+  "/blog/claude-code-vs-cursor": {
+    topic: "Claude Code vs Cursor",
+    questions: [
+      { q: "Should I use Claude Code or Cursor for my project?", askFor: "my stack, repo size, and whether I prefer delegating tasks or editing hands-on" },
+      { q: "How do I set up Claude Code inside Cursor?", askFor: "my OS and whether I already have a Claude plan or API key" },
+      { q: "Write an AGENTS.md that works for both Claude Code and Cursor", askFor: "my project's stack, commands and coding conventions" },
+      { q: "Which is cheaper for how I work, Claude Code or Cursor?", askFor: "how many hours a day I code with AI and which models I use" },
+    ],
+  },
+  "/blog/openclaw-alternatives": {
+    topic: "OpenClaw alternatives",
+    questions: [
+      { q: "Which OpenClaw alternative fits my setup?", askFor: "which chat apps I use, my hardware or VPS, and what I use OpenClaw for today" },
+      { q: "How do I migrate from OpenClaw to Hermes Agent?", askFor: "my OpenClaw channels, skills and model provider" },
+      { q: "Is my OpenClaw install exposed or vulnerable?", askFor: "my OpenClaw version, how the gateway is bound, and which skills I installed" },
+      { q: "Which lightweight assistant runs on my Raspberry Pi or VPS?", askFor: "the device's RAM and CPU and the channels I need" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

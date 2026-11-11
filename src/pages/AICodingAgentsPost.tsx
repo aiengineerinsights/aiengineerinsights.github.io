@@ -147,6 +147,9 @@ const AICodingAgentsPost = () => {
                   <li><strong>Autonomous / cloud agents</strong> (Devin, Amp, Google Jules) — headless agents that run tasks in the background or overnight and open a PR.</li>
                   <li><strong>Open-source / BYO-key</strong> (Aider, Cline, OpenCode, Kilo Code) — bring your own API key, pay only for tokens, keep control of models and data.</li>
                 </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Narrowing it down to the two most-compared tools? Our <Link to="/blog/claude-code-vs-cursor" className="text-primary hover:underline">Claude Code vs Cursor comparison</Link> covers workflow, features and pricing side by side.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">

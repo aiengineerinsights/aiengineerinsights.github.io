@@ -391,6 +391,9 @@ claude plugin install <name>@<marketplace> --scope project   # from your shell`}
                     <li>• "Anthropic doesn't review third-party marketplaces." The same caution we give for <Link to="/blog/mcp-server-trust-permissions" className="text-primary hover:underline">vetting MCP servers</Link> applies here.</li>
                   </ul>
                 </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Skills are available on every paid Claude plan that includes Claude Code. Still choosing a tool? See <Link to="/blog/claude-code-vs-cursor" className="text-primary hover:underline">Claude Code vs Cursor</Link>.
+                </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
