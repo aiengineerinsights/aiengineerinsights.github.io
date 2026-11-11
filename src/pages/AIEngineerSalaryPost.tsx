@@ -13,43 +13,51 @@ import TopmateCTA from "@/components/TopmateCTA";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 const sourceCompare = [
-  { source: "Glassdoor (Aug 2026)", figure: "$145,070 median base · $116,534–$183,111 typical", measures: "Self-reported base pay across the broad US market" },
-  { source: "Built In (2026)", figure: "$184,757 avg base · $211,243 total comp", measures: "Tech-company-focused; sample skews more senior" },
-  { source: "Levels.fyi (2026)", figure: "~$245K average total comp", measures: "Verified offers; includes stock + bonus, skews big tech" },
-  { source: "Kore1 (2026)", figure: "$145K–$310K", measures: "Real offer data across levels and cities" },
-  { source: "ZipRecruiter (2026)", figure: "~$116,949 average base", measures: "Broadest employer pool incl. non-tech — runs lowest" },
-  { source: "BLS (May 2025)", figure: "$140,300 median", measures: "Computer & information research scientists — closest official category" },
+  { source: "Glassdoor (Nov 2026)", figure: "$169,373 median total pay · $127K–$230K middle 50%", measures: "1,125 self-reported salaries, broad US market; base $93K–$167K plus $34K–$63K bonus and other pay" },
+  { source: "Built In (2026)", figure: "$184,757 avg base · $211,243 avg total comp", measures: "Tech-company-focused; sample skews more senior" },
+  { source: "Indeed (Nov 2026)", figure: "$151,074 avg base", measures: "Job postings and reported pay; Indeed files the role as \"AI Developer\"" },
+  { source: "Levels.fyi, ML/AI engineers (Nov 2026)", figure: "$251,000 median total comp · $170K–$374K middle 50%", measures: "5,784 verified offers incl. stock and bonus; skews big tech" },
+  { source: "Levels.fyi, \"AI Engineer\" title (Nov 2026)", figure: "$155,500 median total comp", measures: "Only 330 salaries; mostly smaller companies that use the newer title" },
+  { source: "BLS (May 2025)", figure: "$140,300 median", measures: "Computer & information research scientists, the closest official category" },
 ];
 
 const levelTable = [
-  { level: "Entry / junior (0–2 yrs)", base: "$90K–$135K base", tc: "$110K–$200K total comp — Google L3 ~$177K, OpenAI L2 ~$253K" },
-  { level: "Mid-level (3–5 yrs)", base: "$140K–$210K base", tc: "$170K–$260K — big-tech mid ~$355K (Google L5)" },
-  { level: "Senior (6–9 yrs)", base: "$180K–$280K base", tc: "$220K–$350K+ — frontier senior $575K–$916K" },
-  { level: "Staff / principal (10+ yrs)", base: "$250K–$400K base", tc: "$350K–$800K+ — OpenAI / Google L6 ~$1.15M" },
+  { level: "Junior / entry (0–2 yrs)", broad: "$145K median total pay (base $79K–$147K)", bigtech: "Google L3 $208K · Meta E3 $187K · Amazon L4 $177K" },
+  { level: "AI engineer (mid, 3–5 yrs)", broad: "$169K median total pay", bigtech: "Google L4 $312K · Meta E4 $307K · Amazon L5 $287K" },
+  { level: "Senior (6–9 yrs)", broad: "$215K median total pay", bigtech: "Google L5 $445K · Meta E5 $457K · Amazon L6 $417K" },
+  { level: "Staff", broad: "$223K median ($179K–$282K)", bigtech: "Google L6 $646K · Meta E6 $809K" },
+  { level: "Principal", broad: "$295K median ($240K–$370K)", bigtech: "Above staff; few public data points" },
 ];
 
 const companyTable = [
-  { company: "OpenAI", band: "$253K (L2) – $1.15M (L6)", median: "~$800K", note: "Software engineer; PPU equity is most of the package" },
-  { company: "Anthropic", band: "$575K – $759K (senior/lead)", median: "~$620K (L5)", note: "Private stock at a ~$965B valuation; equity 55–70% of comp" },
-  { company: "xAI", band: "$450K – $900K+", median: "~$640K", note: "Early-stage RSUs; mid-frontier tier, below OpenAI/Anthropic" },
-  { company: "Google", band: "$177K (L3) – $1.15M (L6)", median: "~$355K (L5)", note: "AI/ML engineer track; equity ~75% of comp at L6" },
-  { company: "Meta", band: "$359K (E4) – $645K (E6)", median: "~$359K (E4)", note: "H-1B base data — excludes stock, so real total comp runs higher" },
-  { company: "Amazon / Microsoft / Apple", band: "~$130K–$160K entry · $300K–$500K senior", median: "—", note: "Enterprise big tech; roughly 30–50% below frontier labs at equal level" },
+  { company: "Anthropic", band: "$482.5K (SWE) – $1.41M (Staff)", median: "$882.5K", note: "All software engineers, 49 submissions; mostly private stock" },
+  { company: "OpenAI", band: "$249K (L2) – $1.89M (L7)", median: "$640K", note: "All software engineers; equity is most of the package" },
+  { company: "xAI", band: "—", median: "$600K", note: "All software engineers; about $200K base + $400K stock" },
+  { company: "Meta", band: "$187K (E3) – $809K (E6)", median: "$505K", note: "Machine learning engineer, 388 submissions" },
+  { company: "Apple", band: "—", median: "$420K", note: "Machine learning engineer, 520 submissions" },
+  { company: "Google", band: "$208K (L3) – $646K (L6)", median: "$333K", note: "Machine learning engineer" },
+  { company: "Amazon", band: "$177K (L4) – $417K (L6)", median: "$280K", note: "Machine learning engineer, 183 submissions" },
+  { company: "Nvidia", band: "—", median: "$242K", note: "Machine learning engineer; small sample (37)" },
+  { company: "Microsoft", band: "—", median: "$223K", note: "Machine learning engineer; small sample (33)" },
 ];
 
 const cityTable = [
-  { city: "San Francisco Bay Area", pay: "$210K–$250K base ($246K average)", source: "Built In / Kore1 (2026)" },
-  { city: "New York City", pay: "$195K–$227K base", source: "Built In / Coursera (2026)" },
-  { city: "Seattle", pay: "$185K–$220K base", source: "Kore1 / Coursera (2026)" },
-  { city: "Austin, TX", pay: "~$150K base — lower pay, stronger cost-of-living", source: "Coursera / Kore1 (2026)" },
-  { city: "Remote (US)", pay: "$155K–$210K — now benchmarked to national median", source: "Kore1 / Built In (2026)" },
+  { city: "San Francisco, CA", pay: "$223,314", sample: "661 salaries" },
+  { city: "Seattle, WA", pay: "$205,514", sample: "456 salaries" },
+  { city: "Los Angeles, CA", pay: "$202,927", sample: "115 salaries" },
+  { city: "New York, NY", pay: "$200,553", sample: "487 salaries" },
+  { city: "Austin, TX", pay: "$182,086", sample: "95 salaries" },
+  { city: "Boston, MA", pay: "$178,815", sample: "155 salaries" },
+  { city: "Atlanta, GA", pay: "$161,049", sample: "48 salaries" },
+  { city: "Chicago, IL", pay: "$146,503", sample: "84 salaries" },
+  { city: "Dallas, TX", pay: "$113,702", sample: "18 salaries (too few to trust)" },
 ];
 
 const rolesTable = [
-  { role: "AI engineer", base: "$145K–$185K", tc: "$211K–$277K", vs: "+56% AI-skills premium (PwC)" },
-  { role: "ML engineer", base: "~$158K", tc: "~$202K", vs: "+40% over baseline" },
-  { role: "Software engineer", base: "$133K", tc: "$160K–$170K", vs: "Baseline (BLS)" },
-  { role: "Data scientist", base: "~$122K", tc: "$155K–$175K", vs: "10–15% below AI engineer" },
+  { role: "AI engineer", base: "$151K–$185K avg (Indeed, Built In)", tc: "$169K (Glassdoor) – $251K (Levels.fyi ML/AI)" },
+  { role: "Machine learning engineer", base: "$185,920 avg (Indeed)", tc: "Same Levels.fyi ML/AI pool: $251K" },
+  { role: "Software developer", base: "$133,080 median (BLS)", tc: "—" },
+  { role: "Computer & information research scientist", base: "$140,300 median (BLS)", tc: "—" },
 ];
 
 const skillsTable = [
@@ -65,27 +73,27 @@ const skillsTable = [
 const faqs = [
   {
     q: "What is the entry-level AI engineer salary?",
-    a: "Entry-level (0–2 years) AI engineers earn roughly $90K–$135K in base salary across the broad market, or $110K–$200K in total compensation depending on employer (Kore1, Glassdoor, 2026). At big tech the first rung is much higher — a Google L3 AI engineer averages ~$177K total comp and an OpenAI L2 ~$253K per Levels.fyi.",
+    a: "Glassdoor puts the median total pay for a junior AI engineer at about $145K in November 2026, with base pay from $79K to $147K. Built In reports $80,000 for engineers with less than a year of experience. Big tech starts higher: about $208K total comp at Google L3, $187K at Meta E3 and $177K at Amazon L4 for machine learning engineers (Levels.fyi).",
   },
   {
     q: "How much does an AI engineer make per month?",
-    a: "Using 2026 base-salary data: about $12,090/month at the Glassdoor median ($145,070/year) and about $9,746/month at ZipRecruiter's broader-pool average ($116,949/year). At big tech, a $245K median total-comp package (Levels.fyi) works out to roughly $20,400/month before taxes.",
+    a: "About $14,100 a month at Glassdoor's $169,373 median total pay, or about $12,600 a month on Indeed's $151,074 average base salary. At big tech, Levels.fyi's $251,000 median total comp for ML/AI engineers works out to about $20,900 a month before taxes.",
   },
   {
-    q: "Is AI engineering a good career? Is it high paying?",
-    a: "Yes, on both current pay and trajectory. AI engineers out-earn the general software baseline (BLS software developers median: $133,080), PwC's Global AI Jobs Barometer measured a 56% wage premium for AI skills in 2025 (up from 25% two years earlier), and the BLS projects far-above-average growth for adjacent occupations through 2033. The main caveat: the highest packages are concentrated at a small number of companies and cities.",
+    q: "How much does an AI engineer make per hour?",
+    a: "About $81 an hour at Glassdoor's median total pay and about $73 an hour on Indeed's average base salary, assuming a 2,080-hour year. Built In's $184,757 average base works out to about $89 an hour. Contract rates usually run higher to cover the missing benefits and equity.",
   },
   {
     q: "Which company pays AI engineers the most?",
-    a: "The frontier labs. Levels.fyi puts OpenAI's median software-engineer total comp near $800K (up to $1.15M at L6) and xAI's near $640K, with Anthropic senior/lead engineers at roughly $575K–$759K — mostly in equity. Among big tech, Google and Meta lead the enterprise band ($355K–$645K at senior/staff), 30–50% below the labs at equal level.",
+    a: "The frontier labs. Levels.fyi's November 2026 data puts median software-engineer total comp at about $882,500 at Anthropic, $640,000 at OpenAI and $600,000 at xAI, mostly in equity. Among big tech, Meta leads for machine learning engineers at a $505K median, then Apple ($420K), Google ($333K) and Amazon ($280K).",
   },
   {
-    q: "Do AI engineers earn more than ML engineers or data scientists?",
-    a: "Yes, modestly, in 2026. AI engineers sit at roughly $145K–$185K base / $211K–$277K total comp, ahead of ML engineers (~$158K base) and clearly ahead of data scientists (~$122K base). The premium reflects newer demand than supply for production LLM experience — but the skills overlap far more than the pay does, so the gap may narrow.",
+    q: "Do AI engineers earn more than ML engineers?",
+    a: "Not by title. Indeed's November 2026 averages show machine learning engineers at $185,920 base versus $151,074 for AI developers, because the ML title is older and more common at big tech. What does pay a premium is AI skill at the same level: Ravio's 2026 compensation report found AI engineers earn 5–16% more than software engineers at the same individual-contributor level.",
   },
   {
     q: "Does an AI engineer need a degree?",
-    a: "No hard requirement. Many postings list a CS or ML degree as preferred, but companies increasingly hire on demonstrated ability to ship AI systems to production — real projects, RAG pipelines, eval suites, deployed agents. A degree helps most for research-leaning roles at frontier labs. If you're building that evidence from scratch, a structured AI engineering roadmap plus one or two real production projects is the practical route in.",
+    a: "No hard requirement. Many postings list a CS or ML degree as preferred, but companies increasingly hire on demonstrated ability to ship AI systems to production: real projects, RAG pipelines, eval suites, deployed agents. A degree helps most for research-leaning roles at frontier labs. If you're building that evidence from scratch, a structured AI engineering roadmap plus one or two real production projects is the practical route in.",
   },
 ];
 
@@ -115,15 +123,15 @@ const AIEngineerSalaryPost = () => {
               </div>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City
+                AI Engineer Salary (November 2026): What US Engineers Earn by Level, Company, and City
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                US AI engineers earn a <strong>median base of about $145K–$185K</strong> in 2026 (Glassdoor $145,070;
-                Built In $184,757), with <strong>total compensation of roughly $211K–$277K</strong> once stock and bonus
-                are counted (Built In, Levels.fyi). At the frontier labs — OpenAI, Anthropic, xAI — median packages run
-                <strong> $600K to $1.15M+</strong>, 55–70% of it in equity. Here's the full sourced breakdown by
-                experience level, company, and city, which skills move the number, and where pay is heading.
+                US AI engineers earn a <strong>median total pay of about $169K</strong> (Glassdoor, November 2026)
+                and an <strong>average base salary of $151K–$185K</strong> (Indeed, Built In). At big tech, machine
+                learning and AI engineers have a <strong>$251K median total comp</strong> (Levels.fyi), and at the
+                frontier labs median packages run <strong>$600K to $880K</strong>, mostly in equity. Below is the full
+                sourced breakdown by experience level, company, and city, plus monthly and hourly figures.
               </p>
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
@@ -144,7 +152,7 @@ const AIEngineerSalaryPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Updated Aug 25, 2026
+                      Updated Nov 11, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -164,11 +172,11 @@ const AIEngineerSalaryPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="how-much" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How much does an AI engineer make in the US?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  There is no single honest number — the major salary databases sample different slices of the market
-                  and disagree by more than $100K. The spread itself is the most useful fact: <strong>the broad US
-                  market pays AI engineers roughly $145K–$185K in base salary, big tech pays ~$210K–$450K in total
-                  compensation, and frontier labs pay $600K–$1.15M+ at senior levels.</strong> Here's what each source
-                  reports in 2026, and why the numbers differ:
+                  There is no single honest number, because the salary databases sample different slices of the
+                  market and disagree by about $100K. The spread is the useful part: <strong>the broad US market pays
+                  AI engineers about $150K–$185K in base salary ($169K median total pay), big tech pays $250K–$500K in
+                  total compensation, and frontier labs pay $600K–$880K at the median.</strong> Here's what each source
+                  reports as of November 2026, and why the numbers differ:
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -197,19 +205,18 @@ const AIEngineerSalaryPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   One structural note: the Bureau of Labor Statistics doesn't track "AI engineer" as its own occupation
                   yet. The closest official categories are software developers (median $133,080) and computer and
-                  information research scientists (median $140,300, May 2025) — both projected to grow far faster than
-                  the average occupation. The AI premium on top of that baseline is real: PwC's Global AI Jobs Barometer
-                  measured a <strong>56% wage premium for workers with AI skills</strong> in 2025, up from 25% two years
-                  earlier.
+                  information research scientists (median $140,300, May 2025), which the BLS projects to grow 22% from
+                  2025 to 2035, far faster than the average occupation.
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="by-experience" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer salary by experience level</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Experience is the single biggest in-company driver of pay, but the gap between the broad market and
-                  big tech widens at every rung. The total-comp column includes stock and bonus and shows how quickly
-                  frontier and big-tech packages pull away.
+                  Experience is the biggest driver of pay inside one company, but the gap between the broad market and
+                  big tech widens at every rung. The middle column is Glassdoor's median total pay for each AI engineer
+                  title; the right column is Levels.fyi total comp for machine learning engineers at big tech
+                  (November 2026).
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -218,16 +225,16 @@ const AIEngineerSalaryPost = () => {
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Level</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Broad-market base</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Total comp (incl. big tech)</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Broad market (Glassdoor)</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Big tech (Levels.fyi)</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
                           {levelTable.map((r) => (
                             <TableRow key={r.level}>
                               <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">{r.level}</TableCell>
-                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.base}</TableCell>
-                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.tc}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.broad}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.bigtech}</TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
@@ -236,21 +243,20 @@ const AIEngineerSalaryPost = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Concrete example of the widening gap: an entry-level engineer at a non-tech company might start near
-                  $90K, while their classmate who lands Google L3 starts around $177K total comp and an OpenAI L2 near
-                  $253K — a 2–3x difference on day one that compounds, because equity refreshers and level jumps stack
-                  at big tech in a way annual raises elsewhere don't. Levels are sourced from Levels.fyi, Kore1, and
-                  Glassdoor (2026).
+                  Concrete example of the widening gap: a junior AI engineer in the broad market has a median near $145K
+                  total pay, while a classmate who lands Google L3 starts around $208K. The gap compounds, because
+                  equity refreshers and level jumps stack at big tech in a way annual raises elsewhere don't. By staff
+                  level it is roughly $223K versus $646K–$809K.
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="by-company" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer salary by company</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Total-comp figures below are from Levels.fyi (2026), which aggregates verified offers, plus Pin's 2026
-                  benchmark synthesis. The pattern is consistent: <strong>frontier labs pay 2–3x big-tech medians, and
-                  nearly all of the premium is equity</strong> — OpenAI grants PPUs (profit participation units),
-                  Anthropic and xAI grant private stock, all illiquid until a tender offer or liquidity event.
+                  Median total comp below is from Levels.fyi (November 2026), which aggregates verified offers. OpenAI,
+                  Anthropic and xAI don't break out an ML track, so their rows cover all software engineers. The
+                  pattern is consistent: <strong>frontier labs pay roughly 2x big-tech medians, and nearly all of the
+                  premium is equity</strong>, which stays illiquid until a tender offer or liquidity event.
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -279,10 +285,9 @@ const AIEngineerSalaryPost = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Treat these as point-in-time, self-reported bands rather than guarantees — frontier-lab numbers in
-                  particular move fast and depend on paper valuations. Headline outliers exist (a reported OpenAI L6
-                  package near $1.52M), but they are the ceiling, not the norm. If the customer-facing side of lab work
-                  appeals to you, the{" "}
+                  Treat these as point-in-time, self-reported figures rather than guarantees. Frontier-lab numbers move
+                  fast, depend on paper valuations, and some rows rest on fewer than 50 submissions. If the
+                  customer-facing side of lab work appeals to you, the{" "}
                   <Link to="/blog/forward-deployed-ai-engineer" className="text-primary hover:underline">forward-deployed AI engineer</Link>{" "}
                   role is one of the more accessible doors into frontier-lab compensation.
                 </p>
@@ -296,11 +301,11 @@ const AIEngineerSalaryPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="by-location" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer salary by location</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  San Francisco and New York pay roughly 30–40% above the national average, but the most durable 2026
-                  shift is remote: <strong>US remote AI engineer pay is now benchmarked to the national median</strong>
-                  {" "}rather than discounted the way it was in 2022–2023. You can capture close-to-hub pay without
-                  hub-level rent. The table below is US-market data; roles outside the US typically pay a fraction of
-                  these figures.
+                  San Francisco pays the most, about 20% above the national machine learning engineer average, with
+                  Seattle, Los Angeles and New York close behind at just over $200K. Indeed doesn't publish city pages
+                  for the AI engineer title, so the table uses its <strong>machine learning engineer average base
+                  salary</strong> for every city, one consistent source updated in October–November 2026. Built In's
+                  figure for <strong>remote US AI engineers is $180,173</strong>, close to hub pay without hub rent.
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -308,9 +313,9 @@ const AIEngineerSalaryPost = () => {
                       <Table>
                         <TableHeader>
                           <TableRow>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Location</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Reported pay (2026)</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Source</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">City</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Average base (Indeed, Nov 2026)</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Sample</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -318,7 +323,7 @@ const AIEngineerSalaryPost = () => {
                             <TableRow key={r.city}>
                               <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">{r.city}</TableCell>
                               <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.pay}</TableCell>
-                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.source}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.sample}</TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
@@ -327,22 +332,23 @@ const AIEngineerSalaryPost = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Adjust for cost of living before comparing: roughly $180K in San Francisco buys about what $120K buys
-                  in Austin, so the headline coastal premium shrinks once rent is priced in.
+                  Adjust for cost of living before comparing: San Francisco pays about $41K more than Austin, but rent and
+                  state income tax eat much of that, so the coastal premium shrinks once living costs are priced in.
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="per-month-hour" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer salary per month and per hour</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  People often search monthly and hourly equivalents, so here they are, from 2026 base-salary data:
+                  Monthly and hourly equivalents of the November 2026 figures:
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                    <li>• <strong>Broad-market median (Glassdoor):</strong> $145,070/year ≈ <strong>$12,090/month</strong> ≈ <strong>$69.75/hour</strong></li>
-                    <li>• <strong>Broadest pool (ZipRecruiter):</strong> $116,949/year ≈ $9,746/month ≈ $56.23/hour</li>
-                    <li>• <strong>Tech-focused average (Built In):</strong> $184,757/year ≈ $15,396/month ≈ $88.83/hour</li>
-                    <li>• <strong>Big-tech reference:</strong> a $245K median total-comp package (Levels.fyi) ≈ $20,400/month</li>
+                    <li>• <strong>Broad-market median total pay (Glassdoor):</strong> $169,373/year ≈ <strong>$14,114/month</strong> ≈ <strong>$81/hour</strong></li>
+                    <li>• <strong>Average base (Indeed):</strong> $151,074/year ≈ $12,590/month ≈ $72.63/hour</li>
+                    <li>• <strong>Tech-focused average base (Built In):</strong> $184,757/year ≈ $15,396/month ≈ $88.83/hour</li>
+                    <li>• <strong>Official benchmark (BLS):</strong> $140,300/year ≈ $11,692/month ≈ $67.45/hour</li>
+                    <li>• <strong>Big tech (Levels.fyi ML/AI median):</strong> $251,000 total comp ≈ $20,917/month</li>
                   </ul>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -353,10 +359,11 @@ const AIEngineerSalaryPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="vs-other-roles" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer vs ML engineer vs software engineer vs data scientist salary</h2>
+                <h2 id="vs-other-roles" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI engineer vs ML engineer vs software engineer salary</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  The titles overlap heavily in job listings, but the market currently prices them differently. Using
-                  each role's most comparable 2026 figure:
+                  The titles overlap heavily in job listings, and the title alone doesn't decide pay. Indeed's machine
+                  learning engineer average is actually higher than its AI developer average, because the ML title is
+                  older and concentrated at big tech:
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -365,9 +372,8 @@ const AIEngineerSalaryPost = () => {
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Role</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Median base</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Median total comp</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">vs baseline</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Base salary</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Total comp</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -376,7 +382,6 @@ const AIEngineerSalaryPost = () => {
                               <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">{r.role}</TableCell>
                               <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.base}</TableCell>
                               <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.tc}</TableCell>
-                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{r.vs}</TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
@@ -385,12 +390,11 @@ const AIEngineerSalaryPost = () => {
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  In practice, "AI engineer" in 2026 usually means building on foundation models — RAG systems, agents,
-                  evals, LLM integrations — while "ML engineer" leans toward training and serving models and "data
-                  scientist" toward analysis and experimentation. The AI title carries a premium right now because demand
-                  is newer than the supply of people with production LLM experience; ODSC and PwC both attribute the gap
-                  to production skills rather than titles. Whether it persists is an open question — the skills overlap
-                  far more than the pay does. If you're weighing the paths, our{" "}
+                  In practice, "AI engineer" in 2026 usually means building on foundation models (RAG systems, agents,
+                  evals, LLM integrations), while "ML engineer" leans toward training and serving models. The premium
+                  follows the skills, not the title: Ravio's 2026 compensation report found AI engineers earn 5–16% more
+                  than software engineers at the same individual-contributor level, and that 27% of companies pay a
+                  premium to hire AI/ML engineers (European data, but the same direction as US offers). If you're weighing the paths, our{" "}
                   <Link to="/blog/ai-engineer-skills" className="text-primary hover:underline">AI engineer skills checklist</Link>{" "}
                   breaks down what each role actually requires.
                 </p>
@@ -430,25 +434,24 @@ const AIEngineerSalaryPost = () => {
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Premiums stack: an engineer who ships evals <em>and</em> owns a production RAG system is worth far more
-                  than either skill alone. Sources: Kore1 LLM/RAG salary guides, Second Talent, and Pin (2026).
+                  than either skill alone. Sources: Kore1 LLM/RAG salary guides and Second Talent (2026).
                 </p>
               </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="trend" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Is AI engineer pay still rising in 2026?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  It rose sharply, wobbled, and is now stabilizing rather than running away. Levels.fyi's median total
-                  comp peaked near <strong>$295K in March 2024</strong>, dipped to <strong>$228K in January 2025</strong>{" "}
-                  during a hiring recalibration, recovered to <strong>$277K by March 2025</strong>, and sits around{" "}
-                  <strong>$245K in 2026</strong> — a ±20–30% swing that reads as the market finding a floor after the
-                  2023–2024 hype, not a collapse.
+                  Yes, but it is stabilizing rather than running away. Levels.fyi's median total comp for ML/AI
+                  engineers is <strong>$251,000 in November 2026</strong>, up from about $245K when we first published
+                  this guide in August, after a peak near $295K in March 2024 and a dip to $228K in January 2025 during
+                  a hiring reset.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  The premium itself held: PwC's AI-skills wage premium accelerated from 25% (2023) to 56% (2025) before
-                  leveling. Even with heavy tech layoffs in early 2026 — a large share attributed to AI and automation —
-                  demand for <em>proven</em> AI engineers stayed intact, with reported role-per-candidate ratios well
-                  above one. The takeaway: the runaway-growth phase is over, but the premium for people who ship
-                  production AI is durable.
+                  The premium for AI skills held through 2026 layoffs: PwC's 2025 AI Jobs Barometer measured a 56% wage
+                  premium for AI-skilled workers, Ravio's October 2026 report shows AI engineers ahead of software
+                  engineers at every individual-contributor level, and the BLS projects 22% growth for the closest
+                  official occupation through 2035. The runaway phase is over, but people who ship production AI still
+                  get paid more for it.
                 </p>
               </section>
 
@@ -461,8 +464,8 @@ const AIEngineerSalaryPost = () => {
                   <ol className="space-y-2 text-sm sm:text-base list-decimal list-inside">
                     <li><strong>Change employer tier, not just employer.</strong> The broad market → big tech → frontier lab jumps are worth ~$100K–$400K each at the same experience level — no raise negotiation compares.</li>
                     <li><strong>Own an evaluation system.</strong> Evals are the single biggest skill separator in 2026; engineers who ship golden datasets and offline/online eval harnesses pull the top of their band. Build production LLM evidence — RAG pipelines, agents, evals — because that's what postings screen for. The operational side is covered in our <Link to="/blog/mlops-best-practices" className="text-primary hover:underline">MLOps best practices</Link> guide.</li>
-                    <li><strong>Negotiate equity, not base.</strong> At the top of the market, equity is 55–70% of the package; base bands are rigid, grant sizes are not.</li>
-                    <li><strong>Anchor to a high-paying market.</strong> Remote US roles now benchmark to the national median — you can capture close-to-hub pay without hub-level rent.</li>
+                    <li><strong>Negotiate equity, not base.</strong> At the frontier labs, equity is most of the package (xAI's median is about $200K base plus $400K stock); base bands are rigid, grant sizes are not.</li>
+                    <li><strong>Anchor to a high-paying market.</strong> Built In puts remote US AI engineers at about $180K, so you can capture close-to-hub pay without hub-level rent.</li>
                     <li><strong>Level up deliberately.</strong> The entry→mid→senior→staff ladder roughly adds $100K–$250K in total comp per rung at big tech; ask what the next level requires and build against it.</li>
                   </ol>
                 </div>
@@ -495,21 +498,25 @@ const AIEngineerSalaryPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Sources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
-                  <li>• <a href="https://www.glassdoor.com/Salaries/ai-engineer-salary-SRCH_KO0,11.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Glassdoor — AI Engineer salaries, United States (Aug 2026)</a></li>
+                  <li>• <a href="https://www.glassdoor.com/Salaries/ai-engineer-salary-SRCH_KO0,11.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Glassdoor — AI Engineer salaries, United States (Nov 2026)</a></li>
+                  <li>• <a href="https://www.glassdoor.com/Salaries/senior-ai-engineer-salary-SRCH_KO0,18.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Glassdoor — Senior AI Engineer salaries</a></li>
+                  <li>• <a href="https://www.glassdoor.com/Salaries/principal-ai-engineer-salary-SRCH_KO0,21.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Glassdoor — Principal AI Engineer salaries</a></li>
+                  <li>• <a href="https://www.indeed.com/career/ai-engineer/salaries" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Indeed — AI Developer salaries (Nov 2026)</a></li>
+                  <li>• <a href="https://www.indeed.com/career/machine-learning-engineer/salaries" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Indeed — Machine Learning Engineer salaries by city (Nov 2026)</a></li>
                   <li>• <a href="https://builtin.com/salaries/us/ai-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Built In — 2026 AI Engineer salary in the US</a></li>
-                  <li>• <a href="https://www.levels.fyi/companies/openai/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — OpenAI Software Engineer salaries</a></li>
-                  <li>• <a href="https://www.levels.fyi/companies/anthropic/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Anthropic Software Engineer salaries</a></li>
-                  <li>• <a href="https://www.levels.fyi/companies/google/salaries/software-engineer/title/ai-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Google AI Engineer salaries</a></li>
-                  <li>• <a href="https://www.levels.fyi/companies/xai/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — xAI Software Engineer salaries</a></li>
-                  <li>• <a href="https://www.pin.com/blog/ai-compensation-salary-guide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Pin — AI Compensation Benchmarks 2026 (Levels.fyi synthesis, frontier labs)</a></li>
-                  <li>• <a href="https://www.kore1.com/ai-engineer-salary-guide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Kore1 — AI Engineer Salary Guide 2026 (real offer data)</a></li>
-                  <li>• <a href="https://www.coursera.org/articles/ai-engineer-salary" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Coursera — AI Engineer Salary Guide 2026 (BLS/Glassdoor/Indeed compiled)</a></li>
-                  <li>• <a href="https://odsc.medium.com/ai-engineer-vs-data-scientist-salary-in-2026-why-production-skills-pay-more-290daf9c9d8e" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ODSC — AI Engineer vs Data Scientist salary in 2026</a></li>
-                  <li>• <a href="https://www.secondtalent.com/resources/most-in-demand-ai-engineering-skills-and-salary-ranges/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Second Talent — In-demand AI engineering skills & salary ranges (2026)</a></li>
-                  <li>• <a href="https://www.ziprecruiter.com/Salaries/Ai-Engineer-Salary" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ZipRecruiter — AI Engineer salary (annual, monthly, hourly)</a></li>
+                  <li>• <a href="https://www.levels.fyi/t/software-engineer/focus/ml-ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — ML/AI software engineer salaries (Nov 2026)</a></li>
+                  <li>• <a href="https://www.levels.fyi/t/software-engineer/title/ai-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — AI Engineer title salaries</a></li>
+                  <li>• <a href="https://www.levels.fyi/companies/anthropic/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Anthropic software engineer salaries</a></li>
+                  <li>• <a href="https://www.levels.fyi/companies/openai/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — OpenAI software engineer salaries</a></li>
+                  <li>• <a href="https://www.levels.fyi/companies/xai/salaries/software-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — xAI software engineer salaries</a></li>
+                  <li>• <a href="https://www.levels.fyi/companies/google/salaries/software-engineer/title/machine-learning-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Google machine learning engineer salaries</a></li>
+                  <li>• <a href="https://www.levels.fyi/companies/meta/salaries/software-engineer/title/machine-learning-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Meta machine learning engineer salaries</a></li>
+                  <li>• <a href="https://get.ravio.com/blog/ai-compensation-and-talent-trends" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Ravio — AI compensation and talent trends (Oct 2026)</a></li>
                   <li>• <a href="https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">US BLS — Computer and Information Research Scientists (May 2025)</a></li>
                   <li>• <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">US BLS — Software Developers, Occupational Outlook Handbook</a></li>
-                  <li>• <a href="https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">PwC — Global AI Jobs Barometer (56% AI wage premium)</a></li>
+                  <li>• <a href="https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">PwC — Global AI Jobs Barometer</a></li>
+                  <li>• <a href="https://www.kore1.com/ai-engineer-salary-guide/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Kore1 — AI Engineer Salary Guide 2026 (skills premiums)</a></li>
+                  <li>• <a href="https://www.secondtalent.com/resources/most-in-demand-ai-engineering-skills-and-salary-ranges/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Second Talent — In-demand AI engineering skills & salary ranges (2026)</a></li>
                 </ul>
               </section>
             </article>

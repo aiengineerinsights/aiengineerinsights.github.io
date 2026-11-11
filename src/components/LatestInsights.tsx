@@ -80,7 +80,7 @@ export const insights = [
       link: "/blog/claude-managed-agents"
     },
     {
-      title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+      title: "Claude Skills (2026): What They Are, the Best Ones, and How to Add Them to Claude Code",
       excerpt: "A skill teaches Claude a task once, then loads itself when the task comes up. The SKILL.md format, where skills live, skills vs subagents vs MCP vs hooks, skill-creator, the best skills, and marketplace safety.",
       readTime: "11 min read",
       date: "Oct 20, 2026",
@@ -490,8 +490,8 @@ export const insights = [
       link: "/blog/context-engineering-graperoot"
     },
     {
-      title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
-      excerpt: "US AI engineers earn roughly $100K–$250K in 2026 — and $850K+ median at the frontier labs. A fully sourced breakdown across Glassdoor, Levels.fyi, ZipRecruiter, and BLS data: by experience level, by company, by city, and what actually moves the number.",
+      title: "AI Engineer Salary (November 2026): What US Engineers Earn by Level, Company, and City",
+      excerpt: "US AI engineers earn a $169K median total pay and $151K–$185K average base as of November 2026, $251K at big tech and $600K–$880K at frontier labs. Sourced from Glassdoor, Indeed, Levels.fyi and BLS: by level, company, city, month and hour.",
       readTime: "11 min read",
       date: "Aug 3, 2026",
       category: "AI Engineering Careers",
@@ -500,7 +500,7 @@ export const insights = [
       link: "/blog/ai-engineer-salary"
     },
     {
-      title: "The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It",
+      title: "Forward Deployed Engineer (FDE): What the Role Is, Salary, and How to Get Hired (2026)",
       excerpt: "OpenAI, Anthropic, and Google DeepMind have all built teams around Palantir's forward-deployed engineer model. What the job actually is, how it compares to adjacent roles, what it pays, and how to break in.",
       readTime: "10 min read",
       date: "Jul 29, 2026",

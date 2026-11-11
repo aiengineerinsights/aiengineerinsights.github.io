@@ -44,34 +44,53 @@ const features = [
 ];
 
 const bestSkills = [
-  { name: "skill-creator", source: "Official (anthropics/skills)", does: "Builds new skills, runs evals on them, and tunes descriptions so they trigger reliably" },
-  { name: "docx", source: "Official", does: "Creates and edits Word documents and templates" },
-  { name: "pdf", source: "Official", does: "Extracts, merges, splits, fills forms in, and creates PDFs" },
-  { name: "pptx", source: "Official", does: "Creates and parses slide decks" },
-  { name: "xlsx", source: "Official", does: "Creates, cleans, and charts spreadsheets, including CSV and TSV" },
+  { name: "skill-creator", source: "Official", does: "Builds new skills, runs evals on them, and tunes descriptions so they trigger reliably" },
+  { name: "docx / pdf / pptx / xlsx", source: "Official", does: "Create and edit Word files, PDFs, slide decks and spreadsheets" },
   { name: "frontend-design", source: "Official", does: "Gives UI work a distinctive design direction instead of templated defaults" },
-  { name: "mcp-builder", source: "Official", does: "Guides you through building an MCP server in Python (FastMCP) or TypeScript" },
+  { name: "mcp-builder", source: "Official", does: "Guides you through building an MCP server in Python or TypeScript" },
   { name: "webapp-testing", source: "Official", does: "Tests local web apps with Playwright, including screenshots and logs" },
-  { name: "superpowers (obra/superpowers)", source: "Community, not reviewed by Anthropic", does: "A development-methodology pack of skills for planning, testing, and debugging" },
+  { name: "doc-coauthoring", source: "Official", does: "A structured workflow for co-writing docs, specs and proposals" },
+  { name: "web-artifacts-builder", source: "Official", does: "Builds multi-file React, Tailwind and shadcn/ui artifacts" },
+  { name: "claude-api", source: "Official", does: "Up-to-date Claude API and SDK reference for building on Claude" },
+  { name: "canvas-design / algorithmic-art", source: "Official", does: "Posters and visual art as PNG or PDF, and generative art in p5.js" },
+];
+
+const communitySkills = [
+  { repo: "mattpocock/skills", stars: "321k", does: "Engineering skills such as grill-me, improve-codebase-architecture and prototype" },
+  { repo: "obra/superpowers", stars: "316k", does: "A development methodology as skills: planning, TDD, systematic debugging" },
+  { repo: "affaan-m/everything-claude-code", stars: "301k", does: "A large harness of skills, agents, hooks and memory for Claude Code" },
+  { repo: "nextlevelbuilder/ui-ux-pro-max-skill", stars: "148k", does: "UI/UX design guidance: styles, palettes, font pairings, UX rules" },
+  { repo: "heygen-com/hyperframes", stars: "82k", does: "Lets agents turn HTML into video" },
+  { repo: "K-Dense-AI/claude-scientific-skills", stars: "57k", does: "177 skills for scientific research and data analysis" },
+  { repo: "vercel-labs/agent-browser", stars: "49k", does: "Browser automation CLI with a skill for coding agents" },
+  { repo: "wshobson/agents", stars: "42k", does: "Plugins, subagents and skills that work across several coding CLIs" },
 ];
 
 // Q&A also emitted as FAQPage JSON-LD at build time (see postbuild-seo.mjs).
 const faqs = [
   {
-    q: "What are Claude Code skills?",
-    a: "Skills are folders of instructions, scripts, and resources that Claude discovers and loads when a task needs them. Each skill has a SKILL.md file with a name and a description; Claude keeps only that short metadata in context and loads the full instructions, and any bundled files, when your request matches the description. In Claude Code you can also run a skill directly with /skill-name. Skills are an open standard (Agent Skills) and work in Claude Code, the Claude apps, and the Claude API.",
+    q: "What are Claude skills?",
+    a: "Skills are folders of instructions, scripts, and resources that Claude discovers and loads when a task needs them. Each skill has a SKILL.md file with a name and a description; Claude keeps only that short metadata in context and loads the full instructions, and any bundled files, when your request matches the description. Skills work in the Claude apps, Claude Code and the Claude API, and Agent Skills is an open standard that tools like Codex, Cursor, Gemini CLI and GitHub Copilot also read.",
   },
   {
-    q: "How do I create a Claude Code skill?",
+    q: "How do I add skills to Claude Code?",
+    a: "Put a skill folder with a SKILL.md file in ~/.claude/skills/ (for all your projects) or .claude/skills/ (for one repo), or install one from a plugin marketplace with /plugin install name@marketplace, for example /plugin install skill-creator@claude-plugins-official. Run /skills to list what is installed. Claude loads a skill automatically when your request matches its description, or you can run it with /skill-name.",
+  },
+  {
+    q: "How do I add skills in the Claude app?",
+    a: "Turn on code execution under Settings > Capabilities, then open Customize > Skills to switch on Anthropic's skills. To add your own, choose + > Create skill > Upload a skill and upload a ZIP of the skill folder. On Team plans skills are on by default; on Enterprise an owner enables them under Organization settings.",
+  },
+  {
+    q: "How do I create a Claude skill?",
     a: "Create a folder under ~/.claude/skills/ (for yourself) or .claude/skills/ (for a project), add a SKILL.md file with YAML frontmatter containing a name and a description that says what the skill does and when to use it, then write the instructions below it. Add reference files or scripts next to it if needed. The easiest route is Anthropic's skill-creator skill, installed with /plugin install skill-creator@claude-plugins-official, which drafts the skill, writes test prompts, runs evals, and improves the description.",
   },
   {
     q: "What are the best Claude skills?",
-    a: "Start with Anthropic's official ones: skill-creator for building your own, the document skills (docx, pdf, pptx, xlsx), frontend-design, mcp-builder, and webapp-testing, all in the anthropics/skills repository. The official claude-plugins-official marketplace adds plugins such as code-review, feature-dev, commit-commands, and security-guidance. Popular community packs like obra/superpowers exist too, but Anthropic doesn't review third-party skills, so read them before installing.",
+    a: "Start with Anthropic's official ones in the anthropics/skills repository: skill-creator for building your own, the document skills (docx, pdf, pptx, xlsx), frontend-design, mcp-builder and webapp-testing. The most-starred community collections in November 2026 are mattpocock/skills, obra/superpowers and everything-claude-code. Anthropic doesn't review third-party skills, so read them before installing.",
   },
   {
     q: "Is there a Claude skills marketplace?",
-    a: "Yes. Skills are distributed through plugin marketplaces. Anthropic runs the official marketplace, claude-plugins-official, which Claude Code adds automatically, plus a community marketplace (claude-community) and a web catalog at claude.com/marketplace/plugins. You can add any marketplace with /plugin marketplace add owner/repo, for example /plugin marketplace add anthropics/skills, and install with /plugin install name@marketplace.",
+    a: "Yes. Skills are distributed through plugin marketplaces. Anthropic's official marketplace, claude-plugins-official, lists over 300 plugins and is added to Claude Code automatically, and the web catalog at claude.com/plugins lists over 500. You can add any marketplace with /plugin marketplace add owner/repo, for example /plugin marketplace add anthropics/skills. Community directories such as skills.sh install skills with npx skills add owner/repo.",
   },
   {
     q: "What is the difference between skills, subagents, MCP, and hooks?",
@@ -109,14 +128,14 @@ const ClaudeCodeSkillsPost = () => {
               </div>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)
+                Claude Skills (2026): What They Are, the Best Ones, and How to Add Them to Claude Code
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 <strong>A skill teaches Claude a task once, then loads itself whenever that task comes up.</strong>{" "}
-                This guide covers what Claude Code skills are, the SKILL.md format, where skills live, how they differ
-                from subagents, MCP, hooks, and plugins, how to build one with skill-creator, the best skills to install
-                first, and how to stay safe with third-party marketplaces.
+                Claude skills work in the Claude app, Claude Code and the API. This guide covers what they are, the
+                SKILL.md format, how to add skills to Claude Code and the Claude app, the best official and community
+                skills, the plugin marketplaces, and how to stay safe installing other people's skills.
               </p>
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
@@ -137,7 +156,7 @@ const ClaudeCodeSkillsPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Oct 20, 2026
+                      Updated Nov 11, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -152,7 +171,7 @@ const ClaudeCodeSkillsPost = () => {
 
             <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-8 sm:mb-10">
               <p className="text-sm sm:text-base leading-relaxed m-0">
-                <strong>TL;DR:</strong> A Claude Code skill is a folder with a <code>SKILL.md</code> file (a name, a
+                <strong>TL;DR:</strong> A Claude skill is a folder with a <code>SKILL.md</code> file (a name, a
                 description of what it does and when to use it, then instructions) plus optional reference files and
                 scripts. Claude keeps only the short description in context and loads the rest when a task matches, or
                 you run it with <code>/skill-name</code>. Put personal skills in <code>~/.claude/skills/</code> and
@@ -166,12 +185,14 @@ const ClaudeCodeSkillsPost = () => {
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
-                <h2 id="what-are-skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What are Claude Code skills?</h2>
+                <h2 id="what-are-skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What are Claude skills?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Anthropic introduced skills as "organized folders of instructions, scripts, and resources that agents
                   can discover and load dynamically" in{" "}
                   <RefLink href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">Equipping agents for the real world with Agent Skills</RefLink>{" "}
-                  (October 2025), and later published Agent Skills as an open standard. The idea is simple: instead of
+                  (October 2025), and later published Agent Skills as an open standard at{" "}
+                  <RefLink href="https://agentskills.io">agentskills.io</RefLink>, which dozens of other tools now read,
+                  including OpenAI Codex, Cursor, Gemini CLI and GitHub Copilot. The idea is simple: instead of
                   pasting the same long instructions into every session, you write them once as a skill, and Claude
                   pulls them in when they're relevant.
                 </p>
@@ -224,7 +245,7 @@ const ClaudeCodeSkillsPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Claude loads a skill automatically when its description matches what you asked, unless the skill sets{" "}
                   <code>disable-model-invocation: true</code>. You can also call it yourself with{" "}
-                  <code>/skill-name</code> plus arguments. Since Claude Code 2.1, custom slash commands and skills are the
+                  <code>/skill-name</code> plus arguments. Run <code>/skills</code> to list every installed skill. Since Claude Code 2.1, custom slash commands and skills are the
                   same thing: <code>.claude/commands/deploy.md</code> and <code>.claude/skills/deploy/SKILL.md</code>{" "}
                   both give you <code>/deploy</code>.
                 </p>
@@ -306,11 +327,12 @@ const ClaudeCodeSkillsPost = () => {
               />
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="best-skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The best Claude skills to install first</h2>
+                <h2 id="best-skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The best Claude skills to install first (official)</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Start with official skills from{" "}
                   <RefLink href={SKILLS_REPO}>anthropics/skills</RefLink>; they are maintained, readable, and good
-                  examples of how to write your own. Descriptions below come from each skill's own SKILL.md:
+                  examples of how to write your own. The repo has 19 skills and about 192,000 GitHub stars; these are
+                  the ones most worth installing:
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -350,6 +372,45 @@ const ClaudeCodeSkillsPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="community-skills" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The most popular community Claude skills</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Most of the skills people actually install come from the community. These are the most-starred skill
+                  repos on GitHub as of November 11, 2026. Anthropic doesn't review any of them, so read the files
+                  before you install.
+                </p>
+                <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
+                  <div className="min-w-full inline-block align-middle">
+                    <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Repo</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Stars</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">What it does</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {communitySkills.map((c) => (
+                            <TableRow key={c.repo}>
+                              <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4"><RefLink href={`https://github.com/${c.repo}`}>{c.repo}</RefLink></TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{c.stars}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{c.does}</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  For install counts rather than stars, Vercel's <RefLink href="https://skills.sh">skills.sh</RefLink>{" "}
+                  leaderboard tracks which skills agents actually pull, and installs any of them with{" "}
+                  <code>npx skills add owner/repo</code>. Its most-installed skill is <code>find-skills</code>, at about
+                  4.3 million installs.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="marketplace" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The Claude skills marketplace: plugins and marketplaces</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Skills are shared through <strong>plugins</strong>, which can bundle skills, agents, hooks, and MCP and
@@ -358,7 +419,7 @@ const ClaudeCodeSkillsPost = () => {
                 </p>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ul className="space-y-2 text-sm sm:text-base">
-                    <li>• <strong>claude-plugins-official</strong> (<code>anthropics/claude-plugins-official</code>): the official marketplace, added automatically the first time you run Claude Code interactively.</li>
+                    <li>• <strong>claude-plugins-official</strong> (<code>anthropics/claude-plugins-official</code>): the official marketplace, with over 300 plugins, added automatically the first time you run Claude Code interactively.</li>
                     <li>• <strong>claude-community</strong> (<code>anthropics/claude-plugins-community</code>): community plugins; you add it yourself.</li>
                     <li>• <strong>claude-code-plugins</strong> (<code>anthropics/claude-code</code>): demo plugins, which the docs note "isn't the official marketplace."</li>
                   </ul>
@@ -375,9 +436,11 @@ claude plugin install <name>@<marketplace> --scope project   # from your shell`}
                 </pre>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   There is also a web catalog at{" "}
-                  <RefLink href="https://claude.com/marketplace/plugins">claude.com/marketplace/plugins</RefLink>{" "}
-                  that marks some plugins "Anthropic verified." Large community collections exist on GitHub, such as
-                  awesome-claude-skills lists, but treat them as directories, not endorsements.
+                  <RefLink href="https://claude.com/plugins">claude.com/plugins</RefLink>, listing over 500 plugins for
+                  Claude and Claude Code, that marks some plugins "Anthropic verified." Large community lists exist on
+                  GitHub too, such as{" "}
+                  <RefLink href="https://github.com/ComposioHQ/awesome-claude-skills">ComposioHQ/awesome-claude-skills</RefLink>{" "}
+                  (about 79,000 stars), but treat them as directories, not endorsements.
                 </p>
               </section>
 
@@ -397,15 +460,27 @@ claude plugin install <name>@<marketplace> --scope project   # from your shell`}
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="availability" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Skills in the Claude app and the API</h2>
+                <h2 id="availability" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How to use skills in the Claude app and the API</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Skills aren't only for Claude Code. In the Claude apps, Anthropic's{" "}
-                  <RefLink href="https://support.claude.com/en/articles/12512180-using-skills-in-claude">help center</RefLink>{" "}
-                  says skills are available on Free, Pro, Max, Team, and Enterprise plans with code execution turned on,
-                  and Team and Enterprise owners can provision skills for everyone. On the API, skills require the code
-                  execution tool; prebuilt skills (<code>pptx</code>, <code>xlsx</code>, <code>docx</code>,{" "}
-                  <code>pdf</code>) are referenced by ID and custom skills are uploaded through <code>/v1/skills</code>.
-                  Custom skills don't sync between these surfaces, so keep the source in a repo.
+                  Skills aren't only for Claude Code. Per Anthropic's{" "}
+                  <RefLink href="https://support.claude.com/en/articles/12512180-using-skills-in-claude">help center</RefLink>,
+                  in the Claude app (claude.ai and desktop):
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ol className="space-y-2 text-sm sm:text-base list-decimal list-inside">
+                    <li>Turn on <strong>Settings &gt; Capabilities &gt; Code execution and file creation</strong>. Skills need it.</li>
+                    <li>Open <strong>Customize &gt; Skills</strong> and switch on the Anthropic skills you want.</li>
+                    <li>To add your own, choose <strong>+ &gt; Create skill &gt; Upload a skill</strong> and upload a ZIP of the skill folder.</li>
+                    <li>On Team, skills are on by default. On Enterprise, an owner enables them under Organization settings and can provision skills to everyone.</li>
+                  </ol>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  On the <RefLink href="https://platform.claude.com/docs/en/build-with-claude/skills-guide">Claude API</RefLink>,
+                  skills run inside the code execution tool. You list up to 20 per request under{" "}
+                  <code>container.skills</code>, using the prebuilt IDs (<code>pptx</code>, <code>xlsx</code>,{" "}
+                  <code>docx</code>, <code>pdf</code>) or custom skills you upload through <code>/v1/skills</code>.
+                  Custom skills don't sync between the app, Claude Code and the API, so keep the source in a repo and
+                  upload it to each.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   If you want to prove you can build with Claude Code, skills included, our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">Anthropic certifications guide</Link> covers the developer and architect exams.
@@ -435,9 +510,13 @@ claude plugin install <name>@<marketplace> --scope project   # from your shell`}
                   <li>• <RefLink href="https://code.claude.com/docs/en/plugins/anthropic-marketplaces">Anthropic — Anthropic's plugin marketplaces</RefLink></li>
                   <li>• <RefLink href="https://code.claude.com/docs/en/plugins/security">Anthropic — Plugin security</RefLink></li>
                   <li>• <RefLink href="https://support.claude.com/en/articles/12512180-using-skills-in-claude">Claude Help Center — Using skills in Claude</RefLink></li>
+                  <li>• <RefLink href="https://platform.claude.com/docs/en/build-with-claude/skills-guide">Anthropic — Using skills with the Claude API</RefLink></li>
+                  <li>• <RefLink href="https://agentskills.io">Agent Skills — open standard and specification</RefLink></li>
+                  <li>• <RefLink href="https://skills.sh">skills.sh — skills leaderboard and installer</RefLink></li>
+                  <li>• <RefLink href="https://claude.com/plugins">Claude — plugin catalog</RefLink></li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mt-4 text-sm sm:text-base">
-                  <em>Verified against Anthropic's docs on October 20, 2026.</em>
+                  <em>Verified against Anthropic's docs and GitHub on November 11, 2026.</em>
                 </p>
               </section>
             </article>

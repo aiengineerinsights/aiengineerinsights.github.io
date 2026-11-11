@@ -21,16 +21,30 @@ const roleCompare = [
 ];
 
 const payTable = [
-  { company: "Palantir (FDSE)", band: "$171K–$295K total · ~$211K median", note: "Levels.fyi 2026 — the original role" },
-  { company: "OpenAI (FDE)", band: "$160K–$280K base (mid); senior total far higher", note: "SF; up to ~50% travel; equity-heavy" },
-  { company: "Anthropic (Applied AI)", band: "Frontier-lab comp; senior totals reported into the high six figures", note: "Mostly equity; embeds with strategic customers" },
-  { company: "Google Cloud (FDE)", band: "$127K–$183K base + equity", note: "Published salary bands" },
-  { company: "Salesforce / enterprise AI", band: "Competitive; varies by level", note: "Growing FDE-equivalent hiring" },
+  { company: "Anthropic", band: "$280K–$320K base (Staff FDE)", note: "SF / NYC / Seattle; about 25% travel; manager $320K–$405K" },
+  { company: "OpenAI", band: "$185K–$325K base + equity", note: "San Francisco FDSE; NYC $153K–$325K; up to 50% travel" },
+  { company: "Harvey", band: "$254.6K–$350K base + equity", note: "Forward Deployed Finance Engineer, NYC" },
+  { company: "Ramp", band: "$189K–$330K base + equity", note: "Software Engineer, Forward Deployed, NYC" },
+  { company: "Scale AI", band: "$180K–$315K base", note: "FDE $180K–$225K, senior $216K–$270K, staff $252K–$315K" },
+  { company: "Databricks", band: "$182K–$250K base + equity", note: "Senior FDE, US; public sector $153K–$210K" },
+  { company: "Google Cloud", band: "$127K–$265K base + equity", note: "Generative AI FDE to FDE IV, Applied AI (job-board listings)" },
+  { company: "Palantir", band: "$135K–$200K base + RSUs", note: "Forward Deployed Software Engineer; Deployment Strategist $110K–$170K" },
+  { company: "Salesforce", band: "$93K–$307K base", note: "Agentforce FDE, early career to principal (job-board listings)" },
+];
+
+const jobBoards = [
+  { company: "Databricks", count: "95", url: "https://www.databricks.com/company/careers" },
+  { company: "Palantir", count: "73", url: "https://jobs.lever.co/palantir" },
+  { company: "OpenAI", count: "39", url: "https://jobs.ashbyhq.com/openai" },
+  { company: "Scale AI", count: "13", url: "https://job-boards.greenhouse.io/scaleai" },
+  { company: "Cohere", count: "12", url: "https://jobs.ashbyhq.com/cohere" },
+  { company: "Anthropic", count: "8", url: "https://www.anthropic.com/careers/jobs" },
+  { company: "Harvey", count: "4", url: "https://jobs.ashbyhq.com/harvey" },
 ];
 
 const faqs = [
   {
-    q: "What is a forward-deployed engineer in simple terms?",
+    q: "What is a forward deployed engineer?",
     a: "A software engineer who embeds with a customer — on-site, remote, or inside their cloud — learns the domain, and writes production code against the customer's real data and systems. The defining trait is end-to-end ownership: the person who scopes the problem is the person who keeps it running months later.",
   },
   {
@@ -38,12 +52,12 @@ const faqs = [
     a: "Consultants deliver reports and recommendations; solutions engineers configure an existing product. An FDE builds and owns the actual system that runs in production. It's a builder role with delivery accountability, not an advisory or configuration role.",
   },
   {
-    q: "How much does a forward-deployed AI engineer make?",
-    a: "Reported bands in 2026: Google Cloud roughly $127K–$183K base plus equity, and OpenAI mid-level roughly $160K–$280K in San Francisco (with up to ~50% travel). Lab equity can push total compensation well above base. Treat specific numbers as point-in-time and role-dependent.",
+    q: "How much does a forward deployed engineer make?",
+    a: "Levels.fyi puts the US median total compensation for forward deployed engineers at about $225K in November 2026, with the middle half between $170K and $300K. Posted base salaries run from $135K–$200K at Palantir and $185K–$325K at OpenAI in San Francisco to $280K–$320K for a Staff FDE at Anthropic, before equity.",
   },
   {
     q: "Which companies hire forward-deployed engineers?",
-    a: "Palantir originated the role and still hires heavily for it (as Forward Deployed and Deployment Strategist tracks). The frontier AI labs — OpenAI and Anthropic — now hire FDEs, as does Google Cloud, plus enterprise-AI firms like Salesforce, Databricks, and Scale AI. Search for 'forward deployed engineer jobs' at these companies' careers pages, where hiring has risen sharply through 2025–2026.",
+    a: "Palantir originated the role and still hires heavily for it (as Forward Deployed and Deployment Strategist tracks). The frontier AI labs — OpenAI and Anthropic — now hire FDEs, as does Google Cloud, plus enterprise-AI firms like Salesforce, Databricks, and Scale AI. In November 2026 Databricks listed 95 FDE roles, Palantir 73 and OpenAI 39. Monthly FDE job postings rose more than 800% between January and September 2025, according to Indeed data reported by the Financial Times.",
   },
   {
     q: "Is the forward-deployed engineer role worth it?",
@@ -59,7 +73,7 @@ const faqs = [
   },
   {
     q: "Do forward-deployed engineers have to travel?",
-    a: "Usually some, and sometimes a lot. The role exists because being physically or organisationally close to the customer is what unblocks delivery, so postings commonly list travel — OpenAI's FDE listings cite up to ~50%, and Palantir's forward-deployed track has historically been on-site with customers. Remote-embedded variants exist (working inside the customer's cloud rather than their office), but assume regular customer-site time unless the listing says otherwise.",
+    a: "Usually some, and sometimes a lot. The role exists because being physically or organisationally close to the customer is what unblocks delivery, so postings commonly list travel — OpenAI's FDE listings cite up to 50%, Anthropic's US Staff FDE listing about 25%, and Palantir's forward-deployed track has historically been on-site with customers. Remote-embedded variants exist (working inside the customer's cloud rather than their office), but assume regular customer-site time unless the listing says otherwise.",
   },
 ];
 
@@ -89,14 +103,15 @@ const BlogPost = () => {
               </div>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                The Forward-Deployed AI Engineer: What the Role Actually Is, What It Pays, and Whether You Should Go For It
+                Forward Deployed Engineer (FDE): What the Role Is, Salary, and How to Get Hired (2026)
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                A forward-deployed engineer (FDE) is a software engineer who embeds with a customer and owns an AI system
-                end to end — scoping it, writing the production code, and keeping it running. Palantir invented the role in
-                2005; in 2026 OpenAI, Anthropic, and Google are hiring it hard. Here's what the job is, how it compares to
-                adjacent titles, what it pays, and how to break in.
+                A forward deployed engineer (FDE) is a software engineer who embeds with a customer and owns an AI system
+                end to end: scoping it, writing the production code, and keeping it running. Palantir invented the role;
+                in 2026 OpenAI, Anthropic, Databricks and Google are hiring it hard. Here's what an FDE does day to day,
+                how it compares to adjacent titles, what it pays at each company, where the jobs are, and how to get
+                hired.
               </p>
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
@@ -117,7 +132,7 @@ const BlogPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Jul 29, 2026
+                      Updated Nov 11, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -137,17 +152,16 @@ const BlogPost = () => {
               <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-6 sm:mb-8">
                 <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">TL;DR</p>
                 <p className="text-sm sm:text-base leading-relaxed mb-0">
-                  A forward-deployed AI engineer is a software engineer who embeds with one customer, writes production
+                  A forward deployed engineer is a software engineer who embeds with one customer, writes production
                   code against that customer's real data and systems, and stays accountable for the result after launch.
-                  Palantir created the role; OpenAI, Anthropic, Google Cloud, and enterprise-AI firms like Databricks,
-                  Scale AI, and Salesforce now hire for it. Reported 2026 bands run from roughly $127K–$183K base at
-                  Google Cloud to $171K–$295K total compensation at Palantir, with frontier-lab equity pushing totals
-                  higher.
+                  Palantir created the role; OpenAI, Anthropic, Google Cloud, Databricks, Scale AI and Salesforce now
+                  hire for it. The US median total compensation is about <strong>$225K</strong> (Levels.fyi, November
+                  2026), and posted base salaries run from $135K at Palantir to $320K for a Staff FDE at Anthropic.
                 </p>
               </div>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="what-is-it" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What is a forward-deployed AI engineer?</h2>
+                <h2 id="what-is-it" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What is a forward deployed engineer?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   A forward-deployed engineer embeds directly in a customer's environment — on-site, remote, or inside the
                   customer's own cloud/VPC — learns the domain end to end, and ships production code against the customer's
@@ -159,6 +173,28 @@ const BlogPost = () => {
                   on day one is the one who gets paged when it breaks in production six months later. That single fact
                   shapes everything about how the role hires, works, and pays.
                 </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="day-to-day" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What does a forward deployed engineer do day to day?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The job listings describe the same loop. Palantir's{" "}
+                  <a href="https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">FDSE posting</a>{" "}
+                  says a single day can cover system architecture, large-scale data work, building a custom app and a
+                  meeting with the customer's executives. OpenAI's{" "}
+                  <a href="https://jobs.ashbyhq.com/openai/00207abc-49b7-465c-a219-f7c1140f8047" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">FDE listing</a>{" "}
+                  describes building custom software on its APIs inside strategic customers and feeding what you learn
+                  back to its research and product teams. In practice a week looks like this:
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
+                    <li>• <strong>Scoping with the customer</strong>: turning "we want AI for claims processing" into a concrete workflow, data sources and a success metric.</li>
+                    <li>• <strong>Building</strong>: writing the integration, the RAG or agent pipeline and the evals against the customer's real data, often inside their cloud.</li>
+                    <li>• <strong>Shipping and fixing</strong>: deploying, watching it in production, and debugging what breaks on real inputs.</li>
+                    <li>• <strong>Reporting back</strong>: telling your own product team which gaps you had to work around, so the next customer gets them built in.</li>
+                    <li>• <strong>Travel</strong>: OpenAI lists up to 50% travel and Anthropic about 25% for its US Staff FDE role.</li>
+                  </ul>
+                </div>
               </section>
 
               <section className="mb-6 sm:mb-8">
@@ -176,6 +212,8 @@ const BlogPost = () => {
                   the product. Two decades later the AI labs hit the same wall with enterprise customers — and copied the
                   playbook. OpenAI stood up its FDE team in late 2024 and scaled it through 2025; Anthropic runs the
                   function under its Applied AI group; Google Cloud hires FDE-equivalent roles with published salary bands.
+                  The hiring numbers moved fast: monthly FDE job postings rose more than 800% between January and
+                  September 2025, per Indeed data reported by the Financial Times.
                 </p>
               </section>
 
@@ -246,12 +284,13 @@ const BlogPost = () => {
               />
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="pay" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What does a forward-deployed AI engineer get paid (by company)?</h2>
+                <h2 id="pay" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Forward deployed engineer salary by company (2026)</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Short answer: <strong>Palantir's forward-deployed software engineers earn roughly $171K–$295K total
-                  compensation, with a median around $211K</strong> (Levels.fyi, 2026). The frontier labs — OpenAI and
-                  Anthropic — reportedly pay meaningfully more at the same level, with almost the entire premium sitting in
-                  equity. Reported 2026 bands below; treat them as point-in-time and role-dependent, not guarantees.
+                  Short answer: <strong>the US median total compensation for a forward deployed engineer is about
+                  $225K</strong>, with the middle half between $170K and $300K and the top 10% above $362K (Levels.fyi,
+                  159 data points, November 2026). The table below shows posted US base salary ranges from each
+                  company's own job listings as of November 11, 2026. Ranges often span several levels, and equity comes
+                  on top, which is where the frontier labs pull ahead.
                 </p>
                 <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
@@ -260,7 +299,7 @@ const BlogPost = () => {
                         <TableHeader>
                           <TableRow>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Company</TableHead>
-                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Reported band</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Posted base range</TableHead>
                             <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Note</TableHead>
                           </TableRow>
                         </TableHeader>
@@ -290,7 +329,7 @@ const BlogPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="how-to-break-in" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How do you break into the role (and where are the jobs)?</h2>
+                <h2 id="how-to-break-in" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How do you get hired as a forward deployed engineer?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The bar is evidence that you can take AI to production, not just build a demo. A practical path:
                 </p>
@@ -300,7 +339,7 @@ const BlogPost = () => {
                     <li><strong>Master evaluation engineering</strong> — be able to prove a system works and catch when it regresses; this is the most-cited differentiator in 2026 postings.</li>
                     <li><strong>Deploy inside constraints</strong> — practice shipping in a private cloud / on-prem / compliance-bound setting, since that's the FDE's home turf.</li>
                     <li><strong>Sharpen client communication</strong> — you'll translate between executives, domain experts, and your own platform team daily.</li>
-                    <li><strong>Target the hirers</strong> — OpenAI, Anthropic, Google Cloud, Palantir, plus enterprise-AI firms like Databricks, Scale AI, and Salesforce.</li>
+                    <li><strong>Target the hirers</strong>: see the job boards below.</li>
                   </ol>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -310,6 +349,45 @@ const BlogPost = () => {
                   platform-side AI engineering role first, the{" "}
                   <Link to="/blog/how-to-become-an-ai-engineer" className="text-primary hover:underline">how to become an AI engineer</Link>{" "}
                   guide covers the general path and a realistic timeline by starting point.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="jobs" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Where to find forward deployed engineer jobs</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Most FDE roles never reach the big job boards in a searchable form, so go to the source. Open
+                  FDE-titled roles on each company's own board, counted on November 11, 2026:
+                </p>
+                <div className="overflow-x-auto mb-4 sm:mb-6 -mx-4 sm:mx-0">
+                  <div className="min-w-full inline-block align-middle">
+                    <div className="overflow-hidden border rounded-lg mx-4 sm:mx-0">
+                      <Table>
+                        <TableHeader>
+                          <TableRow>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Company</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Open FDE roles</TableHead>
+                            <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Job board</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {jobBoards.map((j) => (
+                            <TableRow key={j.company}>
+                              <TableCell className="font-medium text-xs sm:text-sm px-2 sm:px-4">{j.company}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">{j.count}</TableCell>
+                              <TableCell className="text-xs sm:text-sm px-2 sm:px-4">
+                                <a href={j.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-all">{j.url.replace("https://", "")}</a>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Also check Google Cloud, Salesforce (Agentforce), Ramp and Sierra, and search titles beyond "FDE":
+                  Palantir uses Forward Deployed Software Engineer and Deployment Strategist, OpenAI uses FDSE, and some
+                  startups call the same job "Software Engineer, Agent" or "Solutions Engineer, Applied AI".
                 </p>
               </section>
 
@@ -471,6 +549,14 @@ const BlogPost = () => {
                   <li>• <a href="https://thenewstack.io/forward-deployed-engineers-ai/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">The New Stack — Why OpenAI and Anthropic are hiring FDE teams</a></li>
                   <li>• <a href="https://getperspective.ai/blog/palantir-forward-deployed-engineering-playbook-anthropic-openai-copying" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Perspective AI — Palantir's FDE playbook</a></li>
                   <li>• <a href="https://www.paraform.com/blog/openai-forward-deployed-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Paraform — OpenAI's Forward Deployed Engineer role breakdown</a></li>
+                  <li>• <a href="https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Forward Deployed Engineer salaries, US (Nov 2026)</a></li>
+                  <li>• <a href="https://job-boards.greenhouse.io/anthropic/jobs/5449229008" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Anthropic — Staff Forward Deployed Engineer job listing</a></li>
+                  <li>• <a href="https://jobs.ashbyhq.com/openai/00207abc-49b7-465c-a219-f7c1140f8047" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenAI — Forward Deployed Software Engineer job listing (SF)</a></li>
+                  <li>• <a href="https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Palantir — Forward Deployed Software Engineer job listing</a></li>
+                  <li>• <a href="https://job-boards.greenhouse.io/scaleai/jobs/4694861005" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Scale AI — Forward Deployed Engineer job listing</a></li>
+                  <li>• <a href="https://databricks.com/company/careers/open-positions/job?gh_jid=8546367002" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Databricks — Senior Forward Deployed Engineer job listing</a></li>
+                  <li>• <a href="https://www.pymnts.com/?p=3546498" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">PYMNTS — FDE job postings up 800% in 2025 (FT / Indeed data)</a></li>
+                  <li>• <a href="https://a16z.com/services-led-growth/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">a16z — Trading Margin for Moat: services-led growth</a></li>
                   <li>• <a href="https://www.levels.fyi/companies/palantir/salaries/software-engineer/title/fdse" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Levels.fyi — Palantir Forward Deployed Software Engineer salaries</a></li>
                   <li>• <a href="https://www.aced.io/guides/palantir-forward-deployed-engineer-interview" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Aced (formerly Exponent) — Palantir Forward Deployed Engineer interview guide</a></li>
                   <li>• <a href="https://www.aced.io/experiences/openai-forward-deployed-engineer-interview-0b9c09" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Aced — OpenAI Forward Deployed Engineer interview experience report</a></li>

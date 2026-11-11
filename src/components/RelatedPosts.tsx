@@ -38,7 +38,7 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/claude-code-skills",
-    title: "Claude Code Skills: What They Are, the Best Ones, and How to Create Your Own (2026)",
+    title: "Claude Skills (2026): What They Are, the Best Ones, and How to Add Them to Claude Code",
     tag: "AI Tools",
   },
   {
@@ -248,12 +248,12 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/ai-engineer-salary",
-    title: "AI Engineer Salary in 2026: What US Engineers Actually Earn, by Level, Company, and City",
+    title: "AI Engineer Salary (November 2026): What US Engineers Earn by Level, Company, and City",
     tag: "AI Engineering Careers",
   },
   {
     slug: "/blog/forward-deployed-ai-engineer",
-    title: "The Forward-Deployed AI Engineer: Role, Pay, and How to Break In",
+    title: "Forward Deployed Engineer (FDE): Role, Salary, and How to Get Hired",
     tag: "AI Engineering Careers",
   },
   {
