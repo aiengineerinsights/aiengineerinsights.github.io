@@ -572,7 +572,10 @@ def handle(user_msg, session):
                   degrades into "slightly more approvals," never into "silently executed." It is the same shape we
                   recommend for the routing decision in{" "}
                   <Link to="/blog/llm-routing" className="text-primary hover:underline">LLM routing</Link>, where the
-                  expensive model is the default and the cheap one has to earn the request.
+                  expensive model is the default and the cheap one has to earn the request. Split ownership the same
+                  way: security or risk sets the policy, the AI platform enforces it in the gateway, and product teams
+                  never re-implement it. Our{" "}
+                  <Link to="/blog/conways-law-ai" className="text-primary hover:underline">Conway's law for AI</Link> guide maps who owns which piece.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Why the insistence on keeping fetched text out of the verdict's input? Because model-based gates can be

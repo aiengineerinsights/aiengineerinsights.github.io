@@ -1,0 +1,138 @@
+<!doctype html>
+<!--
+  Source for public/downloads/conways-law-ai-cheat-sheet.pdf — the newsletter-only
+  bonus offered on /blog/conways-law-ai (see NewsletterSignup `bonus` prop).
+  Team type names and interaction modes are from Team Topologies (Skelton & Pais);
+  the AI mapping is ours and matches the post.
+
+  Rebuild the PDF after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --no-pdf-header-footer --print-to-pdf=public/downloads/conways-law-ai-cheat-sheet.pdf \
+      lead-magnets/conways-law-ai-cheat-sheet.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Conway's Law for AI Cheat Sheet — AI Engineer Insights</title>
+<style>
+  @page { size: A4; margin: 10mm 11mm 8mm; }
+  * { box-sizing: border-box; }
+  body { font: 8.8pt/1.32 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #0f2230; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #0e7490; padding-bottom: 6px; margin-bottom: 9px; }
+  h1 { font-size: 19pt; margin: 0; letter-spacing: -0.3px; }
+  h1 span { color: #0e7490; }
+  .sub { color: #4b5d6b; font-size: 9pt; margin-top: 2px; }
+  .brand { text-align: right; font-size: 8.5pt; color: #4b5d6b; }
+  .brand b { color: #0f2230; font-size: 10pt; }
+  .cols { columns: 2; column-gap: 14px; }
+  section { break-inside: avoid; margin: 0 0 8px; border: 1px solid #d7e7ee; border-radius: 6px; padding: 7px 9px 6px; }
+  h2 { font-size: 10pt; margin: 0 0 5px; color: #0e7490; text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 2.4px 0; vertical-align: top; border-bottom: 1px dotted #d7e7ee; text-align: left; }
+  th { font-size: 8pt; color: #4b5d6b; font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { width: 36%; padding-right: 8px; font-weight: 600; }
+  ul { margin: 0; padding-left: 14px; }
+  li { margin: 0 0 2.5px; }
+  .quote { font-style: italic; border-left: 3px solid #0e7490; padding: 3px 8px; margin: 0 0 5px; background: #eff8fb; }
+  .tip { background: #eff8fb; border-left: 3px solid #0e7490; padding: 5px 8px; margin: 6px 0 0; font-size: 8.6pt; }
+  footer { margin-top: 4px; border-top: 1px solid #d7e7ee; padding-top: 6px; font-size: 8.2pt; color: #4b5d6b; display: flex; justify-content: space-between; gap: 10px; }
+  a { color: #0e7490; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Conway's Law for AI <span>Cheat Sheet</span></h1>
+    <div class="sub">Who should own which part of your AI system, and the team shapes that break it. One page.</div>
+  </div>
+  <div class="brand"><b>AI Engineer Insights</b><br />aiengineerinsights.com · Nov 2026</div>
+</header>
+
+<div class="cols">
+  <section>
+    <h2>1 · The law</h2>
+    <div class="quote">"Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." Melvin Conway, 1968</div>
+    <ul>
+      <li><b>In AI:</b> every owner of a piece (model access, prompts, retrieval, evals, guardrails, tracing) becomes a seam in the system.</li>
+      <li><b>Inverse Conway maneuver:</b> pick the target architecture first, then design teams that would naturally build it.</li>
+      <li><b>Evidence:</b> org-structure metrics predicted failing Windows Vista binaries better than code metrics (Microsoft Research, 2008).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2 · Four team types, for AI</h2>
+    <table>
+      <tr><td>Stream-aligned (product)</td><td>Owns the AI feature: prompts, tools, UX, its eval cases</td></tr>
+      <tr><td>Platform</td><td>Gateway + routing, eval harness + CI gate, tracing, cost, guardrail enforcement, as a self-service</td></tr>
+      <tr><td>Complicated subsystem</td><td>Retrieval/ranking at scale, fine-tuning, custom models</td></tr>
+      <tr><td>Enabling</td><td>Coaches teams on prompts, evals, agent patterns, AI security, then steps away</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>3 · Who owns what</h2>
+    <table>
+      <tr><th>Component</th><th>Owner</th></tr>
+      <tr><td>Model keys, access, routing</td><td>AI platform</td></tr>
+      <tr><td>Prompts, tool definitions</td><td>Product team</td></tr>
+      <tr><td>Eval harness, CI gate</td><td>AI platform</td></tr>
+      <tr><td>Eval cases ("what good means")</td><td>Product team</td></tr>
+      <tr><td>RAG pipeline</td><td>Product team first; specialist team once shared</td></tr>
+      <tr><td>Guardrail policy</td><td>Security / risk, via enabling team</td></tr>
+      <tr><td>Guardrail enforcement</td><td>AI platform, in the gateway</td></tr>
+      <tr><td>Tracing, cost dashboards</td><td>AI platform</td></tr>
+      <tr><td>Fine-tuning, custom models</td><td>Complicated-subsystem team</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>4 · Interaction modes</h2>
+    <table>
+      <tr><td>Collaboration</td><td>First agent or RAG feature, while both teams learn. Set an end date.</td></tr>
+      <tr><td>X-as-a-Service</td><td>Steady state for gateway, evals, tracing, shared retrieval. No tickets needed.</td></tr>
+      <tr><td>Facilitating</td><td>Enabling team teaches eval writing, guardrails, agent patterns.</td></tr>
+    </table>
+    <div class="tip"><b>Most common failure:</b> the platform team stays in collaboration with everyone, so it never becomes a service.</div>
+  </section>
+
+  <section>
+    <h2>5 · Warning signs</h2>
+    <ul>
+      <li>Every AI feature waits in one central team's backlog.</li>
+      <li>Each team runs its own gateway, vector store and eval script.</li>
+      <li>The AI CoE writes guidelines nothing enforces.</li>
+      <li>Prompt or model changes ship with no eval gate.</li>
+      <li>You can't trace one request across two teams' services.</li>
+      <li>Agents have access everywhere, so they couple things no team agreed to couple.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6 · Setup by company size</h2>
+    <table>
+      <tr><td>Under ~30 engineers</td><td>No AI team. Product teams use a model API; one shared wrapper and eval script.</td></tr>
+      <tr><td>~30–150 engineers</td><td>Product teams + a thin AI platform team (2–4 people) for gateway, evals, tracing.</td></tr>
+      <tr><td>150+ engineers</td><td>Platform grouping, specialist teams for retrieval/models, an enabling team. "Hub and spoke."</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>7 · What an AI platform should publish</h2>
+    <ul>
+      <li>Models offered, with cost per call and latency targets</li>
+      <li>How to get access: self-service keys, no ticket</li>
+      <li>How to run evals and read results; the CI gate rules</li>
+      <li>Tracing format and where to find a request's trace</li>
+      <li>Guardrails enforced by default, and how to request exceptions</li>
+      <li>Owner, on-call and support channel</li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  <div>Full guide: <a href="https://aiengineerinsights.com/blog/conways-law-ai/?utm_source=cheatsheet&amp;utm_medium=pdf">Conway's Law for AI</a> · <a href="https://aiengineerinsights.com/blog/ai-agent-observability/?utm_source=cheatsheet&amp;utm_medium=pdf">AI agent observability</a> · <a href="https://aiengineerinsights.com/blog/ai-guardrails/?utm_source=cheatsheet&amp;utm_medium=pdf">AI guardrails</a></div>
+  <div>Team types: Team Topologies, Skelton &amp; Pais.</div>
+</footer>
+</body>
+</html>

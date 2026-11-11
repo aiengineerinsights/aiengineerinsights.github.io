@@ -346,6 +346,7 @@ const AgentObservabilityPost = () => {
                     <li><strong>Name every agent.</strong> Set <code>gen_ai.agent.name</code> on every agent before you have more than one — retrofitting it later means re-tracing old incidents blind.</li>
                     <li><strong>Add trajectory checks, not just output checks,</strong> to your eval set — at minimum, assert the expected tool was called with reasonable arguments.</li>
                     <li><strong>Watch token usage per span,</strong> not just per request — <code>gen_ai.usage.*</code> attributes let you see exactly which model call is driving cost.</li>
+                    <li><strong>Make tracing a platform service,</strong> not something each team wires up alone — otherwise you can't follow one request across two teams' agents. See <Link to="/blog/conways-law-ai" className="text-primary hover:underline">Conway's law for AI</Link> for who should own it.</li>
                   </ol>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">

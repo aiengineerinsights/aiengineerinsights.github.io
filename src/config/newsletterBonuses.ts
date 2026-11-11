@@ -13,3 +13,8 @@ export const HERMES_CHEAT_SHEET: NewsletterBonus = {
   label: "Hermes Agent cheat sheet (PDF)",
   href: "/downloads/hermes-agent-cheat-sheet.pdf",
 };
+
+export const CONWAYS_LAW_AI_CHEAT_SHEET: NewsletterBonus = {
+  label: "Conway's law for AI cheat sheet (PDF)",
+  href: "/downloads/conways-law-ai-cheat-sheet.pdf",
+};

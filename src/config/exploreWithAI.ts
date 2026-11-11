@@ -176,6 +176,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Which lightweight assistant runs on my Raspberry Pi or VPS?", askFor: "the device's RAM and CPU and the channels I need" },
     ],
   },
+  "/blog/conways-law-ai": {
+    topic: "Conway's law for AI",
+    questions: [
+      { q: "How should I structure AI work across my teams?", askFor: "how many engineers we have, how many teams ship AI features, and who owns model access today" },
+      { q: "Do we need a dedicated AI platform team yet?", askFor: "our team count, how many AI features are live, and where we duplicate gateways, evals or vector stores" },
+      { q: "Which parts of our AI stack should be centralized?", askFor: "our current AI components and which team owns each one" },
+      { q: "Turn our AI center of excellence into something that ships", askFor: "what the CoE does today and the complaints product teams have about it" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

@@ -234,7 +234,9 @@ const LLMRoutingPost = () => {
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   You usually want both, layered: a model router in front choosing the tier, a gateway behind it
                   keeping each tier reliable. Conflating them is how teams buy a gateway, call it a router, and wonder
-                  why their bill didn't move.
+                  why their bill didn't move. Once more than one team ships AI features, the gateway is also an
+                  ownership question: it belongs to a platform team that offers it as a service, as covered in{" "}
+                  <Link to="/blog/conways-law-ai" className="text-primary hover:underline">Conway's law for AI</Link>.
                 </p>
               </section>
 

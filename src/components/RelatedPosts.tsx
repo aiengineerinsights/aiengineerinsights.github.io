@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/conways-law-ai",
+    title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
+    tag: "AI Architecture",
+  },
+  {
     slug: "/blog/openclaw-alternatives",
     title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
     tag: "AI Agents",
@@ -321,6 +326,7 @@ const CURATED: Record<string, string[]> = {
   "/blog/hermes-agent-vs-openclaw": ["/blog/agent-zero-vs-hermes-agent", "/blog/hermes-agent-alternatives", "/blog/hermes-agent-nous-research-guide"],
   "/blog/claude-code-vs-cursor": ["/blog/what-is-an-agent-harness", "/blog/best-ai-coding-agents", "/blog/claude-code-skills"],
   "/blog/openclaw-alternatives": ["/blog/hermes-agent-vs-openclaw", "/blog/hermes-agent-alternatives", "/blog/agent-zero-vs-hermes-agent"],
+  "/blog/conways-law-ai": ["/blog/ai-agent-observability", "/blog/llm-routing", "/blog/ai-guardrails"],
   "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],
   "/blog/best-ai-coding-agents": ["/blog/claude-code-skills", "/blog/hermes-claude-code-orchestration", "/blog/what-is-an-agent-harness"],
   "/blog/claude-managed-agents": ["/blog/agent-runtimes-explained", "/blog/what-is-an-agent-harness", "/blog/claude-code-skills"],

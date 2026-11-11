@@ -111,6 +111,23 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/conways-law-ai',
+    title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
+    seoTitle: "Conway's Law for AI: How Team Topology Shapes AI Architecture",
+    description:
+      "Conway's law says systems copy the org that builds them. How Team Topologies maps to AI: who owns the gateway, evals and prompts, plus a free cheat sheet.",
+    date: '2026-11-11',
+    author: 'poorna',
+    image: '/og-conways-law-ai.png',
+    faqs: [
+      { q: "What is Conway's law in simple terms?", a: "Conway's law says the systems an organization builds end up copying how that organization communicates. Teams that rarely talk build parts that connect poorly, and parts owned by one team end up tightly coupled. Melvin Conway stated it in 1968, and Fred Brooks named it in The Mythical Man-Month in 1975." },
+      { q: "What is the inverse Conway maneuver?", a: "It means changing your team structure on purpose to get the architecture you want, instead of letting the existing org chart decide it. For AI, that usually means creating a small platform team to own the gateway, eval harness and tracing, and giving product teams ownership of their own AI features." },
+      { q: "What are the four team types in Team Topologies?", a: "Stream-aligned teams own a flow of user value, platform teams offer internal services, complicated subsystem teams own parts that need deep specialist knowledge, and enabling teams coach other teams and then step away. They work together through three modes: collaboration, X-as-a-Service and facilitating." },
+      { q: "Should AI be a central team or embedded in product teams?", a: "Both, for different parts. AI features, prompts and eval cases belong in product teams; the shared gateway, eval harness, tracing and guardrail enforcement belong in a platform team that offers them as a service. A central team that builds every AI feature becomes a bottleneck, and fully separate teams end up duplicating the stack." },
+      { q: "Who should own AI evals?", a: "Split it. The platform team owns the eval harness, the CI gate and the dashboards so results are comparable across features. Each product team owns its own eval cases, because only it knows what a good answer looks like for its users." },
+    ],
+  },
+  {
     path: '/blog/openclaw-alternatives',
     title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
     seoTitle: "9 Best OpenClaw Alternatives (2026): Safer & Lighter Picks",

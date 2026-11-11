@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
+      excerpt: "Conway's law (1968) says systems mirror the communication structure of the org that builds them. How Team Topologies maps onto AI systems: who should own the gateway, evals, prompts and retrieval, the org shapes that produce bad AI architecture, the inverse Conway maneuver, and the setup by company size.",
+      readTime: "12 min read",
+      date: "Nov 11, 2026",
+      category: "AI Architecture",
+      icon: Network,
+      gradient: "from-teal-600 to-sky-800",
+      link: "/blog/conways-law-ai"
+    },
+    {
       title: "9 Best OpenClaw Alternatives (2026): Safer, Lighter Self-Hosted AI Assistants",
       excerpt: "Why people leave OpenClaw (CVE-2026-25253, malicious ClawHub skills, size) and the 9 alternatives worth running instead: Hermes Agent, NanoClaw, nanobot, ZeroClaw, PicoClaw, Letta, Agent Zero, IronClaw and Moltis, compared by license, channels and use case.",
       readTime: "11 min read",
