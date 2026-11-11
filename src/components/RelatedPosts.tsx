@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/fallacies-of-llm-systems",
+    title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
+    tag: "AI Engineering",
+  },
+  {
     slug: "/blog/conways-law-ai",
     title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
     tag: "AI Architecture",
@@ -327,6 +332,7 @@ const CURATED: Record<string, string[]> = {
   "/blog/claude-code-vs-cursor": ["/blog/what-is-an-agent-harness", "/blog/best-ai-coding-agents", "/blog/claude-code-skills"],
   "/blog/openclaw-alternatives": ["/blog/hermes-agent-vs-openclaw", "/blog/hermes-agent-alternatives", "/blog/agent-zero-vs-hermes-agent"],
   "/blog/conways-law-ai": ["/blog/ai-agent-observability", "/blog/llm-routing", "/blog/ai-guardrails"],
+  "/blog/fallacies-of-llm-systems": ["/blog/llm-deployment-challenges", "/blog/ai-guardrails", "/blog/rag-evaluation-metrics"],
   "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],
   "/blog/best-ai-coding-agents": ["/blog/claude-code-skills", "/blog/hermes-claude-code-orchestration", "/blog/what-is-an-agent-harness"],
   "/blog/claude-managed-agents": ["/blog/agent-runtimes-explained", "/blog/what-is-an-agent-harness", "/blog/claude-code-skills"],

@@ -185,6 +185,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Turn our AI center of excellence into something that ships", askFor: "what the CoE does today and the complaints product teams have about it" },
     ],
   },
+  "/blog/fallacies-of-llm-systems": {
+    topic: "the fallacies of LLM systems",
+    questions: [
+      { q: "Which of these fallacies is our LLM feature most exposed to?", askFor: "what the feature does, which model and tools it uses, and how we test it today" },
+      { q: "Write property-based tests for our LLM output", askFor: "an example input and output, and what a correct answer must always contain" },
+      { q: "Plan a safe model upgrade for our app", askFor: "the current and target model versions, and how many eval cases we have" },
+      { q: "Set token and step budgets for our agent", askFor: "the agent's tools, typical number of steps, and our cost or latency target" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

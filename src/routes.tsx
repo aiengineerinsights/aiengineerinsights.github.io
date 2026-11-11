@@ -74,6 +74,7 @@ const AgentSandboxingPost = lazyWithReload(() => import("./pages/AgentSandboxing
 const ClaudeCodeVsCursorPost = lazyWithReload(() => import("./pages/ClaudeCodeVsCursorPost"));
 const OpenClawAlternativesPost = lazyWithReload(() => import("./pages/OpenClawAlternativesPost"));
 const ConwaysLawAIPost = lazyWithReload(() => import("./pages/ConwaysLawAIPost"));
+const FallaciesOfLLMSystemsPost = lazyWithReload(() => import("./pages/FallaciesOfLLMSystemsPost"));
 const AgentZeroVsHermesPost = lazyWithReload(() => import("./pages/AgentZeroVsHermesPost"));
 const AgentObservabilityPost = lazyWithReload(() => import("./pages/AgentObservabilityPost"));
 
@@ -150,6 +151,7 @@ const AppRoutes = () => (
       <Route path="/blog/claude-code-vs-cursor" element={<ClaudeCodeVsCursorPost />} />
       <Route path="/blog/openclaw-alternatives" element={<OpenClawAlternativesPost />} />
       <Route path="/blog/conways-law-ai" element={<ConwaysLawAIPost />} />
+      <Route path="/blog/fallacies-of-llm-systems" element={<FallaciesOfLLMSystemsPost />} />
       <Route path="/blog/agent-zero-vs-hermes-agent" element={<AgentZeroVsHermesPost />} />
       <Route path="/blog/ai-agent-observability" element={<AgentObservabilityPost />} />
       <Route path="*" element={<NotFound />} />

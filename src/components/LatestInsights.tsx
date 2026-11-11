@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
+      excerpt: "Like the fallacies of distributed computing, but for LLMs: eight assumptions engineers carry over from ordinary software (the model is deterministic, output is well-formed, context is free, input is trusted...), the evidence against each, and the control that fixes it.",
+      readTime: "14 min read",
+      date: "Nov 11, 2026",
+      category: "AI Engineering",
+      icon: AlertTriangle,
+      gradient: "from-rose-600 to-orange-700",
+      link: "/blog/fallacies-of-llm-systems"
+    },
+    {
       title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
       excerpt: "Conway's law (1968) says systems mirror the communication structure of the org that builds them. How Team Topologies maps onto AI systems: who should own the gateway, evals, prompts and retrieval, the org shapes that produce bad AI architecture, the inverse Conway maneuver, and the setup by company size.",
       readTime: "12 min read",

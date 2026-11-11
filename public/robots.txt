@@ -2,12 +2,14 @@ User-agent: Googlebot
 Allow: /
 Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
+Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Bingbot
 Allow: /
 Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
+Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Twitterbot
@@ -78,6 +80,7 @@ User-agent: *
 Allow: /
 Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
+Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 Sitemap: https://aiengineerinsights.com/sitemap.xml

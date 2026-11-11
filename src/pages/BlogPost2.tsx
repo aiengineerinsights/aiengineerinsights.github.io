@@ -214,7 +214,8 @@ const BlogPost2 = () => {
                   roughly by how often they bite real deployments. Each challenge says <em>what</em> it is,{" "}
                   <em>when</em> it hits hardest, <em>how to handle</em> it, and gives a concrete <em>example</em>. If you're
                   standing up your first LLM feature, the first three (cost, latency, output quality) are where most teams
-                  get surprised.
+                  get surprised. For the assumptions that cause most of these problems in the first place, see{" "}
+                  <Link to="/blog/fallacies-of-llm-systems" className="text-primary hover:underline">the fallacies of LLM systems</Link>.
                 </p>
               </section>
 

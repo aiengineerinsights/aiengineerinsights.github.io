@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  Source for public/downloads/fallacies-of-llm-systems-cheat-sheet.pdf, the newsletter-only
+  bonus offered on /blog/fallacies-of-llm-systems (see NewsletterSignup `bonus` prop).
+
+  Rebuild the PDF after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --no-pdf-header-footer --print-to-pdf=public/downloads/fallacies-of-llm-systems-cheat-sheet.pdf \
+      lead-magnets/fallacies-of-llm-systems-cheat-sheet.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fallacies of LLM Systems Cheat Sheet — AI Engineer Insights</title>
+<style>
+  @page { size: A4; margin: 10mm 11mm 8mm; }
+  * { box-sizing: border-box; }
+  body { font: 8.8pt/1.32 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #0f2230; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #0e7490; padding-bottom: 6px; margin-bottom: 9px; }
+  h1 { font-size: 19pt; margin: 0; letter-spacing: -0.3px; }
+  h1 span { color: #0e7490; }
+  .sub { color: #4b5d6b; font-size: 9pt; margin-top: 2px; }
+  .brand { text-align: right; font-size: 8.5pt; color: #4b5d6b; }
+  .brand b { color: #0f2230; font-size: 10pt; }
+  .cols { columns: 2; column-gap: 14px; }
+  section { break-inside: avoid; margin: 0 0 8px; border: 1px solid #d7e7ee; border-radius: 6px; padding: 7px 9px 6px; }
+  h2 { font-size: 10pt; margin: 0 0 5px; color: #0e7490; text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 2.4px 10px 2.4px 0; vertical-align: top; border-bottom: 1px dotted #d7e7ee; text-align: left; }
+  th { font-size: 8pt; color: #4b5d6b; font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { width: 30%; padding-right: 8px; font-weight: 600; }
+  ul { margin: 0; padding-left: 14px; }
+  li { margin: 0 0 2.5px; }
+  .quote { font-style: italic; border-left: 3px solid #0e7490; padding: 3px 8px; margin: 0 0 5px; background: #eff8fb; }
+  .tip { background: #eff8fb; border-left: 3px solid #0e7490; padding: 5px 8px; margin: 6px 0 0; font-size: 8.6pt; }
+  footer { margin-top: 4px; border-top: 1px solid #d7e7ee; padding-top: 6px; font-size: 8.2pt; color: #4b5d6b; display: flex; justify-content: space-between; gap: 10px; }
+  a { color: #0e7490; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Fallacies of LLM Systems <span>Cheat Sheet</span></h1>
+    <div class="sub">Eight assumptions from ordinary software that break AI in production, and the control that fixes each.</div>
+  </div>
+  <div class="brand"><b>AI Engineer Insights</b><br />aiengineerinsights.com · Nov 2026</div>
+</header>
+
+<section>
+  <h2>The eight fallacies</h2>
+  <table>
+    <tr><th>Fallacy</th><th>What's actually true</th><th>Do this instead</th></tr>
+      <tr><td>1 · The model is deterministic</td><td>Temperature 0 still varies on hosted endpoints: 80 distinct outputs from 1,000 identical requests (Thinking Machines, 2025).</td><td>Assert on properties, not strings. Run eval cases several times; report a pass rate. Debug from logged traces, don't re-run.</td></tr>
+      <tr><td>2 · The output is well-formed</td><td>Schema-valid is not correct. Responses get truncated at the token limit or replaced by refusals.</td><td>Use structured outputs. Validate shape and meaning. Handle truncation and refusals. Retry once, then fail closed.</td></tr>
+      <tr><td>3 · The model stays the same</td><td>Versions drift (GPT-4 prime test: 84% to 51%) and get retired. Formatting alone moved accuracy up to 76 points.</td><td>Pin dated versions. Treat a model change as an upgrade gated on evals. Track deprecation dates.</td></tr>
+      <tr><td>4 · The demo is the test</td><td>Five hand-picked inputs say nothing about the long tail of real traffic.</td><td>Eval set from real traces, grown on every failure. CI blocks on it. Check agent paths, not just answers.</td></tr>
+      <tr><td>5 · Context is free</td><td>Every token is billed and slows the first token. Accuracy drops mid-context and as input grows.</td><td>Retrieve, don't stuff. Key material at start or end. Measure at your real length. Cache stable prefixes.</td></tr>
+      <tr><td>6 · The model knows your data</td><td>It knows its training data and guesses about yours, because training rewards guessing.</td><td>RAG with citations. An explicit "not found" path. Measure faithfulness. Fine-tune for style, not facts.</td></tr>
+      <tr><td>7 · Input is trusted</td><td>Pages, files and tool output can carry instructions (indirect prompt injection, OWASP LLM01).</td><td>Least-privilege tools. Human approval for side effects. Keep fetched text out of allow/deny decisions.</td></tr>
+      <tr><td>8 · Cost and latency are constant</td><td>Agents use ~4x the tokens of chat, multi-agent ~15x (Anthropic). Reasoning and retries add more.</td><td>Token and step budgets per request. Cost per trace. Watch the worst 1%. Route easy requests to small models.</td></tr>
+  </table>
+</section>
+
+<div class="cols">
+  <section>
+    <h2>Design review: one question per fallacy</h2>
+    <ol style="margin:0;padding-left:16px">
+      <li style="margin:0 0 2.5px">Do tests assert on properties and run each case more than once?</li>
+      <li style="margin:0 0 2.5px">What happens on validation failure, truncation or refusal?</li>
+      <li style="margin:0 0 2.5px">Is the model version pinned, and do model changes go through the eval gate?</li>
+      <li style="margin:0 0 2.5px">Is there an eval set from real traffic that blocks CI?</li>
+      <li style="margin:0 0 2.5px">Do we know accuracy and latency at our real context length?</li>
+      <li style="margin:0 0 2.5px">Does the system say "not found" when retrieval is empty?</li>
+      <li style="margin:0 0 2.5px">Which tools can the model call; which actions need human approval?</li>
+      <li style="margin:0 0 2.5px">Is there a per-request token and step budget, with cost tracked per trace?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>The idea behind it</h2>
+    <div class="quote">The fallacies of distributed computing (Deutsch et al., Sun Microsystems, 1994) start with "the network is reliable".</div>
+    <ul>
+      <li><b>Reliable network</b> becomes <b>deterministic model</b></li>
+      <li><b>Topology doesn't change</b> becomes <b>model stays the same</b></li>
+      <li><b>Infinite bandwidth</b> becomes <b>free context</b></li>
+      <li><b>Secure network</b> becomes <b>trusted input</b></li>
+      <li><b>Zero transport cost</b> becomes <b>constant cost</b></li>
+    </ul>
+    <div class="tip"><b>Rule of thumb:</b> a model call is not a function call. Design it like a call to someone else's service: variable output, changing implementation, metered bill, attack surface.</div>
+  </section>
+</div>
+
+<footer>
+  <div>Full guide: <a href="https://aiengineerinsights.com/blog/fallacies-of-llm-systems/?utm_source=cheatsheet&amp;utm_medium=pdf">Fallacies of LLM systems</a> · <a href="https://aiengineerinsights.com/blog/llm-deployment-challenges/?utm_source=cheatsheet&amp;utm_medium=pdf">LLM deployment challenges</a> · <a href="https://aiengineerinsights.com/blog/ai-guardrails/?utm_source=cheatsheet&amp;utm_medium=pdf">AI guardrails</a></div>
+  <div>Sources listed in the full guide.</div>
+</footer>
+</body>
+</html>

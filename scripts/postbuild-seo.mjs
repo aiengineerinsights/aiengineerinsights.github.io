@@ -111,6 +111,23 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/fallacies-of-llm-systems',
+    title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
+    seoTitle: "Fallacies of LLM Systems: 8 Assumptions That Break AI Apps",
+    description:
+      "The 8 fallacies of LLM systems: false assumptions about determinism, output, context, trust and cost that break AI in production, with the fix for each.",
+    date: '2026-11-11',
+    author: 'poorna',
+    image: '/og-fallacies-of-llm-systems.png',
+    faqs: [
+      { q: "What are the fallacies of LLM systems?", a: "They are eight false assumptions engineers make when building on large language models: the model is deterministic, the output is well-formed, the model stays the same, the demo is the test, context is free, the model knows your data, input is trusted, and cost and latency are constant. The list is modelled on the fallacies of distributed computing from Sun Microsystems." },
+      { q: "Is an LLM deterministic at temperature 0?", a: "Not on most hosted endpoints. Temperature 0 always picks the most likely token, but the server batches requests together and batch size changes the math slightly, so outputs can differ between runs. Thinking Machines Lab got 80 different completions from 1,000 identical requests at temperature 0." },
+      { q: "What are the main limitations of LLMs?", a: "The main limitations of LLMs are that outputs vary between runs, they can state false things confidently, they only know their training data up to a cutoff, they use long context unevenly, they can't reliably separate instructions from data, and their cost and latency vary widely by request. A well-designed system adds controls around each one." },
+      { q: "Why did my prompt stop working after a model update?", a: "Prompts are tuned to the model they were written for, and models change between versions. Formatting that one model prefers can hurt another, and newer versions sometimes follow instructions differently. Pin model versions in production and run your eval set before switching." },
+      { q: "How do the fallacies of LLM systems relate to the fallacies of distributed computing?", a: "Several map directly: \"the network is reliable\" becomes \"the model is deterministic\", \"topology doesn't change\" becomes \"the model stays the same\", \"bandwidth is infinite\" becomes \"context is free\", and \"the network is secure\" becomes \"input is trusted\". Both lists describe assumptions that hold in a demo and fail at scale." },
+    ],
+  },
+  {
     path: '/blog/conways-law-ai',
     title: "Conway's Law for AI: How Team Topology Shapes Your AI Architecture (+ Cheat Sheet)",
     seoTitle: "Conway's Law for AI: How Team Topology Shapes AI Architecture",
