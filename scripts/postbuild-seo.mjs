@@ -737,8 +737,8 @@ const posts = [
     title: 'How to Install Hermes Agent (macOS, Windows, Linux, pip, Docker)',
     seoTitle: 'How to Install Hermes Agent (Mac, Windows, Linux)',
     description:
-      'Install Hermes Agent on macOS, Windows (PowerShell/WSL2), Linux, pip, and Docker. First-run model setup, exact commands, and fixes for common install errors.',
-    date: '2026-08-10',
+      'Install Hermes Agent on macOS, Windows (PowerShell/WSL2), Linux, pip, and Docker. First-run model setup, exact commands, system requirements, platform support, and fixes for common install errors.',
+    date: '2026-11-12',
     author: 'poorna',
     image: '/og-how-to-install-hermes-agent.png',
   },

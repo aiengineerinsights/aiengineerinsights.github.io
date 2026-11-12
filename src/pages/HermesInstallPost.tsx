@@ -73,7 +73,7 @@ const HermesInstallPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Aug 10, 2026
+                      Nov 12, 2026 (updated)
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -229,7 +229,35 @@ const HermesInstallPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="troubleshooting" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. Troubleshooting Common Install Issues</h2>
+                <h2 id="requirements" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">9. System Requirements & Platform Support</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Before you install, check these platform constraints — they explain the most common "it won't install"
+                  reports:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>• <strong>Python version:</strong> the project's <code>pyproject.toml</code> pins{" "}
+                    <code>requires-python = "&gt;=3.11,&lt;3.15"</code> — Python 3.11 through 3.14. The source installer
+                    delegates Python itself (plus Node.js, npm, pnpm, ripgrep, and FFmpeg) to PM, so you don't need a
+                    matching interpreter pre-installed for the script/PowerShell path; pip installs still need a
+                    compatible Python already on your <code>PATH</code>.</li>
+                  <li>• <strong>macOS desktop installer is Apple Silicon only.</strong> The official installation guide
+                    states macOS on x86 (Intel) is not a supported platform for the packaged Desktop app — Intel Mac
+                    users should use the CLI script instead.</li>
+                  <li>• <strong>Windows desktop package:</strong> ships as a signed MSIX bundle opened via Windows App
+                    Installer (<code>.appinstaller</code>), distinct from the Microsoft Store listing, which has
+                    separate update ownership.</li>
+                  <li>• <strong>Android / Termux:</strong> only <code>aarch64</code> devices are supported, via a signed
+                    Termux APT repository and <code>pkg install hermes-agent</code> — the desktop/server install scripts
+                    are not the Termux path.</li>
+                  <li>• <strong>Browser automation ships by default:</strong> the source installer's PM step pulls a
+                    pinned Chromium (Chrome for Testing) and the <code>cua-driver</code> computer-use driver on macOS,
+                    Windows, and glibc Linux, so <code>browser_exec</code>-style tools work out of the box without a
+                    separate browser install on those platforms.</li>
+                </ul>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="troubleshooting" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Troubleshooting Common Install Issues</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
                   <li>• <strong><code>hermes: command not found</code>:</strong> reload your shell — <code>source ~/.bashrc</code> or <code>source ~/.zshrc</code> — or open a new terminal.</li>
                   <li>• <strong>Context-window error on first message:</strong> your model is below the 64k-token minimum; pick a larger-context model with <code>hermes model</code>.</li>
@@ -246,7 +274,7 @@ const HermesInstallPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">10. Frequently Asked Questions</h2>
+                <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">11. Frequently Asked Questions</h2>
 
                 <h3 id="faq-free" className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Is Hermes Agent free to install?</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -275,12 +303,14 @@ const HermesInstallPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">11. Sources</h2>
+                <h2 id="sources" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">12. Sources</h2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official Quickstart</a></li>
+                  <li>• <a href="https://hermes-agent.nousresearch.com/docs/getting-started/installation" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official Installation guide (platform support, Apple Silicon-only macOS, MSIX, Termux)</a></li>
                   <li>• <a href="https://hermes-agent.nousresearch.com/docs/user-guide/docker" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — Docker guide</a></li>
                   <li>• <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Hermes Agent — official site & downloads</a></li>
                   <li>• <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent on GitHub</a></li>
+                  <li>• <a href="https://raw.githubusercontent.com/NousResearch/hermes-agent/HEAD/pyproject.toml" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">hermes-agent pyproject.toml — supported Python version range</a></li>
                 </ul>
               </section>
             </article>
