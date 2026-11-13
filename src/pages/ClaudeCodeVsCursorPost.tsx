@@ -88,7 +88,7 @@ const ClaudeCodeVsCursorPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-violet-600 to-indigo-800 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <GitCompare className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Coding</span>
                 </div>
@@ -107,8 +107,8 @@ const ClaudeCodeVsCursorPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-indigo-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -130,8 +130,8 @@ const ClaudeCodeVsCursorPost = () => {
               title="CLAUDE CODE vs CURSOR"
               subtitle="an agent you delegate to vs an editor you work inside"
               columns={[
-                { name: "CLAUDE CODE", tag: "delegate the task, review the diff", color: "#f97316", lines: ["terminal, IDE, desktop, web, CI", "subagents, hooks, skills, MCP", "Anthropic models (Opus 5.5)", "from $20/mo (Claude Pro)"], best: "best for: multi-file, autonomous work" },
-                { name: "CURSOR", tag: "work alongside the AI in an editor", color: "#a78bfa", lines: ["AI editor built on VS Code", "agent, tab completion, Bugbot", "many models + own Composer", "Free, then from $8/mo"], best: "best for: hands-on, in-editor edits" },
+                { name: "CLAUDE CODE", tag: "delegate the task, review the diff", color: "#FFB454", lines: ["terminal, IDE, desktop, web, CI", "subagents, hooks, skills, MCP", "Anthropic models (Opus 5.5)", "from $20/mo (Claude Pro)"], best: "best for: multi-file, autonomous work" },
+                { name: "CURSOR", tag: "work alongside the AI in an editor", color: "#C4A6F5", lines: ["AI editor built on VS Code", "agent, tab completion, Bugbot", "many models + own Composer", "Free, then from $8/mo"], best: "best for: hands-on, in-editor edits" },
               ]}
               footer="not either/or: Claude Code's extension installs inside Cursor"
               ariaLabel="Claude Code vs Cursor. Claude Code is an agent you delegate tasks to and then review the diff; it runs in the terminal, IDE extensions, a desktop app, the web and CI, supports subagents, hooks, skills and MCP, uses Anthropic models with Opus 5.5 as default, and starts at $20 a month with Claude Pro. Cursor is an AI code editor built on VS Code where you work alongside the AI, with an agent, tab completion and Bugbot, many models plus its own Composer model, and a free plan with paid plans from $8 a month. The two can be combined because the Claude Code extension installs inside Cursor."

@@ -2,7 +2,7 @@
 // the practice categories. Pure inline SVG — prerenders statically, crawler-
 // visible, zero JS.
 const MLOpsHeroDiagram = () => (
-  <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0b0714]">
+  <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
     <svg
       viewBox="0 0 1200 560"
       role="img"
@@ -11,26 +11,26 @@ const MLOpsHeroDiagram = () => (
     >
       <defs>
         <linearGradient id="mlopsBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#0b0714" />
-          <stop offset="60%" stopColor="#120a26" />
-          <stop offset="100%" stopColor="#1a0f33" />
+          <stop offset="0%" stopColor="#0c0c0b" />
+          <stop offset="60%" stopColor="#0f0f0e" />
+          <stop offset="100%" stopColor="#151514" />
         </linearGradient>
         <linearGradient id="tierA" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#7c3aed" /><stop offset="100%" stopColor="#4c1d95" />
+          <stop offset="0%" stopColor="#5e36a1" /><stop offset="100%" stopColor="#3f246b" />
         </linearGradient>
         <linearGradient id="tierB" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#2563eb" /><stop offset="100%" stopColor="#1e3a8a" />
+          <stop offset="0%" stopColor="#35769f" /><stop offset="100%" stopColor="#244f6b" />
         </linearGradient>
         <linearGradient id="tierC" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#0d9488" /><stop offset="100%" stopColor="#115e59" />
+          <stop offset="0%" stopColor="#246b4b" /><stop offset="100%" stopColor="#246b4b" />
         </linearGradient>
         <linearGradient id="tierD" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#b45309" /><stop offset="100%" stopColor="#7c2d12" />
+          <stop offset="0%" stopColor="#6f4e25" /><stop offset="100%" stopColor="#6b4c24" />
         </linearGradient>
       </defs>
 
       <rect width="1200" height="560" fill="url(#mlopsBg)" />
-      <g fill="#a78bfa" opacity="0.07">
+      <g fill="#C4A6F5" opacity="0.07">
         {Array.from({ length: 12 }).map((_, r) =>
           Array.from({ length: 24 }).map((_, c) => (
             <circle key={`${r}-${c}`} cx={40 + c * 49} cy={30 + r * 46} r="1.6" />
@@ -38,10 +38,10 @@ const MLOpsHeroDiagram = () => (
         )}
       </g>
 
-      <text x="600" y="50" textAnchor="middle" fill="#c4b5fd" fontSize="15" fontWeight="700" letterSpacing="2">
+      <text x="600" y="50" textAnchor="middle" fill="#dcdad6" fontSize="15" fontWeight="700" letterSpacing="2">
         MLOPS BEST PRACTICES — ORDERED BY IMPACT
       </text>
-      <text x="70" y="300" textAnchor="middle" fill="#8b7fb8" fontSize="12" transform="rotate(-90 70 300)" letterSpacing="2">
+      <text x="70" y="300" textAnchor="middle" fill="#a29f95" fontSize="12" transform="rotate(-90 70 300)" letterSpacing="2">
         HIGHER IMPACT →
       </text>
 
@@ -56,13 +56,13 @@ const MLOpsHeroDiagram = () => (
           <text x="600" y={row.y + 36} textAnchor="middle" fill="#ffffff" fontSize="17" fontWeight="800" letterSpacing="1">
             {row.tier}
           </text>
-          <text x="600" y={row.y + 64} textAnchor="middle" fill="#eef0ff" fontSize="13.5">
+          <text x="600" y={row.y + 64} textAnchor="middle" fill="#f7f7f6" fontSize="13.5">
             {row.items}
           </text>
         </g>
       ))}
 
-      <text x="600" y="540" textAnchor="middle" fill="#8b7fb8" fontSize="12">
+      <text x="600" y="540" textAnchor="middle" fill="#a29f95" fontSize="12">
         Build the base first — versioning and reproducibility make every layer above it possible.
       </text>
     </svg>

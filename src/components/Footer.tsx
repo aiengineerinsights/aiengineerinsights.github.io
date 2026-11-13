@@ -1,174 +1,68 @@
-
-import { Github, Mail, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Github, Mail } from "lucide-react";
 import { Link } from "@/components/SiteLink";
+import { ROADMAP_PATH, TOPICS, TOPMATE_URL } from "@/config/site";
 
-const Footer = () => {
-  const navigate = useNavigate();
+const linkClass = "flex items-center min-h-[40px] text-secondary-foreground hover:text-primary transition-colors";
 
-  const handleEmailClick = () => {
-    window.open('mailto:aiengineerinsights@gmail.com', '_blank');
-  };
-
-  const handleAnchorNavigation = (href: string) => {
-    if (window.location.pathname !== '/') {
-      // Navigate to home first, then scroll to section
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      // Already on home page, just scroll
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
-  return (
-    <footer className="bg-background border-t border-border">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <span className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                AIEngineerInsights
-              </span>
-            </Link>
-            <p className="text-muted-foreground text-sm">
-              Your companion on the AI engineering journey
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="md:col-span-1">
-            <h2 className="font-semibold mb-4">Quick Links</h2>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button 
-                  onClick={() => handleAnchorNavigation('#about')}
-                  className="text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  About
-                </button>
-              </li>
-              <li>
-                <Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link to="/newsletter" className="text-muted-foreground hover:text-primary transition-colors">
-                  Newsletter
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleAnchorNavigation('#projects')}
-                  className="text-muted-foreground hover:text-primary transition-colors text-left"
-                >
-                  Projects
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="md:col-span-1">
-            <h2 className="font-semibold mb-4">Resources</h2>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/ai-engineering-roadmap" className="text-muted-foreground hover:text-primary transition-colors">
-                  AI Engineer Roadmap 2026
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://topmate.io/poorna_prudhvi_gurram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  1:1 Mentorship
-                </a>
-              </li>
-              <li>
-                <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
-                  Learning Materials
-                </Link>
-              </li>
-              <li>
-                <Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">
-                  Latest Insights
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div className="md:col-span-1">
-            <h2 className="font-semibold mb-4">Connect</h2>
-            <div className="flex space-x-4 mb-4">
-              <a
-                href="https://github.com/aiengineerinsights"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="AI Engineer Insights on GitHub"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Github className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <button
-                onClick={handleEmailClick}
-                aria-label="Email AI Engineer Insights"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </div>
-            <Button 
-              variant="default" 
-              size="sm" 
-              onClick={handleEmailClick}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
-            >
-              Get In Touch
-            </Button>
+const Footer = () => (
+  <footer className="bg-background border-t border-border">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div>
+          <Link to="/" className="font-bold text-lg text-foreground hover:text-primary">AI Engineer Insights</Link>
+          <p className="text-muted-foreground text-sm mt-3 max-w-[30ch]">Field notes for engineers building with LLMs and agents.</p>
+          <div className="flex gap-2 mt-4">
+            <a href="https://github.com/aiengineerinsights" target="_blank" rel="noopener noreferrer" aria-label="AI Engineer Insights on GitHub" className="inline-flex items-center justify-center h-11 w-11 border border-input rounded-sm text-foreground hover:border-primary hover:text-primary transition-colors">
+              <Github className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a href="mailto:aiengineerinsights@gmail.com" aria-label="Email AI Engineer Insights" className="inline-flex items-center justify-center h-11 w-11 border border-input rounded-sm text-foreground hover:border-primary hover:text-primary transition-colors">
+              <Mail className="h-5 w-5" aria-hidden="true" />
+            </a>
           </div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-border mt-8 pt-8 text-center space-y-3">
-          <p className="text-sm text-muted-foreground flex items-center justify-center">
-            Made with <Heart className="h-4 w-4 text-red-500 mx-1" /> for the AI community
-          </p>
-          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <Link to="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <span aria-hidden="true">·</span>
-            <button
-              onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
-              className="hover:text-primary transition-colors"
-            >
-              Cookie settings
-            </button>
-          </div>
-        </div>
+        <nav aria-label="Topics">
+          <h2 className="label-mono text-muted-foreground mb-2">Topics</h2>
+          <ul className="text-sm m-0 p-0 list-none">
+            {TOPICS.map((t) => (
+              <li key={t.name}>
+                <Link to={`/blogs?topic=${encodeURIComponent(t.name)}`} className={linkClass}>{t.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Start here">
+          <h2 className="label-mono text-muted-foreground mb-2">Start here</h2>
+          <ul className="text-sm m-0 p-0 list-none">
+            <li><Link to={ROADMAP_PATH} className={linkClass}>AI Engineer Roadmap 2026</Link></li>
+            <li><Link to="/blog/ai-engineer-salary" className={linkClass}>AI engineer salary</Link></li>
+            <li><Link to="/blogs" className={linkClass}>All guides</Link></li>
+            <li><Link to="/newsletter" className={linkClass}>Newsletter and free PDFs</Link></li>
+            <li><a href={TOPMATE_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>1:1 mentorship</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Site">
+          <h2 className="label-mono text-muted-foreground mb-2">Site</h2>
+          <ul className="text-sm m-0 p-0 list-none">
+            <li><Link to="/authors" className={linkClass}>Authors</Link></li>
+            <li><Link to="/resources" className={linkClass}>Learning resources</Link></li>
+            <li><Link to="/projects" className={linkClass}>Open-source projects</Link></li>
+            <li><Link to="/privacy" className={linkClass}>Privacy policy</Link></li>
+          </ul>
+        </nav>
       </div>
-    </footer>
-  );
-};
+      <div className="border-t border-border mt-10 pt-6 text-sm text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span>© {new Date().getFullYear()} AI Engineer Insights</span>
+        <Link to="/privacy" className="min-h-[40px] inline-flex items-center hover:text-primary transition-colors">Privacy policy</Link>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+          className="min-h-[40px] inline-flex items-center hover:text-primary transition-colors"
+        >
+          Cookie settings
+        </button>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

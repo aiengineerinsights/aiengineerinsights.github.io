@@ -50,7 +50,7 @@ class FileContent(BaseModel):
             {/* Article Header */}
             <header className="mb-8 lg:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-sm px-3 py-1">
                   <TrendingUp className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">Agentic AI</span>
                 </div>
@@ -112,7 +112,7 @@ class FileContent(BaseModel):
                 <img
                   src={coverPic}
                   alt="A2A Protocol Illustration"
-                  className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                  className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                 />
                 <p className="text-center text-muted-foreground text-xs lg:text-sm italic mt-2">
                   Illustration of the A2A Protocol Architecture; Source: AI-generated :XD
@@ -174,7 +174,7 @@ class FileContent(BaseModel):
                   <img
                     src={ssePic}
                     alt="A2A Protocol Illustration"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                   <p className="text-center text-muted-foreground text-xs lg:text-sm italic mt-2">
                   Modes of Interaction for task management.

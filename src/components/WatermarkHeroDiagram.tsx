@@ -5,7 +5,7 @@
 // (paraphrase / translate / heavy edit fades the signal), and a per-lab status
 // strip. viewBox is 1200x630 so the same markup rasterizes 1:1 to the OG image.
 const WatermarkHeroDiagram = () => (
-  <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0b0714]">
+  <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
     <svg
       viewBox="0 0 1200 630"
       role="img"
@@ -14,29 +14,29 @@ const WatermarkHeroDiagram = () => (
     >
       <defs>
         <linearGradient id="wmBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#0b0714" />
-          <stop offset="55%" stopColor="#120a26" />
-          <stop offset="100%" stopColor="#1a0f33" />
+          <stop offset="0%" stopColor="#0c0c0b" />
+          <stop offset="55%" stopColor="#0f0f0e" />
+          <stop offset="100%" stopColor="#151514" />
         </linearGradient>
         <linearGradient id="wmPurple" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#7c3aed" />
-          <stop offset="100%" stopColor="#4c1d95" />
+          <stop offset="0%" stopColor="#C4A6F5" />
+          <stop offset="100%" stopColor="#3f2767" />
         </linearGradient>
         <linearGradient id="wmCyan" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#22d3ee" />
-          <stop offset="100%" stopColor="#0e7490" />
+          <stop offset="0%" stopColor="#7CC4F2" />
+          <stop offset="100%" stopColor="#23455c" />
         </linearGradient>
         <marker id="wmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 1 L 8 5 L 0 9 z" fill="#a78bfa" />
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#C4A6F5" />
         </marker>
         <marker id="wmArrowFade" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748b" />
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#807c6f" />
         </marker>
       </defs>
 
       {/* Background */}
       <rect width="1200" height="630" fill="url(#wmBg)" />
-      <g fill="#a78bfa" opacity="0.06">
+      <g fill="#C4A6F5" opacity="0.06">
         {Array.from({ length: 13 }).map((_, r) =>
           Array.from({ length: 24 }).map((_, c) => (
             <circle key={`${r}-${c}`} cx={40 + c * 49} cy={24 + r * 46} r="1.6" />
@@ -45,14 +45,14 @@ const WatermarkHeroDiagram = () => (
       </g>
 
       {/* Title */}
-      <text x="600" y="46" textAnchor="middle" fill="#e9e4f8" fontSize="19" fontWeight="800" letterSpacing="1">
+      <text x="600" y="46" textAnchor="middle" fill="#efefed" fontSize="19" fontWeight="800" letterSpacing="1">
         HOW AI TEXT WATERMARKING WORKS
       </text>
 
       {/* ───────── Stage 1: model generates ───────── */}
-      <rect x="48" y="80" width="336" height="250" rx="16" fill="#150e2b" stroke="#6d28d9" strokeWidth="1.6" />
-      <text x="216" y="110" textAnchor="middle" fill="#c4b5fd" fontSize="14.5" fontWeight="800">1 · MODEL GENERATES</text>
-      <text x="216" y="132" textAnchor="middle" fill="#b9aede" fontSize="12">at each token it picks from a distribution</text>
+      <rect x="48" y="80" width="336" height="250" rx="16" fill="#121211" stroke="#C4A6F5" strokeWidth="1.6" />
+      <text x="216" y="110" textAnchor="middle" fill="#dcdad6" fontSize="14.5" fontWeight="800">1 · MODEL GENERATES</text>
+      <text x="216" y="132" textAnchor="middle" fill="#C4A6F5" fontSize="12">at each token it picks from a distribution</text>
       {/* token chips: some nudged "green-list" (cyan) */}
       {[
         { x: 78, w: 66, t: "The", on: false },
@@ -66,64 +66,64 @@ const WatermarkHeroDiagram = () => (
       ].map((c, i) => (
         <g key={i}>
           <rect x={c.x} y={c.y ?? 156} width={c.w} height="34" rx="8"
-            fill={c.on ? "#0e2a33" : "#1a1136"} stroke={c.on ? "#22d3ee" : "#3b2f63"} strokeWidth="1.2" />
-          <text x={c.x + c.w / 2} y={(c.y ?? 156) + 22} textAnchor="middle" fill={c.on ? "#67e8f9" : "#cabff0"} fontSize="12.5" fontWeight="600">{c.t}</text>
+            fill={c.on ? "#151513" : "#171715"} stroke={c.on ? "#7CC4F2" : "#4e4c44"} strokeWidth="1.2" />
+          <text x={c.x + c.w / 2} y={(c.y ?? 156) + 22} textAnchor="middle" fill={c.on ? "#7CC4F2" : "#C4A6F5"} fontSize="12.5" fontWeight="600">{c.t}</text>
         </g>
       ))}
-      <text x="216" y="270" textAnchor="middle" fill="#67e8f9" fontSize="11.5">watermark softly favors a secret "green" subset</text>
-      <text x="216" y="290" textAnchor="middle" fill="#8b7fb8" fontSize="11">meaning unchanged · reads normally</text>
-      <text x="216" y="312" textAnchor="middle" fill="#7aa7cc" fontSize="10.5" letterSpacing="0.5">Kirchenbauer green-list · SynthID tournament sampling</text>
+      <text x="216" y="270" textAnchor="middle" fill="#7CC4F2" fontSize="11.5">watermark softly favors a secret "green" subset</text>
+      <text x="216" y="290" textAnchor="middle" fill="#a29f95" fontSize="11">meaning unchanged · reads normally</text>
+      <text x="216" y="312" textAnchor="middle" fill="#7CC4F2" fontSize="10.5" letterSpacing="0.5">Kirchenbauer green-list · SynthID tournament sampling</text>
 
-      <path d="M 384 205 L 432 205" stroke="#a78bfa" strokeWidth="2.2" markerEnd="url(#wmArrow)" />
+      <path d="M 384 205 L 432 205" stroke="#C4A6F5" strokeWidth="2.2" markerEnd="url(#wmArrow)" />
 
       {/* ───────── Stage 2: watermark woven in ───────── */}
-      <rect x="432" y="80" width="336" height="250" rx="16" fill="#0e2233" stroke="#0891b2" strokeWidth="1.6" />
-      <text x="600" y="110" textAnchor="middle" fill="#7dd3fc" fontSize="14.5" fontWeight="800">2 · SIGNAL WOVEN IN</text>
-      <text x="600" y="132" textAnchor="middle" fill="#a9d8ea" fontSize="12">imperceptible · in the words themselves</text>
-      <rect x="470" y="156" width="260" height="72" rx="12" fill="#0b1a26" stroke="url(#wmCyan)" strokeWidth="2" />
-      <text x="600" y="184" textAnchor="middle" fill="#eaf7ff" fontSize="13.5" fontWeight="700">statistical fingerprint</text>
-      <text x="600" y="206" textAnchor="middle" fill="#9fd6ea" fontSize="12">not visible · not metadata you can strip</text>
-      <text x="600" y="256" textAnchor="middle" fill="#67e8f9" fontSize="12" fontWeight="600">travels with copy · paste</text>
-      <text x="600" y="278" textAnchor="middle" fill="#a9d8ea" fontSize="11.5">files also get signed C2PA provenance</text>
-      <text x="600" y="308" textAnchor="middle" fill="#7aa7cc" fontSize="10.5" letterSpacing="0.5">EU AI Act Art. 50(2) transparency</text>
+      <rect x="432" y="80" width="336" height="250" rx="16" fill="#151513" stroke="#29526c" strokeWidth="1.6" />
+      <text x="600" y="110" textAnchor="middle" fill="#7CC4F2" fontSize="14.5" fontWeight="800">2 · SIGNAL WOVEN IN</text>
+      <text x="600" y="132" textAnchor="middle" fill="#7CC4F2" fontSize="12">imperceptible · in the words themselves</text>
+      <rect x="470" y="156" width="260" height="72" rx="12" fill="#10100f" stroke="url(#wmCyan)" strokeWidth="2" />
+      <text x="600" y="184" textAnchor="middle" fill="#f5f5f4" fontSize="13.5" fontWeight="700">statistical fingerprint</text>
+      <text x="600" y="206" textAnchor="middle" fill="#7CC4F2" fontSize="12">not visible · not metadata you can strip</text>
+      <text x="600" y="256" textAnchor="middle" fill="#7CC4F2" fontSize="12" fontWeight="600">travels with copy · paste</text>
+      <text x="600" y="278" textAnchor="middle" fill="#7CC4F2" fontSize="11.5">files also get signed C2PA provenance</text>
+      <text x="600" y="308" textAnchor="middle" fill="#7CC4F2" fontSize="10.5" letterSpacing="0.5">EU AI Act Art. 50(2) transparency</text>
 
-      <path d="M 768 205 L 816 205" stroke="#a78bfa" strokeWidth="2.2" markerEnd="url(#wmArrow)" />
+      <path d="M 768 205 L 816 205" stroke="#C4A6F5" strokeWidth="2.2" markerEnd="url(#wmArrow)" />
 
       {/* ───────── Stage 3: detector ───────── */}
-      <rect x="816" y="80" width="336" height="250" rx="16" fill="#0c1f18" stroke="#059669" strokeWidth="1.6" />
-      <text x="984" y="110" textAnchor="middle" fill="#6ee7b7" fontSize="14.5" fontWeight="800">3 · DETECTOR</text>
-      <text x="984" y="132" textAnchor="middle" fill="#a7f3d0" fontSize="12">counts "green" tokens · runs a stat test</text>
-      <circle cx="984" cy="205" r="52" fill="#07130e" stroke="#34d399" strokeWidth="2.4" />
-      <text x="984" y="200" textAnchor="middle" fill="#d1fae5" fontSize="14" fontWeight="800">likely AI</text>
-      <text x="984" y="222" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontWeight="700">p &lt; 0.01</text>
-      <text x="984" y="286" textAnchor="middle" fill="#a7f3d0" fontSize="11.5">needs the matching key/detector</text>
-      <text x="984" y="308" textAnchor="middle" fill="#7aa7cc" fontSize="10.5" letterSpacing="0.5">Turnitin / GPTZero do NOT read these marks</text>
+      <rect x="816" y="80" width="336" height="250" rx="16" fill="#0e0e0d" stroke="#225a41" strokeWidth="1.6" />
+      <text x="984" y="110" textAnchor="middle" fill="#6FD6A8" fontSize="14.5" fontWeight="800">3 · DETECTOR</text>
+      <text x="984" y="132" textAnchor="middle" fill="#6FD6A8" fontSize="12">counts "green" tokens · runs a stat test</text>
+      <circle cx="984" cy="205" r="52" fill="#0c0c0b" stroke="#6FD6A8" strokeWidth="2.4" />
+      <text x="984" y="200" textAnchor="middle" fill="#e7e6e4" fontSize="14" fontWeight="800">likely AI</text>
+      <text x="984" y="222" textAnchor="middle" fill="#6FD6A8" fontSize="13" fontWeight="700">p &lt; 0.01</text>
+      <text x="984" y="286" textAnchor="middle" fill="#6FD6A8" fontSize="11.5">needs the matching key/detector</text>
+      <text x="984" y="308" textAnchor="middle" fill="#7CC4F2" fontSize="10.5" letterSpacing="0.5">Turnitin / GPTZero do NOT read these marks</text>
 
       {/* ───────── Fragility band ───────── */}
-      <rect x="48" y="356" width="1104" height="72" rx="14" fill="#1a1206" stroke="#b45309" strokeWidth="1.4" />
-      <text x="72" y="384" fill="#fbbf24" fontSize="13" fontWeight="800" letterSpacing="0.5">FRAGILE:</text>
-      <text x="150" y="384" fill="#f5d9a0" fontSize="13">paraphrase · translate · heavy rewrite · mix into other text</text>
-      <path d="M 690 380 C 760 380, 800 380, 900 380" stroke="#64748b" strokeWidth="2" strokeDasharray="4 6" fill="none" markerEnd="url(#wmArrowFade)" />
-      <text x="1128" y="384" textAnchor="end" fill="#94a3b8" fontSize="13" fontWeight="700">signal fades → undetectable</text>
-      <text x="72" y="410" fill="#c8a15a" fontSize="11.5" fontStyle="italic">a watermark proves "this is AI" when present; absence never proves "this is human"</text>
+      <rect x="48" y="356" width="1104" height="72" rx="14" fill="#0c0c0b" stroke="#6e502a" strokeWidth="1.4" />
+      <text x="72" y="384" fill="#FFB454" fontSize="13" fontWeight="800" letterSpacing="0.5">FRAGILE:</text>
+      <text x="150" y="384" fill="#FFB454" fontSize="13">paraphrase · translate · heavy rewrite · mix into other text</text>
+      <path d="M 690 380 C 760 380, 800 380, 900 380" stroke="#807c6f" strokeWidth="2" strokeDasharray="4 6" fill="none" markerEnd="url(#wmArrowFade)" />
+      <text x="1128" y="384" textAnchor="end" fill="#aca9a0" fontSize="13" fontWeight="700">signal fades → undetectable</text>
+      <text x="72" y="410" fill="#FFB454" fontSize="11.5" fontStyle="italic">a watermark proves "this is AI" when present; absence never proves "this is human"</text>
 
       {/* ───────── Per-lab status strip ───────── */}
-      <text x="600" y="456" textAnchor="middle" fill="#c4b5fd" fontSize="12.5" fontWeight="700" letterSpacing="1">WHO WATERMARKS TEXT TODAY</text>
+      <text x="600" y="456" textAnchor="middle" fill="#dcdad6" fontSize="12.5" fontWeight="700" letterSpacing="1">WHO WATERMARKS TEXT TODAY</text>
       {[
-        { x: 48, name: "Google · Gemini", mark: "✓ SynthID live", sub: "open-sourced · text+image+audio+video", col: "#34d399", bd: "#059669" },
-        { x: 324, name: "Anthropic · Claude", mark: "✓ live Aug 2026", sub: "imperceptible text mark · C2PA files", col: "#34d399", bd: "#059669" },
-        { x: 600, name: "OpenAI · ChatGPT", mark: "~ built, unreleased", sub: "~99.9% (WSJ) · DALL·E uses C2PA", col: "#fbbf24", bd: "#b45309" },
-        { x: 876, name: "Meta · Llama", mark: "✗ no text mark", sub: "AudioSeal ships for audio only", col: "#f87171", bd: "#b91c1c" },
+        { x: 48, name: "Google · Gemini", mark: "✓ SynthID live", sub: "open-sourced · text+image+audio+video", col: "#6FD6A8", bd: "#225a41" },
+        { x: 324, name: "Anthropic · Claude", mark: "✓ live Aug 2026", sub: "imperceptible text mark · C2PA files", col: "#6FD6A8", bd: "#225a41" },
+        { x: 600, name: "OpenAI · ChatGPT", mark: "~ built, unreleased", sub: "~99.9% (WSJ) · DALL·E uses C2PA", col: "#FFB454", bd: "#6e502a" },
+        { x: 876, name: "Meta · Llama", mark: "✗ no text mark", sub: "AudioSeal ships for audio only", col: "#FF8F73", bd: "#7c3e2f" },
       ].map((c, i) => (
         <g key={i}>
-          <rect x={c.x} y="470" width="276" height="118" rx="14" fill="#100b22" stroke={c.bd} strokeWidth="1.4" />
-          <text x={c.x + 20} y="500" fill="#e9e4f8" fontSize="14" fontWeight="800">{c.name}</text>
+          <rect x={c.x} y="470" width="276" height="118" rx="14" fill="#0f0e0d" stroke={c.bd} strokeWidth="1.4" />
+          <text x={c.x + 20} y="500" fill="#efefed" fontSize="14" fontWeight="800">{c.name}</text>
           <text x={c.x + 20} y="528" fill={c.col} fontSize="14.5" fontWeight="800">{c.mark}</text>
-          <text x={c.x + 20} y="556" fill="#b9aede" fontSize="11.5">{c.sub}</text>
+          <text x={c.x + 20} y="556" fill="#C4A6F5" fontSize="11.5">{c.sub}</text>
         </g>
       ))}
 
-      <text x="1152" y="612" textAnchor="end" fill="#6d5f9e" fontSize="11">aiengineerinsights.com</text>
+      <text x="1152" y="612" textAnchor="end" fill="#878376" fontSize="11">aiengineerinsights.com</text>
     </svg>
   </div>
 );

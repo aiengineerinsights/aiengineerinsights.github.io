@@ -5,10 +5,10 @@
 // "framework != runtime" reminder.
 const AgentFrameworksHeroDiagram = () => {
   const frameworks = [
-    { x: 40, t: "LangGraph", d: "graph of nodes + edges, explicit state", glyph: "graph", stroke: "#38bdf8" },
-    { x: 325, t: "CrewAI", d: "role-based crews of agents + tasks", glyph: "crew", stroke: "#a78bfa" },
-    { x: 610, t: "AutoGen / AG2", d: "conversational multi-agent chat", glyph: "chat", stroke: "#fbbf24" },
-    { x: 895, t: "Pydantic AI", d: "type-safe, function-first agents", glyph: "typed", stroke: "#34d399" },
+    { x: 40, t: "LangGraph", d: "graph of nodes + edges, explicit state", glyph: "graph", stroke: "#7CC4F2" },
+    { x: 325, t: "CrewAI", d: "role-based crews of agents + tasks", glyph: "crew", stroke: "#C4A6F5" },
+    { x: 610, t: "AutoGen / AG2", d: "conversational multi-agent chat", glyph: "chat", stroke: "#FFB454" },
+    { x: 895, t: "Pydantic AI", d: "type-safe, function-first agents", glyph: "typed", stroke: "#6FD6A8" },
   ];
 
   const renderGlyph = (glyph: string, cx: number, cy: number, color: string) => {
@@ -16,14 +16,14 @@ const AgentFrameworksHeroDiagram = () => {
       case "graph":
         return (
           <g>
-            <line x1={cx - 36} y1={cy} x2={cx} y2={cy - 22} stroke="#33506a" strokeWidth="1.6" />
-            <line x1={cx - 36} y1={cy} x2={cx} y2={cy + 22} stroke="#33506a" strokeWidth="1.6" />
-            <line x1={cx} y1={cy - 22} x2={cx + 36} y2={cy} stroke="#33506a" strokeWidth="1.6" />
-            <line x1={cx} y1={cy + 22} x2={cx + 36} y2={cy} stroke="#33506a" strokeWidth="1.6" />
-            <line x1={cx + 36} y1={cy} x2={cx} y2={cy + 22} stroke="#33506a" strokeWidth="1.2" strokeDasharray="3 3" />
-            <circle cx={cx - 36} cy={cy} r="7" fill="#0e1a24" stroke={color} strokeWidth="1.8" />
-            <circle cx={cx} cy={cy - 22} r="7" fill="#0e1a24" stroke={color} strokeWidth="1.8" />
-            <circle cx={cx} cy={cy + 22} r="7" fill="#0e1a24" stroke={color} strokeWidth="1.8" />
+            <line x1={cx - 36} y1={cy} x2={cx} y2={cy - 22} stroke="#545149" strokeWidth="1.6" />
+            <line x1={cx - 36} y1={cy} x2={cx} y2={cy + 22} stroke="#545149" strokeWidth="1.6" />
+            <line x1={cx} y1={cy - 22} x2={cx + 36} y2={cy} stroke="#545149" strokeWidth="1.6" />
+            <line x1={cx} y1={cy + 22} x2={cx + 36} y2={cy} stroke="#545149" strokeWidth="1.6" />
+            <line x1={cx + 36} y1={cy} x2={cx} y2={cy + 22} stroke="#545149" strokeWidth="1.2" strokeDasharray="3 3" />
+            <circle cx={cx - 36} cy={cy} r="7" fill="#10100f" stroke={color} strokeWidth="1.8" />
+            <circle cx={cx} cy={cy - 22} r="7" fill="#10100f" stroke={color} strokeWidth="1.8" />
+            <circle cx={cx} cy={cy + 22} r="7" fill="#10100f" stroke={color} strokeWidth="1.8" />
             <circle cx={cx + 36} cy={cy} r="7" fill={color} stroke={color} strokeWidth="1.8" />
           </g>
         );
@@ -32,7 +32,7 @@ const AgentFrameworksHeroDiagram = () => {
           <g>
             {[-30, 0, 30].map((dx) => (
               <g key={dx}>
-                <circle cx={cx + dx} cy={cy - 10} r="8" fill="#0e1a24" stroke={color} strokeWidth="1.8" />
+                <circle cx={cx + dx} cy={cy - 10} r="8" fill="#10100f" stroke={color} strokeWidth="1.8" />
                 <path d={`M${cx + dx - 13},${cy + 20} a13,13 0 0 1 26,0`} fill="none" stroke={color} strokeWidth="1.8" />
               </g>
             ))}
@@ -42,15 +42,15 @@ const AgentFrameworksHeroDiagram = () => {
       case "chat":
         return (
           <g>
-            <path d={`M${cx - 44},${cy - 22} h50 a6,6 0 0 1 6,6 v18 a6,6 0 0 1 -6,6 h-30 l-10,9 v-9 h-10 a6,6 0 0 1 -6,-6 v-18 a6,6 0 0 1 6,-6 z`} fill="#0e1a24" stroke={color} strokeWidth="1.8" />
-            <path d={`M${cx + 46},${cy - 6} h-50 a6,6 0 0 0 -6,6 v18 a6,6 0 0 0 6,6 h30 l10,9 v-9 h10 a6,6 0 0 0 6,-6 v-18 a6,6 0 0 0 -6,-6 z`} fill="#0e1a24" stroke={color} strokeWidth="1.8" opacity="0.85" />
+            <path transform="translate(-12 -8)" d={`M${cx - 44},${cy - 22} h50 a6,6 0 0 1 6,6 v18 a6,6 0 0 1 -6,6 h-30 l-10,9 v-9 h-10 a6,6 0 0 1 -6,-6 v-18 a6,6 0 0 1 6,-6 z`} fill="#10100f" stroke={color} strokeWidth="1.8" />
+            <path transform="translate(18 10)" d={`M${cx + 46},${cy - 6} h-50 a6,6 0 0 0 -6,6 v18 a6,6 0 0 0 6,6 h30 l10,9 v-9 h10 a6,6 0 0 0 6,-6 v-18 a6,6 0 0 0 -6,-6 z`} fill="#10100f" stroke={color} strokeWidth="1.8" opacity="0.85" />
           </g>
         );
       default:
         return (
           <g>
-            <rect x={cx - 46} y={cy - 22} width="92" height="46" rx="8" fill="#0e1a24" stroke={color} strokeWidth="1.8" />
-            <text x={cx} y={cy + 6} textAnchor="middle" fill={color} fontSize="15" fontWeight="700" fontFamily="ui-monospace, monospace">
+            <rect x={cx - 72} y={cy - 22} width="144" height="46" rx="8" fill="#10100f" stroke={color} strokeWidth="1.8" />
+            <text x={cx} y={cy + 6} textAnchor="middle" fill={color} fontSize="14" fontWeight="700" fontFamily="ui-monospace, monospace">
               fn(x: T) → R
             </text>
           </g>
@@ -59,7 +59,7 @@ const AgentFrameworksHeroDiagram = () => {
   };
 
   return (
-    <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0a0f14]">
+    <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
       <svg
         viewBox="0 0 1200 630"
         role="img"
@@ -68,22 +68,22 @@ const AgentFrameworksHeroDiagram = () => {
       >
         <defs>
           <linearGradient id="afwBg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0a0f14" />
-            <stop offset="60%" stopColor="#0b1420" />
-            <stop offset="100%" stopColor="#0c1a26" />
+            <stop offset="0%" stopColor="#0c0c0b" />
+            <stop offset="60%" stopColor="#0e0e0d" />
+            <stop offset="100%" stopColor="#10100f" />
           </linearGradient>
           <linearGradient id="afwSpectrum" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.35" />
-            <stop offset="50%" stopColor="#0e1a24" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.35" />
+            <stop offset="0%" stopColor="#C4A6F5" stopOpacity="0.35" />
+            <stop offset="50%" stopColor="#10100f" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#7CC4F2" stopOpacity="0.35" />
           </linearGradient>
           <marker id="afwArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#5b7488" />
+            <path d="M0,0 L10,5 L0,10 z" fill="#79756a" />
           </marker>
         </defs>
 
         <rect width="1200" height="630" fill="url(#afwBg)" />
-        <g fill="#38bdf8" opacity="0.05">
+        <g fill="#7CC4F2" opacity="0.05">
           {Array.from({ length: 13 }).map((_, r) =>
             Array.from({ length: 24 }).map((_, c) => (
               <circle key={`${r}-${c}`} cx={40 + c * 49} cy={24 + r * 46} r="1.6" />
@@ -91,20 +91,20 @@ const AgentFrameworksHeroDiagram = () => {
           )}
         </g>
 
-        <text x="600" y="46" textAnchor="middle" fill="#eaf4fb" fontSize="19" fontWeight="800" letterSpacing="1">
+        <text x="600" y="46" textAnchor="middle" fill="#f3f3f2" fontSize="19" fontWeight="800" letterSpacing="1">
           OPEN-SOURCE AI AGENT FRAMEWORKS
         </text>
-        <text x="600" y="70" textAnchor="middle" fill="#7dd3fc" fontSize="12.5">
+        <text x="600" y="70" textAnchor="middle" fill="#7CC4F2" fontSize="12.5">
           pick by programming model and how much control you need — not by feature list
         </text>
 
         {/* four framework cards */}
         {frameworks.map((f) => (
           <g key={f.t}>
-            <rect x={f.x} y="100" width="265" height="230" rx="12" fill="#0e1a24" stroke={f.stroke} strokeWidth="1.6" />
+            <rect x={f.x} y="100" width="265" height="230" rx="12" fill="#10100f" stroke={f.stroke} strokeWidth="1.6" />
             {renderGlyph(f.glyph, f.x + 132, 165, f.stroke)}
-            <text x={f.x + 132} y="250" textAnchor="middle" fill="#eaf4fb" fontSize="17" fontWeight="700">{f.t}</text>
-            <text x={f.x + 132} y="275" textAnchor="middle" fill="#8fb8cc" fontSize="11.5">{f.d}</text>
+            <text x={f.x + 132} y="250" textAnchor="middle" fill="#f3f3f2" fontSize="17" fontWeight="700">{f.t}</text>
+            <text x={f.x + 132} y="275" textAnchor="middle" fill="#b3b0a8" fontSize="11.5">{f.d}</text>
             <text x={f.x + 132} y="305" textAnchor="middle" fill={f.stroke} fontSize="10.5" opacity="0.9">
               open source · Python
             </text>
@@ -112,25 +112,25 @@ const AgentFrameworksHeroDiagram = () => {
         ))}
 
         {/* spectrum: high-level & fast vs explicit control */}
-        <text x="600" y="395" textAnchor="middle" fill="#eaf4fb" fontSize="15" fontWeight="700">
+        <text x="600" y="395" textAnchor="middle" fill="#f3f3f2" fontSize="15" fontWeight="700">
           Abstraction vs control
         </text>
-        <rect x="150" y="420" width="900" height="34" rx="8" fill="url(#afwSpectrum)" stroke="#33506a" strokeWidth="1.4" />
-        <line x1="420" y1="420" x2="420" y2="454" stroke="#33506a" strokeWidth="1" strokeDasharray="3 3" />
-        <line x1="780" y1="420" x2="780" y2="454" stroke="#33506a" strokeWidth="1" strokeDasharray="3 3" />
-        <text x="285" y="443" textAnchor="middle" fill="#e0d4ff" fontSize="12.5" fontWeight="600">CrewAI — high-level &amp; fast</text>
-        <text x="600" y="443" textAnchor="middle" fill="#c9dfe9" fontSize="12">AutoGen / AG2 · Pydantic AI</text>
-        <text x="915" y="443" textAnchor="middle" fill="#bae6fd" fontSize="12.5" fontWeight="600">LangGraph — explicit control</text>
-        <line x1="150" y1="478" x2="1050" y2="478" stroke="#33506a" strokeWidth="1.4" markerStart="url(#afwArrow)" markerEnd="url(#afwArrow)" />
-        <text x="235" y="500" textAnchor="middle" fill="#8fb8cc" fontSize="10.5">roles + tasks, less wiring</text>
-        <text x="965" y="500" textAnchor="middle" fill="#8fb8cc" fontSize="10.5">you own the state and the flow</text>
+        <rect x="150" y="420" width="900" height="34" rx="8" fill="url(#afwSpectrum)" stroke="#545149" strokeWidth="1.4" />
+        <line x1="420" y1="420" x2="420" y2="454" stroke="#545149" strokeWidth="1" strokeDasharray="3 3" />
+        <line x1="780" y1="420" x2="780" y2="454" stroke="#545149" strokeWidth="1" strokeDasharray="3 3" />
+        <text x="285" y="443" textAnchor="middle" fill="#ebeae8" fontSize="12.5" fontWeight="600">CrewAI — high-level &amp; fast</text>
+        <text x="600" y="443" textAnchor="middle" fill="#dcdad6" fontSize="12">AutoGen / AG2 · Pydantic AI</text>
+        <text x="915" y="443" textAnchor="middle" fill="#deddd9" fontSize="12.5" fontWeight="600">LangGraph — explicit control</text>
+        <line x1="150" y1="478" x2="1050" y2="478" stroke="#545149" strokeWidth="1.4" markerStart="url(#afwArrow)" markerEnd="url(#afwArrow)" />
+        <text x="235" y="500" textAnchor="middle" fill="#b3b0a8" fontSize="10.5">roles + tasks, less wiring</text>
+        <text x="965" y="500" textAnchor="middle" fill="#b3b0a8" fontSize="10.5">you own the state and the flow</text>
 
         {/* footer note */}
-        <rect x="200" y="540" width="800" height="48" rx="10" fill="#0e1a24" stroke="#33506a" strokeWidth="1.2" />
-        <text x="600" y="560" textAnchor="middle" fill="#eaf4fb" fontSize="12.5" fontWeight="600">
+        <rect x="200" y="540" width="800" height="48" rx="10" fill="#10100f" stroke="#545149" strokeWidth="1.2" />
+        <text x="600" y="560" textAnchor="middle" fill="#f3f3f2" fontSize="12.5" fontWeight="600">
           a framework defines how you write the agent — not how it runs in production
         </text>
-        <text x="600" y="578" textAnchor="middle" fill="#8fb8cc" fontSize="10.5">
+        <text x="600" y="578" textAnchor="middle" fill="#b3b0a8" fontSize="10.5">
           sandboxing, scheduling, and persistence are the job of an agent runtime
         </text>
       </svg>

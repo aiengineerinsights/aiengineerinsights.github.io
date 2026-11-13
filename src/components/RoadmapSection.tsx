@@ -102,7 +102,7 @@ const roadmapSteps = [
       "Privacy, security, and compliance considerations"
     ],
     icon: Database,
-    color: "text-purple-400"
+    color: "text-primary"
   },
   {
     phase: "Specialization",
@@ -115,7 +115,7 @@ const roadmapSteps = [
       "AI product management and business applications"
     ],
     icon: Target,
-    color: "text-emerald-400"
+    color: "text-primary"
   },
   {
     phase: "Leadership",
@@ -128,7 +128,7 @@ const roadmapSteps = [
       "Ethics, bias detection, and responsible AI practices"
     ],
     icon: Users,
-    color: "text-orange-400"
+    color: "text-primary"
   }
 ];
 

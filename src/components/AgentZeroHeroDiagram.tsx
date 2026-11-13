@@ -10,7 +10,7 @@ const agents = [
     x: 40,
     name: "AGENT ZERO",
     tag: "a full Linux computer for the agent",
-    color: "#22d3ee",
+    color: "#7CC4F2",
     lines: ["runs inside Docker", "web UI + Linux desktop + browser", "projects, memory, 100+ plugins", "Python · MIT · ~20k stars"],
     best: "best for: hands-on work in a sandbox",
   },
@@ -18,7 +18,7 @@ const agents = [
     x: 420,
     name: "HERMES AGENT",
     tag: "an agent loop that learns",
-    color: "#a78bfa",
+    color: "#C4A6F5",
     lines: ["runs on your machine (TUI / desktop)", "writes its own skills from work", "SQLite session search + memory", "Python · MIT · Nous Research"],
     best: "best for: a personal agent that improves",
   },
@@ -26,7 +26,7 @@ const agents = [
     x: 800,
     name: "OPENCLAW",
     tag: "a gateway for your chat apps",
-    color: "#f97316",
+    color: "#FFB454",
     lines: ["resident gateway daemon", "20+ messaging channels", "ClawHub skill marketplace", "TypeScript · MIT"],
     best: "best for: one assistant in every channel",
   },
@@ -34,7 +34,7 @@ const agents = [
 
 const AgentZeroHeroDiagram = () => {
   return (
-    <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0a0f16]">
+    <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
       <svg
         viewBox="0 0 1200 630"
         role="img"
@@ -44,43 +44,43 @@ const AgentZeroHeroDiagram = () => {
       >
         <defs>
           <linearGradient id="a0Bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0a0f16" />
-            <stop offset="100%" stopColor="#111a24" />
+            <stop offset="0%" stopColor="#0c0c0b" />
+            <stop offset="100%" stopColor="#111110" />
           </linearGradient>
         </defs>
         <rect width="1200" height="630" fill="url(#a0Bg)" />
 
-        <text x="600" y="52" textAnchor="middle" fill="#eef6ff" fontSize="25" fontWeight="800" letterSpacing="1">
+        <text x="600" y="52" textAnchor="middle" fill="#f7f7f6" fontSize="25" fontWeight="800" letterSpacing="1">
           AGENT ZERO vs HERMES AGENT vs OPENCLAW
         </text>
-        <text x="600" y="80" textAnchor="middle" fill="#9fb3c8" fontSize="14">
+        <text x="600" y="80" textAnchor="middle" fill="#b9b6ae" fontSize="14">
           three free, self-hosted AI agents, three different centers of gravity
         </text>
 
         {agents.map((a) => (
           <g key={a.name}>
-            <rect x={a.x} y="116" width="360" height="380" rx="14" fill="#121b27" stroke={a.color} strokeWidth="1.8" />
+            <rect x={a.x} y="116" width="360" height="380" rx="14" fill="#121211" stroke={a.color} strokeWidth="1.8" />
             <rect x={a.x} y="116" width="360" height="7" rx="3" fill={a.color} />
             <text x={a.x + 180} y="166" textAnchor="middle" fill={a.color} fontSize="22" fontWeight="800" letterSpacing="0.8">{a.name}</text>
-            <text x={a.x + 180} y="194" textAnchor="middle" fill="#e2e8f0" fontSize="14.5" fontStyle="italic">{a.tag}</text>
-            <line x1={a.x + 30} y1="216" x2={a.x + 330} y2="216" stroke="#263241" strokeWidth="1" />
+            <text x={a.x + 180} y="194" textAnchor="middle" fill="#ebeae7" fontSize="14.5" fontStyle="italic">{a.tag}</text>
+            <line x1={a.x + 30} y1="216" x2={a.x + 330} y2="216" stroke="#373530" strokeWidth="1" />
             {a.lines.map((l, i) => (
               <g key={l}>
                 <circle cx={a.x + 38} cy={252 + i * 44} r="4" fill={a.color} />
-                <text x={a.x + 54} y={257 + i * 44} fill="#d6e1ee" fontSize="15">{l}</text>
+                <text x={a.x + 54} y={257 + i * 44} fill="#e4e3e0" fontSize="15">{l}</text>
               </g>
             ))}
-            <rect x={a.x + 24} y="432" width="312" height="44" rx="10" fill="#0c131c" stroke="#263241" />
-            <text x={a.x + 180} y="460" textAnchor="middle" fill="#f8fafc" fontSize="14" fontWeight="700">{a.best}</text>
+            <rect x={a.x + 24} y="432" width="312" height="44" rx="10" fill="#0d0d0c" stroke="#373530" />
+            <text x={a.x + 180} y="460" textAnchor="middle" fill="#fafafa" fontSize="14" fontWeight="700">{a.best}</text>
           </g>
         ))}
 
-        <rect x="200" y="522" width="800" height="50" rx="12" fill="#1f1a10" stroke="#f59e0b" strokeWidth="1.4" />
-        <text x="600" y="553" textAnchor="middle" fill="#fde68a" fontSize="15.5" fontWeight="700">
+        <rect x="200" y="522" width="800" height="50" rx="12" fill="#0f0f0e" stroke="#FFB454" strokeWidth="1.4" />
+        <text x="600" y="553" textAnchor="middle" fill="#FFB454" fontSize="15.5" fontWeight="700">
           all three: MIT licensed · self-hosted · bring your own model · you pay only for tokens
         </text>
 
-        <text x="600" y="608" textAnchor="middle" fill="#64748b" fontSize="12">
+        <text x="600" y="608" textAnchor="middle" fill="#807c6f" fontSize="12">
           aiengineerinsights.com · from each project's GitHub and docs, Oct 2026
         </text>
       </svg>

@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['"IBM Plex Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -97,8 +101,8 @@ export default {
 					to: { opacity: '1', transform: 'translateY(0)' }
 				},
 				'glow-pulse': {
-					'0%, 100%': { boxShadow: '0 0 20px hsl(217 91% 60% / 0.3)' },
-					'50%': { boxShadow: '0 0 40px hsl(217 91% 60% / 0.6)' }
+					'0%, 100%': { boxShadow: 'none' },
+					'50%': { boxShadow: 'none' }
 				}
 			},
 			animation: {

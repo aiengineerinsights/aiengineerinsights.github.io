@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,10 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "@/components/SiteLink";
+import { useSearchParams } from "react-router-dom";
+import { ROADMAP_PATH, TOPICS, infographicFor, topicFor } from "@/config/site";
 
 const BlogsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const blogPosts = [
     {
@@ -698,141 +700,248 @@ const BlogsPage = () => {
     }
   ];
 
-  const categories = ["All", ...Array.from(new Set(blogPosts.map(post => post.category)))];
+  const topicNames = ["All guides", ...TOPICS.map((t) => t.name)];
+  const requested = searchParams.get("topic");
+  const [topic, setTopic] = useState(requested && topicNames.includes(requested) ? requested : "All guides");
+  const [view, setView] = useState<"gallery" | "list">("gallery");
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.category.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // "Search guides" in the header links here with #search: put the cursor in the box.
+  useEffect(() => {
+    if (window.location.hash === "#search") document.getElementById("guide-search")?.focus();
+  }, []);
+
+  const inTopic = blogPosts.filter((p) => topic === "All guides" || topicFor(p.category) === topic);
+
+  // Plain keyword scoring, shown to the reader as a retrieval trace.
+  const terms = searchTerm.toLowerCase().split(/\s+/).filter((t) => t.length > 1);
+  const scored = terms.length
+    ? blogPosts
+        .map((p) => {
+          const title = p.title.toLowerCase();
+          const rest = `${p.excerpt} ${p.category}`.toLowerCase();
+          const hits = terms.reduce((n, t) => n + (title.includes(t) ? 2 : rest.includes(t) ? 1 : 0), 0);
+          return { p, score: hits / (terms.length * 2) };
+        })
+        // Drop weak partial matches so unrelated guides aren't padded in.
+        .filter((x) => x.score >= 0.4)
+        .sort((x, y) => y.score - x.score)
+    : [];
+  const shown = terms.length ? scored.map((x) => x.p).filter((p) => inTopic.includes(p)) : inTopic;
+  const topicInfo = TOPICS.find((t) => t.name === topic);
+
+  const seg = (on: boolean) =>
+    `min-h-[44px] px-4 text-sm font-semibold border transition-colors ${
+      on ? "bg-primary text-primary-foreground border-primary" : "bg-transparent text-foreground border-input hover:border-primary"
+    }`;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
-      
-      {/* Header Section */}
-      <section className="pt-32 pb-16 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              All <span className="bg-gradient-hero bg-clip-text text-transparent">Insights</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our complete collection of AI engineering insights, best practices, and real-world experiences.
-            </p>
+
+      <section className="pt-16 border-b border-border bg-background bg-grid">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 pb-9 flex flex-col gap-[18px]">
+          <p className="label-mono text-primary m-0">The index · {blogPosts.length} guides</p>
+          <h1 className="m-0 font-mono font-bold text-[30px] sm:text-5xl lg:text-[52px] leading-[1.06] tracking-[-0.045em]">
+            All guides. <span className="text-primary">Retrieve one.</span>
+          </h1>
+          <div className="max-w-[820px]">
+            <label htmlFor="guide-search" className="sr-only">Search guides</label>
+            <input
+              id="guide-search"
+              type="search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              spellCheck={false}
+              autoComplete="off"
+              placeholder="query: prompt injection, salary, chunking…"
+              className="w-full min-h-[56px] px-[18px] rounded-sm border border-[#6b675f] bg-background text-foreground font-mono text-base placeholder:text-muted-foreground focus:border-primary"
+            />
           </div>
-
-          {/* Search and Filter Controls */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="flex flex-col md:flex-row gap-4 mb-6">
-              {/* Search Input */}
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search articles..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-                {searchTerm && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0"
-                    onClick={() => setSearchTerm("")}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                )}
-              </div>
-
-              {/* Filter Button */}
-              <div className="flex items-center space-x-2">
-                <Filter className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">Filter:</span>
-              </div>
-            </div>
-
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Badge
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  className="cursor-pointer hover:bg-primary/10 transition-colors"
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="font-mono text-[13px] text-muted-foreground">try</span>
+            {["prompt injection", "salary", "chunking"].map((q) => (
+              <button
+                key={q}
+                type="button"
+                aria-pressed={searchTerm === q}
+                onClick={() => setSearchTerm(q)}
+                className={`min-h-[44px] px-3.5 rounded-sm font-mono text-[13px] border transition-colors ${
+                  searchTerm === q ? "bg-primary text-primary-foreground border-primary" : "text-foreground border-input hover:border-primary"
+                }`}
+              >
+                {q}
+              </button>
+            ))}
+            {searchTerm && (
+              <button type="button" onClick={() => setSearchTerm("")} className="min-h-[44px] px-3 text-primary font-semibold">
+                Clear
+              </button>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-16">
-              <Search className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <h2 className="text-2xl font-semibold mb-2">No articles found</h2>
-              <p className="text-muted-foreground">
-                Try adjusting your search terms or filter criteria.
-              </p>
+      {terms.length > 0 && (
+        <section className="border-b border-border bg-[#111110]" aria-live="polite">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-7 pb-9" style={{ animation: "aei-in 0.3s ease-out both" }}>
+            <p className="font-mono text-[13px] text-muted-foreground m-0 mb-2.5">
+              tokenize(query) → score({blogPosts.length} guides) → top 5 · <span className="text-primary">{scored.length} matched</span>
+            </p>
+            {scored.slice(0, 5).map(({ p, score }) => (
+              <Link key={p.id} to={p.link} className="flex flex-col gap-2 py-3.5 border-t border-border text-foreground hover:text-primary">
+                <span className="flex justify-between gap-4 items-baseline">
+                  <span className="font-bold text-lg sm:text-xl leading-snug">{p.title}</span>
+                  <span className="font-mono text-sm text-primary whitespace-nowrap">match {score.toFixed(2)}</span>
+                </span>
+                <span aria-hidden="true" className="h-1 bg-secondary">
+                  <span className="block h-1 bg-primary" style={{ width: `${Math.round(score * 100)}%` }} />
+                </span>
+              </Link>
+            ))}
+            {scored.length === 0 && <p className="py-3.5 m-0 text-secondary-foreground">Nothing matched. Try one of the suggestions above.</p>}
+          </div>
+        </section>
+      )}
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-9 pb-16 flex flex-wrap gap-10 items-start">
+        <aside aria-label="Topics" className="flex-[1_1_230px] min-w-0 flex flex-col gap-[22px]">
+          <div>
+            <p className="label-mono text-muted-foreground m-0 mb-2">Topic</p>
+            <div className="flex flex-col gap-0.5">
+              {topicNames.map((name) => {
+                const on = topic === name;
+                const count = name === "All guides" ? blogPosts.length : blogPosts.filter((p) => topicFor(p.category) === name).length;
+                return (
+                  <button
+                    key={name}
+                    type="button"
+                    aria-pressed={on}
+                    onClick={() => {
+                      setTopic(name);
+                      setSearchParams(name === "All guides" ? {} : { topic: name }, { replace: true, preventScrollReset: true });
+                    }}
+                    className={`flex justify-between items-center gap-3 min-h-[44px] px-3 rounded-sm text-[15px] text-left border transition-colors ${
+                      on ? "bg-primary text-primary-foreground border-primary font-bold" : "border-transparent text-secondary-foreground hover:border-input"
+                    }`}
+                  >
+                    <span>{name}</span>
+                    <span className="font-mono text-[13px]">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div className="border border-primary bg-card p-[18px] flex flex-col gap-2.5">
+            <p className="font-bold text-[17px] m-0">New here?</p>
+            <p className="text-sm text-secondary-foreground m-0">Start with the AI engineer roadmap. It links to the right guide at each phase.</p>
+            <Link to={ROADMAP_PATH} className="font-semibold text-primary hover:text-primary-glow min-h-[44px] flex items-center">Open the roadmap</Link>
+          </div>
+        </aside>
+
+        <main className="flex-[999_1_640px] min-w-0 flex flex-col gap-[22px]">
+          <div className="border border-input bg-[#111110] px-5 py-[18px] flex flex-wrap gap-x-7 gap-y-4 items-center">
+            <div className="flex-[1_1_220px] min-w-0">
+              <p className="label-mono text-primary m-0">{topicInfo ? `Topic · ${inTopic.length} guides` : "All topics"}</p>
+              <h2 className="font-bold text-2xl leading-tight m-0 mt-1">{topic}</h2>
+              <p className="text-sm text-muted-foreground m-0 mt-0.5">{topicInfo?.desc ?? "Everything, newest first"}</p>
+            </div>
+            <div className="flex-[1_1_320px] min-w-0" aria-hidden="true">
+              {topic === "AI agents" ? (
+                <div className="flex flex-col gap-3">
+                  {["retrieve()", "web_search()", "run_code()"].map((tool, i) => (
+                    <div key={tool} className="flex items-center">
+                      <span className="shrink-0 min-w-[64px] text-center px-2 py-1.5 border border-input bg-background font-mono text-xs">agent</span>
+                      <span className="flex-1 relative h-0.5 bg-input">
+                        <span className="absolute -top-1 w-2.5 h-2.5 -ml-[5px] rounded-full bg-primary" style={{ animation: `aei-flow 2.4s linear ${i * 0.8}s infinite` }} />
+                      </span>
+                      <span className="shrink-0 min-w-[112px] text-center px-2 py-1.5 border border-primary bg-background text-primary font-mono text-xs">{tool}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : topic === "RAG and retrieval" ? (
+                <div className="flex flex-wrap gap-1.5">
+                  {["Documents", "Chunk", "Embed", "Retrieve", "Answer"].map((t, i) => (
+                    <span key={t} className="px-3 py-2 border border-input bg-card font-mono text-xs" style={{ animation: `aei-stage 5s linear ${i}s infinite` }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <div className="overflow-hidden">
+                  <div className="flex gap-1.5 w-max" style={{ animation: "aei-marq 30s linear infinite" }}>
+                    {[...shown.slice(0, 6), ...shown.slice(0, 6)].flatMap((p, pi) =>
+                      p.title.split(/[\s:]+/).slice(0, 5).map((w, wi) => (
+                        <span key={`${pi}-${wi}`} className={`shrink-0 px-2 py-1 font-mono text-[13px] ${(pi + wi) % 2 ? "bg-[#3a2a10]" : "bg-border"}`}>
+                          {w}
+                        </span>
+                      )),
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap justify-between gap-3 items-center">
+            <p className="text-[15px] text-muted-foreground m-0">
+              Showing {shown.length} of {blogPosts.length} guides
+            </p>
+            <div role="group" aria-label="View" className="flex">
+              <button type="button" aria-pressed={view === "gallery"} onClick={() => setView("gallery")} className={seg(view === "gallery")}>Infographics</button>
+              <button type="button" aria-pressed={view === "list"} onClick={() => setView("list")} className={seg(view === "list")}>List</button>
+            </div>
+          </div>
+
+          {shown.length === 0 ? (
+            <div className="border border-border p-8 text-center">
+              <p className="font-bold text-xl m-0 mb-2">No guides match.</p>
+              <p className="text-muted-foreground m-0">Clear the search or pick another topic.</p>
+            </div>
+          ) : view === "gallery" ? (
+            <div className="grid gap-[18px] sm:grid-cols-2 xl:grid-cols-3">
+              {shown.map((p) => {
+                const img = infographicFor(p.link);
+                return (
+                  <Link key={p.id} to={p.link} className="group flex flex-col border border-input bg-card text-foreground hover:border-primary transition-colors">
+                    {img && (
+                      <img src={img} alt={`Infographic: ${p.title}`} width={1200} height={630} loading="lazy" decoding="async" className="block w-full aspect-[1200/630] object-cover border-b border-border" />
+                    )}
+                    <span className="p-4 flex flex-col gap-1.5 flex-1">
+                      <span className="font-mono text-xs uppercase text-muted-foreground">
+                        {topicFor(p.category)} · {p.readTime.replace(" read", "")}
+                      </span>
+                      <span className="font-bold text-lg leading-[1.3] group-hover:text-primary transition-colors">{p.title}</span>
+                      {!img && <span className="text-sm text-muted-foreground line-clamp-4">{p.excerpt}</span>}
+                      <span className="font-mono text-xs text-muted-foreground mt-auto pt-2">{p.date}</span>
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           ) : (
-            <>
-              <div className="flex items-center justify-between mb-8">
-                <p className="text-muted-foreground">
-                  Showing {filteredPosts.length} of {blogPosts.length} articles
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                {filteredPosts.map((post) => (
-                  <Card key={post.id} className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden">
-                    <div className="p-6">
-                      {/* Category Badge */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className={`inline-flex items-center space-x-2 bg-gradient-to-r ${post.gradient} rounded-full px-3 py-1`}>
-                          <post.icon className="h-4 w-4 text-primary-foreground" />
-                          <span className="text-sm font-medium text-primary-foreground">{post.category}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-muted-foreground">
-                          <Clock className="h-4 w-4 mr-1" />
-                          {post.readTime}
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                        {post.title}
-                      </h2>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-
-                      {/* Footer */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">{post.date}</span>
-                        <Link to={post.link}>
-                          <Button variant="ghost" size="sm" className="group/btn">
-                            Read More
-                            <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </>
+            <div className="flex flex-col">
+              {shown.map((p) => (
+                <Link key={p.id} to={p.link} className="group flex flex-wrap gap-x-5 gap-y-1 items-baseline py-[17px] border-b border-border text-foreground">
+                  <span className="flex-[999_1_380px] min-w-0 flex flex-col gap-1">
+                    <span className="font-bold text-[19px] leading-[1.3] group-hover:text-primary transition-colors">{p.title}</span>
+                    <span className="text-sm text-muted-foreground line-clamp-2">{p.excerpt}</span>
+                  </span>
+                  <span className="font-mono text-[13px] text-muted-foreground whitespace-nowrap">
+                    {topicFor(p.category)} · {p.date} · {p.readTime.replace(" read", "")}
+                  </span>
+                </Link>
+              ))}
+            </div>
           )}
-        </div>
-      </section>
+
+          <div className="bg-primary text-primary-foreground px-6 py-[22px] rounded-sm flex flex-wrap gap-x-6 gap-y-3 items-center">
+            <p className="flex-[999_1_280px] font-bold text-[19px] m-0">Don't read all {blogPosts.length}. Get the roadmap that tells you which ones matter.</p>
+            <Link to="/newsletter" className="inline-flex items-center min-h-[48px] px-5 rounded-sm bg-background text-primary font-bold hover:text-primary-glow">
+              Send me the roadmap
+            </Link>
+          </div>
+        </main>
+      </div>
 
       <Footer />
     </div>

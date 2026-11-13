@@ -3,7 +3,7 @@
 // Shows Hermes as model-agnostic — many providers plug into one agent through a
 // "min 64k context" gate, with `hermes model` as the selector.
 const HermesModelsHeroDiagram = () => (
-  <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0b0714]">
+  <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
     <svg
       viewBox="0 0 1200 560"
       role="img"
@@ -12,21 +12,25 @@ const HermesModelsHeroDiagram = () => (
     >
       <defs>
         <linearGradient id="hmBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#0b0714" />
-          <stop offset="55%" stopColor="#120a26" />
-          <stop offset="100%" stopColor="#1a0f33" />
+          <stop offset="0%" stopColor="#0c0c0b" />
+          <stop offset="55%" stopColor="#0f0f0e" />
+          <stop offset="100%" stopColor="#151514" />
         </linearGradient>
         <linearGradient id="hmCore" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#7c3aed" />
-          <stop offset="100%" stopColor="#4c1d95" />
+          <stop offset="0%" stopColor="#C4A6F5" />
+          <stop offset="100%" stopColor="#3f2767" />
         </linearGradient>
         <marker id="hmArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 1 L 8 5 L 0 9 z" fill="#a78bfa" />
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#C4A6F5" />
         </marker>
+        <radialGradient id="hmGlowR" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="#C4A6F5" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#C4A6F5" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
       <rect width="1200" height="560" fill="url(#hmBg)" />
-      <g fill="#a78bfa" opacity="0.07">
+      <g fill="#C4A6F5" opacity="0.07">
         {Array.from({ length: 12 }).map((_, r) =>
           Array.from({ length: 24 }).map((_, c) => (
             <circle key={`${r}-${c}`} cx={40 + c * 49} cy={26 + r * 46} r="1.6" />
@@ -34,7 +38,7 @@ const HermesModelsHeroDiagram = () => (
         )}
       </g>
 
-      <text x="600" y="46" textAnchor="middle" fill="#e9e4f8" fontSize="18" fontWeight="800" letterSpacing="1">
+      <text x="600" y="46" textAnchor="middle" fill="#efefed" fontSize="18" fontWeight="800" letterSpacing="1">
         MANY PROVIDERS · ONE MODEL-AGNOSTIC AGENT
       </text>
 
@@ -47,42 +51,42 @@ const HermesModelsHeroDiagram = () => (
         { y: 360, label: "Any endpoint", sub: "OpenAI-compatible URL" },
       ].map((m) => (
         <g key={m.label}>
-          <rect x="52" y={m.y} width="288" height="52" rx="12" fill="#171226" stroke="#6d28d9" strokeWidth="1.4" />
-          <text x="74" y={m.y + 22} fill="#f5f3ff" fontSize="15" fontWeight="700">{m.label}</text>
-          <text x="74" y={m.y + 41} fill="#b9aede" fontSize="12" fontFamily="monospace">{m.sub}</text>
-          <path d={`M 340 ${m.y + 26} C 380 ${m.y + 26}, 400 286, 452 286`} stroke="#5b21b6" strokeWidth="1.4" fill="none" opacity="0.85" />
+          <rect x="52" y={m.y} width="288" height="52" rx="12" fill="#121211" stroke="#C4A6F5" strokeWidth="1.4" />
+          <text x="74" y={m.y + 22} fill="#f9f9f9" fontSize="15" fontWeight="700">{m.label}</text>
+          <text x="74" y={m.y + 41} fill="#C4A6F5" fontSize="12" fontFamily="monospace">{m.sub}</text>
+          <path d={`M 340 ${m.y + 26} C 380 ${m.y + 26}, 400 286, 452 286`} stroke="#4d2f7d" strokeWidth="1.4" fill="none" opacity="0.85" />
         </g>
       ))}
 
       {/* Context gate */}
       <g>
-        <rect x="452" y="250" width="70" height="72" rx="10" fill="#1c1330" stroke="#a78bfa" strokeWidth="1.6" strokeDasharray="4 3" />
-        <text x="487" y="280" textAnchor="middle" fill="#e9e4f8" fontSize="13" fontWeight="800">GATE</text>
-        <text x="487" y="298" textAnchor="middle" fill="#c4b5fd" fontSize="10.5" fontFamily="monospace">min</text>
-        <text x="487" y="312" textAnchor="middle" fill="#c4b5fd" fontSize="10.5" fontFamily="monospace">64k ctx</text>
+        <rect x="452" y="250" width="70" height="72" rx="10" fill="#161514" stroke="#C4A6F5" strokeWidth="1.6" strokeDasharray="4 3" />
+        <text x="487" y="280" textAnchor="middle" fill="#efefed" fontSize="13" fontWeight="800">GATE</text>
+        <text x="487" y="298" textAnchor="middle" fill="#dcdad6" fontSize="10.5" fontFamily="monospace">min</text>
+        <text x="487" y="312" textAnchor="middle" fill="#dcdad6" fontSize="10.5" fontFamily="monospace">64k ctx</text>
       </g>
-      <path d="M 522 286 L 566 286" stroke="#a78bfa" strokeWidth="2.2" markerEnd="url(#hmArrow)" />
+      <path d="M 522 286 L 566 286" stroke="#C4A6F5" strokeWidth="2.2" markerEnd="url(#hmArrow)" />
 
       {/* Core */}
-      <ellipse cx="710" cy="286" rx="180" ry="118" fill="#7c3aed" opacity="0.12" />
-      <rect x="570" y="214" width="300" height="146" rx="18" fill="#150e2b" stroke="url(#hmCore)" strokeWidth="2.4" />
-      <text x="720" y="252" textAnchor="middle" fill="#f5f3ff" fontSize="20" fontWeight="800">Hermes Agent</text>
-      <text x="720" y="284" textAnchor="middle" fill="#cabff0" fontSize="13.5">model-agnostic core</text>
-      <text x="720" y="308" textAnchor="middle" fill="#cabff0" fontSize="13.5">model choice = config</text>
-      <text x="720" y="336" textAnchor="middle" fill="#8b7fb8" fontSize="12" fontStyle="italic">not lock-in</text>
+      <ellipse cx="710" cy="286" rx="180" ry="118" fill="url(#hmGlowR)" />
+      <rect x="570" y="214" width="300" height="146" rx="18" fill="#121211" stroke="url(#hmCore)" strokeWidth="2.4" />
+      <text x="720" y="252" textAnchor="middle" fill="#f9f9f9" fontSize="20" fontWeight="800">Hermes Agent</text>
+      <text x="720" y="284" textAnchor="middle" fill="#C4A6F5" fontSize="13.5">model-agnostic core</text>
+      <text x="720" y="308" textAnchor="middle" fill="#C4A6F5" fontSize="13.5">model choice = config</text>
+      <text x="720" y="336" textAnchor="middle" fill="#a29f95" fontSize="12" fontStyle="italic">not lock-in</text>
 
       {/* Selector (right) */}
-      <path d="M 870 286 L 946 286" stroke="#a78bfa" strokeWidth="2.2" markerEnd="url(#hmArrow)" />
-      <text x="1055" y="214" textAnchor="middle" fill="#c4b5fd" fontSize="13" fontWeight="700" letterSpacing="1">THE SELECTOR</text>
-      <rect x="950" y="238" width="210" height="96" rx="14" fill="#171226" stroke="#6d28d9" strokeWidth="1.6" />
-      <text x="1055" y="272" textAnchor="middle" fill="#f5f3ff" fontSize="16" fontWeight="800" fontFamily="monospace">hermes model</text>
-      <text x="1055" y="298" textAnchor="middle" fill="#b9aede" fontSize="12">choose provider + model</text>
-      <text x="1055" y="318" textAnchor="middle" fill="#b9aede" fontSize="12">or: hermes setup --portal</text>
+      <path d="M 870 286 L 946 286" stroke="#C4A6F5" strokeWidth="2.2" markerEnd="url(#hmArrow)" />
+      <text x="1055" y="214" textAnchor="middle" fill="#dcdad6" fontSize="13" fontWeight="700" letterSpacing="1">THE SELECTOR</text>
+      <rect x="950" y="238" width="210" height="96" rx="14" fill="#121211" stroke="#C4A6F5" strokeWidth="1.6" />
+      <text x="1055" y="272" textAnchor="middle" fill="#f9f9f9" fontSize="16" fontWeight="800" fontFamily="monospace">hermes model</text>
+      <text x="1055" y="298" textAnchor="middle" fill="#C4A6F5" fontSize="12">choose provider + model</text>
+      <text x="1055" y="318" textAnchor="middle" fill="#C4A6F5" fontSize="12">or: hermes setup --portal</text>
 
-      <text x="600" y="452" textAnchor="middle" fill="#8b7fb8" fontSize="12.5">
+      <text x="600" y="452" textAnchor="middle" fill="#a29f95" fontSize="12.5">
         Below 64k tokens, the first messages error — pick a model that clears the gate
       </text>
-      <text x="1152" y="548" textAnchor="end" fill="#6d5f9e" fontSize="11">
+      <text x="1152" y="548" textAnchor="end" fill="#878376" fontSize="11">
         aiengineerinsights.com
       </text>
     </svg>

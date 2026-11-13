@@ -19,7 +19,10 @@ const TableOfContents = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll("article h2, article h3")).map(el => {
+    const elements = Array.from(document.querySelectorAll("article h2, article h3"))
+      // Sign-up and booking cards have headings too; they are not sections of the guide.
+      .filter(el => !el.closest(".not-prose, [data-toc-skip]"))
+      .map(el => {
       const id = el.id || el.textContent?.toLowerCase().replace(/\s+/g, "-") || "";
       if (!el.id) el.setAttribute("id", id); // Auto-generate IDs if missing
       return { id, text: el.textContent || "", level: el.tagName === "H2" ? 2 : 3 };
@@ -55,7 +58,7 @@ const TableOfContents = () => {
           variant="outline"
           aria-expanded={isOpen}
           aria-controls="mobile-toc"
-          className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+          className="bg-card border-input h-11 w-11 p-0"
         >
           {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           <span className="sr-only">Toggle table of contents</span>

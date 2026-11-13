@@ -9,7 +9,7 @@ const RagChunkingHeroDiagram = () => {
     { y: 290, t: "Semantic", d: "splits where embedding similarity drops — costs embedding calls" },
   ];
   return (
-    <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0a0f14]">
+    <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
       <svg
         viewBox="0 0 1200 630"
         role="img"
@@ -18,17 +18,17 @@ const RagChunkingHeroDiagram = () => {
       >
         <defs>
           <linearGradient id="ragChunkBg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0a0f14" />
-            <stop offset="60%" stopColor="#0b1420" />
-            <stop offset="100%" stopColor="#0c1a26" />
+            <stop offset="0%" stopColor="#0c0c0b" />
+            <stop offset="60%" stopColor="#0e0e0d" />
+            <stop offset="100%" stopColor="#10100f" />
           </linearGradient>
           <marker id="ragChunkArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#5b7488" />
+            <path d="M0,0 L10,5 L0,10 z" fill="#79756a" />
           </marker>
         </defs>
 
         <rect width="1200" height="630" fill="url(#ragChunkBg)" />
-        <g fill="#a78bfa" opacity="0.05">
+        <g fill="#C4A6F5" opacity="0.05">
           {Array.from({ length: 13 }).map((_, r) =>
             Array.from({ length: 24 }).map((_, c) => (
               <circle key={`${r}-${c}`} cx={40 + c * 49} cy={24 + r * 46} r="1.6" />
@@ -36,57 +36,57 @@ const RagChunkingHeroDiagram = () => {
           )}
         </g>
 
-        <text x="600" y="46" textAnchor="middle" fill="#f1e9ff" fontSize="19" fontWeight="800" letterSpacing="1">
+        <text x="600" y="46" textAnchor="middle" fill="#f5f4f3" fontSize="19" fontWeight="800" letterSpacing="1">
           RAG CHUNKING STRATEGIES
         </text>
-        <text x="600" y="70" textAnchor="middle" fill="#c4b5fd" fontSize="12.5">
+        <text x="600" y="70" textAnchor="middle" fill="#dcdad6" fontSize="12.5">
           how you split a document decides what your retriever can ever find
         </text>
 
         {/* source doc */}
-        <rect x="40" y="100" width="180" height="220" rx="10" fill="#0e1a24" stroke="#a78bfa" strokeWidth="1.6" />
-        <text x="130" y="130" textAnchor="middle" fill="#eaf4fb" fontSize="14" fontWeight="700">Source</text>
-        <text x="130" y="148" textAnchor="middle" fill="#c4b5fd" fontSize="11">document</text>
+        <rect x="40" y="100" width="180" height="220" rx="10" fill="#10100f" stroke="#C4A6F5" strokeWidth="1.6" />
+        <text x="130" y="130" textAnchor="middle" fill="#f3f3f2" fontSize="14" fontWeight="700">Source</text>
+        <text x="130" y="148" textAnchor="middle" fill="#dcdad6" fontSize="11">document</text>
         {Array.from({ length: 7 }).map((_, i) => (
-          <line key={i} x1="60" y1={175 + i * 18} x2="200" y2={175 + i * 18} stroke="#33506a" strokeWidth="2" />
+          <line key={i} x1="60" y1={175 + i * 18} x2="200" y2={175 + i * 18} stroke="#545149" strokeWidth="2" />
         ))}
 
-        <line x1="220" y1="210" x2="290" y2="210" stroke="#33506a" strokeWidth="1.6" markerEnd="url(#ragChunkArrow)" />
+        <line x1="220" y1="210" x2="290" y2="210" stroke="#545149" strokeWidth="1.6" markerEnd="url(#ragChunkArrow)" />
 
         {/* three strategies */}
         {strategies.map((s) => (
           <g key={s.t}>
-            <rect x="300" y={s.y} width="330" height="60" rx="10" fill="#0e1a24" stroke="#7c3aed" strokeWidth="1.6" />
-            <text x="320" y={s.y + 25} fill="#eaf4fb" fontSize="14" fontWeight="700">{s.t}</text>
-            <text x="320" y={s.y + 44} fill="#c4b5fd" fontSize="10.5">{s.d}</text>
-            <line x1="630" y1={s.y + 30} x2="700" y2="210" stroke="#33506a" strokeWidth="1.4" markerEnd="url(#ragChunkArrow)" />
+            <rect x="300" y={s.y} width="330" height="60" rx="10" fill="#10100f" stroke="#C4A6F5" strokeWidth="1.6" />
+            <text x="320" y={s.y + 25} fill="#f3f3f2" fontSize="14" fontWeight="700">{s.t}</text>
+            <text x="320" y={s.y + 44} fill="#dcdad6" fontSize="10.5">{s.d}</text>
+            <line x1="630" y1={s.y + 30} x2="700" y2="210" stroke="#545149" strokeWidth="1.4" markerEnd="url(#ragChunkArrow)" />
           </g>
         ))}
 
         {/* vector store */}
-        <rect x="710" y="160" width="220" height="100" rx="10" fill="#0e1a24" stroke="#059669" strokeWidth="1.6" />
-        <text x="820" y="200" textAnchor="middle" fill="#eaf4fb" fontSize="14" fontWeight="700">Chunks →</text>
-        <text x="820" y="220" textAnchor="middle" fill="#6ee7b7" fontSize="12">Vector store</text>
-        <text x="820" y="238" textAnchor="middle" fill="#8fb8cc" fontSize="10.5">embedded &amp; indexed</text>
+        <rect x="710" y="160" width="220" height="100" rx="10" fill="#10100f" stroke="#225a41" strokeWidth="1.6" />
+        <text x="820" y="200" textAnchor="middle" fill="#f3f3f2" fontSize="14" fontWeight="700">Chunks →</text>
+        <text x="820" y="220" textAnchor="middle" fill="#6FD6A8" fontSize="12">Vector store</text>
+        <text x="820" y="238" textAnchor="middle" fill="#b3b0a8" fontSize="10.5">embedded &amp; indexed</text>
 
-        <line x1="930" y1="210" x2="1000" y2="210" stroke="#33506a" strokeWidth="1.6" markerEnd="url(#ragChunkArrow)" />
-        <rect x="1010" y="160" width="150" height="100" rx="10" fill="#0e1a24" stroke="#2563eb" strokeWidth="1.6" />
-        <text x="1085" y="205" textAnchor="middle" fill="#eaf4fb" fontSize="14" fontWeight="700">Retriever</text>
-        <text x="1085" y="225" textAnchor="middle" fill="#93c5fd" fontSize="10.5">top-k search</text>
+        <line x1="930" y1="210" x2="1000" y2="210" stroke="#545149" strokeWidth="1.6" markerEnd="url(#ragChunkArrow)" />
+        <rect x="1010" y="160" width="150" height="100" rx="10" fill="#10100f" stroke="#7CC4F2" strokeWidth="1.6" />
+        <text x="1085" y="205" textAnchor="middle" fill="#f3f3f2" fontSize="14" fontWeight="700">Retriever</text>
+        <text x="1085" y="225" textAnchor="middle" fill="#7CC4F2" fontSize="10.5">top-k search</text>
 
         {/* trade-off bar */}
-        <text x="600" y="410" textAnchor="middle" fill="#eaf4fb" fontSize="15" fontWeight="700">
+        <text x="600" y="410" textAnchor="middle" fill="#f3f3f2" fontSize="15" fontWeight="700">
           Chunk size trade-off
         </text>
-        <rect x="150" y="440" width="900" height="34" rx="8" fill="#0e1a24" stroke="#33506a" strokeWidth="1.4" />
-        <rect x="150" y="440" width="300" height="34" rx="8" fill="#7c3aed" opacity="0.25" />
-        <rect x="450" y="440" width="300" height="34" fill="#059669" opacity="0.25" />
-        <rect x="750" y="440" width="300" height="34" rx="8" fill="#dc2626" opacity="0.25" />
-        <text x="300" y="463" textAnchor="middle" fill="#e0d4ff" fontSize="12">Too small: fragments</text>
-        <text x="600" y="463" textAnchor="middle" fill="#c9f7e3" fontSize="12">Sweet spot: 200–500 tok</text>
-        <text x="900" y="463" textAnchor="middle" fill="#ffd7d7" fontSize="12">Too large: noisy context</text>
+        <rect x="150" y="440" width="900" height="34" rx="8" fill="#10100f" stroke="#545149" strokeWidth="1.4" />
+        <rect x="150" y="440" width="300" height="34" rx="8" fill="#C4A6F5" opacity="0.25" />
+        <rect x="450" y="440" width="300" height="34" fill="#225a41" opacity="0.25" />
+        <rect x="750" y="440" width="300" height="34" rx="8" fill="#FF8F73" opacity="0.25" />
+        <text x="300" y="463" textAnchor="middle" fill="#ebeae8" fontSize="12">Too small: fragments</text>
+        <text x="600" y="463" textAnchor="middle" fill="#e2e1de" fontSize="12">Sweet spot: 200–500 tok</text>
+        <text x="900" y="463" textAnchor="middle" fill="#ececea" fontSize="12">Too large: noisy context</text>
 
-        <text x="600" y="510" textAnchor="middle" fill="#8fb8cc" fontSize="11.5">
+        <text x="600" y="510" textAnchor="middle" fill="#b3b0a8" fontSize="11.5">
           Optimal size and overlap depend on document type — prose, code, and tables behave differently.
         </text>
       </svg>

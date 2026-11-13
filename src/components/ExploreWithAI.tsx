@@ -134,7 +134,7 @@ const ExploreWithAI = ({ path, variant }: ExploreWithAIProps) => {
     <section
       id="explore-with-ai"
       aria-labelledby="explore-with-ai-heading"
-      className="not-prose my-8 rounded-xl border border-border bg-card p-5 sm:p-6"
+      className="not-prose my-8 rounded-sm border border-border bg-card p-5 sm:p-6"
     >
       <h2 id="explore-with-ai-heading" className="m-0 text-lg sm:text-xl font-bold">
         Go deeper on {config.topic} with AI

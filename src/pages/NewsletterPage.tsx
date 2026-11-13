@@ -29,11 +29,11 @@ const NewsletterPage = () => {
         <div className="max-w-3xl mx-auto">
           {/* Hero */}
           <div className="text-center mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-800 rounded-full px-3 py-1 mb-5">
-              <Mail className="h-4 w-4 text-white" />
-              <span className="text-sm font-medium text-white">The Newsletter</span>
+            <div className="inline-flex items-center gap-2 bg-primary rounded-sm px-3 py-1 mb-5">
+              <Mail className="h-4 w-4 text-primary-foreground" />
+              <span className="text-sm font-medium text-primary-foreground">The Newsletter</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="font-mono tracking-[-0.04em] text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
               The AI Engineer's Brief
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -67,8 +67,8 @@ const NewsletterPage = () => {
                 return (
                   <Card key={item.title} className="p-5 bg-gradient-card border-border">
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-4 w-4 text-white" />
+                      <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                        <Icon className="h-4 w-4 text-primary-foreground" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-base mb-1">{item.title}</h3>
@@ -99,7 +99,7 @@ const NewsletterPage = () => {
 
           {/* Roadmap magnet */}
           <section className="mt-12">
-            <Card className="p-6 sm:p-8 bg-gradient-to-br from-emerald-600/10 to-blue-600/10 border-emerald-600/30 text-center">
+            <Card className="p-6 sm:p-8 bg-card border-primary/40 text-center">
               <h2 className="text-xl sm:text-2xl font-bold mb-2">Subscribe and get the roadmap, free</h2>
               <p className="text-muted-foreground mb-5 max-w-xl mx-auto">
                 New subscribers get the complete AI Engineering Roadmap PDF — the whole path on one page.

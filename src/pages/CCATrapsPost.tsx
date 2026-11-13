@@ -158,7 +158,7 @@ const CCATrapsPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-600 to-purple-800 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <AlertTriangle className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Engineering Careers</span>
                 </div>
@@ -178,8 +178,8 @@ const CCATrapsPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-rose-600 to-purple-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -238,7 +238,7 @@ const CCATrapsPost = () => {
                         <span className="text-muted-foreground">{t.sounds}</span>
                       </p>
                       <p className="text-sm sm:text-base">
-                        <strong className="text-emerald-400">The correction:</strong>{" "}
+                        <strong className="text-primary">The correction:</strong>{" "}
                         <span className="text-muted-foreground">{t.fix}</span>
                       </p>
                     </div>
@@ -259,7 +259,7 @@ const CCATrapsPost = () => {
                       <strong className="text-rose-400">The wrong instinct:</strong> {t.wrong}
                     </p>
                     <p className="text-muted-foreground leading-relaxed mb-3 text-sm sm:text-base">
-                      <strong className="text-emerald-400">The correct pattern:</strong> {t.right}
+                      <strong className="text-primary">The correct pattern:</strong> {t.right}
                     </p>
                     <pre className="overflow-x-auto rounded-lg bg-muted/60 border border-border p-3 text-xs sm:text-sm leading-relaxed"><code>{t.code}</code></pre>
                   </div>

@@ -62,7 +62,7 @@ const Authors = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="font-mono tracking-[-0.04em] text-4xl md:text-6xl font-bold mb-6">
                 Meet Our <span className="bg-gradient-hero bg-clip-text text-transparent">Authors</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -151,7 +151,7 @@ const Authors = () => {
                           {author.topmate && (
                             <Button
                               size="sm"
-                              className="bg-amber-600 text-white hover:bg-amber-700"
+                              className="bg-primary text-primary-foreground hover:bg-primary/90"
                               onClick={() => window.open(author.topmate, '_blank')}
                             >
                               <Video className="h-4 w-4 mr-2" />

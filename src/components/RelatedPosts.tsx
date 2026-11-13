@@ -2,10 +2,13 @@ import { Link } from "@/components/SiteLink";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Mail } from "lucide-react";
 import ShareButtons from "@/components/ShareButtons";
+import { useState } from "react";
+import { nextInPath, topicFor } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 const SITE = "https://aiengineerinsights.com";
 
-const ALL_POSTS = [
+export const ALL_POSTS = [
   {
     slug: "/blog/fallacies-of-llm-systems",
     title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
@@ -365,56 +368,66 @@ const RelatedPosts = ({ current }: { current: string }) => {
   // Canonical URL for this post (trailing slash, matching how it's served).
   const shareUrl = `${SITE}${current}/`;
 
+  const next = nextInPath(current);
+  const topic = topicFor(currentPost?.tag ?? "");
+  const siblings = ALL_POSTS.filter((p) => p.slug !== current && topicFor(p.tag) === topic).length;
+
   return (
     <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-12">
-      {/* Share block, aligned under the article's reading column (the empty
-          spacer mirrors the TOC sidebar so it lines up with the post text). */}
+      {/* Aligned under the article's reading column (the empty spacer mirrors
+          the TOC sidebar so it lines up with the post text). */}
       <div className="mb-12 flex flex-col lg:flex-row lg:gap-8">
         <div className="hidden lg:block w-48 pr-6 shrink-0" aria-hidden="true" />
-        <div className="flex-1 lg:max-w-4xl">
-          <div className="flex flex-col gap-3 rounded-xl border border-border bg-muted/30 p-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-base font-semibold">Found this useful? Share it.</p>
+        <div className="flex-1 lg:max-w-4xl flex flex-col gap-5">
+          <EvalVote path={current} />
+
+          <div className="flex flex-col gap-3 rounded-sm border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-base font-semibold m-0">Found this useful? Share it.</p>
             <ShareButtons title={currentPost?.title ?? "AI Engineer Insights"} url={shareUrl} />
           </div>
-        </div>
-      </div>
-      {/* Sitewide newsletter CTA — slim link to the /newsletter hub (keeps the
-          heavier signup form off every post while still capturing intent). */}
-      <div className="mb-12 flex flex-col lg:flex-row lg:gap-8">
-        <div className="hidden lg:block w-48 pr-6 shrink-0" aria-hidden="true" />
-        <div className="flex-1 lg:max-w-4xl">
-          <Link
-            to="/newsletter"
-            className="group flex flex-col gap-3 rounded-xl border border-purple-600/30 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 p-5 sm:flex-row sm:items-center sm:justify-between"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
-                <Mail className="h-4 w-4 text-white" aria-hidden="true" />
-              </div>
+
+          {next ? (
+            <Link to={next.step.to} className="group flex flex-col gap-2.5 rounded-sm bg-primary text-primary-foreground p-6 sm:p-7">
+              <span className="label-mono font-bold">
+                Next in {next.path.tag.split(" · ")[1]?.toLowerCase() === "career" ? "the career path" : "the build path"} · {next.index + 1} of {next.path.steps.length}
+              </span>
+              <span className="font-mono font-bold text-2xl sm:text-[26px] leading-[1.15] tracking-[-0.03em]">{next.step.title}</span>
+              <span className="inline-flex items-center font-semibold underline">
+                Keep reading
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          ) : (
+            <Link to="/newsletter" className="group flex flex-col gap-3 rounded-sm border border-primary bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="font-semibold text-base m-0">Get The AI Engineer's Brief</p>
-                <p className="text-sm text-muted-foreground m-0">One sharp AI-engineering email a week — plus the free roadmap PDF.</p>
+                <p className="text-sm text-muted-foreground m-0">New guides by email, plus the free roadmap PDF.</p>
               </div>
-            </div>
-            <span className="inline-flex items-center text-sm font-medium text-primary shrink-0">
-              Subscribe
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </span>
-          </Link>
+              <span className="inline-flex items-center text-sm font-semibold text-primary shrink-0">
+                Subscribe
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          )}
         </div>
       </div>
 
-      <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+      <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+        <h2 className="text-2xl font-bold m-0">Related guides</h2>
+        <Link to={`/blogs?topic=${encodeURIComponent(topic)}`} className="font-semibold text-primary hover:text-primary-glow">
+          All {siblings + 1} in {topic}
+        </Link>
+      </div>
       <div className="grid gap-4 md:grid-cols-3">
         {related.map((post) => (
           <Link key={post.slug} to={post.slug} className="group">
-            <Card className="h-full p-5 transition-shadow hover:shadow-lg">
-              <span className="text-xs font-medium text-muted-foreground">{post.tag}</span>
+            <Card className="h-full p-5 border-input group-hover:border-primary transition-colors">
+              <span className="label-mono text-[12px] text-muted-foreground">{topicFor(post.tag)}</span>
               <h3 className="mt-2 font-semibold leading-snug group-hover:text-primary">
                 {post.title}
               </h3>
               <span className="mt-3 inline-flex items-center text-sm text-primary">
-                Read article
+                Read guide
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Card>
@@ -422,6 +435,42 @@ const RelatedPosts = ({ current }: { current: string }) => {
         ))}
       </div>
     </section>
+  );
+};
+
+// "Did this guide pass?" Readers grade the guide; votes go to analytics.
+const EvalVote = ({ path }: { path: string }) => {
+  const [vote, setVote] = useState<"" | "pass" | "fail">("");
+  const cast = (v: "pass" | "fail") => {
+    setVote(v);
+    trackEvent("guide_eval_vote", { eval_vote: v, eval_page: path });
+  };
+  const btn = (on: boolean) =>
+    `min-h-[48px] px-6 rounded-sm font-mono text-[15px] font-bold border transition-colors ${
+      on ? "bg-primary text-primary-foreground border-primary" : "bg-transparent text-foreground border-[#6b675f] hover:border-primary"
+    }`;
+  return (
+    <div className="rounded-sm border border-input bg-card p-5 sm:p-6 flex flex-col gap-3.5">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3.5">
+        <div className="flex-[999_1_260px]">
+          <p className="label-mono text-primary m-0">Run the eval</p>
+          <p className="font-bold text-xl m-0 mt-1">Did this guide pass?</p>
+        </div>
+        <div className="flex gap-2.5">
+          <button type="button" aria-pressed={vote === "pass"} onClick={() => cast("pass")} className={btn(vote === "pass")}>PASS</button>
+          <button type="button" aria-pressed={vote === "fail"} onClick={() => cast("fail")} className={btn(vote === "fail")}>FAIL</button>
+        </div>
+      </div>
+      {vote === "pass" && (
+        <p role="status" className="font-mono text-sm m-0" style={{ animation: "aei-in 0.3s ease-out both" }}>eval_score: 1.0 · logged. Thank you.</p>
+      )}
+      {vote === "fail" && (
+        <p role="status" className="m-0 text-secondary-foreground" style={{ animation: "aei-in 0.3s ease-out both" }}>
+          Logged. Tell me what was missing:{" "}
+          <a href={`mailto:aiengineerinsights@gmail.com?subject=${encodeURIComponent(`Guide feedback: ${path}`)}`} className="text-primary underline">email one line</a>. I read every one.
+        </p>
+      )}
+    </div>
   );
 };
 

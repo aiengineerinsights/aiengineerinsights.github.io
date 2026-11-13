@@ -121,7 +121,7 @@ const ClaudeCodeSkillsPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-600 to-orange-700 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Wrench className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Tools</span>
                 </div>
@@ -140,8 +140,8 @@ const ClaudeCodeSkillsPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-amber-600 to-orange-700 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">

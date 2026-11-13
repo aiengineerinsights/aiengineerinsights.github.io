@@ -1,27 +1,27 @@
-
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import RoadmapSection from "@/components/RoadmapSection";
-import LatestInsights from "@/components/LatestInsights";
-import FeaturedResources from "@/components/FeaturedResources";
-import ExploreProjects from "@/components/ExploreProjects";
-import NewsletterSection from "@/components/NewsletterSection";
-import Footer from "@/components/Footer";
 import LatestBlogBanner from "@/components/LatestBlogBanner";
+import Footer from "@/components/Footer";
+import Hero from "@/components/home/Hero";
+import { EvalStrip, FinalCTA, FreeLibrary, FullIndex, GuideMap, InfographicWall, Latest, ModelCard, Paths, TokenDivider } from "@/components/home/Sections";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <LatestBlogBanner />
-      <HeroSection />
-      <AboutSection />
-      <RoadmapSection />
-      <LatestInsights />
-      <FeaturedResources />
-      <ExploreProjects />
-      <NewsletterSection />
+      <main>
+        <Hero />
+        <EvalStrip />
+        <Paths />
+        <InfographicWall />
+        <GuideMap />
+        <Latest />
+        <FreeLibrary />
+        <ModelCard />
+        <FullIndex />
+        <TokenDivider />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );

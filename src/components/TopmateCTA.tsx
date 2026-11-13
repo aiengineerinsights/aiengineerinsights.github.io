@@ -8,12 +8,12 @@ import { Card } from "@/components/ui/card";
 const TOPMATE_URL = "https://topmate.io/poorna_prudhvi_gurram";
 
 const TopmateCTA = () => (
-  <Card className="my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-r from-amber-500/10 to-orange-600/10 border-amber-500/30">
+  <Card data-toc-skip className="my-6 sm:my-8 p-5 sm:p-6 bg-card border-primary/40">
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
       <div className="min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <h3 className="font-semibold text-base sm:text-lg m-0">Want 1:1 help? Book a session</h3>
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600 dark:text-amber-400">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-primary dark:text-primary">
             <Star className="h-3.5 w-3.5 fill-current" />
             5.0 · 18 reviews
           </span>
@@ -24,7 +24,7 @@ const TopmateCTA = () => (
         </p>
       </div>
       <a href={TOPMATE_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
-        <Button className="bg-amber-600 text-white hover:bg-amber-700">
+        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
           <Video className="mr-2 h-4 w-4" />
           Book on Topmate
         </Button>

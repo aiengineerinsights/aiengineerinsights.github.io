@@ -41,7 +41,7 @@ const GithubBugBountyPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-600 to-red-800 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Bug className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">Agentic Security</span>
                 </div>
@@ -60,8 +60,8 @@ const GithubBugBountyPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-600 to-red-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -107,7 +107,7 @@ const GithubBugBountyPost = () => {
                   demonstrated impact, and confirmation that the researcher — not just a scanner or an AI tool —
                   verified the finding.
                 </p>
-                <div className="bg-muted/50 border-l-4 border-orange-500 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <div className="bg-muted/50 border-l-4 border-primary/40 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <p className="text-sm sm:text-base text-foreground">
                     <strong>The one-line version:</strong> "you don't earn more by submitting more. You earn more by
                     submitting better," as GitHub put it. That's a direct response to AI tooling making it nearly

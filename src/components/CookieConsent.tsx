@@ -164,11 +164,11 @@ const CookieConsent = () => {
           .
         </p>
         <div className="flex gap-2 shrink-0">
-          <Button variant="outline" size="sm" onClick={() => choose("declined")}>
+          <Button variant="outline" size="sm" style={{ minHeight: 44 }} onClick={() => choose("declined")}>
             Decline
           </Button>
           <Button
-            size="sm"
+            size="sm" style={{ minHeight: 44 }}
             className="bg-primary text-primary-foreground hover:bg-primary/90"
             onClick={() => choose("accepted")}
           >

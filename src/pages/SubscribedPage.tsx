@@ -37,10 +37,10 @@ const SubscribedPage = () => {
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="max-w-2xl mx-auto text-center">
           {/* Acknowledgement */}
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-500/30">
-            <CheckCircle2 className="h-9 w-9 text-emerald-500" aria-hidden="true" />
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/30">
+            <CheckCircle2 className="h-9 w-9 text-primary" aria-hidden="true" />
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="font-mono tracking-[-0.04em] text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
             You're confirmed — welcome aboard.
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto">
@@ -49,7 +49,7 @@ const SubscribedPage = () => {
           </p>
 
           {/* Primary payoff: the roadmap PDF */}
-          <Card className="mt-8 p-6 sm:p-8 bg-gradient-to-br from-purple-600/10 to-indigo-600/10 border-purple-600/30">
+          <Card className="mt-8 p-6 sm:p-8 bg-card border-primary/40">
             <h2 className="text-xl sm:text-2xl font-bold mb-2">Grab your roadmap PDF</h2>
             <p className="text-muted-foreground mb-5 max-w-md mx-auto">
               Six phases from Python and math to ML, MLOps, LLMs, and agents — with curated resources for each.
@@ -78,8 +78,8 @@ const SubscribedPage = () => {
                 return (
                   <Card key={step.title} className="p-5 bg-gradient-card border-border">
                     <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-4 w-4 text-white" aria-hidden="true" />
+                      <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                        <Icon className="h-4 w-4 text-primary-foreground" aria-hidden="true" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-base mb-1">{step.title}</h3>

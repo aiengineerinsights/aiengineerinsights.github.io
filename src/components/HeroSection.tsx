@@ -26,7 +26,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-gradient-accent rounded-full px-4 py-2 mb-8 border border-border">
+          <div className="inline-flex items-center space-x-2 bg-gradient-accent rounded-sm px-4 py-2 mb-8 border border-border">
             <Sparkles className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium">Your Companion on the AI Engineering Journey</span>
           </div>

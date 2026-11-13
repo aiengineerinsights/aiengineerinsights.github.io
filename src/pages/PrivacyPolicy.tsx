@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
       <Navigation />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3">Privacy Policy</h1>
+          <h1 className="font-mono tracking-[-0.04em] text-3xl sm:text-4xl font-bold mb-3">Privacy Policy</h1>
           <p className="text-sm text-muted-foreground mb-8">Last updated: {UPDATED}</p>
 
           <article className="prose prose-sm sm:prose-base max-w-none space-y-6">

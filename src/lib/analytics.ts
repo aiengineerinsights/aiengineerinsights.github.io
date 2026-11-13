@@ -12,7 +12,10 @@ export type ConversionEvent =
   | "newsletter_signup"
   | "affiliate_click"
   | "outbound_click"
-  | "ai_explore_click";
+  | "ai_explore_click"
+  | "guide_eval_vote"
+  | "reading_plan"
+  | "infographic_action";
 
 export function trackEvent(name: ConversionEvent, params: Record<string, string> = {}) {
   if (typeof window === "undefined") return;

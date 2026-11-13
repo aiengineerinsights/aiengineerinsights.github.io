@@ -14,7 +14,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 // Reusable conversion CTA — funnels this career/MoFu traffic to the roadmap PDF,
 // which is the page that already ranks and converts (pos ~1.7 for "roadmap pdf").
 const RoadmapCTA = () => (
-  <Card className="my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-r from-emerald-600/10 to-blue-600/10 border-emerald-600/30">
+  <Card className="my-6 sm:my-8 p-5 sm:p-6 bg-card border-primary/40">
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
       <div className="min-w-0">
         <h3 className="font-semibold text-base sm:text-lg mb-1">Get the full roadmap as a free PDF</h3>
@@ -23,7 +23,7 @@ const RoadmapCTA = () => (
         </p>
       </div>
       <Link to="/ai-engineering-roadmap" className="shrink-0">
-        <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
+        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
           <Download className="mr-2 h-4 w-4" />
           Download the roadmap
         </Button>
@@ -68,7 +68,7 @@ const HowToBecomeAIEngineerPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-blue-700 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Route className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Engineering Careers</span>
                 </div>
@@ -87,8 +87,8 @@ const HowToBecomeAIEngineerPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-emerald-600 to-blue-700 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">

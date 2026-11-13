@@ -11,28 +11,58 @@
       a static redirect stub under public/blog/<old-slug>/, so nothing needs it.
     -->
     <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
     <style>
-      :root { --bg:#f7f9fb; --fg:#0f172a; --muted:#475569; --accent:#0e7490; }
-      @media (prefers-color-scheme: dark) { :root { --bg:#0a0f16; --fg:#e2e8f0; --muted:#94a3b8; --accent:#22d3ee; } }
-      body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; }
-      main { max-width:40rem; margin:0 auto; padding:4rem 1rem; }
-      h1 { font-size:1.9rem; line-height:1.2; margin:0 0 .75rem; }
-      p { color:var(--muted); }
-      ul { padding-left:1.1rem; }
-      a { color:var(--accent); }
+      /* Static page (served by GitHub Pages for unknown URLs), so the site's
+         palette and type are repeated here rather than imported. */
+      :root { --bg:#0d0d0c; --fg:#edebe6; --muted:#a3a097; --line:#2a2926; --accent:#ffb454; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+        background-image:linear-gradient(#191817 1px,transparent 1px),linear-gradient(90deg,#191817 1px,transparent 1px); background-size:56px 56px; }
+      header, footer { border-color:var(--line); border-style:solid; border-width:0; background:var(--bg); }
+      header { border-bottom-width:1px; } footer { border-top-width:1px; color:var(--muted); font-size:14px; }
+      .wrap { max-width:1200px; margin:0 auto; padding:0 24px; }
+      header .wrap { display:flex; flex-wrap:wrap; align-items:center; gap:4px 26px; min-height:64px; }
+      header a { color:#cfcbc2; text-decoration:none; padding:10px 0; font-size:15px; }
+      header a.brand { color:var(--fg); font-weight:700; font-size:18px; margin-right:6px; }
+      main .wrap { padding-top:88px; padding-bottom:104px; }
+      .code { font:700 clamp(96px,16vw,220px)/0.9 "JetBrains Mono",ui-monospace,monospace; letter-spacing:-0.06em; color:var(--accent); margin:0; }
+      h1 { font:700 clamp(28px,3.6vw,46px)/1.1 "JetBrains Mono",ui-monospace,monospace; letter-spacing:-0.04em; margin:16px 0 8px; }
+      .meta { font:15px "JetBrains Mono",ui-monospace,monospace; color:var(--muted); margin:0 0 6px; }
+      p { color:#cfcbc2; margin:0; }
+      .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+      .btn { display:inline-flex; align-items:center; min-height:52px; padding:0 24px; border-radius:2px; font-weight:700; text-decoration:none; }
+      .btn.primary { background:var(--accent); color:var(--bg); }
+      .btn.ghost { border:1px solid #45433e; color:var(--fg); font-weight:600; }
+      a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+      footer .wrap { padding-top:24px; padding-bottom:32px; }
     </style>
   </head>
   <body>
+    <header>
+      <div class="wrap">
+        <a class="brand" href="/">AI Engineer Insights</a>
+        <a href="/blogs/">Guides</a>
+        <a href="/ai-engineering-roadmap/">Roadmap</a>
+        <a href="/blog/ai-engineer-salary/">Salaries</a>
+        <a href="/newsletter/">Free PDFs</a>
+      </div>
+    </header>
     <main>
-      <h1>This page doesn't exist</h1>
-      <p>The link may be old or mistyped. Try one of these instead:</p>
-      <ul>
-        <li><a href="/blogs/">All articles</a></li>
-        <li><a href="/ai-engineering-roadmap/">AI Engineer Roadmap 2026</a></li>
-        <li><a href="/blog/best-ai-coding-agents/">Best AI coding agents</a></li>
-        <li><a href="/blog/hermes-agent-alternatives/">Hermes Agent alternatives</a></li>
-        <li><a href="/">Home</a></li>
-      </ul>
+      <div class="wrap">
+        <p class="code">404</p>
+        <h1>This page was hallucinated.</h1>
+        <p class="meta">confidence: 0.97 · sources: none · grounded: false</p>
+        <p>Page not found. The link may be old or mistyped.</p>
+        <div class="actions">
+          <a class="btn primary" href="/blogs/">Retrieve a real guide</a>
+          <a class="btn ghost" href="/ai-engineering-roadmap/">AI Engineer Roadmap 2026</a>
+          <a class="btn ghost" href="/">Back to home</a>
+        </div>
+      </div>
     </main>
+    <footer><div class="wrap">AI Engineer Insights</div></footer>
   </body>
 </html>

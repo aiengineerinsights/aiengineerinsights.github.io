@@ -102,7 +102,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
             {/* Article Header */}
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-sm px-3 py-1">
                   <TrendingUp className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">Agentic AI</span>
                 </div>
@@ -211,7 +211,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The three terms overlap, and most confusion comes from using them interchangeably:
                 </p>
-                <div className="overflow-x-auto rounded-xl border border-border -mx-4 sm:mx-0 mb-4">
+                <div className="overflow-x-auto rounded-sm border border-border -mx-4 sm:mx-0 mb-4">
                   <div className="min-w-full inline-block align-middle">
                     <table className="w-full text-left text-xs sm:text-sm mx-4 sm:mx-0">
                       <thead className="bg-muted/40">
@@ -258,7 +258,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                 <img
                   src={coverPic}
                   alt="Agentic LLMs Illustration"
-                  className="w-full rounded-xl shadow-md object-cover"
+                  className="w-full rounded-sm shadow-md object-cover"
                 />
               </div>
 
@@ -274,7 +274,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                   <RefLink href="https://arxiv.org/abs/2305.10601">Tree of Thoughts</RefLink>
                   .
                 </p>
-                <div className="overflow-x-auto rounded-xl border border-border -mx-4 sm:mx-0">
+                <div className="overflow-x-auto rounded-sm border border-border -mx-4 sm:mx-0">
                   <div className="min-w-full inline-block align-middle">
                     <table className="w-full text-left text-xs sm:text-sm mx-4 sm:mx-0">
                       <thead className="bg-muted/40">
@@ -343,7 +343,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                   Example query to an LLM: Fix the failing tests in this open source repository, write a minimal patch, and open a pull request with a clear summary.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="rounded-xl border border-border p-3 sm:p-4">
+                  <div className="rounded-sm border border-border p-3 sm:p-4">
                     <h3 id="example-standalone" className="font-semibold mb-2 text-sm sm:text-base">Standalone model</h3>
                     <ul className="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-muted-foreground text-xs sm:text-sm">
                       <li>Reads the prompt and returns a text suggestion</li>
@@ -351,7 +351,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                       <li>Relies on the user to copy edits and verify the result</li>
                     </ul>
                   </div>
-                  <div className="rounded-xl border border-border p-3 sm:p-4">
+                  <div className="rounded-sm border border-border p-3 sm:p-4">
                     <h3 id="example-agentic" className="font-semibold mb-2 text-sm sm:text-base">Agentic system</h3>
                     <ul className="list-disc pl-4 sm:pl-6 space-y-1 sm:space-y-2 text-muted-foreground text-xs sm:text-sm">
                       <li>Plans steps and picks tools</li>
@@ -395,7 +395,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Prefer execution based tasks over static questions. Measure success, safety, and efficiency.
                 </p>
-                <div className="rounded-xl border border-border p-3 sm:p-4">
+                <div className="rounded-sm border border-border p-3 sm:p-4">
                   <h3 id="benchmarks" className="font-semibold mb-2 text-sm sm:text-base">Benchmarks that matter</h3>
                   <ul className="list-disc pl-4 sm:pl-6 space-y-2 sm:space-y-3 text-muted-foreground text-xs sm:text-sm">
                     <li>
@@ -521,7 +521,7 @@ Tools: [{"name": "live_giveaways_by_type", "description": "Retrieve live giveawa
                   <img
                     src={cotPic}
                     alt=""
-                    className="w-full rounded-xl shadow-md object-cover"
+                    className="w-full rounded-sm shadow-md object-cover"
                   />
                   <p className="text-center text-muted-foreground text-xs sm:text-sm italic mt-2">
                     Outcome reward and process reward

@@ -73,7 +73,7 @@ const ContextEngineeringGrapeRootPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-emerald-700 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Network className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Tooling</span>
                 </div>
@@ -91,7 +91,7 @@ const ContextEngineeringGrapeRootPost = () => {
                 answers. Here's the problem, why it happens, and how the fix is built.
               </p>
 
-              <div className="mb-6 sm:mb-8 rounded-lg border-l-4 border-amber-500 bg-amber-500/10 p-4 sm:p-5">
+              <div className="mb-6 sm:mb-8 rounded-lg border-l-4 border-primary/40 bg-amber-500/10 p-4 sm:p-5">
                 <p className="text-sm sm:text-base font-semibold mb-2">Correction &mdash; 23 September 2026</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-2">
                   This post originally described GrapeRoot as &ldquo;open source under Apache 2.0&rdquo;. That is not
@@ -120,8 +120,8 @@ const ContextEngineeringGrapeRootPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-emerald-700 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">

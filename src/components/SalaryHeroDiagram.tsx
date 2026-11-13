@@ -18,7 +18,7 @@ const BAR_W = 130;
 const centers = [170, 385, 600, 815, 1030];
 
 const SalaryHeroDiagram = () => (
-  <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0a0714]">
+  <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
     <svg
       viewBox="0 0 1200 560"
       role="img"
@@ -27,18 +27,18 @@ const SalaryHeroDiagram = () => (
     >
       <defs>
         <linearGradient id="salBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#0a0714" /><stop offset="55%" stopColor="#120b26" /><stop offset="100%" stopColor="#0c1a1a" />
+          <stop offset="0%" stopColor="#0c0c0b" /><stop offset="55%" stopColor="#10100f" /><stop offset="100%" stopColor="#0c0c0b" />
         </linearGradient>
         <linearGradient id="salBarPurple" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#a78bfa" /><stop offset="100%" stopColor="#5b21b6" />
+          <stop offset="0%" stopColor="#C4A6F5" /><stop offset="100%" stopColor="#4d2f7d" />
         </linearGradient>
         <linearGradient id="salBarGreen" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#34d399" /><stop offset="100%" stopColor="#065f46" />
+          <stop offset="0%" stopColor="#6FD6A8" /><stop offset="100%" stopColor="#1c4a35" />
         </linearGradient>
       </defs>
 
       <rect width="1200" height="560" fill="url(#salBg)" />
-      <g fill="#a78bfa" opacity="0.06">
+      <g fill="#C4A6F5" opacity="0.06">
         {Array.from({ length: 12 }).map((_, r) =>
           Array.from({ length: 24 }).map((_, c) => (
             <circle key={`${r}-${c}`} cx={40 + c * 49} cy={30 + r * 46} r="1.6" />
@@ -46,12 +46,12 @@ const SalaryHeroDiagram = () => (
         )}
       </g>
 
-      <text x="600" y="48" textAnchor="middle" fill="#c4b5fd" fontSize="15" fontWeight="700" letterSpacing="2">
+      <text x="600" y="48" textAnchor="middle" fill="#dcdad6" fontSize="15" fontWeight="700" letterSpacing="2">
         THE AI ENGINEER PAY LADDER — US MEDIAN TOTAL COMP BY LEVEL (LEVELS.FYI, NOV 2026)
       </text>
 
       {/* Baseline */}
-      <line x1="70" y1={BASE_Y} x2="1130" y2={BASE_Y} stroke="#4c1d95" strokeWidth="1.5" />
+      <line x1="70" y1={BASE_Y} x2="1130" y2={BASE_Y} stroke="#3f2767" strokeWidth="1.5" />
 
       {/* Bars */}
       {bars.map((b, i) => {
@@ -68,16 +68,16 @@ const SalaryHeroDiagram = () => (
               height={h}
               rx="8"
               fill={isFrontier ? "url(#salBarGreen)" : "url(#salBarPurple)"}
-              stroke={isFrontier ? "#34d399" : "#a78bfa"}
+              stroke={isFrontier ? "#6FD6A8" : "#C4A6F5"}
               strokeWidth="1.2"
             />
-            <text x={centers[i]} y={y - 14} textAnchor="middle" fill={isFrontier ? "#6ee7b7" : "#ddd6fe"} fontSize="20" fontWeight="800">
+            <text x={centers[i]} y={y - 14} textAnchor="middle" fill={isFrontier ? "#6FD6A8" : "#ebebe9"} fontSize="20" fontWeight="800">
               {b.display}
             </text>
-            <text x={centers[i]} y={BASE_Y + 26} textAnchor="middle" fill="#e9d5ff" fontSize="14" fontWeight="700">
+            <text x={centers[i]} y={BASE_Y + 26} textAnchor="middle" fill="#ebebe9" fontSize="14" fontWeight="700">
               {b.label}
             </text>
-            <text x={centers[i]} y={BASE_Y + 46} textAnchor="middle" fill="#8b7bb8" fontSize="11.5" fontStyle="italic">
+            <text x={centers[i]} y={BASE_Y + 46} textAnchor="middle" fill="#a19d92" fontSize="11.5" fontStyle="italic">
               {b.sub}
             </text>
           </g>
@@ -90,16 +90,18 @@ const SalaryHeroDiagram = () => (
         y1={BASE_Y - (169 / MAX) * PLOT_H}
         x2="1130"
         y2={BASE_Y - (169 / MAX) * PLOT_H}
-        stroke="#34d399"
+        stroke="#6FD6A8"
         strokeWidth="1.4"
         strokeDasharray="7 6"
         opacity="0.75"
       />
-      <text x="78" y={BASE_Y - (169 / MAX) * PLOT_H - 8} fill="#6ee7b7" fontSize="12.5" fontWeight="600">
+      {/* legend for the reference line, parked in the empty top-left of the plot */}
+      <line x1="78" y1="112" x2="126" y2="112" stroke="#6FD6A8" strokeWidth="1.4" strokeDasharray="7 6" opacity="0.75" />
+      <text x="138" y="116" fill="#6FD6A8" fontSize="12.5" fontWeight="600">
         Glassdoor US median total pay: $169K (all employers, not just big tech)
       </text>
 
-      <text x="600" y="532" textAnchor="middle" fill="#64748b" fontSize="11.5">
+      <text x="600" y="532" textAnchor="middle" fill="#807c6f" fontSize="11.5">
         Total compensation = base + stock + bonus. Sources: Levels.fyi company pages and Glassdoor, November 2026. Point-in-time, self-reported data.
       </text>
     </svg>

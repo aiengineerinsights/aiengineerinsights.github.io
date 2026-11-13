@@ -16,7 +16,7 @@ const MCPTrustHeroDiagram = () => {
     { y: 350, t: "Scoped, audience-bound tokens" },
   ];
   return (
-    <div className="rounded-xl border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0a0f14]">
+    <div className="rounded-sm border border-border overflow-hidden mb-8 sm:mb-12 bg-[#0c0c0b]">
       <svg
         viewBox="0 0 1200 630"
         role="img"
@@ -25,17 +25,17 @@ const MCPTrustHeroDiagram = () => {
       >
         <defs>
           <linearGradient id="mcpBg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0a0f14" />
-            <stop offset="60%" stopColor="#0b1222" />
-            <stop offset="100%" stopColor="#101025" />
+            <stop offset="0%" stopColor="#0c0c0b" />
+            <stop offset="60%" stopColor="#0f0e0d" />
+            <stop offset="100%" stopColor="#111110" />
           </linearGradient>
           <marker id="mcpArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#5b7488" />
+            <path d="M0,0 L10,5 L0,10 z" fill="#79756a" />
           </marker>
         </defs>
 
         <rect width="1200" height="630" fill="url(#mcpBg)" />
-        <g fill="#818cf8" opacity="0.06">
+        <g fill="#7CC4F2" opacity="0.06">
           {Array.from({ length: 13 }).map((_, r) =>
             Array.from({ length: 24 }).map((_, c) => (
               <circle key={`${r}-${c}`} cx={40 + c * 49} cy={24 + r * 46} r="1.6" />
@@ -43,50 +43,50 @@ const MCPTrustHeroDiagram = () => {
           )}
         </g>
 
-        <text x="600" y="46" textAnchor="middle" fill="#e6f6ff" fontSize="19" fontWeight="800" letterSpacing="1">
+        <text x="600" y="46" textAnchor="middle" fill="#f3f3f2" fontSize="19" fontWeight="800" letterSpacing="1">
           HOW TO SCOPE TRUST FOR AN MCP SERVER
         </text>
-        <text x="600" y="70" textAnchor="middle" fill="#8fb8cc" fontSize="12.5">
+        <text x="600" y="70" textAnchor="middle" fill="#b3b0a8" fontSize="12.5">
           treat every new MCP server like an unvetted dependency, not a trusted extension
         </text>
 
-        <text x="150" y="112" textAnchor="middle" fill="#fca5a5" fontSize="13" fontWeight="800">RISK CLASS</text>
-        <text x="600" y="112" textAnchor="middle" fill="#93c5fd" fontSize="13" fontWeight="800">MCP SERVER</text>
-        <text x="1010" y="96" textAnchor="middle" fill="#86efac" fontSize="13" fontWeight="800">SCOPING CONTROL</text>
+        <text x="150" y="112" textAnchor="middle" fill="#FF8F73" fontSize="13" fontWeight="800">RISK CLASS</text>
+        <text x="600" y="112" textAnchor="middle" fill="#7CC4F2" fontSize="13" fontWeight="800">MCP SERVER</text>
+        <text x="1010" y="112" textAnchor="middle" fill="#6FD6A8" fontSize="13" fontWeight="800">SCOPING CONTROL</text>
 
-        <rect x="520" y="128" width="160" height="300" rx="16" fill="#0e1a24" stroke="#4f46e5" strokeWidth="1.8" />
-        <text x="600" y="262" textAnchor="middle" fill="#c7d2fe" fontSize="13" fontWeight="800">MCP</text>
-        <text x="600" y="280" textAnchor="middle" fill="#a5b4fc" fontSize="13" fontWeight="800">SERVER</text>
-        <text x="600" y="300" textAnchor="middle" fill="#93c5fd" fontSize="10.5">tools + schema</text>
-        <text x="600" y="316" textAnchor="middle" fill="#93c5fd" fontSize="10.5">exposed to agent</text>
+        <rect x="520" y="128" width="160" height="300" rx="16" fill="#10100f" stroke="#C4A6F5" strokeWidth="1.8" />
+        <text x="600" y="262" textAnchor="middle" fill="#e4e3e1" fontSize="13" fontWeight="800">MCP</text>
+        <text x="600" y="280" textAnchor="middle" fill="#7CC4F2" fontSize="13" fontWeight="800">SERVER</text>
+        <text x="600" y="300" textAnchor="middle" fill="#7CC4F2" fontSize="10.5">tools + schema</text>
+        <text x="600" y="316" textAnchor="middle" fill="#7CC4F2" fontSize="10.5">exposed to agent</text>
 
         {risks.map((s) => (
           <g key={s.t}>
-            <rect x="40" y={s.y} width="260" height="60" rx="12" fill="#1a1012" stroke="#dc2626" strokeWidth="1.6" />
-            <rect x="40" y={s.y} width="6" height="60" rx="3" fill="#dc2626" />
-            <text x="64" y={s.y + 34} fill="#fecaca" fontSize="12.5" fontWeight="700">{s.t}</text>
-            <line x1="300" y1={s.y + 30} x2="518" y2="278" stroke="#5a3030" strokeWidth="1.6" markerEnd="url(#mcpArrow)" />
+            <rect x="40" y={s.y} width="260" height="60" rx="12" fill="#0e0d0c" stroke="#FF8F73" strokeWidth="1.6" />
+            <rect x="40" y={s.y} width="6" height="60" rx="3" fill="#FF8F73" />
+            <text x="64" y={s.y + 34} fill="#e6e5e2" fontSize="12.5" fontWeight="700">{s.t}</text>
+            <line x1="300" y1={s.y + 30} x2="518" y2="278" stroke="#4a4740" strokeWidth="1.6" markerEnd="url(#mcpArrow)" />
           </g>
         ))}
 
         {controls.map((d) => (
           <g key={d.t}>
-            <rect x="800" y={d.y} width="352" height="60" rx="12" fill="#0e1a24" stroke="#059669" strokeWidth="1.6" />
-            <rect x="800" y={d.y} width="6" height="60" rx="3" fill="#059669" />
-            <text x="824" y={d.y + 34} fill="#eaf4fb" fontSize="13.5" fontWeight="700">{d.t}</text>
-            <line x1="682" y1="278" x2="798" y2={d.y + 30} stroke="#2f5347" strokeWidth="1.6" markerEnd="url(#mcpArrow)" />
+            <rect x="800" y={d.y} width="352" height="60" rx="12" fill="#10100f" stroke="#225a41" strokeWidth="1.6" />
+            <rect x="800" y={d.y} width="6" height="60" rx="3" fill="#225a41" />
+            <text x="824" y={d.y + 34} fill="#f3f3f2" fontSize="13.5" fontWeight="700">{d.t}</text>
+            <line x1="682" y1="278" x2="798" y2={d.y + 30} stroke="#46433c" strokeWidth="1.6" markerEnd="url(#mcpArrow)" />
           </g>
         ))}
 
-        <rect x="48" y="470" width="1104" height="60" rx="14" fill="#10172e" stroke="#4338ca" strokeWidth="1.3" />
-        <text x="600" y="496" textAnchor="middle" fill="#a5b4fc" fontSize="13.5" fontWeight="800">
+        <rect x="48" y="470" width="1104" height="60" rx="14" fill="#141412" stroke="#C4A6F5" strokeWidth="1.3" />
+        <text x="600" y="496" textAnchor="middle" fill="#7CC4F2" fontSize="13.5" fontWeight="800">
           UNSCOPED MCP TRUST = THE AGENT INHERITS WHATEVER THE SERVER TELLS IT
         </text>
-        <text x="600" y="516" textAnchor="middle" fill="#c7d2fe" fontSize="12">
+        <text x="600" y="516" textAnchor="middle" fill="#e4e3e1" fontSize="12">
           OWASP MCP Top 10 and the official spec both say the same thing: least privilege, verified tokens, pinned manifests
         </text>
 
-        <text x="1152" y="560" textAnchor="end" fill="#4b6f7f" fontSize="11">aiengineerinsights.com</text>
+        <text x="1152" y="560" textAnchor="end" fill="#6c695e" fontSize="11">aiengineerinsights.com</text>
       </svg>
     </div>
   );

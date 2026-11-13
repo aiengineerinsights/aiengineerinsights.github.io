@@ -89,7 +89,7 @@ const OpenClawAlternativesPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-600 to-red-800 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Layers className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Agents</span>
                 </div>
@@ -109,8 +109,8 @@ const OpenClawAlternativesPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-600 to-red-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -132,9 +132,9 @@ const OpenClawAlternativesPost = () => {
               title="OPENCLAW ALTERNATIVES · 2026"
               subtitle="what to run instead, grouped by why people leave OpenClaw"
               columns={[
-                { name: "SAFER", tag: "tighter defaults", color: "#22d3ee", lines: ["Hermes Agent", "NanoClaw (per-agent containers)", "IronClaw (WASM sandbox)", "Agent Zero (Docker desktop)"], best: "if security made you leave" },
-                { name: "LIGHTER", tag: "smaller, faster", color: "#a78bfa", lines: ["nanobot (Python)", "ZeroClaw (Rust)", "PicoClaw (Go)", "Moltis (Rust)"], best: "if size and setup made you leave" },
-                { name: "SMARTER", tag: "memory and learning", color: "#f97316", lines: ["Hermes Agent (writes skills)", "Letta (long-term memory)", "Agent Zero (projects)", "all MIT or Apache"], best: "if you want it to improve" },
+                { name: "SAFER", tag: "tighter defaults", color: "#7CC4F2", lines: ["Hermes Agent", "NanoClaw (per-agent containers)", "IronClaw (WASM sandbox)", "Agent Zero (Docker desktop)"], best: "if security made you leave" },
+                { name: "LIGHTER", tag: "smaller, faster", color: "#C4A6F5", lines: ["nanobot (Python)", "ZeroClaw (Rust)", "PicoClaw (Go)", "Moltis (Rust)"], best: "if size and setup made you leave" },
+                { name: "SMARTER", tag: "memory and learning", color: "#FFB454", lines: ["Hermes Agent (writes skills)", "Letta (long-term memory)", "Agent Zero (projects)", "all MIT or Apache"], best: "if you want it to improve" },
               ]}
               footer="all free and self-hosted · bring your own model · you pay only for tokens"
               ariaLabel="OpenClaw alternatives in 2026, grouped by why people leave OpenClaw. Safer options with tighter defaults: Hermes Agent, NanoClaw with per-agent containers, IronClaw with a WebAssembly sandbox, and Agent Zero with a Docker desktop. Lighter options that are smaller and faster: nanobot in Python, ZeroClaw in Rust, PicoClaw in Go and Moltis in Rust. Options focused on memory and learning: Hermes Agent, which writes its own skills, Letta with long-term memory, and Agent Zero with projects. All are free, self-hosted and MIT or Apache licensed, and you pay only for model tokens."

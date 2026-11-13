@@ -10,6 +10,7 @@ import ExploreWithAI from "@/components/ExploreWithAI";
 import TableOfContents from "@/components/TableOfContents";
 import ColumnsHeroDiagram from "@/components/ColumnsHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import InjectionEgg from "@/components/InjectionEgg";
 import { LLM_FALLACIES_CHEAT_SHEET } from "@/config/newsletterBonuses";
 
 const PATH = "/blog/fallacies-of-llm-systems";
@@ -109,7 +110,7 @@ const FallaciesOfLLMSystemsPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-600 to-orange-700 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <AlertTriangle className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Engineering</span>
                 </div>
@@ -129,8 +130,8 @@ const FallaciesOfLLMSystemsPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-rose-600 to-orange-700 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -152,10 +153,10 @@ const FallaciesOfLLMSystemsPost = () => {
               title="THE 8 FALLACIES OF LLM SYSTEMS"
               subtitle="assumptions engineers carry over from ordinary software · each one breaks in production"
               columns={[
-                { name: "OUTPUT", tag: "what comes back", color: "#38bdf8", lines: ["1 · the model is deterministic", "2 · the output is well-formed"], best: "validate, test properties" },
-                { name: "CHANGE", tag: "what stays true", color: "#a78bfa", lines: ["3 · the model stays the same", "4 · the demo is the test"], best: "pin versions, gate on evals" },
-                { name: "CONTEXT", tag: "what it knows", color: "#f97316", lines: ["5 · context is free", "6 · the model knows your data"], best: "retrieve, don't stuff" },
-                { name: "TRUST & COST", tag: "what it costs", color: "#34d399", lines: ["7 · input is trusted", "8 · cost and latency are constant"], best: "least privilege, budgets" },
+                { name: "OUTPUT", tag: "what comes back", color: "#7CC4F2", lines: ["1 · the model is deterministic", "2 · the output is well-formed"], best: "validate, test properties" },
+                { name: "CHANGE", tag: "what stays true", color: "#C4A6F5", lines: ["3 · the model stays the same", "4 · the demo is the test"], best: "pin versions, gate on evals" },
+                { name: "CONTEXT", tag: "what it knows", color: "#FFB454", lines: ["5 · context is free", "6 · the model knows your data"], best: "retrieve, don't stuff" },
+                { name: "TRUST & COST", tag: "what it costs", color: "#6FD6A8", lines: ["7 · input is trusted", "8 · cost and latency are constant"], best: "least privilege, budgets" },
               ]}
               footer="Each fallacy is a missing control: tests, validation, evals, retrieval, permissions, budgets"
               ariaLabel="The eight fallacies of LLM systems, grouped in four columns. Output: the model is deterministic, and the output is well-formed; the fix is validation and property-based tests. Change: the model stays the same, and the demo is the test; the fix is pinned versions and an eval gate. Context: context is free, and the model knows your data; the fix is retrieval instead of stuffing the prompt. Trust and cost: input is trusted, and cost and latency are constant; the fix is least-privilege tools and per-request budgets. Each fallacy is a missing control."
@@ -388,6 +389,7 @@ const FallaciesOfLLMSystemsPost = () => {
                 <P>
                   What it breaks: the security of every tool the model can call.
                 </P>
+                <InjectionEgg />
                 <Fix items={[
                   <>Give the model the fewest tools and narrowest permissions the task needs.</>,
                   <>Require human approval for actions with side effects: payments, sending messages, deleting data.</>,

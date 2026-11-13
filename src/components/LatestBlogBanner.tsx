@@ -1,5 +1,3 @@
-import { TrendingUp, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "@/components/SiteLink";
 import { insights } from "@/components/LatestInsights";
 
@@ -10,29 +8,16 @@ const LatestBlogBanner = () => {
   if (!latest) return null;
 
   return (
-    <div className="fixed top-16 w-full z-40 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground">
-      <div className="container mx-auto px-4 py-2">
-        <div className="flex items-center justify-center space-x-4 text-sm">
-          <div className="flex items-center space-x-2">
-            <TrendingUp className="h-4 w-4" />
-            <span className="font-medium">Latest:</span>
-          </div>
-          <span className="flex-1 text-center md:text-left truncate">
-            {latest.title}
-          </span>
-          <Link to={latest.link} aria-label={`Read now: ${latest.title}`}>
-            <Button
-              variant="outline"
-              size="sm"
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 flex-shrink-0"
-            >
-              Read Now
-              <ArrowRight className="ml-2 h-3 w-3" aria-hidden="true" />
-            </Button>
-          </Link>
-        </div>
+    <Link
+      to={latest.link}
+      className="fixed top-16 w-full z-40 bg-primary text-primary-foreground hover:bg-primary-glow transition-colors"
+    >
+      <div className="container mx-auto px-4 h-10 flex items-center justify-center gap-3 text-sm font-semibold">
+        <span className="label-mono text-[12px] shrink-0">New</span>
+        <span className="truncate">{latest.title}</span>
+        <span className="underline shrink-0">Read it</span>
       </div>
-    </div>
+    </Link>
   );
 };
 

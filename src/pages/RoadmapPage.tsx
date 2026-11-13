@@ -11,6 +11,45 @@ import { affiliateUrl } from "@/config/affiliates";
 
 const PDF = "/downloads/ai-roadmap.pdf";
 
+// Our own guides that fit each phase, in phase order. Internal links only.
+const PHASE_GUIDES: { to: string; label: string }[][] = [
+  [{ to: "/blog/how-to-become-an-ai-engineer", label: "How to become an AI engineer" }, { to: "/blog/ai-engineer-skills", label: "AI engineer skills checklist" }],
+  [{ to: "/blog/llm-vs-traditional-ml-classification", label: "LLM vs traditional ML for classification" }, { to: "/blog/rag-vs-fine-tuning", label: "RAG vs fine-tuning" }],
+  [{ to: "/blog/llm-deployment-challenges", label: "12 LLM deployment challenges" }, { to: "/blog/fallacies-of-llm-systems", label: "The fallacies of LLM systems" }, { to: "/blog/ai-agent-observability", label: "AI agent observability" }],
+  [{ to: "/blog/vector-database-for-rag", label: "Vector databases for RAG" }, { to: "/blog/rag-chunking-strategies", label: "RAG chunking strategies" }],
+  [{ to: "/blog/what-are-ai-agents", label: "What are AI agents?" }, { to: "/blog/retrieval-augmented-generation-guide", label: "RAG: the complete guide" }, { to: "/blog/ai-guardrails", label: "AI guardrails" }],
+  [{ to: "/blog/conways-law-ai", label: "Conway's law for AI" }, { to: "/blog/forward-deployed-ai-engineer", label: "Forward deployed engineer (FDE)" }],
+];
+
+const LOSS: [string, number][] = [["2.31", 100], ["1.52", 68], ["0.94", 44], ["0.51", 27], ["0.22", 14], ["0.08", 6]];
+
+// Decorative: gradient descent over the six phases. "Loss" is how lost you feel.
+const LossChart = () => (
+  <div className="border border-input bg-[#111110] px-5 pt-[18px] pb-3.5 mt-8">
+    <div className="flex flex-wrap justify-between gap-2 font-mono text-xs text-muted-foreground tracking-[0.04em]">
+      <span><span className="text-primary">GRADIENT DESCENT</span> · you, phase by phase</span>
+      <span>loss = how lost you feel</span>
+    </div>
+    <div role="img" aria-label="Chart: confusion falls with each phase, from 2.31 before phase 1 to 0.08 after phase 6" className="relative flex items-end gap-2.5 h-[170px] mt-3.5 border-b border-input">
+      <span aria-hidden="true" className="absolute z-[1] w-[14px] h-[14px] -ml-[34px] mb-0.5 rounded-full bg-foreground border-2 border-background" style={{ animation: "aei-hop 7s ease-in-out 1.2s infinite alternate both, aei-pulse 1.6s ease-out infinite" }} />
+      {LOSS.map(([v, h], i) => (
+        <div key={v} className="flex-1 min-w-0 h-full flex flex-col justify-end items-center gap-1.5">
+          <span className="font-mono text-xs text-foreground">{v}</span>
+          <div className="w-full bg-primary/85 origin-bottom" style={{ height: `${h}%`, animation: `aei-rise 0.6s ease-out ${0.2 + i * 0.15}s both` }} />
+        </div>
+      ))}
+    </div>
+    <ol className="m-0 p-0 list-none flex gap-2.5 mt-2">
+      {phases.map((p, i) => (
+        <li key={p.phase} className="flex-1 min-w-0 text-center font-mono text-[11px] text-muted-foreground truncate">
+          <span className="text-primary">0{i + 1}</span>
+          <span className="hidden sm:inline"> {p.phase.split(" · ")[1]}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+);
+
 const phases = [
   {
     phase: "Phase 1 · Foundation",
@@ -184,12 +223,14 @@ const RoadmapPage = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 sm:pb-20">
         <div className="max-w-4xl mx-auto">
           <header className="mb-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <p className="label-mono text-primary m-0 mb-3">The roadmap · 2026 edition</p>
+            <h1 className="font-mono text-[28px] sm:text-4xl md:text-[44px] font-bold mb-3 leading-[1.18] tracking-[-0.04em]">
               AI Engineer Roadmap 2026: The Complete AI Engineering Roadmap, Step by Step (Free PDF)
             </h1>
+            <p className="font-mono font-bold text-lg sm:text-2xl tracking-[-0.02em] text-primary m-0 mb-4">From first Python script to AI engineer.</p>
             <p className="text-sm text-muted-foreground mb-4">
               Updated <time dateTime="2026-10-10">Oct 10, 2026</time>
             </p>
@@ -206,9 +247,13 @@ const RoadmapPage = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/blogs">Read the latest AI engineering articles</Link>
+                <Link to="/newsletter">Email it to me, with new guides</Link>
               </Button>
             </div>
+            <p className="text-sm text-muted-foreground mt-3 mb-0">
+              Free. No sign-up needed for the download. Or <Link to="/blogs" className="text-primary hover:underline">read the latest AI engineering articles</Link>.
+            </p>
+            <LossChart />
           </header>
 
           {/* TL;DR — short, self-contained direct answer */}
@@ -249,13 +294,13 @@ const RoadmapPage = () => {
           </section>
 
           <div className="space-y-6">
-            {phases.map((p) => {
+            {phases.map((p, phaseIndex) => {
               const Icon = p.icon;
               return (
                 <Card key={p.phase} className="p-6 bg-gradient-card border-border">
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-gradient-to-r from-purple-600 to-purple-800 flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-6 w-6 text-white" />
+                    <div className="w-11 h-11 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
@@ -285,6 +330,16 @@ const RoadmapPage = () => {
                           );
                         })}
                       </div>
+                      <div className="mt-4 border border-input bg-background px-4 py-3">
+                        <p className="label-mono text-[12px] text-primary m-0 mb-1">Our guides for this phase</p>
+                        <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                          {PHASE_GUIDES[phaseIndex].map((g) => (
+                            <Link key={g.to} to={g.to} className="font-semibold text-foreground hover:text-primary min-h-[32px] inline-flex items-center">
+                              {g.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -294,7 +349,25 @@ const RoadmapPage = () => {
 
           <AffiliateDisclosure className="max-w-3xl mx-auto" />
 
-          <section className="my-10 rounded-xl border border-border bg-muted/40 p-6 text-center">
+          <section className="my-10">
+            <p className="label-mono text-primary m-0 mb-2">After the roadmap</p>
+            <h2 className="text-2xl font-bold mb-4">Then go and get the job</h2>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                { to: "/blog/ai-engineer-salary", big: "$169K–$251K", title: "AI engineer salary", sum: "Median total pay, Glassdoor to Levels.fyi, by level, company and city." },
+                { to: "/blog/forward-deployed-ai-engineer", big: "FDE", title: "Forward deployed engineer", sum: "What the role is, pay from live postings, and where to apply." },
+                { to: "/blog/ai-engineer-interview-questions", big: "Q + A", title: "AI engineer interview questions", sum: "What gets asked, round by round." },
+              ].map((n) => (
+                <Link key={n.to} to={n.to} className="group flex flex-col gap-2 border-t-[3px] border-primary bg-card p-5">
+                  <span className="font-mono font-bold text-2xl tracking-[-0.03em] text-primary">{n.big}</span>
+                  <span className="font-bold text-lg leading-snug group-hover:text-primary transition-colors">{n.title}</span>
+                  <span className="text-sm text-muted-foreground">{n.sum}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="my-10 rounded-sm border border-border bg-muted/40 p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">Get the full roadmap as a PDF</h2>
             <p className="text-muted-foreground mb-4">
               Prefer to follow along offline? Download the complete AI engineering roadmap — all six phases and

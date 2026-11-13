@@ -626,7 +626,7 @@ const LatestInsights = () => {
               <div className="p-6">
                 {/* Category Badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`inline-flex items-center space-x-2 bg-gradient-to-r ${insight.gradient} rounded-full px-3 py-1`}>
+                  <div className={`inline-flex items-center space-x-2 bg-gradient-to-r ${insight.gradient} rounded-sm px-3 py-1`}>
                     <insight.icon className="h-4 w-4 text-primary-foreground" />
                     <span className="text-sm font-medium text-primary-foreground">{insight.category}</span>
                   </div>

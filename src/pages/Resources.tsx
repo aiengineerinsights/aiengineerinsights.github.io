@@ -142,7 +142,7 @@ const Resources = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="font-mono tracking-[-0.04em] text-4xl md:text-5xl font-bold mb-6">
               Learning <span className="bg-gradient-hero bg-clip-text text-transparent">Resources</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -162,11 +162,7 @@ const Resources = () => {
                 <Card key={index} className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden">
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="text-4xl">{book.cover}</div>
-                      <div className="flex items-center text-yellow-500">
-                        <Star className="h-4 w-4 fill-current mr-1" />
-                        <span className="text-sm font-medium">{book.rating}</span>
-                      </div>
+                      <div className="font-mono font-bold text-3xl text-primary" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
                     </div>
                     
                     <div className="mb-3">
@@ -206,7 +202,7 @@ const Resources = () => {
                 <Card key={index} className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden">
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="text-4xl">{video.thumbnail}</div>
+                      <div className="font-mono font-bold text-3xl text-primary" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
                       <Badge variant="secondary">{video.duration}</Badge>
                     </div>
                     

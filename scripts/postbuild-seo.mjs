@@ -5,7 +5,7 @@
 // re-renders over the static markup on load; UX unchanged.
 //
 // Also generates llms-full.txt (plain-text of all posts) for LLM ingestion.
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
 import { createServer } from 'vite'
 
@@ -1186,12 +1186,26 @@ const vite = await createServer({
   logLevel: 'error',
 })
 
+// name.ext -> /assets/name.<hash>.ext, from the build output
+const builtAssets = new Map()
+for (const f of readdirSync(join(dist, 'assets'))) {
+  const m = f.match(/^(.*)\.[A-Za-z0-9_-]{6,}\.(png|jpe?g|webp|svg|gif)$/)
+  if (m) builtAssets.set(`${m[1]}.${m[2]}`, `/assets/${f}`)
+}
+
 try {
   const { render } = await vite.ssrLoadModule('/src/entry-prerender.tsx')
 
   const fullTexts = []
   for (const route of [...pages, ...posts]) {
-    const appHtml = await render(route.path)
+    // React's streaming renderer can emit a stray NUL byte at a chunk boundary
+    // on very large pages; strip it so the HTML stays valid text.
+    // The prerender runs through Vite's dev-mode module loader, which resolves
+    // imported images to /src/assets/<name>, a path that doesn't exist in the
+    // built site. Point them at the hashed files the build actually emitted.
+    const appHtml = (await render(route.path))
+      .replace(/\u0000/g, '')
+      .replace(/\/src\/assets\/([^"'?#)\s]+)\.(png|jpe?g|webp|svg|gif)/g, (whole, stem, ext) => builtAssets.get(`${decodeURIComponent(stem)}.${ext}`) || whole)
     writeRoute(route, appHtml)
     if (route.date) {
       fullTexts.push(

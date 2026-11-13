@@ -101,7 +101,7 @@ const ConwaysLawAIPost = () => {
 
             <header className="mb-8 sm:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-teal-600 to-sky-800 rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-primary rounded-sm px-3 py-1">
                   <Network className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Architecture</span>
                 </div>
@@ -121,8 +121,8 @@ const ConwaysLawAIPost = () => {
 
               <Card className="p-4 sm:p-6 bg-gradient-card border-border">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-teal-600 to-sky-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <User className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link to="/authors" className="hover:text-primary transition-colors">
@@ -144,10 +144,10 @@ const ConwaysLawAIPost = () => {
               title="CONWAY'S LAW FOR AI · WHO OWNS WHAT"
               subtitle="your AI architecture copies your team boundaries · Team Topologies mapped to AI systems"
               columns={[
-                { name: "PRODUCT TEAMS", tag: "stream-aligned", color: "#38bdf8", lines: ["AI features + UX", "prompts and tools", "eval cases", "first RAG pipeline"], best: "ship the AI feature" },
-                { name: "AI PLATFORM", tag: "platform", color: "#a78bfa", lines: ["gateway + routing", "eval harness + CI gate", "tracing + cost", "guardrail enforcement"], best: "offered as a service" },
-                { name: "SPECIALISTS", tag: "complicated subsystem", color: "#f97316", lines: ["retrieval at scale", "ranking", "fine-tuning", "custom models"], best: "deep expertise" },
-                { name: "ENABLING", tag: "AI CoE done right", color: "#34d399", lines: ["patterns + golden paths", "eval coaching", "AI security reviews", "then steps away"], best: "time-boxed help" },
+                { name: "PRODUCT TEAMS", tag: "stream-aligned", color: "#7CC4F2", lines: ["AI features + UX", "prompts and tools", "eval cases", "first RAG pipeline"], best: "ship the AI feature" },
+                { name: "AI PLATFORM", tag: "platform", color: "#C4A6F5", lines: ["gateway + routing", "eval harness + CI gate", "tracing + cost", "guardrail enforcement"], best: "offered as a service" },
+                { name: "SPECIALISTS", tag: "complicated subsystem", color: "#FFB454", lines: ["retrieval at scale", "ranking", "fine-tuning", "custom models"], best: "deep expertise" },
+                { name: "ENABLING", tag: "AI CoE done right", color: "#6FD6A8", lines: ["patterns + golden paths", "eval coaching", "AI security reviews", "then steps away"], best: "time-boxed help" },
               ]}
               footer="Inverse Conway: design the teams for the AI architecture you want"
               ariaLabel="Conway's law for AI: who owns what. Product teams, the stream-aligned teams, own AI features and UX, prompts and tools, eval cases and their first RAG pipeline. An AI platform team owns the gateway and model routing, the eval harness and CI gate, tracing and cost tracking, and guardrail enforcement, offered as a service. Specialist complicated-subsystem teams own retrieval at scale, ranking, fine-tuning and custom models. An enabling team, an AI center of excellence done right, provides patterns and golden paths, eval coaching and AI security reviews, then steps away. The inverse Conway maneuver means designing the teams for the AI architecture you want."

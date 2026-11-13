@@ -40,7 +40,7 @@ const GDPvalBlogPostFull = () => {
             {/* Article Header */}
             <header className="mb-8 lg:mb-12">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-full px-3 py-1">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary to-primary-glow rounded-sm px-3 py-1">
                   <TrendingUp className="h-4 w-4 text-primary-foreground" />
                   <span className="text-sm font-medium text-primary-foreground">AI Evaluation</span>
                 </div>
@@ -123,7 +123,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalReviewProcess}
                     alt="Multi-stage review process flowchart"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -154,7 +154,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalPreferencesChart}
                     alt="GDPval pairwise expert preferences bar chart"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div>
                 <h3 className="text-lg lg:text-xl font-semibold mt-4 lg:mt-6 mb-2">2. A Linear Trajectory of Improvement</h3>
@@ -165,7 +165,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalPerformanceTrend}
                     alt="OpenAI frontier model performance over time"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div>
                 <h3 className="text-lg lg:text-xl font-semibold mt-4 lg:mt-6 mb-2">3. Different Models, Different Strengths</h3>
@@ -176,7 +176,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalFailureModes}
                     alt="Failure Modes bar chart comparing models"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -197,7 +197,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalSpeedCost}
                     alt="Speed and Cost Improvements scatter plot"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div> */}
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -219,7 +219,7 @@ const GDPvalBlogPostFull = () => {
                   <img
                     src={gdpvalOccupationPreferences}
                     alt="GDPval pairwise expert preferences by occupation"
-                    className="w-full h-auto rounded-lg lg:rounded-xl shadow-md object-cover"
+                    className="w-full h-auto rounded-lg lg:rounded-sm shadow-md object-cover"
                   />
                 </div> */}
                 <h3 className="text-lg lg:text-xl font-semibold mt-4 lg:mt-6 mb-2">Obvious Insights: The Highs and Lows</h3>
