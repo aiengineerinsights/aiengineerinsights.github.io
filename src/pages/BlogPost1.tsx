@@ -7,6 +7,13 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import MLOpsHeroDiagram from "@/components/MLOpsHeroDiagram";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+const RefLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+    {children}
+  </a>
+);
 
 const practices = [
   {
@@ -140,6 +147,14 @@ const faqs = [
     q: "Do I need all 14 practices to have good MLOps?",
     a: "No. Adopt them by impact and by your situation. A low-stakes internal model may need only the foundation and basic monitoring; a regulated, high-traffic model needs the full stack including safe rollouts, lineage, and governance.",
   },
+  {
+    q: "Is LLMOps the same as MLOps?",
+    a: "No — Google Cloud describes LLMOps as a specialized subset of MLOps, and Databricks says many MLOps practices (version control, staged environments, CI/CD) carry over unchanged. What's different is the shipped artifact: MLOps ships trained weights, while LLM applications ship prompts, retrieval indexes, and tool/provider configuration as first-class, versioned release artifacts alongside (or instead of) a fine-tuned model.",
+  },
+  {
+    q: "Do I still need MLOps if I only call a hosted LLM API?",
+    a: "You can skip the training pipeline, but not the operational layer. You still need prompt versioning with rollback, automated evaluation (LLM-as-judge or rubric-based, since outputs are non-deterministic), tracing, and cost/latency monitoring — the same reliability goals as classic MLOps, applied to a different artifact.",
+  },
 ];
 
 const BlogPost1 = () => {
@@ -241,6 +256,65 @@ const BlogPost1 = () => {
                 </p>
               </section>
               ))}
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="mlops-vs-llmops" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Is MLOps the same as LLMOps?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  No. Google Cloud calls LLMOps <RefLink href="https://cloud.google.com/discover/what-is-llmops">a specialized subset of MLOps</RefLink>,
+                  and Databricks' own workflow docs say most of the practices above — version control, staged
+                  environments, CI/CD — <RefLink href="https://learn.microsoft.com/en-us/azure/databricks/machine-learning/mlops/llmops">carry over unchanged</RefLink> when
+                  the model is an LLM. What changes is the shipped artifact: an MLOps pipeline ships trained weights;
+                  an LLM application ships prompts, a retrieval index, and provider/tool configuration as
+                  versioned release artifacts — often with little or no training run at all.
+                </p>
+                <div className="overflow-x-auto mb-4">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="text-xs sm:text-sm px-2 sm:px-4">Dimension</TableHead>
+                        <TableHead className="text-xs sm:text-sm px-2 sm:px-4">MLOps</TableHead>
+                        <TableHead className="text-xs sm:text-sm px-2 sm:px-4">LLMOps</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4 font-medium">Primary release artifact</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Trained model binary + features</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Prompt, retrieval index, tool defs, model/provider choice</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4 font-medium">What gets versioned</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Data, schema, model artifact, config</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">All of the above, plus prompts and index snapshots</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4 font-medium">Evaluation style</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Fixed metrics (accuracy, AUC, drift)</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">LLM-as-judge / rubric scoring on non-deterministic output</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4 font-medium">Typical failure mode</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Drift, stale model, train-serve skew</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">An untracked prompt edit silently changes output quality</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4 font-medium">Do you need a training pipeline?</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Yes, always</TableCell>
+                        <TableCell className="text-xs sm:text-sm px-2 sm:px-4">Only if fine-tuning; prompting/RAG against a hosted model needs none</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  In practice this means: if you call a hosted LLM API with prompts and retrieval, you can skip the
+                  training pipeline entirely, but you still need the operational layer — prompt version control with
+                  rollback, automated evaluation, tracing, and cost/latency monitoring
+                  (<RefLink href="https://mlflow.org/llmops">MLflow — What is LLMOps?</RefLink>; <RefLink href="https://www.honeyhive.ai/learn/mlops-vs-llmops">HoneyHive — MLOps vs LLMOps</RefLink>).
+                  If you fine-tune a model, you need both sets of practices, since the failure modes of each layer
+                  are different. For the LLM-specific parts of that loop — judging answer quality and catching
+                  hallucinations — see <Link to="/blog/rag-evaluation-metrics" className="text-primary hover:underline">RAG evaluation metrics</Link>.
+                </p>
+              </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="putting-it-together" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Putting it together</h2>
