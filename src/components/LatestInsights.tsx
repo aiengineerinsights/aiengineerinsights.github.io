@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "AI Engineering Books: The 3 That Make an AI Architect (and What None of Them Teach)",
+      excerpt: "Fundamentals of Software Architecture, The Hard Parts and Chip Huyen's AI Engineering, mapped against each other: the four ideas in all three (evals are fitness functions), what transfers between pairs, two 12-week reading plans, and six things none of them teach.",
+      readTime: "11 min read",
+      date: "Nov 16, 2026",
+      category: "AI Architecture",
+      icon: Layers,
+      gradient: "from-sky-600 to-indigo-800",
+      link: "/blog/ai-engineering-books"
+    },
+    {
       title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
       excerpt: "Like the fallacies of distributed computing, but for LLMs: eight assumptions engineers carry over from ordinary software (the model is deterministic, output is well-formed, context is free, input is trusted...), the evidence against each, and the control that fixes it.",
       readTime: "14 min read",

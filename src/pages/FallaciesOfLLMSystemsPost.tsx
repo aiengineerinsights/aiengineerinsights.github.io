@@ -434,7 +434,8 @@ const FallaciesOfLLMSystemsPost = () => {
                   run by someone else, with variable output, a changing implementation, a metered bill and an attack
                   surface. Design for it the way you'd design for that, and most of these fallacies stop applying. Who
                   owns each of those controls is its own question, covered in{" "}
-                  <L to="/blog/conways-law-ai">Conway's law for AI</L>.
+                  <L to="/blog/conways-law-ai">Conway's law for AI</L>. For the books behind this way of thinking, see
+                  our <L to="/blog/ai-engineering-books">AI architect reading map</L>.
                 </P>
               </section>
 

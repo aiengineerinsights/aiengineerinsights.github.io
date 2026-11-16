@@ -23,3 +23,8 @@ export const LLM_FALLACIES_CHEAT_SHEET: NewsletterBonus = {
   label: "Fallacies of LLM systems cheat sheet (PDF)",
   href: "/downloads/fallacies-of-llm-systems-cheat-sheet.pdf",
 };
+
+export const AI_ARCHITECT_READING_MAP: NewsletterBonus = {
+  label: "AI architect reading map (PDF)",
+  href: "/downloads/ai-architect-reading-map.pdf",
+};

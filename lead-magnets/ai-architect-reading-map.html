@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  Source for public/downloads/ai-architect-reading-map.pdf, the newsletter-only
+  bonus offered on /blog/ai-engineering-books (see NewsletterSignup `bonus` prop).
+  The mapping between the three books is ours and matches the post.
+
+  Rebuild the PDF after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --no-pdf-header-footer --print-to-pdf=public/downloads/ai-architect-reading-map.pdf \
+      lead-magnets/ai-architect-reading-map.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AI Architect Reading Map — AI Engineer Insights</title>
+<style>
+  @page { size: A4; margin: 10mm 11mm 8mm; }
+  * { box-sizing: border-box; }
+  body { font: 8.8pt/1.32 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #0f2230; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #0e7490; padding-bottom: 6px; margin-bottom: 9px; }
+  h1 { font-size: 19pt; margin: 0; letter-spacing: -0.3px; }
+  h1 span { color: #0e7490; }
+  .sub { color: #4b5d6b; font-size: 9pt; margin-top: 2px; }
+  .brand { text-align: right; font-size: 8.5pt; color: #4b5d6b; }
+  .brand b { color: #0f2230; font-size: 10pt; }
+  .cols { columns: 2; column-gap: 14px; }
+  section { break-inside: avoid; margin: 0 0 8px; border: 1px solid #d7e7ee; border-radius: 6px; padding: 7px 9px 6px; }
+  h2 { font-size: 10pt; margin: 0 0 5px; color: #0e7490; text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 2.4px 0; vertical-align: top; border-bottom: 1px dotted #d7e7ee; text-align: left; }
+  th { font-size: 8pt; color: #4b5d6b; font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { width: 22%; padding-right: 8px; font-weight: 600; }
+  ul { margin: 0; padding-left: 14px; }
+  li { margin: 0 0 2.5px; }
+  .quote { font-style: italic; border-left: 3px solid #0e7490; padding: 3px 8px; margin: 0 0 5px; background: #eff8fb; }
+  .tip { background: #eff8fb; border-left: 3px solid #0e7490; padding: 5px 8px; margin: 6px 0 0; font-size: 8.6pt; }
+  footer { margin-top: 4px; border-top: 1px solid #d7e7ee; padding-top: 6px; font-size: 8.2pt; color: #4b5d6b; display: flex; justify-content: space-between; gap: 10px; }
+  a { color: #0e7490; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>AI Architect <span>Reading Map</span></h1>
+    <div class="sub">Three books, what they share, two 12-week reading plans, and what none of them teach. One page.</div>
+  </div>
+  <div class="brand"><b>AI Engineer Insights</b><br />aiengineerinsights.com · Nov 2026</div>
+</header>
+
+<div class="cols">
+  <section>
+    <h2>1 · The three books</h2>
+    <table><tr><td>Fundamentals of Software Architecture, 2e</td><td>Richards, Ford. How to think like an architect.</td></tr><tr><td>Software Architecture: The Hard Parts</td><td>Ford, Richards, Sadalage, Dehghani. What breaks when systems are distributed.</td></tr><tr><td>AI Engineering</td><td>Chip Huyen. What changes when a component is a model.</td></tr></table>
+  </section>
+
+  <section>
+    <h2>2 · In all three</h2>
+    <table><tr><td>Every choice is a trade-off</td><td>Name what you give up in every ADR</td></tr><tr><td>Fitness functions ≈ evals</td><td>Automated checks in CI for the properties you care about</td></tr><tr><td>Orchestrated workflows</td><td>Sagas and agent runs: who coordinates, what happens on failure</td></tr><tr><td>Schemas as contracts</td><td>Service contracts and structured model output</td></tr></table>
+    <div class="tip"><b>The bridge:</b> an eval is a fitness function. If you gate releases on one, you already know how to do the other.</div>
+  </section>
+
+  <section>
+    <h2>3 · Ideas that transfer</h2>
+    <table><tr><th>Idea</th><th>Use it for</th></tr><tr><td>ADRs</td><td>Record model choice, RAG vs finetuning, vendor lock-in</td></tr><tr><td>Stamp coupling</td><td>Don't send the whole record: every token is billed</td></tr><tr><td>Latency and cost as -ilities</td><td>Name them, measure them, protect a few</td></tr><tr><td>Observability</td><td>Trace the tree of model and tool calls</td></tr><tr><td>Data ownership</td><td>Who owns each dataset, index and eval set</td></tr><tr><td>Caching</td><td>Exact and semantic caches in front of the model</td></tr><tr><td>Shared service / gateway</td><td>Reuse patterns decide where the model gateway lives</td></tr><tr><td>Data flywheel</td><td>User feedback becomes the next dataset</td></tr></table>
+  </section>
+
+  <section>
+    <h2>4 · Plan A: architect moving into AI</h2>
+    <table><tr><th>Weeks</th><th>Read</th></tr><tr><td>1–2</td><td>AI Engineering ch. 1–2</td></tr><tr><td>3–4</td><td>AI Engineering ch. 3–4 (evals)</td></tr><tr><td>5</td><td>AI Engineering ch. 5 (prompting)</td></tr><tr><td>6–7</td><td>AI Engineering ch. 6 (RAG, agents)</td></tr><tr><td>8</td><td>AI Engineering ch. 10 (architecture)</td></tr><tr><td>9–10</td><td>AI Engineering ch. 7–9, skimmed</td></tr><tr><td>11</td><td>The Hard Parts ch. 11–13, reread</td></tr><tr><td>12</td><td>Build: one feature, evals in CI, ADRs</td></tr></table>
+  </section>
+
+  <section>
+    <h2>5 · Plan B: AI engineer into architecture</h2>
+    <table><tr><th>Weeks</th><th>Read</th></tr><tr><td>1–2</td><td>Fundamentals ch. 1–5</td></tr><tr><td>3</td><td>Fundamentals ch. 6–8</td></tr><tr><td>4–5</td><td>Fundamentals: styles chapters</td></tr><tr><td>6</td><td>Fundamentals: decisions and risk</td></tr><tr><td>7–8</td><td>The Hard Parts ch. 1–4, 7</td></tr><tr><td>9</td><td>The Hard Parts ch. 8–10</td></tr><tr><td>10</td><td>The Hard Parts ch. 11–13</td></tr><tr><td>11</td><td>The Hard Parts ch. 14–15</td></tr><tr><td>12</td><td>Apply: ADRs + fitness functions</td></tr></table>
+  </section>
+
+  <section>
+    <h2>6 · In none of them</h2>
+    <ul><li>MCP and agent protocols</li><li>Durable, long-running agents</li><li>AI governance and the EU AI Act</li><li>GPU capacity and FinOps</li><li>On-call for probabilistic systems</li><li>AI product sense</li></ul>
+    <div class="tip">Learn these from documentation and from running systems.</div>
+  </section>
+</div>
+
+<footer>
+  <div>Full guide: <a href="https://aiengineerinsights.com/blog/ai-engineering-books/?utm_source=readingmap&amp;utm_medium=pdf">AI engineering books, mapped</a> · <a href="https://aiengineerinsights.com/blog/fallacies-of-llm-systems/?utm_source=readingmap&amp;utm_medium=pdf">Fallacies of LLM systems</a> · <a href="https://aiengineerinsights.com/blog/conways-law-ai/?utm_source=readingmap&amp;utm_medium=pdf">Conway's law for AI</a></div>
+  <div>The mapping is ours, not the authors'.</div>
+</footer>
+</body>
+</html>

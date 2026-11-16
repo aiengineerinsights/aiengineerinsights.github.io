@@ -194,6 +194,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Set token and step budgets for our agent", askFor: "the agent's tools, typical number of steps, and our cost or latency target" },
     ],
   },
+  "/blog/ai-engineering-books": {
+    topic: "AI engineering books and the AI architect reading map",
+    questions: [
+      { q: "Which of these three books should I read first?", askFor: "my current role, how many years I have built software, and whether I have shipped an AI feature" },
+      { q: "Turn our evals into architecture fitness functions", askFor: "what our AI feature does, the evals we run today, and where they run" },
+      { q: "Write an ADR for a model or RAG decision", askFor: "the decision, the options we considered, and our constraints on cost and latency" },
+      { q: "Map saga patterns onto our agent workflow", askFor: "the steps our agent takes, which ones call tools, and what happens today when a step fails" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

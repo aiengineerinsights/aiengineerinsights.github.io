@@ -350,6 +350,9 @@ const ConwaysLawAIPost = () => {
                   produces that team's slice of the architecture. Give it access everywhere, and it will couple things no
                   team agreed to couple. If you're building that harness yourself, see{" "}
                   <Link to="/blog/what-is-an-agent-harness" className="text-primary hover:underline">what an agent harness is</Link>.
+                  Fundamentals of Software Architecture now has a section on team topologies too; our{" "}
+                  <Link to="/blog/ai-engineering-books" className="text-primary hover:underline">AI architect reading map</Link>{" "}
+                  shows how it fits with the AI engineering books.
                 </P>
               </section>
 

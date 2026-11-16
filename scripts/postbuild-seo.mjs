@@ -111,6 +111,23 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/ai-engineering-books',
+    title: "AI Engineering Books: The 3 That Make an AI Architect (and What None of Them Teach)",
+    seoTitle: "AI Engineering Books: The 3 an AI Architect Needs (Mapped)",
+    description:
+      "Three AI engineering books mapped against each other: what they share, why evals are fitness functions, two 12-week reading plans, and what's missing.",
+    date: '2026-11-16',
+    author: 'poorna',
+    image: '/og-ai-engineering-books.png',
+    faqs: [
+      { q: "What is the best AI engineering book?", a: "For building products on foundation models, AI Engineering by Chip Huyen (O'Reilly, December 2024) is the most complete single book. It covers evaluation, prompt engineering, RAG and agents, finetuning, dataset engineering, inference optimization and a reference architecture. Pair it with a software architecture book if you design systems and not just features." },
+      { q: "Do AI engineers need to learn software architecture?", a: "Yes, once a feature has to run in production alongside other systems. Trade-off analysis, coupling, data ownership, contracts and distributed workflows all apply to AI systems, and the architecture books explain them more thoroughly than AI books do. Fundamentals of Software Architecture is the place to start." },
+      { q: "What is an AI architect?", a: "An AI architect designs systems in which some components are AI models. The role combines classic software architecture (characteristics, coupling, data, trade-offs) with AI engineering (evaluation, retrieval, agents, inference cost). There is no standard definition yet, which is why a reading map across both fields is useful." },
+      { q: "What is the difference between a fitness function and an eval?", a: "In practice, very little. A fitness function is an automated check that an architecture still has a property such as low coupling or acceptable latency. An eval is an automated check that an AI feature still produces acceptable output. Both run in CI and both exist to stop a property from drifting unnoticed." },
+      { q: "In what order should I read these three books?", a: "Software architects should read AI Engineering first, since they already know the other two topics. AI engineers should read Fundamentals of Software Architecture, then The Hard Parts. Read The Hard Parts after Fundamentals in either case, because it builds on it." },
+    ],
+  },
+  {
     path: '/blog/fallacies-of-llm-systems',
     title: "The Fallacies of LLM Systems: 8 False Assumptions That Break AI in Production",
     seoTitle: "Fallacies of LLM Systems: 8 Assumptions That Break AI Apps",
