@@ -113,7 +113,7 @@ const posts = [
   {
     path: '/blog/ai-engineering-books',
     title: "AI Engineering Books: The 3 That Make an AI Architect (and What None of Them Teach)",
-    seoTitle: "AI Engineering Books: The 3 an AI Architect Needs (Mapped)",
+    seoTitle: "AI Engineering Books: The 3 That Make an AI Architect",
     description:
       "Three AI engineering books mapped against each other: what they share, why evals are fitness functions, two 12-week reading plans, and what's missing.",
     date: '2026-11-16',
