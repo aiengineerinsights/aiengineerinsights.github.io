@@ -28,3 +28,13 @@ export const AI_ARCHITECT_READING_MAP: NewsletterBonus = {
   label: "AI architect reading map (PDF)",
   href: "/downloads/ai-architect-reading-map.pdf",
 };
+
+export const CLAUDE_CODE_CHEAT_SHEET: NewsletterBonus = {
+  label: "Claude Code cheat sheet (PDF)",
+  href: "/downloads/claude-code-cheat-sheet.pdf",
+};
+
+export const CLAUDE_CODE_STARTER_KIT: NewsletterBonus = {
+  label: "Claude Code starter kit (zip)",
+  href: "/downloads/claude-code-starter-kit.zip",
+};

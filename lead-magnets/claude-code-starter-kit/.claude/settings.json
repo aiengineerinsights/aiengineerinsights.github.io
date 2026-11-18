@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": ["Bash(uv run pytest *)", "Bash(uv run ruff *)"],
+    "ask": ["Bash(git push *)"],
+    "deny": ["Read(./.env)", "Read(./.env.local)", "Read(./secrets/**)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "f=$(jq -r '.tool_input.file_path'); case \"$f\" in *.py) uv run ruff format \"$f\";; esac" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "jq -r '.tool_input.file_path' | grep -q '/migrations/' && { echo 'migrations/ is frozen' >&2; exit 2; } || exit 0" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "uv run pytest -q 1>&2 || exit 2" }
+        ]
+      }
+    ]
+  }
+}

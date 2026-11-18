@@ -148,7 +148,7 @@ const AICodingAgentsPost = () => {
                   <li><strong>Open-source / BYO-key</strong> (Aider, Cline, OpenCode, Kilo Code) — bring your own API key, pay only for tokens, keep control of models and data.</li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-                  Narrowing it down to the two most-compared tools? Our <Link to="/blog/claude-code-vs-cursor" className="text-primary hover:underline">Claude Code vs Cursor comparison</Link> covers workflow, features and pricing side by side.
+                  Narrowing it down to the two most-compared tools? Our <Link to="/blog/claude-code-vs-cursor" className="text-primary hover:underline">Claude Code vs Cursor comparison</Link> covers workflow, features and pricing side by side. Already on Claude Code? Keep the <Link to="/blog/claude-code-cheat-sheet" className="text-primary hover:underline">Claude Code cheat sheet</Link> open for its commands and shortcuts.
                 </p>
               </section>
 

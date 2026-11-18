@@ -111,6 +111,42 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/claude-code-best-practices',
+    title: "Claude Code Best Practices (2026): A Setup That Scales From One Engineer to a Team",
+    seoTitle: "Claude Code Best Practices (2026): Setup That Scales",
+    description:
+      "Claude Code best practices: what goes in CLAUDE.md vs hooks, permission rules, which plugins to install, and how to roll one setup out to a team.",
+    date: '2026-11-18',
+    author: 'poorna',
+    image: '/og-claude-code-best-practices.png',
+    faqs: [
+      { q: "What are the best practices for Claude Code?", a: "Keep CLAUDE.md short and limited to what Claude cannot read from the code. Put rules that must always hold in hooks, deny rules and the sandbox. Give Claude a pass/fail check such as your test command so it can verify its own work. Use /clear between unrelated tasks, and cap turns or spend on any run you are not watching." },
+      { q: "What should go in CLAUDE.md?", a: "Only what Claude cannot work out from the repo: the exact test, lint and typecheck commands, places where the code is misleading, team decisions that are not written in the code, and anything you have had to correct twice. Leave out architecture and folder descriptions, and keep the file under about 200 lines." },
+      { q: "What is the difference between CLAUDE.md and hooks?", a: "CLAUDE.md is text the model reads, so it is advice: Claude follows it nearly every time but can decide a guideline does not apply. A hook is a command Claude Code runs itself at a fixed point, so it happens every time. Use CLAUDE.md for guidelines and hooks for rules with zero exceptions." },
+      { q: "Which Claude Code plugins should I install first?", a: "Start with none and add them when a problem shows up. Then pick one workflow pack, such as Everything Claude Code or Superpowers, not both. Add a memory plugin for long projects and an MCP server such as Context7 or Playwright when you need current docs or a browser. Every add-on costs context in each session." },
+      { q: "How do I set up Claude Code for a team?", a: "Commit CLAUDE.md, .claude/settings.json, and the rules, skills and agents folders so everyone shares them. Keep CLAUDE.local.md and settings.local.json out of git for personal preferences. Start with a short CLAUDE.md and deny rules for secrets, add hooks next, then skills, and put security policy in managed settings." },
+      { q: "Is auto mode safe to use in Claude Code?", a: "Auto mode is the default for interactive sessions and is a reasonable middle ground. A classifier model checks each action and stops risky ones such as production deploys and force pushes. Because it is a model's judgment and not a hard rule, anything that must never happen should also be a deny rule or a hook, which apply before the classifier runs." },
+    ],
+  },
+  {
+    path: '/blog/claude-code-cheat-sheet',
+    title: "Claude Code Cheat Sheet (2026): Commands, Slash Commands and Shortcuts",
+    seoTitle: "Claude Code Cheat Sheet: Commands & Shortcuts (2026)",
+    description:
+      "Claude Code cheat sheet: every slash command grouped by task, keyboard shortcuts, CLI commands and flags, plus what was removed. Free one-page PDF.",
+    date: '2026-11-18',
+    author: 'poorna',
+    image: '/og-claude-code-cheat-sheet.png',
+    faqs: [
+      { q: "How do I see all Claude Code commands?", a: "Type / at the prompt to list every command available to you, then keep typing to filter. /help shows help and available commands, and typing ? on an empty prompt opens the keyboard shortcut panel. The list differs by plan, platform and version, so yours may not match a published one exactly." },
+      { q: "What is the difference between /clear and /compact in Claude Code?", a: "/clear starts a new conversation with empty context and keeps project memory such as CLAUDE.md. /compact stays in the same conversation and replaces its history with a summary to free space. Use /clear when you switch tasks and /compact when you are in the middle of one." },
+      { q: "How do I undo a change in Claude Code?", a: "Run /rewind, or press Esc twice on an empty prompt. Both open the rewind menu, where you can restore the code, the conversation, or both to an earlier point. /checkpoint and /undo are aliases for /rewind." },
+      { q: "What is the shortcut for plan mode in Claude Code?", a: "Press Shift+Tab to cycle permission modes until the indicator shows plan mode, or type /plan, optionally followed by the task. To start a session in plan mode, run claude --permission-mode plan." },
+      { q: "How do I create a custom slash command in Claude Code?", a: "Create a folder at .claude/skills/your-command/ with a SKILL.md file inside. The folder name becomes the command, so the skill in .claude/skills/deploy/ runs as /deploy. Use $ARGUMENTS in the file for whatever you type after the command. Older .claude/commands/ files still work." },
+      { q: "Is there a Claude Code cheat sheet PDF?", a: "Yes. The one-page printable PDF of this cheat sheet is free with the newsletter sign-up on this page. It has the same commands, shortcuts and CLI flags, laid out for A4." },
+    ],
+  },
+  {
     path: '/blog/ai-engineering-books',
     title: "AI Engineering Books: The 3 That Make an AI Architect (and What None of Them Teach)",
     seoTitle: "AI Engineering Books: The 3 That Make an AI Architect",
@@ -1060,8 +1096,16 @@ const posts = [
     description:
       'The LLM deployment challenges that actually bite in production — cost, latency, hallucinations, prompt injection — each with when it hits and how to handle it.',
     date: '2026-07-25',
+    dateModified: '2026-11-17',
     author: 'poorna',
     image: '/og-llm-deployment-challenges.png',
+    faqs: [
+      { q: 'What is the hardest part of deploying an LLM?', a: 'For most teams it\'s the combination of cost, latency, and output reliability. The model working in a demo is easy; making it fast, affordable, and consistently correct under real traffic is where the engineering is.' },
+      { q: 'Should I self-host an LLM or use an API?', a: 'Use a hosted API to move fast and when data policy allows; self-host when you need data control, cost predictability at scale, or a specific open-weight model. Many teams do both — hosted for general calls, self-hosted for sensitive or high-volume paths.' },
+      { q: 'How do I reduce LLM inference cost?', a: 'Route easy requests to smaller models, retrieve only relevant context instead of stuffing prompts, cache repeated calls, cap output length, batch where latency allows, and quantize self-hosted models. Track cost per feature so you know where to cut.' },
+      { q: 'How do I stop an LLM from hallucinating?', a: 'You can\'t eliminate it, but you can contain it: ground answers with retrieval over trusted sources, tell the model to answer only from provided context, cite sources, evaluate against a test set, and add human review for high-stakes outputs.' },
+      { q: 'Is self-hosting an LLM actually cheaper than an API?', a: 'Usually not, unless utilization is high. Cost analyses from OpenRouter and Nodus Compute both find self-hosting only beats a competitive per-token API once a GPU is busy a large share of the hours you\'re paying for — often 70%+ for frontier-class models, or hundreds of millions of tokens/day to beat the cheapest API serving the same open model. Bursty or office-hours-only traffic almost never clears that bar.' },
+    ],
   },
   {
     path: '/blog/building-robust-ai-data-pipelines',

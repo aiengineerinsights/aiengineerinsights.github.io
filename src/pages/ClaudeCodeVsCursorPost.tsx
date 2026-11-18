@@ -165,7 +165,9 @@ const ClaudeCodeVsCursorPost = () => {
                 <P>
                   That one difference explains most of the rest. Claude Code's features are about controlling an
                   autonomous agent (hooks, subagents, permissions). Cursor's are about making the editing loop faster
-                  (tab completion, inline diffs, multiple models).
+                  (tab completion, inline diffs, multiple models). The{" "}
+                  <Link to="/blog/claude-code-cheat-sheet" className="text-primary hover:underline">Claude Code cheat sheet</Link>{" "}
+                  lists those commands and shortcuts on one page.
                 </P>
               </section>
 

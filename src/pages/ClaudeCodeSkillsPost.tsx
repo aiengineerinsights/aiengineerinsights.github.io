@@ -177,7 +177,9 @@ const ClaudeCodeSkillsPost = () => {
                 you run it with <code>/skill-name</code>. Put personal skills in <code>~/.claude/skills/</code> and
                 project skills in <code>.claude/skills/</code>. Build your own with Anthropic's skill-creator, install
                 others from plugin marketplaces with <code>/plugin install</code>, and only install skills you trust,
-                because they can run code.
+                because they can run code. For the built-in commands and shortcuts, see the{" "}
+                <Link to="/blog/claude-code-cheat-sheet" className="text-primary hover:underline">Claude Code cheat sheet</Link>; for where skills fit beside CLAUDE.md and hooks, see{" "}
+                <Link to="/blog/claude-code-best-practices" className="text-primary hover:underline">Claude Code best practices</Link>.
               </p>
             </div>
 

@@ -203,6 +203,24 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Map saga patterns onto our agent workflow", askFor: "the steps our agent takes, which ones call tools, and what happens today when a step fails" },
     ],
   },
+  "/blog/claude-code-cheat-sheet": {
+    topic: "Claude Code commands, slash commands, keyboard shortcuts and CLI flags",
+    questions: [
+      { q: "Which Claude Code commands should I learn first?", askFor: "how I use Claude Code today, my editor and terminal, and what slows me down" },
+      { q: "Write a custom slash command (skill) for my workflow", askFor: "the task I repeat, the tools or CLIs it uses, and whether Claude should run it on its own" },
+      { q: "Set up claude -p in my CI pipeline", askFor: "my CI system, what the job should check, and the output format I need" },
+      { q: "Which permission mode should I use?", askFor: "the kind of repo, how much I trust the changes, and whether it runs in a sandbox" },
+    ],
+  },
+  "/blog/claude-code-best-practices": {
+    topic: "Claude Code best practices and team setup (CLAUDE.md, hooks, permissions, plugins)",
+    questions: [
+      { q: "Audit my CLAUDE.md and tell me what to cut", askFor: "the contents of my CLAUDE.md, my stack, and the mistakes Claude keeps making" },
+      { q: "Which of my rules should be hooks instead of CLAUDE.md lines?", askFor: "the rules I have today and which ones must never be broken" },
+      { q: "Write a Stop hook and deny rules for my project", askFor: "my test, lint and typecheck commands, my package manager, and the files Claude must not read or edit" },
+      { q: "Plan a Claude Code rollout for my team", askFor: "team size, repos, what we use today, and our security requirements" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

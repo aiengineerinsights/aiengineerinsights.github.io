@@ -15,6 +15,28 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 68,
+      title: "Claude Code Best Practices (2026): A Setup That Scales From One Engineer to a Team",
+      excerpt: "One decision drives most Claude Code best practices: is this a guideline Claude should weigh, or a rule that must hold every time? What goes in CLAUDE.md, rules, skills, hooks and permissions, which add-ons to install, and how to roll the setup out to a team.",
+      readTime: "13 min read",
+      date: "Nov 18, 2026",
+      category: "AI Coding",
+      icon: Wrench,
+      gradient: "from-orange-600 to-amber-700",
+      link: "/blog/claude-code-best-practices"
+    },
+    {
+      id: 67,
+      title: "Claude Code Cheat Sheet (2026): Commands, Slash Commands and Shortcuts",
+      excerpt: "The Claude Code commands you type every day: slash commands grouped by task, keyboard shortcuts, CLI commands and flags, permission modes, custom commands, and a table of what has been removed or renamed. Checked against Anthropic's docs.",
+      readTime: "9 min read",
+      date: "Nov 18, 2026",
+      category: "AI Coding",
+      icon: TerminalSquare,
+      gradient: "from-orange-600 to-amber-700",
+      link: "/blog/claude-code-cheat-sheet"
+    },
+    {
       id: 66,
       title: "AI Engineering Books: The 3 That Make an AI Architect (and What None of Them Teach)",
       excerpt: "Fundamentals of Software Architecture, The Hard Parts and Chip Huyen's AI Engineering, mapped against each other: the four ideas in all three (evals are fitness functions), what transfers between pairs, two 12-week reading plans, and six things none of them teach.",

@@ -4,6 +4,8 @@ Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
 Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
+Disallow: /downloads/claude-code-cheat-sheet.pdf
+Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Bingbot
@@ -12,6 +14,8 @@ Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
 Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
+Disallow: /downloads/claude-code-cheat-sheet.pdf
+Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Twitterbot
@@ -84,6 +88,8 @@ Disallow: /downloads/hermes-agent-cheat-sheet.pdf
 Disallow: /downloads/conways-law-ai-cheat-sheet.pdf
 Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
+Disallow: /downloads/claude-code-cheat-sheet.pdf
+Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-roadmap.pdf
 
 Sitemap: https://aiengineerinsights.com/sitemap.xml

@@ -1,0 +1,176 @@
+<!doctype html>
+<!--
+  Source for public/downloads/claude-code-cheat-sheet.pdf, the newsletter-only
+  bonus offered on /blog/claude-code-cheat-sheet (see NewsletterSignup `bonus` prop).
+  Every entry is from Anthropic's Claude Code docs (commands, interactive-mode,
+  cli-reference), checked Nov 18 2026. Claude Code changes weekly: re-check before reprinting.
+
+  Rebuild the PDF after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --no-pdf-header-footer --print-to-pdf=public/downloads/claude-code-cheat-sheet.pdf \
+      lead-magnets/claude-code-cheat-sheet.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Claude Code Cheat Sheet — AI Engineer Insights</title>
+<style>
+  @page { size: A4; margin: 9mm 10mm 7mm; }
+  * { box-sizing: border-box; }
+  body { font: 8.3pt/1.26 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1f1a14; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #c2570c; padding-bottom: 5px; margin-bottom: 7px; }
+  h1 { font-size: 19pt; margin: 0; letter-spacing: -0.3px; }
+  h1 span { color: #c2570c; }
+  .sub { color: #6b6257; font-size: 8.8pt; margin-top: 2px; }
+  .brand { text-align: right; font-size: 8.2pt; color: #6b6257; }
+  .brand b { color: #1f1a14; font-size: 9.8pt; }
+  .cols { columns: 2; column-gap: 12px; }
+  section { break-inside: avoid; margin: 0 0 6px; border: 1px solid #ecdfd0; border-radius: 6px; padding: 5px 8px 4px; }
+  h2 { font-size: 9.6pt; margin: 0 0 3px; color: #c2570c; text-transform: uppercase; letter-spacing: 0.6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 1.7px 0; vertical-align: top; border-bottom: 1px dotted #ecdfd0; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { width: 47%; padding-right: 6px; }
+  code { font: 7.7pt/1.25 "SF Mono", Menlo, Consolas, monospace; background: #fbf1e6; padding: 0.5px 3px; border-radius: 3px; }
+  .tip { background: #fdf5ec; border-left: 3px solid #c2570c; padding: 4px 8px; margin: 0 0 6px; font-size: 8.2pt; break-inside: avoid; }
+  footer { margin-top: 2px; border-top: 1px solid #ecdfd0; padding-top: 5px; font-size: 8pt; color: #6b6257; display: flex; justify-content: space-between; gap: 10px; }
+  a { color: #c2570c; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Claude Code <span>Cheat Sheet</span></h1>
+    <div class="sub">Slash commands, keyboard shortcuts and CLI flags. One page. [x] optional, &lt;x&gt; required.</div>
+  </div>
+  <div class="brand"><b>AI Engineer Insights</b><br />aiengineerinsights.com · Nov 2026</div>
+</header>
+
+<div class="cols">
+  <section>
+    <h2>1 · Every day</h2>
+    <table>
+      <tr><td><code>/init</code></td><td>Create a starter CLAUDE.md</td></tr>
+      <tr><td><code>/plan [task]</code></td><td>Plan first, edit after approval</td></tr>
+      <tr><td><code>/model [model]</code></td><td>Switch model</td></tr>
+      <tr><td><code>/context</code></td><td>See what fills the context window</td></tr>
+      <tr><td><code>/compact [focus]</code></td><td>Summarize to free context</td></tr>
+      <tr><td><code>/clear [name]</code></td><td>New conversation, memory stays</td></tr>
+      <tr><td><code>/resume [session]</code></td><td>Reopen an earlier session</td></tr>
+      <tr><td><code>/rewind</code></td><td>Roll back code, chat or both</td></tr>
+      <tr><td><code>/diff</code></td><td>Review working-tree changes</td></tr>
+      <tr><td><code>/code-review [--fix]</code></td><td>Check the diff for bugs</td></tr>
+      <tr><td><code>/permissions</code></td><td>Allow, ask and deny rules</td></tr>
+      <tr><td><code>/mcp</code></td><td>Manage MCP servers</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>2 · Set up</h2>
+    <table>
+      <tr><td><code>/memory</code></td><td>Edit CLAUDE.md, auto memory</td></tr>
+      <tr><td><code>/add-dir &lt;path&gt;</code></td><td>Add a working directory</td></tr>
+      <tr><td><code>/cd &lt;path&gt;</code></td><td>Move session, keep conversation</td></tr>
+      <tr><td><code>/hooks</code></td><td>View hook configuration</td></tr>
+      <tr><td><code>/skills</code></td><td>List skills</td></tr>
+      <tr><td><code>/plugin</code></td><td>Plugin menu</td></tr>
+      <tr><td><code>/terminal-setup</code></td><td>Install Shift+Enter newline</td></tr>
+      <tr><td><code>/statusline</code></td><td>Set up the status line</td></tr>
+      <tr><td><code>/config [key=value]</code></td><td>Settings</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>3 · Run work</h2>
+    <table>
+      <tr><td><code>/goal [condition]</code></td><td>Work until a condition is met</td></tr>
+      <tr><td><code>/loop [interval] [prompt]</code></td><td>Repeat a prompt</td></tr>
+      <tr><td><code>/tasks</code></td><td>Background work in this session</td></tr>
+      <tr><td><code>/subtask &lt;task&gt;</code></td><td>Forked background subagent</td></tr>
+      <tr><td><code>/background</code></td><td>Detach session (alias /bg)</td></tr>
+      <tr><td><code>/fork [prompt]</code></td><td>Copy into a background session</td></tr>
+      <tr><td><code>/btw [question]</code></td><td>Side question, not saved</td></tr>
+      <tr><td><code>/effort [level]</code></td><td>low to xhigh, max, auto</td></tr>
+      <tr><td><code>/usage</code></td><td>Cost and limits (/cost, /stats)</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>4 · Review and ship</h2>
+    <table>
+      <tr><td><code>/security-review</code></td><td>Security check of branch changes</td></tr>
+      <tr><td><code>/simplify [target]</code></td><td>Clean up changed code</td></tr>
+      <tr><td><code>/verify</code></td><td>Build, run and confirm a change</td></tr>
+      <tr><td><code>/autofix-pr</code></td><td>Cloud session that fixes the PR</td></tr>
+      <tr><td><code>/branch [name]</code></td><td>Branch the conversation</td></tr>
+      <tr><td><code>/rename [name]</code></td><td>Name the session</td></tr>
+      <tr><td><code>/export [file]</code></td><td>Export as plain text</td></tr>
+      <tr><td><code>/copy [N]</code></td><td>Copy a response</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>5 · Shortcuts</h2>
+    <table>
+      <tr><td><code>Shift+Tab</code></td><td>Cycle permission modes</td></tr>
+      <tr><td><code>Esc</code></td><td>Interrupt Claude</td></tr>
+      <tr><td><code>Esc Esc</code></td><td>Clear draft, or rewind menu</td></tr>
+      <tr><td><code>Ctrl+C</code></td><td>Interrupt; twice to exit</td></tr>
+      <tr><td><code>Ctrl+R</code></td><td>Search prompt history</td></tr>
+      <tr><td><code>Ctrl+B</code></td><td>Send task to background</td></tr>
+      <tr><td><code>Ctrl+O</code></td><td>Transcript viewer</td></tr>
+      <tr><td><code>Ctrl+T</code></td><td>Task checklist</td></tr>
+      <tr><td><code>Ctrl+G</code></td><td>Edit prompt in your editor</td></tr>
+      <tr><td><code>Ctrl+S</code></td><td>Stash / restore prompt</td></tr>
+      <tr><td><code>Ctrl+V</code></td><td>Paste image</td></tr>
+      <tr><td><code>Option+P / Alt+P</code></td><td>Switch model</td></tr>
+      <tr><td><code>Ctrl+J  or  \ + Enter</code></td><td>New line, any terminal</td></tr>
+      <tr><td><code>?</code></td><td>Shortcut help (empty prompt)</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>6 · Prefixes and editing</h2>
+    <table>
+      <tr><td><code>/</code></td><td>Command or skill</td></tr>
+      <tr><td><code>!</code></td><td>Shell mode</td></tr>
+      <tr><td><code>@</code></td><td>Mention a file</td></tr>
+      <tr><td><code>Ctrl+A / Ctrl+E</code></td><td>Start / end of line</td></tr>
+      <tr><td><code>Ctrl+K / Ctrl+U</code></td><td>Delete to end / to start</td></tr>
+      <tr><td><code>Ctrl+W</code></td><td>Delete previous word</td></tr>
+      <tr><td><code>Ctrl+Y</code></td><td>Paste deleted text</td></tr>
+      <tr><td><code>Ctrl+_</code></td><td>Undo input edit</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>7 · CLI</h2>
+    <table>
+      <tr><td><code>claude "query"</code></td><td>Start with a prompt</td></tr>
+      <tr><td><code>claude -p "query"</code></td><td>Answer, then exit (scripts, CI)</td></tr>
+      <tr><td><code>claude -c</code></td><td>Continue last session</td></tr>
+      <tr><td><code>claude -r &lt;name&gt;</code></td><td>Resume by name or ID</td></tr>
+      <tr><td><code>claude -w &lt;name&gt;</code></td><td>Run in a git worktree</td></tr>
+      <tr><td><code>claude --bg "task"</code></td><td>Run as background agent</td></tr>
+      <tr><td><code>claude update</code></td><td>Update</td></tr>
+      <tr><td><code>claude doctor</code></td><td>Install diagnostics</td></tr>
+      <tr><td><code>claude mcp</code></td><td>Configure MCP servers</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>8 · Flags</h2>
+    <table>
+      <tr><td><code>--model &lt;name&gt;</code></td><td>sonnet, opus, haiku, fable</td></tr>
+      <tr><td><code>--permission-mode &lt;mode&gt;</code></td><td>default, acceptEdits, plan, auto</td></tr>
+      <tr><td><code>--add-dir &lt;path&gt;</code></td><td>Extra working directory</td></tr>
+      <tr><td><code>--output-format json</code></td><td>Print-mode output format</td></tr>
+      <tr><td><code>--max-turns &lt;n&gt;</code></td><td>Limit turns (print mode)</td></tr>
+      <tr><td><code>--append-system-prompt</code></td><td>Add to the system prompt</td></tr>
+      <tr><td><code>--bare</code></td><td>Skip hooks, skills, MCP, CLAUDE.md</td></tr>
+      <tr><td><code>--safe-mode</code></td><td>Customizations off, to debug</td></tr>
+    </table>
+  </section>
+  <div class="tip"><b>Custom command:</b> put a <code>SKILL.md</code> in <code>.claude/skills/&lt;name&gt;/</code> and type <code>/&lt;name&gt;</code>. Use <code>$ARGUMENTS</code> for what follows the command.</div>
+  <div class="tip"><b>Gone:</b> <code>/vim</code> (use /config), <code>/pr-comments</code>, <code>/ultraplan</code>, <code>--enable-auto-mode</code>. <code>/cost</code> and <code>/review</code> are now aliases.</div>
+</div>
+
+<footer>
+  <span>Full guide with every table: <a href="https://aiengineerinsights.com/blog/claude-code-cheat-sheet/?utm_source=cheat-sheet-pdf">aiengineerinsights.com/blog/claude-code-cheat-sheet</a></span>
+  <span>From Anthropic's Claude Code docs, checked Nov 18 2026.</span>
+</footer>
+</body>
+</html>
