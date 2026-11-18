@@ -1,13 +1,17 @@
 import { Video, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLocation } from "react-router-dom";
+import { topmateUrl } from "@/config/topmate";
 
 // Paid 1:1 booking CTA (Topmate). This is the BoFu step below the free roadmap
 // PDF: readers on career posts who want personal help book a session. Warm/amber
 // styling deliberately signals "premium" vs the free roadmap CTA's cool palette.
-const TOPMATE_URL = "https://topmate.io/poorna_prudhvi_gurram";
-
-const TopmateCTA = () => (
+// The link carries the article slug, so a booking shows which guide it came from.
+const TopmateCTA = () => {
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/+|\/+$/g, "").replace(/^blog\//, "") || "home";
+  return (
   <Card className="my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-r from-amber-500/10 to-orange-600/10 border-amber-500/30">
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
       <div className="min-w-0">
@@ -23,7 +27,7 @@ const TopmateCTA = () => (
           Start with a free 30-min quick chat.
         </p>
       </div>
-      <a href={TOPMATE_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
+      <a href={topmateUrl("article-cta", slug)} target="_blank" rel="noopener noreferrer" className="shrink-0">
         <Button className="bg-amber-600 text-white hover:bg-amber-700">
           <Video className="mr-2 h-4 w-4" />
           Book on Topmate
@@ -31,6 +35,7 @@ const TopmateCTA = () => (
       </a>
     </div>
   </Card>
-);
+  );
+};
 
 export default TopmateCTA;

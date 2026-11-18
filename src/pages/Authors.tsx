@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import profilePic from '@/assets/vishnu_lanka.jpg';
 import prudhviprofilePic from '@/assets/16826_GurramPoornaPrudhvi (1).jpg';
+import { topmateUrl } from "@/config/topmate";
 
 const Authors = () => {
   const authors = [
@@ -45,7 +46,7 @@ const Authors = () => {
       github: "https://github.com/poornagurram",
       linkedin: "https://linkedin.com/in/poornagurram",
       website: "https://aiengineerinsights.com",
-      topmate: "https://topmate.io/poorna_prudhvi_gurram",
+      topmate: topmateUrl("authors-page"),
       achievements: [
         "8+ years building production AI and NLP systems",
         "Writes practical, engineering-first guides on LLMs and agents",

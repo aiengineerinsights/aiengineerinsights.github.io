@@ -3,6 +3,7 @@ import { Github, Mail, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Link } from "@/components/SiteLink";
+import { topmateUrl } from "@/config/topmate";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://topmate.io/poorna_prudhvi_gurram"
+                  href={topmateUrl("footer")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
