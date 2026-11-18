@@ -18,10 +18,11 @@ const seoSrc = readFileSync(join('scripts', 'postbuild-seo.mjs'), 'utf8')
 const sitemapPath = join('public', 'sitemap.xml')
 let sitemap = readFileSync(sitemapPath, 'utf8')
 
-// Pull every { path: '/blog/...', ... date: 'YYYY-MM-DD' } pair.
+// Pull every { path: '/blog/...', ... date: 'YYYY-MM-DD', [dateModified: 'YYYY-MM-DD'] }.
+// Prefer dateModified when present — it's the real recrawl signal for refreshed posts.
 const dates = new Map()
-for (const m of seoSrc.matchAll(/path:\s*'(\/blog\/[^']+)'[\s\S]{0,2000}?date:\s*'(\d{4}-\d{2}-\d{2})'/g)) {
-  dates.set(m[1], m[2])
+for (const m of seoSrc.matchAll(/path:\s*'(\/blog\/[^']+)'[\s\S]{0,2000}?date:\s*'(\d{4}-\d{2}-\d{2})'([\s\S]{0,200}?dateModified:\s*'(\d{4}-\d{2}-\d{2})')?/g)) {
+  dates.set(m[1], m[4] || m[2])
 }
 
 if (dates.size === 0) {

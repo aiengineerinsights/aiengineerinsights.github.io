@@ -7,6 +7,13 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import LLMDeployHeroDiagram from "@/components/LLMDeployHeroDiagram";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+const RefLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+    {children}
+  </a>
+);
 
 const challenges = [
   {
@@ -136,6 +143,10 @@ const faqs = [
     q: "How do I stop an LLM from hallucinating?",
     a: "You can't eliminate it, but you can contain it: ground answers with retrieval over trusted sources, tell the model to answer only from provided context, cite sources, evaluate against a test set, and add human review for high-stakes outputs.",
   },
+  {
+    q: "Is self-hosting an LLM actually cheaper than an API?",
+    a: "Usually not, unless utilization is high. Cost analyses from OpenRouter and Nodus Compute both find self-hosting only beats a competitive per-token API once a GPU is busy a large share of the hours you're paying for — often 70%+ for frontier-class models, or hundreds of millions of tokens/day to beat the cheapest API serving the same open model. Bursty or office-hours-only traffic almost never clears that bar.",
+  },
 ];
 
 const BlogPost2 = () => {
@@ -192,11 +203,11 @@ const BlogPost2 = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Jul 25, 2026
+                      Jul 25, 2026 (updated Nov 17, 2026)
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
-                      12 min read
+                      13 min read
                     </div>
                   </div>
                 </div>
@@ -243,6 +254,97 @@ const BlogPost2 = () => {
                 </p>
               </section>
               ))}
+
+              <section className="mb-6 sm:mb-8">
+                <h2 id="self-hosted-vs-api" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+                  13. Self-hosted vs API: when self-hosting actually pays off (Nov 2026 update)
+                </h2>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">Cost &amp; Performance</p>
+                <p className="text-muted-foreground leading-relaxed mb-3 text-sm sm:text-base">
+                  Teams default to "self-host to save money" without checking whether their actual traffic clears
+                  the break-even point — and recent cost analyses show that bar is higher than most expect. The
+                  right question isn't API vs. GPU in the abstract; it's what utilization your rented or owned GPU
+                  needs to hit before it beats the cheapest zero-data-retention API endpoint for the same model.
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-5 rounded-lg mb-3 space-y-2">
+                  <p className="text-sm sm:text-base">
+                    <strong className="text-foreground">When it hits hardest:</strong>{" "}
+                    <span className="text-muted-foreground">
+                      Whenever a team provisions GPUs "to save on tokens" for bursty or office-hours-only traffic,
+                      where a GPU rented or owned around the clock sits mostly idle.
+                    </span>
+                  </p>
+                  <p className="text-sm sm:text-base">
+                    <strong className="text-foreground">How to handle it:</strong>{" "}
+                    <span className="text-muted-foreground">
+                      Compute break-even load as GPU rent per hour divided by what the same hour of tokens would
+                      cost through the cheapest zero-data-retention API endpoint. Below that load, the API wins —
+                      full stop. <RefLink href="https://openrouter.ai/blog/insights/self-hosted-llm-vs-api/">OpenRouter's October 2026 analysis</RefLink>{" "}
+                      found a mixture-of-experts model on rented H200s "never" breaks even against the cheapest ZDR
+                      endpoint, while a small 27B model on a single rented RTX 3090 breaks even at just 6–12% load —
+                      but only because the API alternative for that model is priced far higher per token.{" "}
+                      <RefLink href="https://www.nodus-compute.ai/blog/self-hosting-llm-vs-api-cost/">Nodus Compute's analysis</RefLink>{" "}
+                      independently lands on the same shape of answer from a different angle: self-hosting an open
+                      model on one H100 only beats a frontier API (Claude/GPT-class pricing) at roughly 16M tokens/day,
+                      but needs 240–400M tokens/day to beat the cheap per-token APIs serving the <em>same</em> open
+                      model — because those providers already pack many customers onto the same GPUs more efficiently
+                      than a single team can.
+                    </span>
+                  </p>
+                  <p className="text-sm sm:text-base">
+                    <strong className="text-foreground">Example:</strong>{" "}
+                    <span className="text-muted-foreground">
+                      A team provisioned a rented 4×H200 node to self-host a mixture-of-experts model, expecting
+                      savings over the API. At their actual traffic (well under full utilization), OpenRouter's
+                      own break-even math for that exact setup shows it never catches up to the cheapest
+                      zero-data-retention endpoint — the API was the cheaper choice the whole time.
+                    </span>
+                  </p>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Office-hours-only traffic (roughly 40 of the week's 168 hours) caps GPU utilization at about 24%,
+                  which rules out most large self-hosted setups against competitive API pricing — only a
+                  round-the-clock batch workload reliably clears a favorable break-even. Run the arithmetic before
+                  the purchase order, not after.
+                </p>
+                <div className="overflow-x-auto mb-4">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Setup</TableHead>
+                        <TableHead>Rent / GPU-hour</TableHead>
+                        <TableHead>Break-even load vs cheapest API</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell>Mixture-of-experts model, 4×H200</TableCell>
+                        <TableCell>$2.90</TableCell>
+                        <TableCell>Never beats cheapest ZDR endpoint</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>Mixture-of-experts model, 2×B200</TableCell>
+                        <TableCell>$3.70</TableCell>
+                        <TableCell>76% utilization</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>27B model, 1×rented RTX 3090</TableCell>
+                        <TableCell>$0.50</TableCell>
+                        <TableCell>6–12% utilization</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>Open 70B-class model vs. cheap per-token API (same model)</TableCell>
+                        <TableCell>1×H100, ~$2.60/hr</TableCell>
+                        <TableCell>240–400M tokens/day needed</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Figures from OpenRouter (Oct 8, 2026 pricing) and Nodus Compute's analysis — see sources above.
+                    Prices move quickly; re-check current rates before committing to hardware.
+                  </p>
+                </div>
+              </section>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="putting-it-together" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Putting it together</h2>
