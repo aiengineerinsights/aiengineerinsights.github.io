@@ -8,7 +8,8 @@ import { topmateUrl } from "@/config/topmate";
 // PDF: readers on career posts who want personal help book a session. Warm/amber
 // styling deliberately signals "premium" vs the free roadmap CTA's cool palette.
 // The link carries the article slug, so a booking shows which guide it came from.
-const TopmateCTA = () => {
+// `placement` names where the card sits (it becomes utm_campaign).
+const TopmateCTA = ({ placement = "article-cta" }: { placement?: string }) => {
   const { pathname } = useLocation();
   const slug = pathname.replace(/^\/+|\/+$/g, "").replace(/^blog\//, "") || "home";
   return (
@@ -27,7 +28,7 @@ const TopmateCTA = () => {
           Start with a free 30-min quick chat.
         </p>
       </div>
-      <a href={topmateUrl("article-cta", slug)} target="_blank" rel="noopener noreferrer" className="shrink-0">
+      <a href={topmateUrl(placement, slug)} target="_blank" rel="noopener noreferrer" className="shrink-0">
         <Button className="bg-amber-600 text-white hover:bg-amber-700">
           <Video className="mr-2 h-4 w-4" />
           Book on Topmate

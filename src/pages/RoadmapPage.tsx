@@ -6,6 +6,7 @@ import ExploreWithAI from "@/components/ExploreWithAI";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import TopmateCTA from "@/components/TopmateCTA";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { affiliateUrl } from "@/config/affiliates";
 
@@ -293,6 +294,8 @@ const RoadmapPage = () => {
           </div>
 
           <AffiliateDisclosure className="max-w-3xl mx-auto" />
+
+          <TopmateCTA placement="roadmap-page" />
 
           <section className="my-10 rounded-xl border border-border bg-muted/40 p-6 text-center">
             <h2 className="text-2xl font-bold mb-2">Get the full roadmap as a PDF</h2>

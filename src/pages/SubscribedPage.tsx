@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import TopmateCTA from "@/components/TopmateCTA";
 
 // Confirmation landing page. beehiiv's double opt-in redirects here after a
 // subscriber clicks the confirm link in their email, so this page's whole job
@@ -91,6 +92,11 @@ const SubscribedPage = () => {
               })}
             </div>
           </section>
+
+          {/* The reader has just opted in: the moment to offer 1:1 help. */}
+          <div className="mt-10 text-left">
+            <TopmateCTA placement="subscribed-page" />
+          </div>
 
           {/* Keep reading while you wait */}
           <section className="mt-12">
