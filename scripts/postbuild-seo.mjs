@@ -111,6 +111,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/claude-code-goal-loop',
+    title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
+    seoTitle: "Claude Code /goal vs /loop vs Ralph Loop (2026 Guide)",
+    description:
+      "Claude Code /goal vs /loop vs the Ralph loop plugin vs a Stop hook: what decides the work is done, how to write a goal condition, and how to cap cost.",
+    date: '2026-11-20',
+    author: 'poorna',
+    image: '/og-claude-code-goal-loop.png',
+    faqs: [
+      { q: "What is the difference between /goal and /loop in Claude Code?", a: "/goal keeps Claude working until a condition you write is met, and a separate model checks that condition after every turn. /loop repeats a prompt on a time interval while the session is open and stops when you stop it. Use /goal for building until something passes and /loop for polling something that changes over time." },
+      { q: "What is the Ralph loop in Claude Code?", a: "The Ralph loop is a technique where an agent is fed the same prompt repeatedly and improves its work through the files it leaves behind. In Claude Code it is available as the ralph-loop plugin from Anthropic's marketplace, which uses a Stop hook to re-feed the prompt until Claude prints a completion phrase or an iteration cap is reached." },
+      { q: "Does /goal replace the Ralph loop plugin?", a: "For most uses, yes. /goal is built in, needs no plugin, and has an independent model check the condition, while the Ralph loop trusts Claude to print a completion phrase. The plugin is still useful when you want the identical prompt re-read each round with a hard iteration limit." },
+      { q: "How do I write a good /goal condition?", a: "State one measurable end state, the command that proves it, and anything that must not change, then add a cap such as \"or stop after 20 turns\". The checker only reads the conversation, so the proof has to be something Claude's own output shows, such as a test command exiting with 0." },
+      { q: "How do I stop a goal in Claude Code?", a: "Run /goal clear. The words stop, off, reset, none and cancel work too, and /clear also removes an active goal. In a non-interactive run started with claude -p, press Ctrl+C. To stop a Ralph loop, run /cancel-ralph." },
+      { q: "Does /goal cost more than a normal session?", a: "It can. Each extra turn re-sends the conversation, and each check is one more call to the small fast model. The check itself is cheap; the turns are what add up. Run /goal with no argument to see turns and token spend, and put a turn limit in the condition." },
+    ],
+  },
+  {
     path: '/blog/claude-code-best-practices',
     title: "Claude Code Best Practices (2026): A Setup That Scales From One Engineer to a Team",
     seoTitle: "Claude Code Best Practices (2026): Setup That Scales",

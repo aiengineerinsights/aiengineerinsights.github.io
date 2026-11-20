@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
+      excerpt: "Four ways to keep Claude Code working after a turn ends: /goal, /loop, the Ralph loop plugin and a Stop hook. What decides the work is finished in each, how to write a goal condition that resolves, and how to keep an unattended run from burning your budget.",
+      readTime: "11 min read",
+      date: "Nov 20, 2026",
+      category: "AI Coding",
+      icon: Route,
+      gradient: "from-orange-600 to-amber-700",
+      link: "/blog/claude-code-goal-loop"
+    },
+    {
       title: "Claude Code Best Practices (2026): A Setup That Scales From One Engineer to a Team",
       excerpt: "One decision drives most Claude Code best practices: is this a guideline Claude should weigh, or a rule that must hold every time? What goes in CLAUDE.md, rules, skills, hooks and permissions, which add-ons to install, and how to roll the setup out to a team.",
       readTime: "13 min read",

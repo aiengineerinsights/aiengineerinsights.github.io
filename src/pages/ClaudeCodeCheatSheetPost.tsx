@@ -350,6 +350,11 @@ const ClaudeCodeCheatSheetPost = () => {
                 <H3 id="work-commands">Plan and run work</H3>
                 <RefTable head={["Command", "What it does"]} rows={workRows} />
 
+                <P>
+                  Not sure which of these keeps Claude going until the job is done? See{" "}
+                  <Link to="/blog/claude-code-goal-loop" className="text-primary hover:underline">/goal vs /loop vs Ralph loop</Link>.
+                </P>
+
                 <H3 id="ship-commands">Review and ship</H3>
                 <RefTable head={["Command", "What it does"]} rows={shipRows} />
 

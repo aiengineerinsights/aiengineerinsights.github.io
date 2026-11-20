@@ -221,6 +221,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Plan a Claude Code rollout for my team", askFor: "team size, repos, what we use today, and our security requirements" },
     ],
   },
+  "/blog/claude-code-goal-loop": {
+    topic: "Claude Code /goal, /loop, the Ralph loop plugin and Stop hooks",
+    questions: [
+      { q: "Write a /goal condition for my task", askFor: "the task, the command that proves it is done, and what must not change" },
+      { q: "Should I use /goal, /loop, Ralph loop or a Stop hook?", askFor: "what I want Claude to keep doing, what should end it, and whether I will be watching" },
+      { q: "Why does my goal never resolve?", askFor: "the exact condition I set and what Claude printed in the last few turns" },
+      { q: "Set up a safe overnight Claude Code run", askFor: "the repo, the task, my budget, and what Claude must never touch" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

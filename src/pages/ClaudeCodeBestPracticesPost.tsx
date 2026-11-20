@@ -443,6 +443,8 @@ paths:
                 <P>
                   <C>/loop</C> is different: it repeats a prompt on a time interval, which suits polling ("every 15
                   minutes, check CI"). A Stop hook is the deterministic version of a goal, because your script decides.
+                  The full comparison, with the Ralph loop plugin, is in{" "}
+                  <In to="/blog/claude-code-goal-loop">/goal vs /loop vs Ralph loop</In>.
                 </P>
 
                 <H3 id="scripts">Scripts and CI</H3>

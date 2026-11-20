@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/claude-code-goal-loop",
+    title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
+    tag: "AI Coding",
+  },
+  {
     slug: "/blog/claude-code-best-practices",
     title: "Claude Code Best Practices (2026): A Setup That Scales From One Engineer to a Team",
     tag: "AI Coding",
@@ -350,7 +355,8 @@ const CURATED: Record<string, string[]> = {
   "/blog/fallacies-of-llm-systems": ["/blog/llm-deployment-challenges", "/blog/ai-guardrails", "/blog/rag-evaluation-metrics"],
   "/blog/ai-engineering-books": ["/blog/conways-law-ai", "/blog/fallacies-of-llm-systems", "/blog/ai-agent-observability"],
   "/blog/claude-code-cheat-sheet": ["/blog/claude-code-best-practices", "/blog/claude-code-skills", "/blog/claude-code-vs-cursor"],
-  "/blog/claude-code-best-practices": ["/blog/claude-code-cheat-sheet", "/blog/claude-code-skills", "/blog/what-is-an-agent-harness"],
+  "/blog/claude-code-best-practices": ["/blog/claude-code-goal-loop", "/blog/claude-code-cheat-sheet", "/blog/claude-code-skills"],
+  "/blog/claude-code-goal-loop": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/what-is-an-agent-harness"],
   "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],
   "/blog/best-ai-coding-agents": ["/blog/claude-code-skills", "/blog/hermes-claude-code-orchestration", "/blog/what-is-an-agent-harness"],
   "/blog/claude-managed-agents": ["/blog/agent-runtimes-explained", "/blog/what-is-an-agent-harness", "/blog/claude-code-skills"],
