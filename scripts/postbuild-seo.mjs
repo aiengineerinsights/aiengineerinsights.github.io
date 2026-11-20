@@ -111,6 +111,24 @@ const pages = [
 
 const posts = [
   {
+    path: '/blog/agentic-ai-system-design',
+    title: "Agentic AI System Design: Architecture, Patterns and a Worked Example (2026)",
+    seoTitle: "Agentic AI System Design: Architecture & Worked Example",
+    description:
+      "Agentic AI system design in seven steps: scope, budgets, workflow vs agent, tools, state, guardrails and evals, with a worked refund-agent example.",
+    date: '2026-11-20',
+    author: 'poorna',
+    image: '/og-agentic-ai-system-design.png',
+    faqs: [
+      { q: "What is agentic AI system design?", a: "Agentic AI system design is the process of deciding how much control a language model gets inside a system, which tools it can use, how its state is stored, what limits apply, and how success is measured. It extends classic system design with questions about autonomy, non-deterministic behaviour and the cost of a wrong action." },
+      { q: "What is the difference between a workflow and an agent?", a: "In a workflow, your code decides the steps and the model fills them in. In an agent, the model decides the steps, choosing tools and when to stop. Workflows are more predictable and cheaper; agents handle tasks where the steps cannot be known in advance. Most production systems use both." },
+      { q: "When should you use an agent and not a workflow?", a: "Use an agent when you cannot write the steps down in advance, the task needs a variable number of tool calls, and you can limit what a wrong decision costs. If the task splits into the same steps every time, a workflow is faster, cheaper and easier to test." },
+      { q: "What are the main components of an agentic AI architecture?", a: "A model, a control layer that is a workflow or an agent loop, a set of tools split into read and write, state and memory stored outside the model, guardrails and permissions, and traces with evals. A router in front often sends simple requests down a cheaper fixed path." },
+      { q: "Do you need multiple agents?", a: "Usually not at first. A single agent with good tools covers most tasks. Add more agents when subtasks are independent enough to run in parallel, need different tools or permissions, or would flood one context window. Each extra agent adds cost and a new place for errors to compound." },
+      { q: "How do you evaluate an agentic system?", a: "Build a test set from real cases with known correct outcomes, then measure task success, the rate of harmful errors, cost and time per task. Keep a trace of every model and tool call so failures can be explained, and run the system in shadow mode beside people before it acts alone." },
+    ],
+  },
+  {
     path: '/blog/claude-code-goal-loop',
     title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
     seoTitle: "Claude Code /goal vs /loop vs Ralph Loop (2026 Guide)",
@@ -420,6 +438,7 @@ const posts = [
     description:
       'LLM routing explained: what an LLM router does, the four routing signals, RouteLLM vs Semantic Router vs Jev vs AI gateways, and how to build and evaluate one.',
     date: '2026-10-07',
+    dateModified: '2026-11-20',
     author: 'poorna',
     image: '/og-llm-routing.png',
     faqs: [
@@ -594,6 +613,7 @@ const posts = [
     description:
       'AI agent memory explained: context window management vs long-term vector/graph storage. Mem0 vs Letta vs Zep vs LangMem compared, plus a working code example.',
     date: '2026-10-14',
+    dateModified: '2026-11-20',
     author: 'poorna',
     image: '/og-ai-agent-memory.png',
     faqs: [
@@ -742,6 +762,7 @@ const posts = [
     description:
       'What AI agents are and how they work: the perceive-plan-act-observe loop, memory and tools, agents vs agentic AI, types, real examples, and how to build one.',
     date: '2026-08-25',
+    dateModified: '2026-11-20',
     author: 'poorna',
     image: '/og-what-are-ai-agents.png',
     faqs: [
@@ -760,6 +781,7 @@ const posts = [
     description:
       'Terminal coding agents vs AI IDEs, compared: Claude Code, Codex, Aider and Cline vs Cursor, Copilot and Devin. Comparison table and which one fits your team.',
     date: '2026-11-10',
+    dateModified: '2026-11-20',
     author: 'poorna',
     image: '/og-best-ai-coding-agents.png',
   },
@@ -780,6 +802,7 @@ const posts = [
     description:
       'How to become an AI engineer in 2026 — no PhD, ~6–18 months. The 5-phase roadmap, the skills that matter, a portfolio that gets interviews, plus a free PDF.',
     date: '2026-08-14',
+    dateModified: '2026-11-20',
     author: 'poorna',
     image: '/og-how-to-become-an-ai-engineer.png',
   },

@@ -375,6 +375,10 @@ const AIEngineerInterviewQuestionsPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="system-design" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">System design for AI and LLM applications</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  For a complete worked answer to an agent design question, with a 45-minute time split, see{" "}
+                  <Link to="/blog/agentic-ai-system-design" className="text-primary hover:underline">agentic AI system design</Link>.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The AI system design round takes the format of a traditional design interview — whiteboard, open
                   prompt, forty-five to sixty minutes — but the components and the failure modes are different. You
                   are expected to drive: clarify requirements, draw the data flow, make choices, and name the

@@ -230,6 +230,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Set up a safe overnight Claude Code run", askFor: "the repo, the task, my budget, and what Claude must never touch" },
     ],
   },
+  "/blog/agentic-ai-system-design": {
+    topic: "agentic AI system design, agent architecture and system design interviews",
+    questions: [
+      { q: "Design an agentic system for my use case", askFor: "the task, who starts it, what it may change, expected volume, and the worst acceptable outcome" },
+      { q: "Should this be a workflow or an agent?", askFor: "the steps involved, how much they vary between requests, and my latency and cost limits" },
+      { q: "Review my agent's tool design", askFor: "the list of tools with their inputs, which ones change data, and who approves what" },
+      { q: "Run a mock agentic system design interview with me", askFor: "the role and level I am interviewing for and how long the round is" },
+    ],
+  },
   "/blog/agent-zero-vs-hermes-agent": {
     topic: "Agent Zero vs Hermes Agent",
     questions: [

@@ -204,6 +204,25 @@ const AIAgentMemoryPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="best-methods" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What are the best methods for giving an AI agent memory?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  There are five, and most agent memory systems combine two or three of them. Start at the top and add the
+                  next one only when the agent visibly forgets something it needs.
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4">
+                  <li>• <strong>Keep recent turns in the context window.</strong> The simplest memory. A sliding window drops the oldest turns when space runs out.</li>
+                  <li>• <strong>Summarise what you drop.</strong> Replace old turns with a running summary so decisions survive even when the wording does not.</li>
+                  <li>• <strong>Store facts and retrieve them.</strong> Extract facts, embed them in a vector store, and pull back the relevant ones each turn. This is what carries memory across sessions.</li>
+                  <li>• <strong>Use a knowledge graph for relationships and time.</strong> Worth it when the agent must know how facts connect or which one is current.</li>
+                  <li>• <strong>Let the agent keep its own notes.</strong> A scratchpad or memory file the agent reads and edits, useful for long tasks and easy to audit.</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Whichever you pick, store memory outside the model and make it inspectable. The sections below cover each
+                  method and the tools that implement it.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="short-term" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Short-term memory: managing the context window</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Short-term memory is about keeping the current conversation inside the model's context limit

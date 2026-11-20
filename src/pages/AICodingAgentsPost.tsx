@@ -112,6 +112,11 @@ const AICodingAgentsPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="verdict" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. The Verdict, Up Front</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  An <strong>AI coding agent</strong> is a tool that takes a task in plain language and then reads your
+                  code, edits files and runs commands on its own until the task is done. That is the difference from
+                  autocomplete, which only suggests the next line.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   If you want a one-line answer: <strong>Claude Code if you want to delegate work to an autonomous terminal
                   agent; Cursor if you want AI woven into your editor as you type; GitHub Copilot if your team needs a
                   GitHub-native, enterprise-ready option.</strong> Beyond the big three, open-source BYO-key tools (Aider,

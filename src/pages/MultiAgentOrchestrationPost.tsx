@@ -216,6 +216,11 @@ const MultiAgentOrchestrationPost = () => {
               <section className="mb-6 sm:mb-8">
                 <h2 id="which-pattern" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Which pattern should you pick?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Choosing a pattern is one step of a larger design. For the full method, including tools, state,
+                  guardrails and evals, see{" "}
+                  <Link to="/blog/agentic-ai-system-design" className="text-primary hover:underline">agentic AI system design</Link>.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Both Microsoft's guidance and Anthropic's engineering writeup land on the same advice from different
                   angles: start with the simplest pattern that solves the problem, and only add parallelism or
                   hierarchy once a single agent or a fixed pipeline demonstrably can't handle the task. A few concrete

@@ -540,6 +540,29 @@ log_outcome(request.id, tier, answer)`}</code>
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="switching-models" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What should you check before switching AI models?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Routing means you switch models all the time, and a new release means you switch on purpose. Either way, a
+                  model that scores higher on a public benchmark can still be worse for your application. Check these before
+                  you move traffic:
+                </p>
+                <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                  <ul className="space-y-2 text-sm sm:text-base">
+                    <li>• <strong>Your own evals.</strong> Run the same test set on both models. This is the only number that counts.</li>
+                    <li>• <strong>Prompt fit.</strong> Prompts tuned for one model often underperform on another. Budget time to re-tune.</li>
+                    <li>• <strong>Tool calling and structured output.</strong> Check that function calls and JSON schemas behave the same, including on malformed input.</li>
+                    <li>• <strong>Context window and output limits.</strong> A smaller window or output cap can break long documents silently.</li>
+                    <li>• <strong>Latency at the tail.</strong> Compare the slow requests, not the average.</li>
+                    <li>• <strong>Cost on your token mix.</strong> Price it with your real input-to-output ratio and any prompt caching.</li>
+                    <li>• <strong>Rate limits and capacity.</strong> A cheaper model you cannot get quota for is not cheaper.</li>
+                    <li>• <strong>Refusals and safety behaviour.</strong> Models decline different things; test your edge cases.</li>
+                    <li>• <strong>Data terms and region.</strong> Retention, training use and where the data is processed.</li>
+                    <li>• <strong>Version pinning and rollback.</strong> Pin the exact version, roll out to a small share first, and keep the old model as a fallback.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="mistakes" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Common LLM routing mistakes</h2>
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
                   <ul className="space-y-2 text-sm sm:text-base">

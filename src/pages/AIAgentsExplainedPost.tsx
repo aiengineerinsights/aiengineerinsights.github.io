@@ -158,6 +158,21 @@ const AIAgentsExplainedPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="autonomous" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What are autonomous AI agents?</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  An autonomous AI agent is an AI agent that <strong>chooses its own steps and keeps going without a person
+                  approving each one</strong>. You give it a goal; it plans, calls tools, checks the results and decides when
+                  it is finished. Autonomy is a dial, not a switch: most production agents are autonomous for cheap, reversible
+                  steps such as searching and reading, and stop for approval before anything that spends money, sends a
+                  message or deletes data.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  How much autonomy to give is a design decision. For a worked example, see{" "}
+                  <Link to="/blog/agentic-ai-system-design" className="text-primary hover:underline">agentic AI system design</Link>.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="vs-agentic" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">AI agents vs agentic AI: what's the difference?</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   The two terms are often used interchangeably, and that's mostly fine — but there's a clean way to keep

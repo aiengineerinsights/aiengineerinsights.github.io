@@ -260,6 +260,21 @@ const HowToBecomeAIEngineerPost = () => {
                   <li><strong>Adjacent tech (IT, QA, PM) →</strong> ~9–15 months. Build the programming base first, then follow the path in order.</li>
                   <li><strong>Complete beginner →</strong> ~12–18 months. Entirely doable — be patient through foundations; that's where most people quit.</li>
                 </ul>
+                <h3 id="career-path" className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">Where does the AI engineer career path lead?</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  The usual ladder is junior AI engineer, AI engineer, senior AI engineer, then staff or lead. From
+                  senior onward the path branches, and the branch depends on what you enjoy:
+                </p>
+                <ul className="space-y-2 text-sm sm:text-base text-muted-foreground mb-4 list-disc pl-5">
+                  <li><strong>AI architect:</strong> you design systems across teams and own the trade-offs. Start with the <Link to="/blog/ai-engineering-books" className="text-primary hover:underline">AI architect reading map</Link>.</li>
+                  <li><strong>Forward deployed engineer:</strong> you build with customers on site. See the <Link to="/blog/forward-deployed-ai-engineer" className="text-primary hover:underline">forward deployed engineer guide</Link>.</li>
+                  <li><strong>Platform or MLOps lead:</strong> you run the infrastructure other AI teams build on.</li>
+                  <li><strong>Engineering manager:</strong> you lead the people doing the work.</li>
+                </ul>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Pay rises with each step and varies widely by company; the{" "}
+                  <Link to="/blog/ai-engineer-salary" className="text-primary hover:underline">AI engineer salary guide</Link> has current ranges.
+                </p>
                 <RoadmapCTA />
               </section>
 

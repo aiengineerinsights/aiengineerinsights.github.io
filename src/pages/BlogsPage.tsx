@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 70,
+      title: "Agentic AI System Design: Architecture, Patterns and a Worked Example (2026)",
+      excerpt: "A seven-step method for designing agentic systems, a reference architecture, the control patterns to choose from, and a full worked example (a refund-handling agent), written for real projects and system design interviews.",
+      readTime: "14 min read",
+      date: "Nov 20, 2026",
+      category: "AI Agents",
+      icon: Network,
+      gradient: "from-blue-600 to-violet-800",
+      link: "/blog/agentic-ai-system-design"
+    },
+    {
       id: 69,
       title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
       excerpt: "Four ways to keep Claude Code working after a turn ends: /goal, /loop, the Ralph loop plugin and a Stop hook. What decides the work is finished in each, how to write a goal condition that resolves, and how to keep an unattended run from burning your budget.",
