@@ -67,6 +67,7 @@ const DataTable = ({ head, rows, codeFirst }: { head: string[]; rows: string[][]
 
 const ClaudeCodeBestPracticesPost = () => {
   const whereRows = [
+    ["Codebase and linter", "Mistakes you can make impossible: banned imports, layer boundaries, types", "Always enforced", "pyproject.toml, CI"],
     ["CLAUDE.md", "What Claude cannot work out from the code: test commands, misleading spots, team decisions", "Claude decides", "./CLAUDE.md"],
     ["Rules", "Conventions for one part of the codebase, loaded only when Claude works there", "Claude decides", ".claude/rules/*.md"],
     ["Skills", "Procedures: how you release, review, write docs, handle an incident", "Claude decides (or only you start it)", ".claude/skills/<name>/SKILL.md"],
@@ -140,7 +141,8 @@ const ClaudeCodeBestPracticesPost = () => {
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 Most Claude Code best practices come down to one decision: <strong>is this a guideline Claude should
                 weigh, or a rule that must hold every time?</strong> Guidelines go in CLAUDE.md, rules and skills.
-                Rules with no exceptions go in hooks, permission rules and the sandbox. This guide shows what belongs
+                Rules with no exceptions go in hooks, permission rules and the sandbox. And before either, check
+                whether the codebase itself can rule the mistake out. This guide shows what belongs
                 in each place, with config you can copy, which add-ons are worth installing, and how to roll the same
                 setup out to a team.
               </p>
@@ -159,7 +161,7 @@ const ClaudeCodeBestPracticesPost = () => {
                   <div className="text-xs sm:text-sm text-muted-foreground space-y-1 flex-shrink-0">
                     <div className="flex items-center"><BarChart3 className="h-4 w-4 mr-1" />Intermediate</div>
                     <div className="flex items-center"><Calendar className="h-4 w-4 mr-1" />Nov 18, 2026</div>
-                    <div className="flex items-center"><Clock className="h-4 w-4 mr-1" />13 min read</div>
+                    <div className="flex items-center"><Clock className="h-4 w-4 mr-1" />16 min read</div>
                   </div>
                 </div>
               </Card>
@@ -170,7 +172,8 @@ const ClaudeCodeBestPracticesPost = () => {
             <div className="bg-muted/50 p-4 sm:p-6 rounded-lg mb-6 sm:mb-8 border-l-4 border-primary" aria-label="TL;DR">
               <p className="text-sm sm:text-base leading-relaxed">
                 <strong>TL;DR — Claude Code best practices:</strong> keep <C>CLAUDE.md</C> under 200 lines and limit it
-                to what Claude cannot read from the code. Put anything that must happen every time in a hook or a deny
+                to what Claude cannot read from the code. When Claude repeats a mistake, try a lint rule before a new
+                line of prose. Put anything that must happen every time in a hook or a deny
                 rule, because CLAUDE.md is advice. Give Claude a pass/fail check to run so it can finish without you.
                 Install one workflow pack, not three. Commit the shared config, keep personal config local, and cap
                 turns or spend on any run you are not watching.
@@ -204,17 +207,76 @@ const ClaudeCodeBestPracticesPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="what-goes-where">2. What Goes Where in a Claude Code Setup</H2>
+                <H2 id="code-first">2. Fix It in the Code First</H2>
+                <P>
+                  Both kinds above are instructions aimed at Claude. There is a place that comes before either: the
+                  codebase. It is the largest input Claude reads on every task, and Claude copies what it finds
+                  there.
+                </P>
+                <P>
+                  Lauren Tan made this case in her AI Engineer Code Summit talk,{" "}
+                  <A href="https://www.youtube.com/watch?v=O_zcc6Xl12g">All Code Is Slop (Except Mine)</A>. On her
+                  team, every correction to an agent becomes a check that runs in code, or the problem is designed
+                  out of the API. Prose comes last. Her reason: a check gives the same answer every time, and a line
+                  in a markdown file does not.
+                </P>
+                <P>So when Claude gets something wrong twice, work down this list and stop at the first that fits:</P>
+                <UL>
+                  <li>• <strong>1. Design it out.</strong> Change the API so the wrong call cannot be written. Tan's team banned <C>useEffect</C> in product code and kept it inside a few framework APIs.</li>
+                  <li>• <strong>2. Add a lint, type or import rule.</strong> It runs in CI for people and for Claude.</li>
+                  <li>• <strong>3. Add a hook or deny rule.</strong> For limits on what Claude does, not on what the code looks like: never read <C>.env</C>, never edit a frozen folder.</li>
+                  <li>• <strong>4. Write a CLAUDE.md line.</strong> For what needs judgment, or is not visible in the code at all.</li>
+                </UL>
+                <P>
+                  Two guidelines that often sit in a CLAUDE.md are "never import a vendor SDK directly" and "do not
+                  copy patterns from the legacy folder". Both can be config. This uses ruff's banned-API rule and{" "}
+                  <A href="https://import-linter.readthedocs.io/">import-linter</A>:
+                </P>
+                <Code>{`# pyproject.toml
+[tool.ruff.lint]
+extend-select = ["TID251"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"anthropic".msg = "Call models through app.llm.client. It owns retries, timeouts and logging."
+"openai".msg = "Call models through app.llm.client. It owns retries, timeouts and logging."
+
+[tool.ruff.lint.per-file-ignores]
+"app/llm/client.py" = ["TID251"]
+
+[tool.importlinter]
+root_package = "app"
+
+[[tool.importlinter.contracts]]
+name = "Nothing new depends on app.legacy"
+type = "forbidden"
+source_modules = ["app.api", "app.llm", "app.retrieval"]
+forbidden_modules = ["app.legacy"]
+
+# Check both: uv run ruff check . && uv run lint-imports`}</Code>
+                <UL>
+                  <li>• <strong>Write the error message for Claude.</strong> It is the prompt Claude reads at the moment it makes the mistake. Say what to do, not only what is banned.</li>
+                  <li>• <strong>Clean up the old cases too.</strong> A rule stops new ones. The existing ones still look like the house pattern, and the next session will copy them.</li>
+                  <li>• <strong>Read what Claude writes in comments and markdown.</strong> Tan's team found agents using comments to justify a workaround, and turning one small correction into a permanent rule. They banned most comments. A lighter version: review comments and CLAUDE.md lines Claude adds the way you review code.</li>
+                </UL>
+                <P>
+                  Her figures are her own and come from one team that spent months on this: about 11,000 pull
+                  requests merged in a month, with about half a percent reverted. Treat them as a report, not a
+                  benchmark. The order of work is the part to copy.
+                </P>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
+                <H2 id="what-goes-where">3. What Goes Where in a Claude Code Setup</H2>
                 <DataTable head={["Layer", "What belongs there", "Who decides", "Where it lives"]} rows={whereRows} />
                 <P>
                   Set these up in order, top to bottom, and stop when the problems stop. A solo developer on a small
-                  repo may never need more than the first four rows. New to the commands themselves? Keep the{" "}
+                  repo may never need more than the first five rows. New to the commands themselves? Keep the{" "}
                   <In to="/blog/claude-code-cheat-sheet">Claude Code cheat sheet</In> open alongside this guide.
                 </P>
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="claude-md">3. How to Write a CLAUDE.md That Works</H2>
+                <H2 id="claude-md">4. How to Write a CLAUDE.md That Works</H2>
                 <P>
                   Claude Code loads <C>CLAUDE.md</C> into every session, so each line costs a little attention on
                   every task. The file earns its place only when it holds things Claude could not find by reading the
@@ -224,18 +286,21 @@ const ClaudeCodeBestPracticesPost = () => {
                   <li>• <strong>How to check work here:</strong> the exact test, lint and typecheck commands, and how to run one test file.</li>
                   <li>• <strong>Where the code misleads:</strong> an old pattern new code must not copy, a folder that looks dead but is not.</li>
                   <li>• <strong>Decisions that are not in the repo:</strong> which helper the team settled on, how deploys work.</li>
-                  <li>• <strong>Anything you have corrected twice.</strong></li>
+                  <li>• <strong>Anything you have corrected twice</strong> that a lint rule cannot express.</li>
                 </UL>
-                <P>Here is a template for a Python service. It is short on purpose.</P>
+                <P>
+                  Here is a template for a Python service. It is short on purpose. The vendor SDK and legacy rules
+                  from section 2 are not in it, because the linter holds them now.
+                </P>
                 <Code>{`# Commands
 - Install: uv sync
 - Run one test file: uv run pytest tests/test_retrieval.py -q
 - Lint and types: uv run ruff check . && uv run pyright
 
 # Conventions
-- Call models through app/llm/client.py, never import a vendor SDK directly
 - Prompts live in app/prompts/*.md, not inline in Python
-- app/legacy/ is still in production: fix bugs there, do not copy its patterns
+- Retries and timeouts are set in app/llm/client.py, do not add them at call sites
+- app/legacy/ is still in production: fix bugs there
 
 # Gotchas
 - Eval tests need EVAL_DATASET_PATH set, see .env.example
@@ -271,7 +336,7 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="done-check">4. Give Claude a Check to Run</H2>
+                <H2 id="done-check">5. Give Claude a Check to Run</H2>
                 <P>
                   Claude stops when the work looks done. Without something that returns pass or fail, "looks done" is
                   all it has, and you become the test suite. With a check, it can make the change, run the check, read
@@ -298,12 +363,30 @@ paths:
                   Claude Code overrides the next block and ends the turn. Keep the check fast, because it runs on
                   every stop.
                 </P>
+
+                <H3 id="verify">Beyond the test suite</H3>
+                <P>
+                  Tests prove the code runs. They do not prove Claude built what you meant. Tan says most of her
+                  token usage now goes to verification, and that review on her team has shrunk to looking at the
+                  evidence an agent attaches. Four things from that talk carry over to any Claude Code setup:
+                </P>
+                <UL>
+                  <li>• <strong>Let Claude run the app.</strong> Give it the tools a developer uses: a browser through the Playwright MCP server or Chrome DevTools, the dev server, the logs.</li>
+                  <li>• <strong>Write a feature map.</strong> A short file that names each screen and feature the way a user sees it. "The panel in the left sidebar" then means one thing to you and to Claude.</li>
+                  <li>• <strong>Put the driver in a script.</strong> If a skill needs to log in, open a page and take a screenshot, save that as a small CLI inside the skill. Claude reuses it and does not rewrite it each session, which costs fewer tokens, and you can test it.</li>
+                  <li>• <strong>Ask for evidence in the pull request.</strong> Screenshots, a short recording, the test output. Reviewing proof is faster than re-running the change yourself.</li>
+                </UL>
+                <P>
+                  Checks that used to cost too much to write are cheap to ask for now. Property-based tests are a
+                  good first step (Hypothesis in Python). Tan's team also model-checks a few critical flows with TLA+
+                  and proves some algorithms in Lean. She calls that promising, and not a silver bullet.
+                </P>
               </section>
 
               <NewsletterSignup bonus={CLAUDE_CODE_STARTER_KIT} />
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="enforce">5. Rules With No Exceptions: Hooks, Permissions and the Sandbox</H2>
+                <H2 id="enforce">6. Rules With No Exceptions: Hooks, Permissions and the Sandbox</H2>
 
                 <H3 id="hooks">Hooks</H3>
                 <P>
@@ -368,13 +451,15 @@ paths:
                 <P>
                   Keep the enforced set small. Every hook and deny rule sometimes fires when it should not, and someone
                   has to maintain it. The docs' own warning sign is forty of them: at that point most are preferences.
+                  That limit is about hooks and deny rules. Lint and type rules from section 2 are a different
+                  budget: they live in the toolchain your team already runs in CI, and they catch people too.
                   For the security side in depth, see <In to="/blog/ai-agent-sandboxing">AI agent sandboxing</In> and{" "}
                   <In to="/blog/mcp-server-trust-permissions">MCP server trust and permissions</In>.
                 </P>
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="add-ons">6. Which Claude Code Plugins and Add-Ons Are Worth Installing?</H2>
+                <H2 id="add-ons">7. Which Claude Code Plugins and Add-Ons Are Worth Installing?</H2>
                 <P>
                   Add tools in layers and only when the layer below is working. Every installed skill and MCP server
                   adds its name and description to each session, so more is not free. <C>/usage</C> breaks your usage
@@ -398,7 +483,7 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="team">7. How Do You Set Up Claude Code for a Team?</H2>
+                <H2 id="team">8. How Do You Set Up Claude Code for a Team?</H2>
                 <P>Where a file lives decides who it applies to. Commit the shared ones and keep the personal ones out of git.</P>
                 <DataTable head={["File", "Commit it?", "Applies to"]} rows={commitRows} codeFirst />
                 <P>A rollout order that avoids shipping everything at once:</P>
@@ -417,7 +502,13 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="unattended">8. Letting Claude Code Run Without You</H2>
+                <H2 id="unattended">9. Letting Claude Code Run Without You</H2>
+                <P>
+                  Fix the supervised loop first. If one session you are watching produces code you have to rework, a
+                  loop produces more of it and spends more tokens doing so. Lint rules, cleanup and verification
+                  come before automation. Once runs are unattended, watch one outcome number, such as how many
+                  merged changes get reverted.
+                </P>
                 <P>Before a run goes unattended, answer five questions for that task:</P>
                 <UL>
                   <li>• <strong>What does done look like?</strong> A goal condition, a spec file, or a failing test to turn green.</li>
@@ -465,7 +556,7 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="stop-doing">9. Claude Code Advice You Can Stop Following</H2>
+                <H2 id="stop-doing">10. Claude Code Advice You Can Stop Following</H2>
                 <P>
                   Much of the advice still circulating was a workaround for older models. Anthropic's docs now list
                   these as habits to drop:
@@ -474,7 +565,7 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="faq">10. FAQ</H2>
+                <H2 id="faq">11. FAQ</H2>
 
                 <H3 id="faq-best-practices">What are the best practices for Claude Code?</H3>
                 <P>
@@ -488,8 +579,16 @@ paths:
                 <P>
                   Only what Claude cannot work out from the repo: the exact test, lint and typecheck commands, places
                   where the code is misleading, team decisions that are not written in the code, and anything you have
-                  had to correct twice. Leave out architecture and folder descriptions, and keep the file under about
-                  200 lines.
+                  had to correct twice that a lint rule cannot express. Leave out architecture and folder
+                  descriptions, and keep the file under about 200 lines.
+                </P>
+
+                <H3 id="faq-lint-vs-claude-md">Should a rule go in CLAUDE.md or in a lint rule?</H3>
+                <P>
+                  If a linter, type checker or import rule can express it, put it there. It runs every time, in CI,
+                  for people and for Claude, and the error message can tell Claude how to fix the problem. Use a
+                  hook or deny rule for limits on Claude's own actions, such as a blocked folder. Keep CLAUDE.md for
+                  what needs judgment or is not visible in the code.
                 </P>
 
                 <H3 id="faq-claude-md-vs-hooks">What is the difference between CLAUDE.md and hooks?</H3>
@@ -525,7 +624,7 @@ paths:
               </section>
 
               <section className="mb-6 sm:mb-8">
-                <H2 id="sources">11. Sources</H2>
+                <H2 id="sources">12. Sources</H2>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li>• <A href="https://code.claude.com/docs/en/best-practices">Claude Code docs — Best practices</A></li>
                   <li>• <A href="https://code.claude.com/docs/en/memory">Claude Code docs — Memory and CLAUDE.md</A></li>
@@ -535,11 +634,15 @@ paths:
                   <li>• <A href="https://code.claude.com/docs/en/skills">Claude Code docs — Skills</A></li>
                   <li>• <A href="https://claude.com/resources/articles/steering-claude-code-skills-hooks-rules-subagents-and-more">Anthropic — Steering Claude Code: CLAUDE.md, skills, hooks and subagents</A></li>
                   <li>• <A href="https://github.com/anthropics/claude-plugins-official/tree/main/plugins/ralph-loop">ralph-loop plugin, Anthropic's official marketplace</A></li>
+                  <li>• <A href="https://www.youtube.com/watch?v=O_zcc6Xl12g">Lauren Tan — All Code Is Slop (Except Mine), AI Engineer Code Summit 2026</A></li>
+                  <li>• <A href="https://docs.astral.sh/ruff/rules/banned-api/">Ruff docs — banned-api (TID251)</A></li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mt-4 text-xs sm:text-sm italic">
                   Checked against Anthropic's Claude Code docs on November 18, 2026. The examples are ours, written for
                   a Python project; adapt the commands to your stack and test each hook before you rely on it. Add-on
-                  descriptions come from each project's own repository. Claude Code ships updates weekly.
+                  descriptions come from each project's own repository. Claude Code ships updates weekly. Updated
+                  November 20, 2026: added the code-first section and the verification notes, drawing on Lauren Tan's
+                  talk. Figures quoted from the talk are the speaker's own.
                 </p>
               </section>
             </article>
