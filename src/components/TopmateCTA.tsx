@@ -24,7 +24,7 @@ const TopmateCTA = ({ placement = "article-cta" }: { placement?: string }) => {
           </span>
         </div>
         <p className="text-sm text-muted-foreground m-0">
-          Career guidance, resume &amp; interview prep, or tech consulting — 1:1 with a Lead AI Engineer.
+          Career guidance, resume &amp; interview prep, or tech consulting — 1:1 with an AI Engineering Lead.
           Start with a free 30-min quick chat.
         </p>
       </div>

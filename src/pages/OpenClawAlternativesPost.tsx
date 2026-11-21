@@ -116,7 +116,7 @@ const OpenClawAlternativesPost = () => {
                     <Link to="/authors" className="hover:text-primary transition-colors">
                       <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
                     </Link>
-                    <p className="text-muted-foreground text-sm sm:text-base">Lead AI Engineer</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">AI Engineering Lead</p>
                   </div>
                   <div className="text-xs sm:text-sm text-muted-foreground space-y-1 flex-shrink-0">
                     <div className="flex items-center"><BarChart3 className="h-4 w-4 mr-1" />Intermediate</div>

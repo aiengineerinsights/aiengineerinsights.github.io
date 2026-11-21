@@ -36,11 +36,11 @@ const Authors = () => {
     {
       id: "gurram-poorna-prudhvi",
       name: "Gurram Poorna Prudhvi",
-      role: "Lead AI Engineer",
+      role: "AI Engineering Lead",
       avatar: prudhviprofilePic, // No profile picture provided
-      bio: "Prudhvi is a Lead AI Engineer with 8+ years spanning NLP, embeddings, and production machine learning. He builds and ships impactful AI systems end to end — from data pipelines and model training to LLM applications and agentic workflows — and approaches problems through a systems lens, caring as much about reliability, cost, and evaluation as about model quality. He writes here to share hard-won, practical lessons from building AI in production.",
+      bio: "Prudhvi is an AI Engineering Lead with a decade in applied AI and ML. He builds NLP, LLM and agent systems that are judged by revenue impact and business value, and takes them end to end, from data pipelines and model training to LLM applications and agentic workflows. He approaches problems through a systems lens, caring as much about reliability, cost, and evaluation as about model quality, and writes here to share practical lessons from building AI in production.",
       expertise: ["AI", "NLP", "Machine Learning", "Deep Learning", "LLMs", "AI Agents", "MLOps"],
-      experience: "8+ years",
+      experience: "10 years",
       location: "Hyderabad, India",
       email: "aiengineerinsights@gmail.com",
       github: "https://github.com/poornagurram",
@@ -48,7 +48,7 @@ const Authors = () => {
       website: "https://aiengineerinsights.com",
       topmate: topmateUrl("authors-page"),
       achievements: [
-        "8+ years building production AI and NLP systems",
+        "A decade building applied AI and ML systems with revenue impact",
         "Writes practical, engineering-first guides on LLMs and agents",
         "Focuses on reliability, evaluation, and cost of AI systems",
       ],

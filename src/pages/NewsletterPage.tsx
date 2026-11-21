@@ -52,7 +52,7 @@ const NewsletterPage = () => {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground my-8">
             <span className="inline-flex items-center gap-1.5"><Clock className="h-4 w-4" /> ~5 minutes, weekly</span>
             <span className="inline-flex items-center gap-1.5"><Ban className="h-4 w-4" /> No spam, unsubscribe anytime</span>
-            <span className="inline-flex items-center gap-1.5"><Mail className="h-4 w-4" /> Written by a Lead AI Engineer</span>
+            <span className="inline-flex items-center gap-1.5"><Mail className="h-4 w-4" /> Written by an AI Engineering Lead</span>
           </div>
 
           {/* What you get */}
