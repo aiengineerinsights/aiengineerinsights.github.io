@@ -55,6 +55,7 @@ const PrivacyPolicy = lazyWithReload(() => import("./pages/PrivacyPolicy"));
 const RoadmapPage = lazyWithReload(() => import("./pages/RoadmapPage"));
 const NewsletterPage = lazyWithReload(() => import("./pages/NewsletterPage"));
 const SubscribedPage = lazyWithReload(() => import("./pages/SubscribedPage"));
+const ThanksForBookingPage = lazyWithReload(() => import("./pages/ThanksForBookingPage"));
 const AIAgentsExplainedPost = lazyWithReload(() => import("./pages/AIAgentsExplainedPost"));
 const MultiAgentOrchestrationPost = lazyWithReload(() => import("./pages/MultiAgentOrchestrationPost"));
 const MCPvsAPIPost = lazyWithReload(() => import("./pages/MCPvsAPIPost"));
@@ -95,6 +96,7 @@ const AppRoutes = () => (
       <Route path="/ai-engineering-roadmap" element={<RoadmapPage />} />
       <Route path="/newsletter" element={<NewsletterPage />} />
       <Route path="/subscribed" element={<SubscribedPage />} />
+      <Route path="/thanks-for-booking" element={<ThanksForBookingPage />} />
       <Route path="/blog/what-are-ai-agents" element={<AIAgentsExplainedPost />} />
       <Route path="/blog/multi-agent-orchestration-patterns" element={<MultiAgentOrchestrationPost />} />
       <Route path="/blog/mcp-vs-api" element={<MCPvsAPIPost />} />

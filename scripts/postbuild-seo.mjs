@@ -107,6 +107,15 @@ const pages = [
       "Subscription confirmed. Download your free AI Engineering Roadmap PDF and see what to expect from The AI Engineer's Brief.",
     noindex: true,
   },
+  {
+    // Topmate redirects here after a booking. Thank-you page: noindex and
+    // kept out of the sitemap so it never ranks.
+    path: '/thanks-for-booking',
+    title: 'Booking confirmed | AI Engineer Insights',
+    description:
+      'Your 1:1 session is booked. How to prepare for the call, plus the weekly AI engineering newsletter and the free roadmap PDF.',
+    noindex: true,
+  },
 ]
 
 const posts = [

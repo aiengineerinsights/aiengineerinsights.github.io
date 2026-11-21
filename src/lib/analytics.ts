@@ -12,7 +12,9 @@ export type ConversionEvent =
   | "newsletter_signup"
   | "affiliate_click"
   | "outbound_click"
-  | "ai_explore_click";
+  | "ai_explore_click"
+  | "topmate_click"
+  | "booking_confirmed";
 
 export function trackEvent(name: ConversionEvent, params: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
@@ -50,6 +52,15 @@ export function installClickTracking(): () => void {
     const page = window.location.pathname;
     if (ROADMAP_PDF.test(url.pathname)) {
       trackEvent("roadmap_pdf_download", { pdf_source_page: page });
+    } else if (/(^|\.)topmate\.io$/.test(url.host)) {
+      // Booking-intent click. Placement comes from the UTM tag set in
+      // config/topmate.ts; service is the numeric id in the path, or "profile".
+      const service = url.pathname.split("/").filter(Boolean)[1] || "profile";
+      trackEvent("topmate_click", {
+        topmate_placement: url.searchParams.get("utm_campaign") || "untagged",
+        topmate_service: service,
+        topmate_source_page: page,
+      });
     } else if (url.host !== window.location.host && /^https?:$/.test(url.protocol)) {
       const sponsored = (link.getAttribute("rel") || "").split(/\s+/).includes("sponsored");
       trackEvent(sponsored ? "affiliate_click" : "outbound_click", { outbound_host: url.host });
