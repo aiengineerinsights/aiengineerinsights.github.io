@@ -178,10 +178,11 @@ const posts = [
   {
     path: '/blog/claude-code-cheat-sheet',
     title: "Claude Code Cheat Sheet (2026): Commands, Slash Commands and Shortcuts",
-    seoTitle: "Claude Code Cheat Sheet: Commands & Shortcuts (2026)",
+    seoTitle: "Claude Code Cheat Sheet (PDF): Commands & Shortcuts 2026",
     description:
       "Claude Code cheat sheet: every slash command grouped by task, keyboard shortcuts, CLI commands and flags, plus what was removed. Free one-page PDF.",
     date: '2026-11-18',
+    dateModified: '2026-11-22',
     author: 'poorna',
     image: '/og-claude-code-cheat-sheet.png',
     faqs: [

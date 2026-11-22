@@ -277,8 +277,10 @@ const ClaudeCodeCheatSheetPost = () => {
               </h1>
 
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                This Claude Code cheat sheet lists the commands you type every day: the slash commands grouped by task,
-                the keyboard shortcuts, and the <C>claude</C> CLI commands and flags. Every entry was checked against
+                This Claude Code cheat sheet, also available as a{" "}
+                <a href="#get-pdf" className="text-primary hover:underline">free one-page PDF</a>, lists the commands
+                you type every day: the slash commands grouped by task, the keyboard shortcuts, and the{" "}
+                <C>claude</C> CLI commands and flags. Every entry was checked against
                 Anthropic's Claude Code docs on November 18, 2026, and the last table lists what has been removed or
                 renamed, because most cheat sheets online still show commands that no longer exist.
               </p>
@@ -317,6 +319,18 @@ const ClaudeCodeCheatSheetPost = () => {
             </div>
 
             <ExploreWithAI path={PATH} variant="strip" />
+
+            <section className="mb-6 sm:mb-8 rounded-lg border border-border p-4 sm:p-6">
+              <H2 id="download-pdf">Download the Claude Code Cheat Sheet PDF</H2>
+              <P>
+                The PDF is one printable page with the same commands, shortcuts and CLI flags as this page. It is free
+                with the newsletter sign-up: enter your email in the form below and the download link appears right
+                away.
+              </P>
+              <a href="#get-pdf" className="text-primary font-medium hover:underline text-sm sm:text-base">
+                Go to the sign-up form and get the PDF
+              </a>
+            </section>
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -365,7 +379,9 @@ const ClaudeCodeCheatSheetPost = () => {
                 <RefTable head={["Command", "What it does"]} rows={fixRows} />
               </section>
 
-              <NewsletterSignup bonus={CLAUDE_CODE_CHEAT_SHEET} />
+              <div id="get-pdf" className="scroll-mt-24">
+                <NewsletterSignup bonus={CLAUDE_CODE_CHEAT_SHEET} />
+              </div>
 
               <section className="mb-6 sm:mb-8">
                 <H2 id="shortcuts">3. Claude Code Keyboard Shortcuts</H2>
