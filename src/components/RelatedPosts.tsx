@@ -12,6 +12,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/claude-md-template",
+    title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
+    tag: "AI Coding",
+  },
+  {
     slug: "/blog/claude-code-goal-loop",
     title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
     tag: "AI Coding",
@@ -360,7 +365,8 @@ const CURATED: Record<string, string[]> = {
   "/blog/fallacies-of-llm-systems": ["/blog/llm-deployment-challenges", "/blog/ai-guardrails", "/blog/rag-evaluation-metrics"],
   "/blog/ai-engineering-books": ["/blog/conways-law-ai", "/blog/fallacies-of-llm-systems", "/blog/ai-agent-observability"],
   "/blog/claude-code-cheat-sheet": ["/blog/claude-code-best-practices", "/blog/claude-code-skills", "/blog/claude-code-vs-cursor"],
-  "/blog/claude-code-best-practices": ["/blog/claude-code-goal-loop", "/blog/claude-code-cheat-sheet", "/blog/claude-code-skills"],
+  "/blog/claude-code-best-practices": ["/blog/claude-md-template", "/blog/claude-code-goal-loop", "/blog/claude-code-cheat-sheet"],
+  "/blog/claude-md-template": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/claude-code-skills"],
   "/blog/claude-code-goal-loop": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/what-is-an-agent-harness"],
   "/blog/agentic-ai-system-design": ["/blog/multi-agent-orchestration-patterns", "/blog/what-is-an-agent-harness", "/blog/ai-engineer-interview-questions"],
   "/blog/agent-zero-vs-hermes-agent": ["/blog/hermes-agent-alternatives", "/blog/hermes-agent-vs-openclaw", "/blog/ai-agent-sandboxing"],

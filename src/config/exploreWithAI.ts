@@ -221,6 +221,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Plan a Claude Code rollout for my team", askFor: "team size, repos, what we use today, and our security requirements" },
     ],
   },
+  "/blog/claude-md-template": {
+    topic: "CLAUDE.md templates for Claude Code, CLAUDE.local.md, .claude/rules and AGENTS.md",
+    questions: [
+      { q: "Write a CLAUDE.md for my project", askFor: "my stack, the commands to test, lint and typecheck, and the mistakes Claude keeps making" },
+      { q: "Cut my CLAUDE.md down to what matters", askFor: "the contents of my CLAUDE.md and how many lines it is" },
+      { q: "Split my CLAUDE.md into path-scoped rules", askFor: "my CLAUDE.md and the folders each rule applies to" },
+      { q: "Make AGENTS.md and CLAUDE.md work together", askFor: "which coding tools my team uses and what each file contains today" },
+    ],
+  },
   "/blog/claude-code-goal-loop": {
     topic: "Claude Code /goal, /loop, the Ralph loop plugin and Stop hooks",
     questions: [

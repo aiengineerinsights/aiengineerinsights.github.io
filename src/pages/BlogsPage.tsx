@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity } from "lucide-react";
+import { Clock, Search, Filter, TrendingUp, Zap, Database, ArrowRight, X, Brain, Bot, ShieldAlert, Bug, Settings, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,17 @@ const BlogsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const blogPosts = [
+    {
+      id: 71,
+      title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
+      excerpt: "Four CLAUDE.md templates you can copy (Python service, TypeScript web app, monorepo, data or ML project), plus what to leave out, how CLAUDE.md, CLAUDE.local.md and .claude/rules differ, and how Claude Code reads AGENTS.md.",
+      readTime: "10 min read",
+      date: "Nov 23, 2026",
+      category: "AI Coding",
+      icon: FileText,
+      gradient: "from-orange-600 to-amber-700",
+      link: "/blog/claude-md-template"
+    },
     {
       id: 70,
       title: "Agentic AI System Design: Architecture, Patterns and a Worked Example (2026)",

@@ -138,6 +138,25 @@ const posts = [
     ],
   },
   {
+    path: '/blog/claude-md-template',
+    title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
+    seoTitle: "CLAUDE.md Template: 4 Copy-Paste Examples (2026)",
+    description:
+      "Four CLAUDE.md templates to copy: Python service, TypeScript app, monorepo and ML project. Plus what to leave out, CLAUDE.local.md, rules and AGENTS.md.",
+    date: '2026-11-23',
+    author: 'poorna',
+    image: '/og-claude-md-template.png',
+    faqs: [
+      { q: "What is a CLAUDE.md file?", a: "CLAUDE.md is a markdown file of instructions that Claude Code reads at the start of every session. You write it in plain text, usually with the commands to test and lint the project, team conventions and known pitfalls. Claude treats it as context, so it guides behaviour but does not enforce it." },
+      { q: "Where do I put CLAUDE.md?", a: "Put the project file at ./CLAUDE.md or ./.claude/CLAUDE.md and commit it so the team shares it. Use ~/.claude/CLAUDE.md for personal preferences across all projects, and ./CLAUDE.local.md, added to .gitignore, for personal notes on one project." },
+      { q: "How long should a CLAUDE.md be?", a: "Anthropic's docs recommend under 200 lines per file. Longer files use more context and reduce how reliably Claude follows them. Move instructions for one part of the codebase into path-scoped rules in .claude/rules/, and multi-step procedures into skills." },
+      { q: "What is the difference between CLAUDE.md and CLAUDE.local.md?", a: "CLAUDE.md is shared with the team through version control. CLAUDE.local.md holds your personal preferences for that project, is added to .gitignore, and loads right after the CLAUDE.md in the same directory. Both are treated the same way once loaded." },
+      { q: "Does Claude Code read AGENTS.md?", a: "Yes, from Claude Code v2.1.277. By default it reads AGENTS.md only when there is no CLAUDE.md or CLAUDE.local.md in your working directory or above it. If you have both, add the line @AGENTS.md to your CLAUDE.md, or set Project instructions to claude-md-and-agents-md in /config." },
+      { q: "Why is Claude ignoring my CLAUDE.md?", a: "CLAUDE.md is context, not enforced configuration, so there is no guarantee of strict compliance. Run /context all to confirm the file loaded, make the instruction specific enough to verify, and remove conflicting lines. If it must happen every time, write it as a hook instead." },
+      { q: "Can Claude Code write the CLAUDE.md for me?", a: "Yes. Run /init and Claude analyses the codebase and writes a starting file with the build commands, test instructions and conventions it finds. If a CLAUDE.md already exists, /init suggests improvements and does not overwrite it. Then remove what Claude could have read from the code." },
+    ],
+  },
+  {
     path: '/blog/claude-code-goal-loop',
     title: "Claude Code /goal vs /loop vs Ralph Loop: Goal-Based Development Explained (2026)",
     seoTitle: "Claude Code /goal vs /loop vs Ralph Loop (2026 Guide)",

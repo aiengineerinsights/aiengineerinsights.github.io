@@ -352,6 +352,10 @@ const ClaudeCodeCheatSheetPost = () => {
 
                 <H3 id="setup-commands">Set up a project</H3>
                 <RefTable head={["Command", "What it does"]} rows={setup} />
+                <P>
+                  Not sure what to put in the file <C>/init</C> creates? Start from one of our{" "}
+                  <Link to="/blog/claude-md-template" className="text-primary hover:underline">CLAUDE.md templates</Link>.
+                </P>
 
                 <H3 id="context-commands">Manage context, model and cost</H3>
                 <RefTable head={["Command", "What it does"]} rows={contextRows} />

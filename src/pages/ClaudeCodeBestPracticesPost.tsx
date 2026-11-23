@@ -289,6 +289,11 @@ forbidden_modules = ["app.legacy"]
                   <li>• <strong>Anything you have corrected twice</strong> that a lint rule cannot express.</li>
                 </UL>
                 <P>
+                  For files you can copy, see our{" "}
+                  <In to="/blog/claude-md-template">CLAUDE.md templates</In> for a Python service, a TypeScript app, a
+                  monorepo and an ML project.
+                </P>
+                <P>
                   Here is a template for a Python service. It is short on purpose. The vendor SDK and legacy rules
                   from section 2 are not in it, because the linter holds them now.
                 </P>

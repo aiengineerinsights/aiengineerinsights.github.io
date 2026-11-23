@@ -1,5 +1,5 @@
 
-import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity } from "lucide-react";
+import { Clock, ArrowRight, TrendingUp, Zap, Database, Brain, Bot, ShieldAlert, Bug, Briefcase, DollarSign, Network, Award, AlertTriangle, GitCompare, Download, Sparkles, Monitor, Boxes, ShieldCheck, GitFork, Wrench, Fingerprint, ScanSearch, Route, ListChecks, TerminalSquare, Server, Scissors, Layers, Activity, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,16 @@ import { Link } from "@/components/SiteLink";
 // and the "Latest" banner both read from this, so adding a new post as the
 // first item here updates every surface automatically.
 export const insights = [
+    {
+      title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
+      excerpt: "Four CLAUDE.md templates you can copy (Python service, TypeScript web app, monorepo, data or ML project), plus what to leave out, how CLAUDE.md, CLAUDE.local.md and .claude/rules differ, and how Claude Code reads AGENTS.md.",
+      readTime: "10 min read",
+      date: "Nov 23, 2026",
+      category: "AI Coding",
+      icon: FileText,
+      gradient: "from-orange-600 to-amber-700",
+      link: "/blog/claude-md-template"
+    },
     {
       title: "Agentic AI System Design: Architecture, Patterns and a Worked Example (2026)",
       excerpt: "A seven-step method for designing agentic systems, a reference architecture, the control patterns to choose from, and a full worked example (a refund-handling agent), written for real projects and system design interviews.",
