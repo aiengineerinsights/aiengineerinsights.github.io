@@ -38,3 +38,8 @@ export const CLAUDE_CODE_STARTER_KIT: NewsletterBonus = {
   label: "Claude Code starter kit (zip)",
   href: "/downloads/claude-code-starter-kit.zip",
 };
+
+export const AI_ENGINEER_INTERVIEW_QUESTIONS: NewsletterBonus = {
+  label: "AI engineer interview questions (PDF)",
+  href: "/downloads/ai-engineer-interview-questions.pdf",
+};

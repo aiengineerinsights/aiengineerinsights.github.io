@@ -6,6 +6,7 @@ Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
 Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
+Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Bingbot
@@ -16,6 +17,7 @@ Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
 Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
+Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Twitterbot
@@ -90,6 +92,7 @@ Disallow: /downloads/fallacies-of-llm-systems-cheat-sheet.pdf
 Disallow: /downloads/ai-architect-reading-map.pdf
 Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
+Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 Sitemap: https://aiengineerinsights.com/sitemap.xml

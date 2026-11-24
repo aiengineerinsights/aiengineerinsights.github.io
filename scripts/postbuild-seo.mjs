@@ -678,10 +678,11 @@ const posts = [
   {
     path: '/blog/ai-engineer-interview-questions',
     title: 'AI Engineer Interview Questions (2026): What Gets Asked, Round by Round',
-    seoTitle: 'AI Engineer Interview Questions (2026)',
+    seoTitle: 'AI Engineer Interview Questions (2026) + Free PDF',
     description:
-      'A round-by-round AI engineer interview question bank: ML fundamentals, LLM & GenAI depth (RAG, agents, evals), system design, coding, and behavioral.',
+      'AI engineer interview questions by round: ML fundamentals, LLM and GenAI depth (RAG, agents, evals), system design, coding and behavioral. Free PDF.',
     date: '2026-10-07',
+    dateModified: '2026-11-24',
     author: 'poorna',
     image: '/og-ai-engineer-interview-questions.png',
     faqs: [
@@ -691,6 +692,7 @@ const posts = [
       { q: 'What is the difference between an AI engineer and ML engineer interview?', a: "The overlap is large and titles vary by company, but in 2026 AI engineer interviews lean toward LLMs, RAG, agents, prompting, evaluation of generative systems, and designing applied LLM applications end to end. Machine learning engineer interviews lean more toward classical machine learning, modeling and feature engineering, training pipelines, experiment design, and serving or MLOps infrastructure. Both will test fundamentals like bias-variance, evaluation metrics, and data leakage, and both usually include coding and system design rounds." },
       { q: 'What should I build to pass an AI engineer interview?', a: "Build one end-to-end project that demonstrates a real RAG or agent system rather than several shallow demos: ingest real documents or connect real tools, implement retrieval with a sensible chunking and embedding strategy, add an evaluation set with retrieval and generation metrics, handle failures and guardrails, and deploy a usable interface. Depth beats breadth — interviewers will probe every decision you made, so a project where you can explain why you chose each component, what you measured, and what went wrong is far more valuable than a long list of tutorials." },
       { q: 'How technical is the AI engineer system design round?', a: "Very. You are asked to design a real LLM or AI application — for example a chatbot over company documents or an agent that books meetings — and then probed on data flow, how retrieval works and why you chose that approach, how you evaluate quality and catch regressions, what failure modes exist and how you handle them, cost and latency at the expected scale, and safety including guardrails, PII handling, and preventing irreversible actions. Strong candidates draw the system, state their assumptions, name the trade-offs explicitly, and explain how they would measure whether it works." },
+      { q: 'Is there an AI engineer interview questions PDF?', a: "Yes. All 37 questions in this guide are available as a free two-page PDF, grouped by round, with a short note on what a strong answer covers. It is free with the newsletter sign-up on this page, and the download link appears right after you subscribe." },
     ],
   },
   {

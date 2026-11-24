@@ -9,6 +9,7 @@ import TableOfContents from "@/components/TableOfContents";
 import InterviewQuestionsHeroDiagram from "@/components/InterviewQuestionsHeroDiagram";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TopmateCTA from "@/components/TopmateCTA";
+import { AI_ENGINEER_INTERVIEW_QUESTIONS } from "@/config/newsletterBonuses";
 
 /** Underlined, high-contrast external reference link. */
 const RefLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
@@ -228,6 +229,10 @@ const faqs = [
     q: "How technical is the AI engineer system design round?",
     a: "Very. You are asked to design a real LLM or AI application — for example a chatbot over company documents or an agent that books meetings — and then probed on data flow, how retrieval works and why you chose that approach, how you evaluate quality and catch regressions, what failure modes exist and how you handle them, cost and latency at the expected scale, and safety including guardrails, PII handling, and preventing irreversible actions. Strong candidates draw the system, state their assumptions, name the trade-offs explicitly, and explain how they would measure whether it works.",
   },
+  {
+    q: "Is there an AI engineer interview questions PDF?",
+    a: "Yes. All 37 questions in this guide are available as a free two-page PDF, grouped by round, with a short note on what a strong answer covers. It is free with the newsletter sign-up on this page, and the download link appears right after you subscribe.",
+  },
 ];
 
 const AIEngineerInterviewQuestionsPost = () => {
@@ -264,7 +269,9 @@ const AIEngineerInterviewQuestionsPost = () => {
                 you still get a coding round, but the weight has shifted to LLM and RAG depth, applied system design
                 for AI applications, and whether you can explain real trade-offs out loud. This guide walks through
                 every round of a typical AI engineer interview, gives realistic example questions with notes on what a
-                strong answer covers, and ends with a concrete prep plan built on our{" "}
+                strong answer covers (also available as a{" "}
+                <a href="#get-pdf" className="text-primary hover:underline">free two-page PDF</a>), and ends with a
+                concrete prep plan built on our{" "}
                 <Link to="/blog/ai-engineer-skills" className="text-primary hover:underline">AI engineer skills</Link>{" "}
                 breakdown and the{" "}
                 <Link to="/ai-engineering-roadmap" className="text-primary hover:underline">AI engineering roadmap</Link>.
@@ -288,7 +295,7 @@ const AIEngineerInterviewQuestionsPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Oct 7, 2026
+                      Updated Nov 24, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -350,10 +357,13 @@ const AIEngineerInterviewQuestionsPost = () => {
                 </p>
               </section>
 
-              <NewsletterSignup
-                heading="Get the weekly AI engineering brief"
-                subtext="Interview prep, career moves, RAG, agents, evals, and the tools worth using — one practical email a week. Plus the free roadmap PDF."
-              />
+              <div id="get-pdf" className="scroll-mt-24">
+                <NewsletterSignup
+                  heading="Get these interview questions as a PDF"
+                  subtext="All 37 questions from this guide on two printable pages, with what a strong answer covers. Free when you join the weekly AI engineering brief; the download link appears right after you sign up."
+                  bonus={AI_ENGINEER_INTERVIEW_QUESTIONS}
+                />
+              </div>
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="llm-genai" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">LLM and generative AI questions</h2>
@@ -527,7 +537,7 @@ const AIEngineerInterviewQuestionsPost = () => {
                     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.a}</p>
                   </div>
                 ))}
-                <TopmateCTA />
+                <TopmateCTA placement="interview-questions" />
               </section>
 
               <section className="mb-6 sm:mb-8">
