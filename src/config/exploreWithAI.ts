@@ -230,6 +230,33 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "Plan a Claude Code rollout for my team", askFor: "team size, repos, what we use today, and our security requirements" },
     ],
   },
+  "/blog/how-meta-muse-works": {
+    topic: "Meta Muse's architecture",
+    questions: [
+      { q: "Which parts of the Muse design should I copy into my own agent first?", askFor: "what my agent can do today, which accounts and data it touches, and where it runs" },
+      { q: "How do I build a Sentinel-style permission service with surrogate credentials?", askFor: "my stack, how my agent calls external APIs now, and where I store secrets" },
+      { q: "How would I present this design in an agent system design interview?", askFor: "the role and level I'm interviewing for and how much time the design round gives me" },
+      { q: "Is Meta Muse safe enough for my email, accounts and payments?", askFor: "which accounts I'd connect, what devices I use, and how sensitive the data is" },
+    ],
+  },
+  "/blog/meta-muse-vs-openclaw-vs-hermes-agent": {
+    topic: "Meta Muse vs OpenClaw vs Hermes Agent",
+    questions: [
+      { q: "Should I use Meta Muse or run OpenClaw or Hermes Agent myself?", askFor: "what I want the agent to do, my country, how much setup I'm willing to do, and how sensitive the data is" },
+      { q: "What would a self-hosted agent cost me compared with a Muse plan?", askFor: "which model provider I'd use, how many hours a day the agent would run, and whether I already have a server" },
+      { q: "How do I make OpenClaw or Hermes Agent as locked down as Muse's defaults?", askFor: "my OS, which accounts and files the agent will touch, and whether I can run Docker" },
+      { q: "How should I split tasks between Muse and a self-hosted agent?", askFor: "which tasks involve shopping or bookings, which involve code or private files, and which accounts each agent would connect to" },
+    ],
+  },
+  "/blog/meta-muse-alternatives": {
+    topic: "Meta Muse alternatives",
+    questions: [
+      { q: "Which Meta Muse alternative fits how I work?", askFor: "my country, which subscriptions I already pay for, and what I want the agent to do" },
+      { q: "Muse vs Manus 2.0: which should I pick?", askFor: "whether I need an API, which apps I want connected, and my monthly budget" },
+      { q: "Should I self-host OpenClaw or Hermes Agent instead of using a managed agent?", askFor: "my hardware or VPS, how comfortable I am with sandboxing, and which accounts the agent will touch" },
+      { q: "OpenAI dots vs Gemini task mode: which is better for me?", askFor: "whether I use ChatGPT or Google apps more, my plan, and my country" },
+    ],
+  },
   "/blog/claude-md-template": {
     topic: "CLAUDE.md templates for Claude Code, CLAUDE.local.md, .claude/rules and AGENTS.md",
     questions: [

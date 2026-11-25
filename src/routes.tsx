@@ -81,6 +81,9 @@ const AIEngineeringBooksPost = lazyWithReload(() => import("./pages/AIEngineerin
 const ClaudeCodeCheatSheetPost = lazyWithReload(() => import("./pages/ClaudeCodeCheatSheetPost"));
 const ClaudeCodeBestPracticesPost = lazyWithReload(() => import("./pages/ClaudeCodeBestPracticesPost"));
 const ClaudeCodeGoalLoopPost = lazyWithReload(() => import("./pages/ClaudeCodeGoalLoopPost"));
+const MetaMuseArchitecturePost = lazyWithReload(() => import("./pages/MetaMuseArchitecturePost"));
+const MuseVsOpenClawHermesPost = lazyWithReload(() => import("./pages/MuseVsOpenClawHermesPost"));
+const MetaMuseAlternativesPost = lazyWithReload(() => import("./pages/MetaMuseAlternativesPost"));
 const ClaudeMdTemplatePost = lazyWithReload(() => import("./pages/ClaudeMdTemplatePost"));
 const AgenticSystemDesignPost = lazyWithReload(() => import("./pages/AgenticSystemDesignPost"));
 const AgentZeroVsHermesPost = lazyWithReload(() => import("./pages/AgentZeroVsHermesPost"));
@@ -166,6 +169,9 @@ const AppRoutes = () => (
       <Route path="/blog/claude-code-cheat-sheet" element={<ClaudeCodeCheatSheetPost />} />
       <Route path="/blog/claude-code-best-practices" element={<ClaudeCodeBestPracticesPost />} />
       <Route path="/blog/claude-code-goal-loop" element={<ClaudeCodeGoalLoopPost />} />
+      <Route path="/blog/how-meta-muse-works" element={<MetaMuseArchitecturePost />} />
+      <Route path="/blog/meta-muse-vs-openclaw-vs-hermes-agent" element={<MuseVsOpenClawHermesPost />} />
+      <Route path="/blog/meta-muse-alternatives" element={<MetaMuseAlternativesPost />} />
       <Route path="/blog/claude-md-template" element={<ClaudeMdTemplatePost />} />
       <Route path="/blog/agentic-ai-system-design" element={<AgenticSystemDesignPost />} />
       <Route path="/blog/agent-zero-vs-hermes-agent" element={<AgentZeroVsHermesPost />} />

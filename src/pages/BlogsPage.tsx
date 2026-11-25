@@ -15,6 +15,39 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 75,
+      title: "Meta Muse Alternatives (2026): 9 Personal AI Agents Compared",
+      excerpt: "Nine personal AI agents to use instead of Meta Muse, compared on maker, price, where they run and how you extend them. Includes Manus 2.0 and OpenAI dots.",
+      readTime: "12 min read",
+      date: "Nov 25, 2026",
+      category: "AI Agents",
+      icon: Layers,
+      gradient: "from-blue-600 to-indigo-800",
+      link: "/blog/meta-muse-alternatives"
+    },
+    {
+      id: 74,
+      title: "Meta Muse vs OpenClaw vs Hermes Agent (2026): Rent the Agent or Run Your Own?",
+      excerpt: "Meta Muse is a managed agent on Meta's cloud; OpenClaw and Hermes Agent are free and self-hosted. Price, models, approvals, privacy and how to choose.",
+      readTime: "11 min read",
+      date: "Nov 25, 2026",
+      category: "AI Agents",
+      icon: GitCompare,
+      gradient: "from-blue-600 to-indigo-800",
+      link: "/blog/meta-muse-vs-openclaw-vs-hermes-agent"
+    },
+    {
+      id: 73,
+      title: "How Meta Muse Works: Secure VM, Sentinel and the Approval Design (2026)",
+      excerpt: "An engineer's teardown of Meta's personal agent: per-user VM, runtime cell, Sentinel, surrogate credentials, approval gates, and where it did not hold.",
+      readTime: "12 min read",
+      date: "Nov 25, 2026",
+      category: "Agentic Security",
+      icon: ShieldCheck,
+      gradient: "from-slate-600 to-cyan-800",
+      link: "/blog/how-meta-muse-works"
+    },
+    {
       id: 72,
       title: "Remote MCP Servers Explained: OAuth, Hosting, and When to Skip Local stdio (2026)",
       excerpt: "A remote MCP server runs over the network via Streamable HTTP and authenticates with OAuth 2.1, unlike a local stdio server that just reads credentials from the environment. How remote MCP auth works, a comparison table, and when to build one.",

@@ -7,6 +7,21 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/meta-muse-alternatives",
+    title: "Meta Muse Alternatives (2026): 9 Personal AI Agents Compared",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/meta-muse-vs-openclaw-vs-hermes-agent",
+    title: "Meta Muse vs OpenClaw vs Hermes Agent (2026): Rent the Agent or Run Your Own?",
+    tag: "AI Agents",
+  },
+  {
+    slug: "/blog/how-meta-muse-works",
+    title: "How Meta Muse Works: Secure VM, Sentinel and the Approval Design (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/agentic-ai-system-design",
     title: "Agentic AI System Design: Architecture, Patterns and a Worked Example (2026)",
     tag: "AI Agents",
@@ -371,6 +386,9 @@ const CURATED: Record<string, string[]> = {
   "/blog/ai-engineering-books": ["/blog/conways-law-ai", "/blog/fallacies-of-llm-systems", "/blog/ai-agent-observability"],
   "/blog/claude-code-cheat-sheet": ["/blog/claude-code-best-practices", "/blog/claude-code-skills", "/blog/claude-code-vs-cursor"],
   "/blog/claude-code-best-practices": ["/blog/claude-md-template", "/blog/claude-code-goal-loop", "/blog/claude-code-cheat-sheet"],
+  "/blog/how-meta-muse-works": ["/blog/meta-muse-vs-openclaw-vs-hermes-agent", "/blog/ai-agent-sandboxing", "/blog/what-is-an-agent-harness"],
+  "/blog/meta-muse-vs-openclaw-vs-hermes-agent": ["/blog/how-meta-muse-works", "/blog/meta-muse-alternatives", "/blog/hermes-agent-vs-openclaw"],
+  "/blog/meta-muse-alternatives": ["/blog/meta-muse-vs-openclaw-vs-hermes-agent", "/blog/how-meta-muse-works", "/blog/hermes-agent-alternatives"],
   "/blog/claude-md-template": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/claude-code-skills"],
   "/blog/claude-code-goal-loop": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/what-is-an-agent-harness"],
   "/blog/agentic-ai-system-design": ["/blog/multi-agent-orchestration-patterns", "/blog/what-is-an-agent-harness", "/blog/ai-engineer-interview-questions"],
