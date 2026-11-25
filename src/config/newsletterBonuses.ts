@@ -43,3 +43,8 @@ export const AI_ENGINEER_INTERVIEW_QUESTIONS: NewsletterBonus = {
   label: "AI engineer interview questions (PDF)",
   href: "/downloads/ai-engineer-interview-questions.pdf",
 };
+
+export const AI_ENGINEER_RESUME_TEMPLATE: NewsletterBonus = {
+  label: "AI engineer resume template (Word + PDF)",
+  href: "/downloads/ai-engineer-resume-template.zip",
+};

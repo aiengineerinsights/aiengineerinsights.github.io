@@ -197,6 +197,25 @@ const posts = [
     ],
   },
   {
+    path: '/blog/ai-engineer-resume',
+    title: "AI Engineer Resume: Template, Examples and Bullet Rewrites (2026)",
+    seoTitle: "AI Engineer Resume: Template and Examples (2026)",
+    description:
+      "AI engineer resume template with a section-by-section structure, six before-and-after bullet rewrites, keywords from current job postings and a free download.",
+    date: '2026-11-25',
+    author: 'poorna',
+    image: '/og-ai-engineer-resume.png',
+    faqs: [
+      { q: "How long should an AI engineer resume be?", a: "One page if you can, two at most. Google's recruiters give the same range in their resume advice: one page is ideal, and engineering resumes should not run past two pages. Cut older roles to two bullets before you add a second page." },
+      { q: "What should an AI engineer put on a resume with no AI job experience?", a: "Put your software or data experience first, rewritten to show production ownership, then one or two AI projects with a public link and an evaluation. A project that states its test set, its metric and its known failures carries more weight than a list of courses. If you added any AI feature at your current job, even a small one, lead with it." },
+      { q: "Which keywords should an AI engineer resume include?", a: "Use the terms from the job posting you are applying to, wherever they are true for you. In the postings we read on November 25, 2026, the recurring terms were Python, RAG, embeddings, vector database, re-ranking, tool calling, agent orchestration, evaluation and LLM-as-judge, observability and tracing, guardrails, prompt injection, Docker, CI/CD and a cloud platform. Put each term inside a bullet that shows what you did with it." },
+      { q: "Should I list every AI tool and framework I have tried?", a: "No. List only what you can answer interview questions about. Google's recruiters give this advice for programming languages, and it applies to frameworks too. Three tools backed by bullets are stronger than fifteen that are not." },
+      { q: "Do I need numbers in every bullet?", a: "Aim for a number in most bullets, and never invent one. Useful numbers for AI work are a quality metric with its test set size, latency, cost per request, the number of users or documents, and how often a person accepted the output. If you did not measure something, describe the scale and the decision instead." },
+      { q: "Should an AI engineer resume be a PDF or a Word file?", a: "Send a PDF unless the application form asks for another format. Google's recruiters say PDF is preferred. Keep the text real and selectable, in a single column with standard section headings, so that people and parsing software can both read it." },
+      { q: "Is there a free AI engineer resume template?", a: "Yes. The template on this page is free with the newsletter sign-up: an editable Word file, plus a PDF that shows the template and a filled example. The example is illustrative; its name, companies and numbers are made up." },
+    ],
+  },
+  {
     path: '/blog/claude-md-template',
     title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
     seoTitle: "CLAUDE.md Template: 4 Copy-Paste Examples (2026)",

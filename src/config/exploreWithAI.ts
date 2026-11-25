@@ -257,6 +257,15 @@ export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
       { q: "OpenAI dots vs Gemini task mode: which is better for me?", askFor: "whether I use ChatGPT or Google apps more, my plan, and my country" },
     ],
   },
+  "/blog/ai-engineer-resume": {
+    topic: "your AI engineer resume",
+    questions: [
+      { q: "Rewrite my resume bullets in the built, measured, how format", askFor: "my current bullets and which numbers I actually measured for each" },
+      { q: "Tailor my resume to a specific AI engineer job posting", askFor: "the job posting text and my current resume" },
+      { q: "How do I write an AI engineer resume with no AI job experience?", askFor: "my current role, the AI projects I have built and the kind of role I want" },
+      { q: "Which of my projects should go on my resume?", askFor: "a short description of each project, its users and how I evaluated it" },
+    ],
+  },
   "/blog/claude-md-template": {
     topic: "CLAUDE.md templates for Claude Code, CLAUDE.local.md, .claude/rules and AGENTS.md",
     questions: [

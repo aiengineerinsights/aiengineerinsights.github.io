@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 KEYWORD-RESEARCH-*.md
+
+# Build output of the resume template (the zip in public/downloads is the shipped file)
+lead-magnets/ai-engineer-resume-template/out/

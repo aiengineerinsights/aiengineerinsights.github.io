@@ -7,6 +7,11 @@ const SITE = "https://aiengineerinsights.com";
 
 const ALL_POSTS = [
   {
+    slug: "/blog/ai-engineer-resume",
+    title: "AI Engineer Resume: Template, Examples and Bullet Rewrites (2026)",
+    tag: "AI Engineering Careers",
+  },
+  {
     slug: "/blog/meta-muse-alternatives",
     title: "Meta Muse Alternatives (2026): 9 Personal AI Agents Compared",
     tag: "AI Agents",
@@ -389,6 +394,7 @@ const CURATED: Record<string, string[]> = {
   "/blog/how-meta-muse-works": ["/blog/meta-muse-vs-openclaw-vs-hermes-agent", "/blog/ai-agent-sandboxing", "/blog/what-is-an-agent-harness"],
   "/blog/meta-muse-vs-openclaw-vs-hermes-agent": ["/blog/how-meta-muse-works", "/blog/meta-muse-alternatives", "/blog/hermes-agent-vs-openclaw"],
   "/blog/meta-muse-alternatives": ["/blog/meta-muse-vs-openclaw-vs-hermes-agent", "/blog/how-meta-muse-works", "/blog/hermes-agent-alternatives"],
+  "/blog/ai-engineer-resume": ["/blog/ai-engineer-interview-questions", "/blog/ai-engineer-skills", "/blog/how-to-become-an-ai-engineer"],
   "/blog/claude-md-template": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/claude-code-skills"],
   "/blog/claude-code-goal-loop": ["/blog/claude-code-best-practices", "/blog/claude-code-cheat-sheet", "/blog/what-is-an-agent-harness"],
   "/blog/agentic-ai-system-design": ["/blog/multi-agent-orchestration-patterns", "/blog/what-is-an-agent-harness", "/blog/ai-engineer-interview-questions"],

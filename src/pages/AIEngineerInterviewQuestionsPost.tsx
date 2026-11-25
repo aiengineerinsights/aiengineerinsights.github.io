@@ -500,7 +500,9 @@ const AIEngineerInterviewQuestionsPost = () => {
                     <li>
                       • <strong>Know your own projects cold.</strong> Every number on your resume will be probed:
                       why that embedding model, why that chunk size, what the eval set looked like, what went
-                      wrong, what you would do differently. If you cannot answer, remove the claim.
+                      wrong, what you would do differently. If you cannot answer, remove the claim. Our{" "}
+                      <Link to="/blog/ai-engineer-resume" className="text-primary hover:underline">AI engineer resume guide</Link>{" "}
+                      shows how to write bullets you can defend.
                     </li>
                     <li>
                       • <strong>Mock the system design round.</strong> Take two or three of the prompts above,

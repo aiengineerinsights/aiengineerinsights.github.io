@@ -10,6 +10,16 @@ import { Link } from "@/components/SiteLink";
 // first item here updates every surface automatically.
 export const insights = [
     {
+      title: "AI Engineer Resume: Template, Examples and Bullet Rewrites (2026)",
+      excerpt: "The six sections of an AI engineer resume, how to write bullets with a measured result, the keywords current job postings ask for, and a free Word and PDF template.",
+      readTime: "11 min read",
+      date: "Nov 25, 2026",
+      category: "AI Engineering Careers",
+      icon: FileText,
+      gradient: "from-amber-600 to-orange-800",
+      link: "/blog/ai-engineer-resume"
+    },
+    {
       title: "Meta Muse Alternatives (2026): 9 Personal AI Agents Compared",
       excerpt: "Nine personal AI agents to use instead of Meta Muse, compared on maker, price, where they run and how you extend them. Includes Manus 2.0 and OpenAI dots.",
       readTime: "12 min read",
