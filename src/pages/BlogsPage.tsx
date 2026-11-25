@@ -15,6 +15,17 @@ const BlogsPage = () => {
 
   const blogPosts = [
     {
+      id: 72,
+      title: "Remote MCP Servers Explained: OAuth, Hosting, and When to Skip Local stdio (2026)",
+      excerpt: "A remote MCP server runs over the network via Streamable HTTP and authenticates with OAuth 2.1, unlike a local stdio server that just reads credentials from the environment. How remote MCP auth works, a comparison table, and when to build one.",
+      readTime: "10 min read",
+      date: "Nov 25, 2026",
+      category: "AI Agents",
+      icon: Network,
+      gradient: "from-violet-600 to-fuchsia-800",
+      link: "/blog/remote-mcp-servers"
+    },
+    {
       id: 71,
       title: "CLAUDE.md Template: 4 Copy-Paste Examples for Claude Code (2026)",
       excerpt: "Four CLAUDE.md templates you can copy (Python service, TypeScript web app, monorepo, data or ML project), plus what to leave out, how CLAUDE.md, CLAUDE.local.md and .claude/rules differ, and how Claude Code reads AGENTS.md.",

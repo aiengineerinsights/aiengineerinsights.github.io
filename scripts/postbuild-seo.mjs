@@ -769,6 +769,24 @@ const posts = [
     ],
   },
   {
+    path: '/blog/remote-mcp-servers',
+    title: 'Remote MCP Servers Explained: OAuth, Hosting, and When to Skip Local stdio (2026)',
+    seoTitle: 'Remote MCP Servers: OAuth, Hosting & Local vs Remote',
+    description:
+      "A remote MCP server runs over the network via Streamable HTTP and authenticates with OAuth 2.1, unlike a local stdio server that just reads credentials from the environment. How remote MCP auth works, and when to build one.",
+    date: '2026-11-25',
+    author: 'poorna',
+    image: '/og-remote-mcp-servers.png',
+    faqs: [
+      { q: 'What is a remote MCP server?', a: "A remote MCP server is an MCP server that doesn't run on the user's own machine. Instead of an MCP host spawning it as a local child process over stdio, a remote server runs on shared infrastructure and an MCP client connects to it over HTTPS using the Streamable HTTP transport. Ahrefs runs one such server at a fixed endpoint that every paid customer's AI client connects to." },
+      { q: 'Does a remote MCP server need OAuth?', a: "Yes, by spec. The MCP authorization specification says HTTP-based transports SHOULD implement OAuth 2.1, while stdio transports SHOULD NOT and should read credentials from the environment instead. A remote MCP server acts as an OAuth 2.1 resource server: it validates bearer tokens but never issues them." },
+      { q: 'What is the difference between local (stdio) and remote (HTTP) MCP servers?', a: "Local servers run as a child process on the same machine as the host and read secrets from the environment, with no network hop and no OAuth required. Remote servers run over the network via Streamable HTTP, serve many users from one deployment, and must validate a bearer token against OAuth 2.0 Protected Resource Metadata (RFC 9728) on every request." },
+      { q: 'What new MCP features push teams toward remote servers?', a: "Anthropic's November 2026 update, announced after the protocol passed 700 million monthly SDK downloads, made Tasks (background jobs) and Elicitation (pausing to ask the user for input) generally available, and added Enterprise Managed Auth and MCP Apps — all aimed at servers operating independently of a single chat session." },
+      { q: 'Is a remote MCP server more secure or less secure than a local one?', a: "Neither is inherently safer; the risk moves. A local server trusts your environment variables and can read your filesystem directly. A remote server adds network exposure and a token-management problem — the MCP spec forbids passing through a token a server didn't issue, to prevent confused-deputy attacks. Treat every third-party server as untrusted either way." },
+      { q: 'Can one remote MCP server serve multiple users?', a: "Yes — that's the main reason to go remote. A stdio server is one process per user on their own machine. A single remote deployment, protected by per-user OAuth tokens, can serve every customer of a SaaS product, which is the model Ahrefs and similar vendors use." },
+    ],
+  },
+  {
     path: '/blog/mcp-vs-api',
     title: 'MCP vs API: What the Model Context Protocol Actually Is (and When to Use It)',
     seoTitle: 'MCP vs API: Model Context Protocol Explained',

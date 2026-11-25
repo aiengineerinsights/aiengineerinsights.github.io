@@ -207,6 +207,11 @@ const ALL_POSTS = [
     tag: "AI Agents",
   },
   {
+    slug: "/blog/remote-mcp-servers",
+    title: "Remote MCP Servers Explained: OAuth, Hosting, and When to Skip Local stdio (2026)",
+    tag: "AI Agents",
+  },
+  {
     slug: "/blog/best-ai-coding-agents",
     title: "The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)",
     tag: "AI Tooling",

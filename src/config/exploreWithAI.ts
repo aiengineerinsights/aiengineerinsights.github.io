@@ -23,6 +23,15 @@ export interface ExploreConfig {
 }
 
 export const EXPLORE_WITH_AI: Record<string, ExploreConfig> = {
+  "/blog/remote-mcp-servers": {
+    topic: "remote MCP servers",
+    questions: [
+      { q: "Should I build my MCP server as local stdio or remote HTTP?", askFor: "who will connect to it — just me on one machine, or multiple users/devices — and whether you need centralized admin approval" },
+      { q: "How do I add OAuth 2.1 to my remote MCP server?", askFor: "which SDK and language you're using, and whether you already have an identity provider like Auth0 or Keycloak" },
+      { q: "How do I avoid confused-deputy token issues in my MCP server?", askFor: "whether your server calls any upstream API with a token it received from the client" },
+      { q: "What does Anthropic's Tasks and Elicitation feature change for my server?", askFor: "whether your MCP server runs any job that takes more than a few seconds" },
+    ],
+  },
   "/blog/ai-agent-observability": {
     topic: "AI agent observability",
     questions: [

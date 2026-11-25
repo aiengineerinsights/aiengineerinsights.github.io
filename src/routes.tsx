@@ -59,6 +59,7 @@ const ThanksForBookingPage = lazyWithReload(() => import("./pages/ThanksForBooki
 const AIAgentsExplainedPost = lazyWithReload(() => import("./pages/AIAgentsExplainedPost"));
 const MultiAgentOrchestrationPost = lazyWithReload(() => import("./pages/MultiAgentOrchestrationPost"));
 const MCPvsAPIPost = lazyWithReload(() => import("./pages/MCPvsAPIPost"));
+const RemoteMCPServersPost = lazyWithReload(() => import("./pages/RemoteMCPServersPost"));
 const RagVsFineTuningPost = lazyWithReload(() => import("./pages/RagVsFineTuningPost"));
 const HermesClaudeCodePost = lazyWithReload(() => import("./pages/HermesClaudeCodePost"));
 const RagEvaluationMetricsPost = lazyWithReload(() => import("./pages/RagEvaluationMetricsPost"));
@@ -101,6 +102,7 @@ const AppRoutes = () => (
       <Route path="/blog/what-are-ai-agents" element={<AIAgentsExplainedPost />} />
       <Route path="/blog/multi-agent-orchestration-patterns" element={<MultiAgentOrchestrationPost />} />
       <Route path="/blog/mcp-vs-api" element={<MCPvsAPIPost />} />
+      <Route path="/blog/remote-mcp-servers" element={<RemoteMCPServersPost />} />
       <Route path="/blog/rag-vs-fine-tuning" element={<RagVsFineTuningPost />} />
       <Route path="/blog/hermes-claude-code-orchestration" element={<HermesClaudeCodePost />} />
       <Route path="/blog/rag-evaluation-metrics" element={<RagEvaluationMetricsPost />} />
