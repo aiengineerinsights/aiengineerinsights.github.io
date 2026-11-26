@@ -62,6 +62,14 @@ const faqs = [
     q: "How do I build an MCP server?",
     a: "Pick an official MCP SDK (TypeScript or Python are common), define the Tools, Resources, and Prompts you want to expose, wrap whatever API or data source they call, and run the server over stdio (for local) or HTTP (for remote). Point an MCP host — Claude Desktop, an IDE, or your agent — at it, and the tools become available automatically.",
   },
+  {
+    q: "What is the MCP Registry?",
+    a: "The official MCP Registry (registry.modelcontextprotocol.io) is an open catalog and API for discovering publicly available MCP servers, launched in preview on September 8, 2025. Its API entered a stability freeze (v0.1) on October 24, 2025 ahead of general availability. Organizations can also run private sub-registries against the same OpenAPI schema for internal servers.",
+  },
+  {
+    q: "What is Enterprise-Managed Authorization (EMA) for MCP?",
+    a: "EMA is an MCP extension, stable since June 18, 2026, that lets an organization's identity provider centrally authorize which MCP servers employees can access, removing the per-server OAuth consent screen. The client exchanges an Identity Assertion JWT obtained at SSO login for an access token at the MCP server's authorization server. Claude implemented it first, and AWS, Microsoft, Okta, and Supabase's MCP server are among the other adopters.",
+  },
 ];
 
 const MCPvsAPIPost = () => {
@@ -120,7 +128,7 @@ const MCPvsAPIPost = () => {
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Aug 25, 2026
+                      Aug 25, 2026 · Updated Nov 26, 2026
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
@@ -309,6 +317,39 @@ const MCPvsAPIPost = () => {
               </section>
 
               <section className="mb-6 sm:mb-8">
+                <h2 id="registry-enterprise-auth" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What's new since the last update: the MCP Registry and Enterprise-Managed Auth</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  Two pieces of MCP infrastructure matured in late 2025 and 2026, and they both target problems this
+                  article already flags: discovery, and per-app OAuth friction at scale.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>The official MCP Registry</strong> launched in preview on{" "}
+                  <RefLink href="https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/">September 8, 2025</RefLink>{" "}
+                  at <code>registry.modelcontextprotocol.io</code> — an open, versioned catalog and API that lets any MCP
+                  client discover publicly available servers instead of relying on word-of-mouth GitHub links.{" "}
+                  <RefLink href="https://github.com/modelcontextprotocol/registry/">Its own repo</RefLink>{" "}
+                  shows the API entered a stability freeze (v0.1) on October 24, 2025, with general availability to
+                  follow; organizations can also run private sub-registries for internal servers against the same
+                  OpenAPI schema. It directly answers the "ecosystem" question in the section below: you no longer have
+                  to trust a random list to find a server.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
+                  <strong>Enterprise-Managed Authorization (EMA)</strong> went stable on{" "}
+                  <RefLink href="https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth">June 18, 2026</RefLink>, and it changes
+                  the auth story this article's "evolution" section above left off at OAuth 2.1. EMA lets an
+                  organization's identity provider become the authority over which MCP servers an employee can reach:
+                  the client exchanges an Identity Assertion JWT (ID-JAG) obtained at SSO login for an access token at
+                  the MCP server's authorization server, so the end user never sees a per-server consent screen. Claude
+                  was the first client to implement it, and{" "}
+                  <RefLink href="https://aws.amazon.com/blogs/security/secure-agentic-access-to-aws-with-enterprise-managed-authorization">AWS's own security blog</RefLink>{" "}
+                  documents the AWS MCP Server adopting the same extension through AWS Sign-In, with Microsoft, Okta,
+                  and Supabase's MCP server among the other adopters. For a team wiring up a dozen internal MCP servers,
+                  this is the practical answer to the OAuth-fatigue problem the earlier spec revisions didn't fully
+                  solve — admins grant access once per server, not users clicking "Allow" repeatedly.
+                </p>
+              </section>
+
+              <section className="mb-6 sm:mb-8">
                 <h2 id="examples" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">MCP examples and ecosystem</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   There's a large and growing library of ready-made MCP servers — filesystem, GitHub, Google Drive,
@@ -377,6 +418,10 @@ const MCPvsAPIPost = () => {
                   <li>• <RefLink href="https://modelcontextprotocol.io/">Model Context Protocol — official documentation and specification</RefLink></li>
                   <li>• <RefLink href="https://modelcontextprotocol.io/specification/versioning">MCP specification — versioning and revision history (2025-03-26, 2025-06-18)</RefLink></li>
                   <li>• <RefLink href="https://github.com/modelcontextprotocol/servers">MCP reference servers (GitHub)</RefLink></li>
+                  <li>• <RefLink href="https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/">MCP blog — Introducing the MCP Registry (Sep 8, 2025)</RefLink></li>
+                  <li>• <RefLink href="https://github.com/modelcontextprotocol/registry/">MCP Registry (GitHub) — development status and API freeze</RefLink></li>
+                  <li>• <RefLink href="https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth">MCP blog — Enterprise-Managed Authorization: Zero-touch OAuth for MCP (Jun 18, 2026)</RefLink></li>
+                  <li>• <RefLink href="https://aws.amazon.com/blogs/security/secure-agentic-access-to-aws-with-enterprise-managed-authorization">AWS Security Blog — Secure agentic access to AWS with Enterprise-Managed Authorization</RefLink></li>
                   <li>• <RefLink href="https://a2a-protocol.org/">A2A (Agent2Agent) protocol</RefLink></li>
                   <li>• <RefLink href="https://google.github.io/adk-docs/">Google Agent Development Kit (ADK) documentation</RefLink></li>
                   <li>• <RefLink href="https://simonwillison.net/tags/lethal-trifecta/">Simon Willison — the "lethal trifecta" (agent security)</RefLink></li>

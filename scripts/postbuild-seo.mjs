@@ -871,6 +871,7 @@ const posts = [
     description:
       'MCP vs API: an open, model-facing standard that makes tools reusable across AI apps — turning M×N integrations into M+N. How it works and when to use each.',
     date: '2026-08-25',
+    dateModified: '2026-11-26',
     author: 'poorna',
     image: '/og-mcp-vs-api.png',
     faqs: [
@@ -882,6 +883,8 @@ const posts = [
       { q: 'Is MCP secure?', a: "MCP is as secure as how you deploy it. Early versions had gaps — underspecified auth and prompt-injection / 'tool poisoning' risks — which the 2025 revisions addressed with an OAuth 2.1 framework, resource-server semantics, and a security best-practices spec. But you still own the risk of what you connect: treat third-party servers as untrusted, scope permissions tightly, and keep a human in the loop for sensitive actions." },
       { q: 'What is the difference between MCP and A2A?', a: "They cover different connections. MCP connects an agent to tools and data. A2A (Agent2Agent, from Google) connects agents to each other so they can discover and delegate work. They're complementary — an agent might use MCP for its tools and A2A to hand off to another agent. Google's ADK framework speaks both." },
       { q: 'How do I build an MCP server?', a: 'Pick an official MCP SDK (TypeScript or Python are common), define the Tools, Resources, and Prompts you want to expose, wrap whatever API or data source they call, and run the server over stdio (local) or HTTP (remote). Point an MCP host — Claude Desktop, an IDE, or your agent — at it, and the tools become available automatically.' },
+      { q: 'What is the MCP Registry?', a: "The official MCP Registry (registry.modelcontextprotocol.io) is an open catalog and API for discovering publicly available MCP servers, launched in preview on September 8, 2025. Its API entered a stability freeze (v0.1) on October 24, 2025 ahead of general availability. Organizations can also run private sub-registries against the same OpenAPI schema for internal servers." },
+      { q: 'What is Enterprise-Managed Authorization (EMA) for MCP?', a: "EMA is an MCP extension, stable since June 18, 2026, that lets an organization's identity provider centrally authorize which MCP servers employees can access, removing the per-server OAuth consent screen. The client exchanges an Identity Assertion JWT obtained at SSO login for an access token at the MCP server's authorization server. Claude implemented it first, and AWS, Microsoft, Okta, and Supabase's MCP server are among the other adopters." },
     ],
   },
   {
