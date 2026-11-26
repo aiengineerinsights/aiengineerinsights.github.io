@@ -44,6 +44,16 @@ export const AI_ENGINEER_INTERVIEW_QUESTIONS: NewsletterBonus = {
   href: "/downloads/ai-engineer-interview-questions.pdf",
 };
 
+export const AI_ENGINEER_OFFER_WORKSHEET: NewsletterBonus = {
+  label: "Offer-comparison worksheet (PDF)",
+  href: "/downloads/ai-engineer-offer-worksheet.pdf",
+};
+
+export const CLAUDE_CERT_PREP_CHECKLIST: NewsletterBonus = {
+  label: "Claude certification exam-prep checklist (PDF)",
+  href: "/downloads/claude-certification-exam-prep-checklist.pdf",
+};
+
 export const AI_ENGINEER_RESUME_TEMPLATE: NewsletterBonus = {
   label: "AI engineer resume template (Word + PDF)",
   href: "/downloads/ai-engineer-resume-template.zip",

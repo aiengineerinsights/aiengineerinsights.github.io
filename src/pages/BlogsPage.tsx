@@ -280,9 +280,9 @@ const BlogsPage = () => {
     },
     {
       id: 51,
-      title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
-      excerpt: "Four proctored Claude certifications (Associate, Developer, Architect Foundations, Architect Professional), what each tests and costs, who is allowed to sit them, which free Anthropic Academy courses prepare you for which exam, and where the Claude Frontier Academy fits.",
-      readTime: "9 min read",
+      title: "Anthropic Certifications (2026): All 5 Claude Exams, Costs, Eligibility, and the Free Claude Academy Courses",
+      excerpt: "Five proctored Claude certifications (Associate, Developer and Architect at Foundations and Professional level), what each tests and costs, who is allowed to sit them, what changes on December 7, which free Claude Academy courses prepare you for which exam, and an exam-prep checklist.",
+      readTime: "11 min read",
       date: "Oct 13, 2026",
       category: "AI Engineering Careers",
       icon: Award,
@@ -688,8 +688,8 @@ const BlogsPage = () => {
     {
       id: 13,
       title: "AI Engineer Salary (November 2026): What US Engineers Earn by Level, Company, and City",
-      excerpt: "US AI engineers earn a $169K median total pay and $151K–$185K average base as of November 2026, $251K at big tech and $600K–$880K at frontier labs. Sourced from Glassdoor, Indeed, Levels.fyi and BLS: by level, company, city, month and hour.",
-      readTime: "11 min read",
+      excerpt: "US AI engineers earn a $170K median total pay and $152K–$185K average base as of November 2026, $251K at big tech and $640K–$870K at frontier labs, where research engineer roles are posted at $250K–$560K in salary. By lab, level, company and city, with an offer-comparison worksheet.",
+      readTime: "15 min read",
       date: "Aug 3, 2026",
       category: "AI Engineering Careers",
       icon: DollarSign,

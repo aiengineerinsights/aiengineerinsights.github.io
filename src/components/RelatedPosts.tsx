@@ -113,7 +113,7 @@ const ALL_POSTS = [
   },
   {
     slug: "/blog/anthropic-certifications",
-    title: "Anthropic Certifications (2026): All 4 Claude Exams, Costs, Eligibility, and the Free Anthropic Academy Courses",
+    title: "Anthropic Certifications (2026): All 5 Claude Exams, Costs, Eligibility, and the Free Claude Academy Courses",
     tag: "AI Engineering Careers",
   },
   {

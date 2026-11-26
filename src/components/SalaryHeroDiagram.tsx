@@ -5,13 +5,13 @@
 
 const bars = [
   { label: "Entry", sub: "Google L3 ML engineer", value: 208, display: "$208K" },
-  { label: "Mid-level", sub: "Google L4 ML engineer", value: 312, display: "$312K" },
+  { label: "Mid-level", sub: "Google L4 ML engineer", value: 316, display: "$316K" },
   { label: "Senior", sub: "Meta E5 ML engineer", value: 457, display: "$457K" },
-  { label: "Staff", sub: "Meta E6 ML engineer", value: 809, display: "$809K" },
-  { label: "Frontier lab", sub: "Anthropic SWE median", value: 883, display: "$883K" },
+  { label: "Staff", sub: "Meta E6 ML engineer", value: 787, display: "$787K" },
+  { label: "Frontier lab", sub: "Anthropic SWE median", value: 870, display: "$870K" },
 ];
 
-const MAX = 883;
+const MAX = 870;
 const PLOT_H = 300;
 const BASE_Y = 452;
 const BAR_W = 130;
@@ -22,7 +22,7 @@ const SalaryHeroDiagram = () => (
     <svg
       viewBox="0 0 1200 560"
       role="img"
-      aria-label="AI engineer pay ladder, November 2026, US median total compensation per Levels.fyi: entry level about $208K (Google L3 machine learning engineer), mid-level about $312K (Google L4), senior about $457K (Meta E5), staff about $809K (Meta E6), and frontier labs about $883K (Anthropic software engineer median). A dashed reference line marks Glassdoor's broad-market US median total pay of about $169K."
+      aria-label="AI engineer pay ladder, November 2026, US median total compensation per Levels.fyi: entry level about $208K (Google L3 machine learning engineer), mid-level about $316K (Google L4), senior about $457K (Meta E5), staff about $787K (Meta E6), and frontier labs about $870K (Anthropic software engineer median). A dashed reference line marks Glassdoor's broad-market US median total pay of about $170K."
       className="w-full h-auto block"
     >
       <defs>
@@ -84,19 +84,19 @@ const SalaryHeroDiagram = () => (
         );
       })}
 
-      {/* Glassdoor broad-market reference line: $169K */}
+      {/* Glassdoor broad-market reference line: $170K */}
       <line
         x1="70"
-        y1={BASE_Y - (169 / MAX) * PLOT_H}
+        y1={BASE_Y - (170 / MAX) * PLOT_H}
         x2="1130"
-        y2={BASE_Y - (169 / MAX) * PLOT_H}
+        y2={BASE_Y - (170 / MAX) * PLOT_H}
         stroke="#34d399"
         strokeWidth="1.4"
         strokeDasharray="7 6"
         opacity="0.75"
       />
-      <text x="78" y={BASE_Y - (169 / MAX) * PLOT_H - 8} fill="#6ee7b7" fontSize="12.5" fontWeight="600">
-        Glassdoor US median total pay: $169K (all employers, not just big tech)
+      <text x="78" y={BASE_Y - (170 / MAX) * PLOT_H - 8} fill="#6ee7b7" fontSize="12.5" fontWeight="600">
+        Glassdoor US median total pay: $170K (all employers, not just big tech)
       </text>
 
       <text x="600" y="532" textAnchor="middle" fill="#64748b" fontSize="11.5">

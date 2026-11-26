@@ -8,6 +8,8 @@ Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-engineer-resume-template.zip
+Disallow: /downloads/ai-engineer-offer-worksheet.pdf
+Disallow: /downloads/claude-certification-exam-prep-checklist.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Bingbot
@@ -20,6 +22,8 @@ Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-engineer-resume-template.zip
+Disallow: /downloads/ai-engineer-offer-worksheet.pdf
+Disallow: /downloads/claude-certification-exam-prep-checklist.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 User-agent: Twitterbot
@@ -96,6 +100,8 @@ Disallow: /downloads/claude-code-cheat-sheet.pdf
 Disallow: /downloads/claude-code-starter-kit.zip
 Disallow: /downloads/ai-engineer-interview-questions.pdf
 Disallow: /downloads/ai-engineer-resume-template.zip
+Disallow: /downloads/ai-engineer-offer-worksheet.pdf
+Disallow: /downloads/claude-certification-exam-prep-checklist.pdf
 Disallow: /downloads/ai-roadmap.pdf
 
 Sitemap: https://aiengineerinsights.com/sitemap.xml
