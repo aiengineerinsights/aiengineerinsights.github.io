@@ -1,6 +1,5 @@
-import { ArrowLeft, Clock, User, Calendar, TerminalSquare, BarChart3 } from "lucide-react";
+import { ArrowLeft, TerminalSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
@@ -8,6 +7,8 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import CodingAgentsHeroDiagram from "@/components/CodingAgentsHeroDiagram";
+import PostQuickPick from "@/components/PostQuickPick";
+import PostByline from "@/components/PostByline";
 
 const AICodingAgentsPost = () => {
   const toolData = [
@@ -78,33 +79,25 @@ const AICodingAgentsPost = () => {
                 The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                The honest verdict: <strong>there is no single "best" AI coding agent — there's a best one for how you
-                work.</strong> Claude Code, Cursor, and GitHub Copilot lead, but they're different <em>paradigms</em>
-                (terminal delegation vs. in-editor control vs. team platform), not competitors on one axis. Here's the 2026
-                landscape by category, an honest comparison, <strong>what engineers actually say on the forums</strong>, the
-                <strong> recommended models and settings</strong> for each, and a decision table to pick yours.
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-5 leading-relaxed">
+                <strong>There is no single best AI coding agent. There is a best one for how you work.</strong>{" "}
+                Claude Code, Cursor and GitHub Copilot lead, but they are different ways of working (terminal
+                delegation, in-editor control, team platform), not competitors on one axis.
               </p>
 
-              <Card className="p-4 sm:p-6 bg-gradient-card border-border">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-600 to-slate-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <Link to="/authors" className="hover:text-primary transition-colors">
-                      <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
-                    </Link>
-                    <p className="text-muted-foreground text-sm sm:text-base">AI Engineering Lead</p>
-                  </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground space-y-1 flex-shrink-0">
-                    <div className="flex items-center"><BarChart3 className="h-4 w-4 mr-1" />Intermediate</div>
-                    <div className="flex items-center"><Calendar className="h-4 w-4 mr-1" />Updated Nov 10, 2026</div>
-                    <div className="flex items-center"><Clock className="h-4 w-4 mr-1" />15 min read</div>
-                  </div>
-                </div>
-              </Card>
+              <PostByline date="Updated Nov 10, 2026" readTime="15 min read" />
             </header>
+
+            <PostQuickPick
+              heading="Quick pick: which AI coding agent?"
+              rows={pickData.slice(0, 5)}
+              jumps={[
+                { label: "Comparison table", href: "#comparison" },
+                { label: "Claude Code vs Cursor", href: "#claude-vs-cursor" },
+                { label: "What engineers say", href: "#sentiment" },
+                { label: "Models and settings", href: "#models-settings" },
+              ]}
+            />
 
             <CodingAgentsHeroDiagram />
 

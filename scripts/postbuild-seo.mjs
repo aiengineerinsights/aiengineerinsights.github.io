@@ -51,7 +51,7 @@ const pages = [
     title: 'AIEngineerInsights.com - Your Companion on the AI Engineering Journey',
     seoTitle: 'AI Engineer Insights — Practical AI Engineering Guides',
     description:
-      'Practical roadmaps, real-world projects, and deep-dive articles for engineers building with LLMs, AI agents, and production machine learning.',
+      'Practical guides for AI engineers: a free 2026 roadmap, interview questions, resume and salary guides, and hands-on posts on agents, RAG and Claude Code.',
   },
   {
     path: '/blogs',
@@ -796,9 +796,9 @@ const posts = [
   {
     path: '/blog/open-source-ai-agent-frameworks',
     title: 'Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)',
-    seoTitle: 'Open-Source AI Agent Frameworks Compared (2026)',
+    seoTitle: 'Open-Source AI Agent Frameworks (2026): Which One to Pick',
     description:
-      'Choosing an open-source AI agent framework: LangGraph vs CrewAI vs AutoGen vs Pydantic AI by programming model, plus a decision guide by use case.',
+      'LangGraph for stateful workflows, CrewAI for a fast role-based team, Pydantic AI for typed Python, and no framework for one simple agent. Picker and comparison.',
     date: '2026-10-01',
     author: 'poorna',
     image: '/og-open-source-ai-agent-frameworks.png',
@@ -911,9 +911,9 @@ const posts = [
   {
     path: '/blog/best-ai-coding-agents',
     title: 'The Best AI Coding Agents in 2026 (Claude Code vs Cursor vs Copilot, Ranked by Fit)',
-    seoTitle: 'Best AI Coding Agents 2026: Claude Code, Cursor, Copilot, Devin',
+    seoTitle: 'Best AI Coding Agents (2026): Which One to Pick, in One Table',
     description:
-      'Terminal coding agents vs AI IDEs, compared: Claude Code, Codex, Aider and Cline vs Cursor, Copilot and Devin. Comparison table and which one fits your team.',
+      'Claude Code to delegate whole tasks, Cursor to edit as you type, Copilot for GitHub teams. A one-table picker, then open-source and cloud agents compared.',
     date: '2026-11-10',
     dateModified: '2026-11-20',
     author: 'poorna',

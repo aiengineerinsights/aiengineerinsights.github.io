@@ -711,6 +711,9 @@ export const insights = [
     }
 ];
 
+// The homepage shows only the newest few; the full list lives on /blogs.
+const HOMEPAGE_COUNT = 6;
+
 const LatestInsights = () => {
   const navigate = useNavigate();
 
@@ -726,12 +729,12 @@ const LatestInsights = () => {
             Latest <span className="bg-gradient-hero bg-clip-text text-transparent">Insights</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Fresh perspectives on AI engineering challenges, solutions, and industry trends from the trenches.
+            The six newest guides, from career moves to agent engineering.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {insights.map((insight, index) => (
+          {insights.slice(0, HOMEPAGE_COUNT).map((insight, index) => (
             <Card key={index} className="group hover:shadow-glow transition-all duration-300 bg-gradient-card border-border overflow-hidden">
               <div className="p-6">
                 {/* Category Badge */}
@@ -772,7 +775,7 @@ const LatestInsights = () => {
         {/* View All Button */}
         <div className="text-center mt-12">
           <Button variant="outline" size="lg" className="group" onClick={handleViewAllInsights}>
-            View All Insights
+            View all guides
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

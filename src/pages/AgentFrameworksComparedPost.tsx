@@ -1,6 +1,5 @@
-import { ArrowLeft, Clock, User, Calendar, Boxes, BarChart3 } from "lucide-react";
+import { ArrowLeft, Boxes } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Link } from "@/components/SiteLink";
 import Navigation from "@/components/Navigation";
@@ -8,6 +7,8 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import AgentFrameworksHeroDiagram from "@/components/AgentFrameworksHeroDiagram";
+import PostQuickPick from "@/components/PostQuickPick";
+import PostByline from "@/components/PostByline";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TopmateCTA from "@/components/TopmateCTA";
 
@@ -87,46 +88,33 @@ const AgentFrameworksComparedPost = () => {
                 Open-Source AI Agent Frameworks Compared: LangGraph vs CrewAI vs AutoGen vs Pydantic AI (2026)
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                <strong>The open-source AI agent frameworks differ mostly in how they make you think</strong> —
-                as a graph, as a crew of roles, as a conversation, or as typed functions — not in what they can
-                ultimately do. This is a decision guide, not a feature dump: it covers what a framework actually
-                gives you, the axes that matter when choosing one, how LangGraph, CrewAI, AutoGen/AG2, and Pydantic
-                AI compare, a focused CrewAI vs LangGraph section, and a situation-by-situation recommendation. It
-                also draws the line between a framework and the{" "}
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-5 leading-relaxed">
+                <strong>The open-source AI agent frameworks differ mostly in how they make you think</strong>: as a
+                graph, as a crew of roles, as a conversation, or as typed functions. They differ far less in what
+                they can ultimately do. A framework also does not replace the{" "}
                 <Link to="/blog/agent-runtimes-explained" className="text-primary hover:underline">agent runtime</Link>{" "}
-                and how it manages <Link to="/blog/ai-agent-memory" className="text-primary hover:underline">agent memory</Link>{" "}
-                you will still need in production.
+                and <Link to="/blog/ai-agent-memory" className="text-primary hover:underline">agent memory</Link>{" "}
+                you still need in production.
               </p>
 
-              <Card className="p-4 sm:p-6 bg-gradient-card border-border">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-600 to-indigo-800 flex items-center justify-center flex-shrink-0">
-                    <User className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <Link to="/authors" className="hover:text-primary transition-colors">
-                      <div className="font-semibold text-base sm:text-lg hover:underline">Gurram Poorna Prudhvi</div>
-                    </Link>
-                    <p className="text-muted-foreground text-sm sm:text-base">AI Engineering Lead</p>
-                  </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground space-y-1 flex-shrink-0">
-                    <div className="flex items-center">
-                      <BarChart3 className="h-4 w-4 mr-1" />
-                      AI Agents
-                    </div>
-                    <div className="flex items-center">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      Oct 1, 2026
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />
-                      13 min read
-                    </div>
-                  </div>
-                </div>
-              </Card>
+              <PostByline date="Oct 1, 2026" readTime="13 min read" />
             </header>
+
+            <PostQuickPick
+              heading="Quick pick: which agent framework?"
+              rows={[
+                { you: "You want explicit control of a stateful, branching or long-running workflow", pick: "LangGraph" },
+                { you: "You want to stand up a role-based multi-agent team fast", pick: "CrewAI" },
+                { you: "You are a Python team that values type safety and testing", pick: "Pydantic AI" },
+                { you: "Your app is retrieval-heavy, with agents reasoning over your own documents", pick: "LlamaIndex" },
+                { you: "One agent, a few tools, no multi-step state", pick: "No framework: a plain tool-calling loop" },
+              ]}
+              jumps={[
+                { label: "All frameworks compared", href: "#frameworks" },
+                { label: "CrewAI vs LangGraph", href: "#crewai-vs-langgraph" },
+                { label: "Full decision guide", href: "#decision" },
+              ]}
+            />
 
             <AgentFrameworksHeroDiagram />
 
