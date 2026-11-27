@@ -107,6 +107,12 @@ const HowToBecomeAIEngineerPost = () => {
 
             <BecomeAIEngineerHeroDiagram />
 
+            <NewsletterSignup
+              compact
+              heading="Get the 2026 AI engineer roadmap as a PDF"
+              subtext="It comes with your welcome email, then one practical email a week. Unsubscribe anytime."
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="short-answer" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. The Short Answer</h2>
@@ -246,7 +252,7 @@ const HowToBecomeAIEngineerPost = () => {
                   Prep for LLM-flavored system design ("design a RAG pipeline," "how would you evaluate this agent") alongside
                   standard coding rounds, and let your portfolio carry the interview.
                 </p>
-                <TopmateCTA />
+                <TopmateCTA placement="how-to-become" />
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   When you start interviewing, practise with our <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">AI engineer interview questions</Link>. If you want a credential on the way, our <Link to="/blog/anthropic-certifications" className="text-primary hover:underline">Anthropic certifications guide</Link> covers the Claude exams and free courses.
                 </p>

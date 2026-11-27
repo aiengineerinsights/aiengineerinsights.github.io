@@ -213,6 +213,13 @@ const AnthropicCertificationsPost = () => {
 
             <ExploreWithAI path="/blog/anthropic-certifications" variant="strip" />
 
+            <NewsletterSignup
+              compact
+              heading="Get the Claude certification exam-prep checklist (PDF)"
+              subtext="Free with the weekly email for AI engineers. Unsubscribe anytime."
+              bonus={CLAUDE_CERT_PREP_CHECKLIST}
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="what-certifications" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What certifications does Anthropic offer?</h2>

@@ -308,6 +308,13 @@ const AIEngineerInterviewQuestionsPost = () => {
 
             <InterviewQuestionsHeroDiagram />
 
+            <NewsletterSignup
+              compact
+              heading="Get all 37 questions as a two-page PDF"
+              subtext="Free with the weekly email for AI engineers. Unsubscribe anytime."
+              bonus={AI_ENGINEER_INTERVIEW_QUESTIONS}
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="what-to-expect" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What to expect: the shape of an AI engineer loop in 2026</h2>
@@ -419,6 +426,12 @@ const AIEngineerInterviewQuestionsPost = () => {
                   all six unprompted and you will be ahead of most candidates.
                 </p>
               </section>
+
+              <TopmateCTA
+                placement="interview-questions-mid"
+                heading="Rehearse these answers with feedback"
+                text="Mock interviews and answer review, 1:1 with an AI Engineering Lead."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="coding" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">The coding round</h2>

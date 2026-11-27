@@ -196,6 +196,13 @@ const AIEngineerSalaryPost = () => {
             <ExploreWithAI path="/blog/ai-engineer-salary" variant="strip" />
 
 
+            <NewsletterSignup
+              compact
+              heading="Get the offer-comparison worksheet (PDF)"
+              subtext="Free with the weekly email for AI engineers. Unsubscribe anytime."
+              bonus={AI_ENGINEER_OFFER_WORKSHEET}
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="how-much" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">How much does an AI engineer make in the US?</h2>

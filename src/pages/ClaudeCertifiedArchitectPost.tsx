@@ -8,6 +8,9 @@ import Footer from "@/components/Footer";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents from "@/components/TableOfContents";
 import CCAHeroDiagram from "@/components/CCAHeroDiagram";
+import { CLAUDE_CERT_PREP_CHECKLIST } from "@/config/newsletterBonuses";
+import TopmateCTA from "@/components/TopmateCTA";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const domains = [
   {
@@ -150,6 +153,13 @@ const ClaudeCertifiedArchitectPost = () => {
             </header>
 
             <CCAHeroDiagram />
+
+            <NewsletterSignup
+              compact
+              heading="Get the Claude certification exam-prep checklist (PDF)"
+              subtext="Free with the weekly email for AI engineers. Unsubscribe anytime."
+              bonus={CLAUDE_CERT_PREP_CHECKLIST}
+            />
 
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
@@ -386,6 +396,12 @@ const ClaudeCertifiedArchitectPost = () => {
                   is a gentler on-ramp to the concepts domain 1 tests hardest.
                 </p>
               </section>
+
+              <TopmateCTA
+                placement="cca-exam"
+                heading="Preparing for the exam around a full-time job?"
+                text="Talk through which exam fits and how to prepare, 1:1 with an AI Engineering Lead."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <h2 id="faq" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>

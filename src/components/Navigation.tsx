@@ -1,8 +1,9 @@
 
 import { useState } from "react";
-import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users, Mail } from "lucide-react";
+import { Menu, X, Brain, Code, BookOpen, Lightbulb, Users, Mail, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/SiteLink";
+import { topmateUrl } from "@/config/topmate";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,6 +68,15 @@ const Navigation = () => {
                 </Link>
               )
             ))}
+            <a
+              href={topmateUrl("nav")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center gap-1.5 rounded-md bg-amber-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-amber-700 transition-colors duration-200"
+            >
+              <Video className="h-4 w-4" aria-hidden="true" />
+              <span>Book a 1:1</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -110,6 +120,16 @@ const Navigation = () => {
                   </Link>
                 )
               ))}
+              <a
+                href={topmateUrl("nav")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-3 mt-2 inline-flex items-center gap-2 rounded-md bg-amber-600 px-3 py-2 text-sm font-medium text-white hover:bg-amber-700"
+                onClick={() => setIsOpen(false)}
+              >
+                <Video className="h-4 w-4" aria-hidden="true" />
+                <span>Book a 1:1</span>
+              </a>
             </div>
           </div>
         )}

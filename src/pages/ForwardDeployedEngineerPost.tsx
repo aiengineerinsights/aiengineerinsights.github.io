@@ -148,6 +148,12 @@ const BlogPost = () => {
             <ExploreWithAI path="/blog/forward-deployed-ai-engineer" variant="strip" />
 
 
+            <NewsletterSignup
+              compact
+              heading="Get the 2026 AI engineer roadmap as a PDF"
+              subtext="It comes with your welcome email, then one practical email a week. Unsubscribe anytime."
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <div className="bg-muted/50 border-l-4 border-primary p-4 sm:p-6 rounded-lg mb-6 sm:mb-8">
                 <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">TL;DR</p>
@@ -352,6 +358,12 @@ const BlogPost = () => {
                 </p>
               </section>
 
+              <TopmateCTA
+                placement="fde-mid"
+                heading="Aiming for a forward deployed role?"
+                text="Talk through your background and the interview loop, 1:1 with an AI Engineering Lead."
+              />
+
               <section className="mb-6 sm:mb-8">
                 <h2 id="jobs" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Where to find forward deployed engineer jobs</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
@@ -539,7 +551,7 @@ const BlogPost = () => {
                     <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{f.a}</p>
                   </div>
                 ))}
-                <TopmateCTA />
+                <TopmateCTA placement="fde" />
               </section>
 
               <section className="mb-6 sm:mb-8">

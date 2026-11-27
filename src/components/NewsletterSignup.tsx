@@ -19,6 +19,8 @@ interface NewsletterSignupProps {
   subtext?: string;
   className?: string;
   bonus?: NewsletterBonus;
+  /** Slim version for the top of a page: tighter padding, no icon, smaller type. */
+  compact?: boolean;
 }
 
 const NewsletterSignup = ({
@@ -26,6 +28,7 @@ const NewsletterSignup = ({
   subtext = "Practical, engineering-first breakdowns on AI agents, LLMs, and breaking into the field — plus the free roadmap PDF when you join. No spam.",
   className = "",
   bonus,
+  compact = false,
 }: NewsletterSignupProps) => {
   const [submitted, setSubmitted] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -42,23 +45,33 @@ const NewsletterSignup = ({
         setSubmitted(true);
         trackEvent("newsletter_signup", {
           signup_source_page: window.location.pathname,
+          signup_form: compact ? "top-strip" : "in-article",
           ...(bonus ? { signup_bonus: bonus.href } : {}),
         });
       }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [bonus]);
+  }, [bonus, compact]);
 
   return (
-    <Card className={`my-6 sm:my-8 p-5 sm:p-6 bg-gradient-to-br from-purple-600/10 to-indigo-600/10 border-purple-600/30 ${className}`}>
+    <Card
+      className={`${compact ? "mb-6 sm:mb-8 p-4" : "my-6 sm:my-8 p-5 sm:p-6"} bg-gradient-to-br from-purple-600/10 to-indigo-600/10 border-purple-600/30 ${className}`}
+    >
       <div className="flex items-start gap-3">
-        <div className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
-          <Mail className="h-4 w-4 text-white" aria-hidden="true" />
-        </div>
+        {!compact && (
+          <div className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-indigo-700 flex items-center justify-center flex-shrink-0">
+            <Mail className="h-4 w-4 text-white" aria-hidden="true" />
+          </div>
+        )}
         <div className="min-w-0">
-          <h2 className="font-semibold text-base sm:text-lg m-0 leading-snug">{heading}</h2>
-          <p className="text-sm text-muted-foreground mt-1 mb-0">{subtext}</p>
+          {/* A plain paragraph in the compact strip, so it stays out of the heading outline and the table of contents. */}
+          {compact ? (
+            <p className="font-semibold text-sm sm:text-base m-0 leading-snug">{heading}</p>
+          ) : (
+            <h2 className="font-semibold text-base sm:text-lg m-0 leading-snug">{heading}</h2>
+          )}
+          <p className={`text-muted-foreground mt-1 mb-0 ${compact ? "text-xs sm:text-sm" : "text-sm"}`}>{subtext}</p>
         </div>
       </div>
 

@@ -9,7 +9,14 @@ import { topmateUrl } from "@/config/topmate";
 // styling deliberately signals "premium" vs the free roadmap CTA's cool palette.
 // The link carries the article slug, so a booking shows which guide it came from.
 // `placement` names where the card sits (it becomes utm_campaign).
-const TopmateCTA = ({ placement = "article-cta" }: { placement?: string }) => {
+// `heading` and `text` let a page word the card for its own reader.
+interface TopmateCTAProps {
+  placement?: string;
+  heading?: string;
+  text?: string;
+}
+
+const TopmateCTA = ({ placement = "article-cta", heading, text }: TopmateCTAProps) => {
   const { pathname } = useLocation();
   const slug = pathname.replace(/^\/+|\/+$/g, "").replace(/^blog\//, "") || "home";
   return (
@@ -17,14 +24,14 @@ const TopmateCTA = ({ placement = "article-cta" }: { placement?: string }) => {
     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:justify-between">
       <div className="min-w-0">
         <div className="flex items-center gap-2 mb-1">
-          <h3 className="font-semibold text-base sm:text-lg m-0">Want 1:1 help? Book a session</h3>
+          <h3 className="font-semibold text-base sm:text-lg m-0">{heading ?? "Want 1:1 help? Book a session"}</h3>
           <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600 dark:text-amber-400">
             <Star className="h-3.5 w-3.5 fill-current" />
             5.0 · 18 reviews
           </span>
         </div>
         <p className="text-sm text-muted-foreground m-0">
-          Career guidance, resume &amp; interview prep, or tech consulting — 1:1 with an AI Engineering Lead.
+          {text ?? "Career guidance, resume & interview prep, or tech consulting — 1:1 with an AI Engineering Lead."}{" "}
           Start with a free 30-min quick chat.
         </p>
       </div>

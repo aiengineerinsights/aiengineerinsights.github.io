@@ -226,6 +226,12 @@ const RoadmapPage = () => {
 
           <ExploreWithAI path="/ai-engineering-roadmap" variant="strip" />
 
+          <NewsletterSignup
+            compact
+            heading="Get the weekly email for AI engineers"
+            subtext="One practical email a week: what to learn next, interview prep and tools worth your time. Unsubscribe anytime."
+          />
+
           <section className="mb-10">
             <h2 id="how-to-become" className="text-2xl font-bold mb-3">How do you become an AI engineer?</h2>
             <p className="text-muted-foreground leading-relaxed mb-3">

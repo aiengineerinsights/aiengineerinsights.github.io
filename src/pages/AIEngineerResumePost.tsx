@@ -232,6 +232,13 @@ const AIEngineerResumePost = () => {
 
             <ExploreWithAI path={PATH} variant="strip" />
 
+            <NewsletterSignup
+              compact
+              heading="Get the AI engineer resume template (Word + PDF)"
+              subtext="Free with the weekly email for AI engineers. Unsubscribe anytime."
+              bonus={AI_ENGINEER_RESUME_TEMPLATE}
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <H2 id="structure">1. What Does an AI Engineer Resume Look Like?</H2>
@@ -358,6 +365,12 @@ const AIEngineerResumePost = () => {
                   bonus={AI_ENGINEER_RESUME_TEMPLATE}
                 />
               </div>
+
+              <TopmateCTA
+                placement="resume-mid"
+                heading="Want a second pair of eyes on your resume?"
+                text="Resume review and interview prep, 1:1 with an AI Engineering Lead."
+              />
 
               <section className="mb-6 sm:mb-8">
                 <H2 id="keywords">4. Which Keywords Do AI Engineer Job Postings Ask For?</H2>

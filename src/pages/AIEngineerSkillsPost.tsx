@@ -105,6 +105,12 @@ const AIEngineerSkillsPost = () => {
 
             <AIEngineerSkillsHeroDiagram />
 
+            <NewsletterSignup
+              compact
+              heading="Get the 2026 AI engineer roadmap as a PDF"
+              subtext="It comes with your welcome email, then one practical email a week. Unsubscribe anytime."
+            />
+
             <article className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
               <section className="mb-6 sm:mb-8">
                 <h2 id="the-stack" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1. The Skill Stack in One Picture</h2>
@@ -230,7 +236,7 @@ const AIEngineerSkillsPost = () => {
                   <Link to="/blog/ai-engineer-salary" className="text-primary hover:underline">2026 AI engineer salary guide</Link>{" "}
                   for how those skills price out by level.
                 </p>
-                <TopmateCTA />
+                <TopmateCTA placement="skills" />
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
                   Want to see how these skills get tested? Our <Link to="/blog/ai-engineer-interview-questions" className="text-primary hover:underline">AI engineer interview questions</Link> guide maps them to real interview rounds.
                 </p>
