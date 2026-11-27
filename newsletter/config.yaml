@@ -1,0 +1,131 @@
+# The AI Engineer's Brief: newsletter configuration.
+# Source of truth for how the newsletter is set up. beehiiv holds the live
+# settings; when one changes there, change it here in the same sitting.
+# No secrets, emails or postal addresses belong in this file (the repo is public).
+
+publication:
+  name: "The AI Engineer's Brief"
+  tagline: "Five minutes a week for people building with AI."
+  site: https://aiengineerinsights.com
+  signup_page: https://aiengineerinsights.com/newsletter/
+  platform: beehiiv
+  plan: free
+  first_issue: 2026-11-25
+
+author:
+  byline: "Poorna Prudhvi"        # beehiiv profile: first name "Poorna", last name "Prudhvi"
+  sign_off: "Poorna Prudhvi"
+  title: "AI Engineering Lead"
+  avatar: assets/avatar-neural-orb.png
+  booking_url: https://topmate.io/poorna_prudhvi_gurram
+
+schedule:
+  cadence: weekly
+  day: Thursday
+  time_ist: "19:00"               # 8:30 AM US Eastern
+  rationale: "US morning and India evening in one send."
+  exceptions:
+    - date: 2026-11-25            # Wednesday; Thursday 26 Nov is US Thanksgiving
+      note: "Issue 1 sent a day early."
+  draft_day: Wednesday            # draft and link check the day before
+  covers: "Posts published since the previous issue."
+
+content:
+  length_words: [450, 650]
+  read_time_minutes: 5
+  sections:                       # fixed order; rules for each are in TEMPLATE.md
+    - cold_open
+    - "Build: The Rewrite"
+    - Read
+    - Career
+    - The Take
+    - Next issue
+  signature_elements:
+    - "The Rewrite (Before / After / Why it works)"
+    - "Cold open fact"
+    - "Forward ask after The Rewrite, one per issue, persona changes weekly"
+    - "Next issue line: date, planned content, reply prompt"
+  sourcing: "Every claim comes from a published post or a source linked in it. Claims stay exactly as strong as the post."
+  never:
+    - invented statistics, quotes, testimonials or anecdotes
+    - rewards, giveaways or referral programmes that do not exist
+    - hype words, emoji, ALL CAPS, fake urgency
+    - a link on the text "CLAUDE.md"
+
+subject_line:
+  max_chars: 55
+  key_words_within: 35
+  candidates_per_issue: [8, 10]
+  preview_text: "Adds information the subject lacks; first 90 characters carry it."
+
+links:
+  utm:
+    source: newsletter
+    medium: email
+    campaign_pattern: "brief-YYYY-MM-DD"   # the send date
+    footer_campaign: brief-footer
+  no_utm_paths:
+    - /downloads/                 # direct subscriber downloads
+  subscriber_downloads:
+    - label: "Claude Code cheat sheet, one-page PDF"
+      url: https://aiengineerinsights.com/downloads/claude-code-cheat-sheet.pdf
+    - label: "Claude Code starter kit, zip"
+      url: https://aiengineerinsights.com/downloads/claude-code-starter-kit.zip
+
+design:
+  beehiiv_post_template: "Weekly Brief (banner + Rewrite card + footer)"
+  banner:
+    file: assets/brief-header-banner.png
+    size: [2400, 600]             # 1200x300 at 2x
+    position: "First block of the body (beehiiv keeps the title block above it)."
+    source: assets/src/banner.html
+  colors:
+    canvas: "#EEF1F8"
+    post: "#FFFFFF"
+    post_border: "#D5DBEB"
+    link: "#2563EB"
+    card_background: "#F3F5FD"
+    card_accent: "#3B82F6"
+    banner_background: "#070A16"
+    gradient: ["#38BDF8", "#6366F1", "#A855F7", "#EC4899"]
+  post:
+    border_width_px: 1
+    corner_radius_px: 10
+  link_style: { underline: true, italic: false }
+  rewrite_card:
+    block: section
+    background: "#F3F5FD"
+    border_left_px: 4
+    border_color: "#3B82F6"
+    padding_px: 20
+    radius_px: 10
+    wraps: "Intro line, Before, After, Why it works"
+  footer_card:
+    block: section
+    background: "#F3F5FD"
+    padding_px: 18
+    radius_px: 10
+    text:
+      - "The AI Engineer's Brief is written by Poorna Prudhvi, AI Engineering Lead. One email a week, about five minutes."
+      - "Found this useful? Forward it to one engineer who would use it. Preparing for an AI engineering interview? Book a 1:1 session."
+  dark_mode_body: false           # light body; dark brand lives in the banner only
+  avoid:
+    - background images behind text
+    - custom web fonts
+
+workflow:
+  draft_location: newsletter/issues/YYYY-MM-DD.md
+  writer_skill: .claude/skills/newsletter-writer/SKILL.md
+  template: newsletter/TEMPLATE.md
+  sending: "Scheduling and sending in beehiiv is done by Poorna, never by an agent."
+  issue_log: "Table at the end of TEMPLATE.md; one row per issue."
+
+issues:
+  - number: 1
+    send_date: 2026-11-25
+    file: issues/2026-11-25.md
+    subject: "Claude Code's /goal checker doesn't run your tests"
+    beehiiv_post_id: e31a8e17-8bb5-41db-b2bf-dedf619d7797
+    status: scheduled             # draft | scheduled | sent
+    scheduled_for: "2026-11-25 19:00 IST"
+    test_email_sent: 2026-11-24
